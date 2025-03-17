@@ -1,0 +1,64 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@charset "utf-8";
+
+/* Import minimal-mistakes theme using @import instead of @use */
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+@import "minimal-mistakes"; // main partials
+
+// Your custom styles here
+.page__hero--overlay {
+  background-color: #1a1a2e;
+  background-image: linear-gradient(120deg, #1a1a2e, #16213e);
+}
+.site-title {
+  font-weight: bold;
+  color: #4a00e0;
+}
+.recent-posts {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+}
+.recent-posts h2 {
+  margin-top: 0;
+  color: #4a00e0;
+}
+.post-item {
+  margin-bottom: 0.5rem;
+}
+.post-date {
+  color: #6c757d;
+  font-size: 0.9em;
+}
+.ai-description {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin: 1rem 0 2rem;
+}
+
+// Custom styles for header-image-readability
+.header-image-readability {
+  .page__hero--overlay {
+    padding: 3em 0;
+    
+    .page__title,
+    .page__meta,
+    .page__lead {
+      color: #fff;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+    }
+    
+    .wrapper {
+      background: rgba(0,0,0,0.4);
+      padding: 1em;
+      border-radius: 5px;
+      width: fit-content;
+      max-width: 80%;
+      margin: 0 auto;
+    }
+  }
+}

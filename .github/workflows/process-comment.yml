@@ -1,0 +1,43 @@
+name: Process New Comment
+
+on:
+  repository_dispatch:
+    types: [new-comment]
+
+jobs:
+  create-comment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Create comment file
+        run: |
+          # Create the directory
+          mkdir -p _data/comments/${{ github.event.client_payload.post_slug }}
+          
+          # Get timestamp
+          TIMESTAMP=$(date +%s)
+          
+          # Clean the name for filename
+          NAME_CLEAN=$(echo "${{ github.event.client_payload.name }}" | tr -cd '[:alnum:]' | tr '[:upper:]' '[:lower:]')
+          
+          # Create file path
+          FILE_PATH="_data/comments/${{ github.event.client_payload.post_slug }}/${TIMESTAMP}-${NAME_CLEAN}.yml"
+          
+          # Create the YAML file
+          cat > "$FILE_PATH" << EOL
+          name: "${{ github.event.client_payload.name }}"
+          email: "${{ github.event.client_payload.email }}"
+          date: "$(date -d @${TIMESTAMP} +"%Y-%m-%d %H:%M:%S")"
+          message: |
+            ${{ github.event.client_payload.message }}
+          EOL
+
+      - name: Commit comment file
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add _data/comments/
+          git commit -m "Add comment from ${{ github.event.client_payload.name }}"
+          git push

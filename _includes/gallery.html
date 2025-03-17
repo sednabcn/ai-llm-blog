@@ -1,0 +1,18 @@
+{% assign gallery_id = include.id %}
+{% assign caption = include.caption %}
+{% assign layout = include.layout %}
+{% assign class = include.class %}
+
+<div class="gallery {{ class }}">
+  <h2>{{ caption }}</h2>
+  <!-- Gallery layout logic based on layout parameter -->
+  {% if layout == "half" %}
+    <div class="gallery-half">
+      <!-- Insert gallery images here -->
+    </div>
+  {% else %}
+    <div class="gallery-full">
+      <!-- Insert gallery images here -->
+    </div>
+  {% endif %}
+</div>
