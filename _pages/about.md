@@ -2,39 +2,93 @@
 title: "About Us"
 permalink: /about/
 layout: single
-header:
+classes:
+  -inner-page
+  -header-image-readability
+header:	
   overlay_image: /assets/images/header-about.jpg
-  overlay_filter: rgba(0, 0, 0, 0.5)
-  caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
+  overlay_filter: 0.6
+# caption: "Photo credit: Unsplash"
+# excerpt: "A team of passionate AI researchers and data scientists building tomorrow's solutions."  
 toc: true
 toc_label: "Contents"
 toc_icon: "cog"
+
 ---
 
-## Our Story
+## Who We Are
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquet, purus vitae eleifend tristique, lorem magna volutpat orci, et vehicula erat erat nec elit. Aenean posuere nunc ac cursus facilisis. Aenean vel porta turpis, ut iaculis justo.
+<div class="intro-section">
+
+We are a collaborative team of AI researchers, data scientists, and computational specialists united by our passion for advancing the frontier of artificial intelligence and machine learning technologies.
+
+</div>
 
 ## Our Mission
 
-We strive to provide valuable content and resources to our audience. Our mission is to educate, inspire, and empower our readers through high-quality articles and guides.
+We strive to help organizations leverage machine learning and AI to achieve meaningful results that transform businesses and improve lives. Our approach combines cutting-edge research with practical applications to deliver solutions that matter.
+
+Our core principles:
+
+- Innovation - Pushing boundaries to discover new approaches
+- Accessibility - Making AI understandable and available to all
+- Ethics - Ensuring responsible development and deployment of AI
+- Impact - Creating solutions that drive real-world change
 
 ## Our Team
 
-### Jane Doe
-**Founder & Lead Developer**
+<div class="team-members">
 
-Jane has over 10 years of experience in web development and design. She founded this site in 2020 with the goal of sharing her knowledge and expertise with others.
+  <div class="profile-section">
+   <div class="profile-details">
+    <h3>AI Research Team</h3>
+    <p class="ai-description">Our researchers develop novel algorithms and approaches that push the boundaries of what's possible with artificial intelligence.</p>
+   </div>
+  </div>
+  
+  <div class="profile-section">
+   <div class="profile-details">
+    <h3>Data Science Team</h3>
+    <p class="ai-description">Our data scientists excel at extracting meaningful insights from complex datasets, creating value from raw information.</p>
+    </div>
+  </div>
+  
+  <div class="profile-section">
+   <div class="profile-details">
+    <h3>Computational Mechanics Team</h3>
+    <p class="ai-description">This specialized team focuses on solving complex physical modeling challenges using advanced computational techniques.</p>
+    </div>
+  </div>
+  
+  <div class="profile-section">
+   <div class="profile-details">
+    <h3>Software Engineering Team</h3>
+    <p class="ai-description">Our engineers build robust, scalable systems that translate research into practical applications.</p>
+    </div>
+  </div>
+</div>
 
-### John Smith
-**Content Writer & Editor**
+## Our Work
 
-John brings his passion for clear communication and technical writing to our team. With a background in journalism and web development, he creates content that is both informative and accessible.
+We specialize in several key areas:
+
+- Natural Language Processing - Building systems that understand and generate human language
+- Computer Vision - Developing algorithms that interpret and analyze visual information
+- Predictive Analytics - Creating models that forecast trends and outcomes
+- Reinforcement Learning - Designing agents that learn through interaction
+- LLM-HypatiaX - Advancing formula discovery through our proprietary large language model
+
 
 ## Contact Us
+<div class="profile-section">
+  <div class="profile-details"> 
+    <p>Feel free to reach out to us with any questions, comments, or suggestions:</p>
+    <p><strong>Email:</strong> simleng@modelphysmat.com</p>
+    <p><strong>Twitter:</strong> <a href="https://twitter.com/BONETCHAPLE" style="color: #5c00c7;">@BONETCHAPLE</a></p>
+    <p><strong>GitHub:</strong> <a href="https://github.com/sednabcn" style="color: #5c00c7 !important;">sednabcn</a></p>
+    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/ " target="_blank" style="color: #5c00c7 ;">Connect with me on LinkedIn</a> to explore collaboration opportunities in computational mechanics and LLM research.</p>
+    <p><strong>Office:</strong> Flat 26 Spenlow House, Jamaica Road SE26 4SJ, London, UK</p>
+    <p>We're always open to collaboration opportunities and new challenges!</p>
+  </div>
+</div>
 
-Feel free to reach out to us with any questions, comments, or suggestions:
-
-- **Email:** simleng@modelphysmat.com
-- **Twitter:** [@BONETCHAPLE](https://twitter.com/BONETCHAPLE)
-- **GitHub:** [Your GitHub](https://github.com/sednabcn)

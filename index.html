@@ -1,43 +1,32 @@
 ---
-layout: home
+layout: custom-home
 pagination: 
-  enabled: true
-title: "AI, LLM & LLM-HypatiaX Blog"
+enabled: true
+title: "<span class='no-break'>AI, LLM & LLM-HypatiaX Blog</span>"
 author_profile: true
 classes:
   - header-image-readability
 header:
   overlay_color: "#1a1a2e"
-  overlay_filter: 0.5
+  overlay_filter: 0.6
   overlay_image: /assets/images/banner.jpg
-excerpt: "A blog dedicated to AI, LLM research, and the LLM-HypatiaX project focusing on generative AI in formula discovery."
+excerpt: "<span class='no-break'>A blog dedicated to AI, LLM research, and the LLM-HypatiaX project focusing on</span> generative AI in formula discovery."
 ---
 
-<h2>Welcome to AI, LLM & LLM-HypatiaX Blog</h2>
-
-<p>Explore the latest advancements in AI and Large Language Models. Our blog focuses on cutting-edge research and applications in the field of AI, with special emphasis on our LLM-HypatiaX project that leverages generative AI for scientific formula discovery.</p>
+<div class="intro-section">
+  <p>Explore the latest advancements in AI and Large Language Models. Our blog focuses on cutting-edge research and applications in the field of AI, with special emphasis on our LLM-HypatiaX project that leverages generative AI for scientific formula discovery.</p>
+</div>
 
 <div class="recent-posts">
-  <h2>Recent Posts</h2>
+  <h2>Latest Posts</h2>
+  <p>Stay updated with the latest articles and posts on <strong>AI</strong>, <strong>LLMs</strong>, and the <strong>LLM-HypatiaX</strong> project.</p>
   
-  <div class="post-item">
-    <h3><a href="#">Advancing Formula Discovery with LLM-HypatiaX</a></h3>
-    <p class="post-date">March 10, 2025 | AI Research</p>
-    <p>In this comprehensive overview, we explore how LLM-HypatiaX is changing the landscape of scientific formula discovery through innovative applications of large language models and symbolic regression techniques.</p>
-    <a href="#" class="btn btn--primary">Read More</a>
-  </div>
-  
-  <div class="post-item">
-    <h3><a href="#">The Future of LLMs in Scientific Research</a></h3>
-    <p class="post-date">March 5, 2025 | AI Trends</p>
-    <p>Large Language Models are increasingly being applied to scientific domains beyond text generation. Discover how researchers are utilizing LLMs to accelerate discoveries in fields ranging from chemistry to astrophysics.</p>
-    <a href="#" class="btn btn--primary">Read More</a>
-  </div>
-  
-  <div class="post-item">
-    <h3><a href="#">From Data to Formulas: The LLM-HypatiaX Pipeline</a></h3>
-    <p class="post-date">February 28, 2025 | Technical Overview</p>
-    <p>A detailed exploration of the technical pipeline that powers LLM-HypatiaX, from data preprocessing to formula generation and validation, with insights into our architectural decisions.</p>
-    <a href="#" class="btn btn--primary">Read More</a>
-  </div>
+  {% for post in site.posts limit:5 %}
+    <div class="post-item">
+      <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
+      <span class="post-date">{{ post.date | date: "%B %d, %Y" }}</span>
+      <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More →</a>
+    </div>
+  {% endfor %}
 </div>

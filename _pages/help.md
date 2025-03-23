@@ -2,14 +2,18 @@
 title: "Help & Resources"
 permalink: /help/
 layout: single
+classes:
+  -inner-page
+  -header-image-readability
 header:
   overlay_image: /assets/images/header-help.jpg
   overlay_filter: rgba(0, 0, 0, 0.5)
-  caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
+caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
 toc: true
 toc_label: "Help Topics"
 toc_icon: "question-circle"
 ---
+
 
 ## Frequently Asked Questions
 
@@ -39,3 +43,4 @@ Need more help? Contact our support team:
 
 - **Email:** info@modelphysmat.com
 - **Support Hours:** Monday-Friday, 9am-5pm EST
+

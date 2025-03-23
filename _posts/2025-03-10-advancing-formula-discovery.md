@@ -3,15 +3,20 @@ title: "Advancing Formula Discovery with LLM-HypatiaX"
 classes:
   - header-image-readability
 header:
-  overlay_image: /assets/images/formula-discovery.jpg
-  overlay_filter: 0.6
-  caption: "Photo: [AI Research Lab]"
+  overlay_image: /assets/images/posts/header-advancing-formula-discovery.jpg
+  overlay_filter: rgba(0, 0, 0, 0.6)
+  overlay_height: 400px
+  #caption: "Photo: [AI Research Lab]"
+  teaser: /assets/images/posts/header-advancing-formula-discovery.jpg
 categories:
   - AI Research
 tags:
   - LLM-HypatiaX
   - Formula Discovery
-comments: true
+toc: true
+toc_label: "Contents"
+toc_icon: "file-alt"
+excerpt: ""
 ---
 
-Your full post content here...
+Your full post content here....

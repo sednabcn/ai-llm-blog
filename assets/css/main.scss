@@ -4,43 +4,408 @@
 
 @charset "utf-8";
 
-/* Import minimal-mistakes theme using @import instead of @use */
+/* ==========================================================================
+   VARIABLES
+   ========================================================================== */
+
+// Brand Colors
+$primary-color: #4a00e0;
+$primary-color-dark: darken($primary-color, 5%);
+$primary-color-darker: #5c00c7;
+
+// Text Colors
+$text-dark: #333;
+$text-muted: #6c757d;
+$white: #fff;
+// Background Colors
+$light-bg: #f8f9fa;
+$border-light: #e9ecef;
+
+// Hero Settings
+$overlay-opacity: 0.35; // Reduced opacity to allow more image shine through
+
+/* Import minimal-mistakes theme */
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
 
-// Your custom styles here
-.page__hero--overlay {
-  background-color: #1a1a2e;
-  background-image: linear-gradient(120deg, #1a1a2e, #16213e);
+/* ==========================================================================
+   MIXINS
+   ========================================================================== */
+/* Custom CSS modifications */
+.grid__item .archive__item-excerpt {
+  display: none !important;
 }
-.site-title {
-  font-weight: bold;
-  color: #4a00e0;
+.grid__item .archive__item-teaser img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
-.recent-posts {
-  margin-top: 2rem;
-  padding: 1.5rem;
-  background-color: #f8f9fa;
-  border-radius: 5px;
+.grid__item {
+  .archive__item-teaser {
+    margin-bottom: 0.5em;
+    
+    img {
+      width: 100%;
+      height: 200px; /* Fixed height for consistency */
+      object-fit: cover; /* Maintains aspect ratio */
+    }
+  }
+  
+  .archive__item-title {
+    margin-top: 0.5em;
+    font-size: 1.1em;
+    text-align: center; /* Optional: centers the title */
+  }
 }
-.recent-posts h2 {
-  margin-top: 0;
-  color: #4a00e0;
-}
-.post-item {
-  margin-bottom: 0.5rem;
-}
-.post-date {
-  color: #6c757d;
-  font-size: 0.9em;
-}
-.ai-description {
-  font-size: 1.1em;
-  line-height: 1.6;
-  margin: 1rem 0 2rem;
+@mixin text-shadow-dark {
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.95), 
+               0px 0px 8px rgba(0, 0, 0, 0.8), 
+               0px 0px 20px rgba(0, 0, 0, 0.8);
 }
 
-// Custom styles for header-image-readability
+@mixin responsive-title {
+  @media (max-width: 767px) {
+    .page__title {
+      font-size: 2.2em;
+      max-width: 100%;
+    }
+    
+    .page__excerpt {
+      font-size: 1.1em;
+      max-width: 90%;
+    }
+  }
+}
+
+@mixin image-shine-effect {
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg);
+    z-index: 2;
+    animation: shine 8s infinite;
+  }
+  
+  @keyframes shine {
+    0% {
+      left: -100%;
+      opacity: 0.7;
+    }
+    20% {
+      left: 100%;
+      opacity: 0.7;
+    }
+    100% {
+      left: 100%;
+      opacity: 0;
+    }
+  }
+}
+
+/* ==========================================================================
+   GLOBAL & UTILITY STYLES
+   ========================================================================== */
+
+// Site Title Styling
+.site-title {
+  color: $primary-color !important;
+  font-weight: bold;
+}
+
+.site-subtitle,
+.site-description {
+  color: $text-muted !important;
+  font-size: 1.1rem;
+}
+
+// Text Utility Classes
+.text-light {
+  color: $white !important;
+  
+  a {
+    color: $white;
+    
+    &:hover {
+      color: darken($white, 10%);
+    }
+  }
+}
+
+.text-dark {
+  color: $text-dark !important;
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8) !important;
+  
+  a {
+    color: $text-dark;
+    
+    &:hover {
+      color: lighten($text-dark, 20%);
+    }
+  }
+}
+
+/* ==========================================================================
+   HERO/HEADER STYLES
+   ========================================================================== */
+
+.page__hero--overlay {
+  // Base styles
+  background-color: #1a1a2e;
+  background-size: 110%; // Increased from 100% for more zoomed-in effect
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1); // Improved easing
+  padding: 8% 0;
+  position: relative;
+  @include image-shine-effect; // Add shine effect to all hero images
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.15), // Reduced darkness for more shine
+    rgba(0, 0, 0, 0.5)  
+  );//,url("../images/home-banner.jpg");
+  height: 70vh; // Increased from 80vh
+  filter: saturate(110%) brightness(1.1) contrast(1.05); // Enhanced saturation and brightness
+ // Add or modify these properties
+ // display: flex;
+ // align-items: center;
+ // justify-content: center;
+  
+  // Dimming overlay layer
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, $overlay-opacity);
+    z-index: 1;
+    pointer-events: none;
+    transition: background-color 0.5s ease;
+  }
+  
+  // Text styling - General
+  .page__title, 
+  .page__lead, 
+  .page__meta {
+    @include text-shadow-dark;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease, text-shadow 0.3s ease;
+  }
+  
+  // Title styling - white color with !important
+  .page__title {
+    font-size: 3.8em; // Increased from 3.5em
+    font-weight: 800; // Increased from 700
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-top: 0.5em; // Added to move title down
+    margin-bottom: 0.5em;
+    max-width: 90%;
+    margin-left: -0.03em;
+    margin-right: auto;
+    text-align: center !important;
+    color: $white !important; // Fixed with !important flag
+    
+    .no-break {
+      white-space: nowrap;
+    }
+    
+    .title-break:after {
+      content: "\A";
+      white-space: pre;
+    }
+  }
+  
+  // Excerpt styling with center alignment
+  .page__excerpt {
+    text-align: center !important;
+    max-width: 80%;
+    margin: 10px auto;
+    line-height: 1.6;
+    word-wrap: break-word;
+    white-space: normal;
+  }
+  
+  // Meta information styling
+  .page__meta {
+    font-size: 0.9em;
+    opacity: 0.95; // Increased from 0.9
+    text-align: center;
+    width: 100%;
+  }
+  
+  // Caption styling
+  .page__hero-caption {
+    opacity: 0.8;
+    font-style: italic;
+    font-size: 0.8em;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    
+    a {
+      text-decoration: underline;
+      
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+  
+  // Enhanced overlay gradient
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,
+                rgba(0, 0, 0, 0.3) 0%,
+                transparent 40%,
+                rgba(255, 255, 255, 0.1) 50%,
+                transparent 60%,
+                rgba(0, 0, 0, 0.3) 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .wrapper {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+   //  width: 100%; // Ensure the wrapper takes full width
+  //  max-width: 1200px; // Set a max-width if needed
+  //  margin: 0 auto; // Center the wrapper
+  //  padding: 0 1em; // Add some horizontal padding
+  }
+  
+  // Hover effects
+  &:hover {
+    background-size: 115%; // Increased from 102% for more dramatic zoom
+    transition: background-size 4s cubic-bezier(0.19, 1, 0.22, 1); // Smoother easing
+    
+    &::after {
+      background-color: rgba(0, 0, 0, $overlay-opacity - 0.1); // Reduces overlay opacity on hover
+    }
+    
+    .page__title, .page__lead {
+      transform: scale(1.02); // Subtle grow effect
+      @include text-shadow-dark; // Reinforced shadow on hover
+    }
+  }
+  
+  // Responsive adjustments
+  @include responsive-title;
+}
+
+/* ==========================================================================
+   PAGE TYPE SPECIFIC STYLES
+   ========================================================================== */
+
+// Ensure all pages use the same style as the homepage
+.home-page,
+.about-page,
+.help-page,
+.post-listing-page,
+.single-post-page,
+.archive,
+.layout--single {
+  .page__hero--overlay {
+    background-image: linear-gradient(
+      rgba(0, 0, 0, 0.25), // Reduced darkness for more shine
+      rgba(0, 0, 0, 0.7)  
+    ), url("../images/home-banner.jpg");
+    height: 60vh; // Increased from 80vh
+    filter: saturate(110%) brightness(1.1) contrast(1.05); // Enhanced saturation and brightness
+    
+    .page__title {
+      font-size: 3.8em; // Increased from 3.5em
+      max-width: 90%;
+      color: $white !important; // FIXED with !important
+      margin-top: 0.5em; // Added to move title down
+      text-align: center !important; // Ensure centered text
+    }
+
+    .page__excerpt {
+      font-size: 1.2em;
+      text-align: center !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    
+    // Additional shine effect specific to home page
+    &::before {
+      background: linear-gradient(135deg,
+                rgba(0, 0, 0, 0.3) 0%,
+                transparent 40%,
+                rgba(255, 255, 255, 0.1) 50%,
+                transparent 60%,
+                rgba(0, 0, 0, 0.3) 100%);
+      z-index: 1;
+    }
+  }
+}
+
+// Inner page styles consistency
+.inner-page {
+  .page__hero--overlay {
+      height: 200px; //65vh; // Match home page
+    background-image: linear-gradient(
+      rgba(0, 0, 0, 0.15), // Reduced darkness
+      rgba(0, 0, 0, 0.5)  // Reduced darkness
+    );//, url("../images/home-banner.jpg"); // Use home banner for all pages
+    filter: saturate(110%) brightness(1.15) contrast(1.05); // Enhanced saturation and brightness
+    
+    .page__title {
+      font-size: 3.8em; // Match home page
+      color: $white !important; // FIXED with !important
+      margin-top: 0.5em; // Added to move title down
+      text-align: center !important; // Ensure centered text
+    }
+    
+    .page__excerpt {
+      text-align: center !important; // FIXED with !important
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+  }
+}
+
+// All page types need centered titles and matching styles
+.about-page, 
+.help-page, 
+.post-listing-page, 
+.single-post-page,
+.archive,
+.layout--single {
+  .page__hero--overlay {
+    .page__title, .page__excerpt, .page__meta {
+      text-align: center !important; // FIXED with !important
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    
+    .page__title {
+      color: $white !important; // FIXED with !important
+      margin-top: 0.5em; // Added to move title down
+    }
+  }
+}
+
+// Readability enhancement for header text
 .header-image-readability {
   .page__hero--overlay {
     padding: 3em 0;
@@ -48,17 +413,436 @@
     .page__title,
     .page__meta,
     .page__lead {
-      color: #fff;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+      color: $white !important; // FIXED with !important
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+    }
+    
+    .page__title {
+      color: $white !important; // FIXED with !important
+      margin-top: 0.5em; // Added to move title down
+      text-align: center !important; // Ensure centered text
+    }
+    
+    .page__excerpt {
+      text-align: center !important; // FIXED with !important
+      margin-left: auto !important;
+      margin-right: auto !important;
     }
     
     .wrapper {
-      background: rgba(0,0,0,0.4);
-      padding: 1em;
+      background: rgba(0, 0, 0, 0.45); // Reduced from 0.5 for more shine
+      padding: 1.2em; // Increased from 1em
       border-radius: 5px;
       width: fit-content;
-      max-width: 80%;
+      max-width: 90%; // Increased from 80% for better centering with larger text
       margin: 0 auto;
+      backdrop-filter: blur(3px); // Adds subtle blur effect
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.3); // Adds depth
+      border: 1px solid rgba(255, 255, 255, 0.1); // Adds subtle border
+      transition: all 0.3s ease;
+      text-align: center;
+      
+      &:hover {
+        background: rgba(0, 0, 0, 0.4);
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+      }
     }
   }
+}
+
+/* ==========================================================================
+   CONTENT SECTIONS
+   ========================================================================== */
+
+// Content section base styles
+%section-base {
+  margin: 2rem 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.ai-description {
+  @extend %section-base;
+  margin: 1rem 0 2rem;
+}
+
+.intro-section {
+  @extend %section-base;
+}
+
+// Profile section
+.profile-section {
+  display: flex;
+  align-items: center;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background-color: $light-bg;
+  border-radius: 5px;
+  
+  .profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 2rem;
+  }
+  
+  .profile-details {
+    h2, h3 {
+      margin-top: 0;
+      color: $primary-color;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    p {
+      margin: 0.75rem 0;
+      color: #666;
+      display: block;
+      line-height: 1.5;
+    }
+  }
+  
+  .profile-links {
+    margin-top: 0.75rem;
+    
+    a {
+      display: inline-block;
+      margin-right: 1rem;
+      color: $primary-color;
+      text-decoration: none;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+      
+      i {
+        margin-right: 0.3rem;
+      }
+    }
+  }
+  
+  // Responsive adjustments
+  @media (max-width: 767px) {
+    flex-direction: column;
+    text-align: center;
+    
+    .profile-image {
+      margin-right: 0;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+// Recent posts section
+.recent-posts {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: $light-bg;
+  border-radius: 5px;
+  
+  h2 {
+    margin-top: 0;
+    color: $primary-color;
+    font-size: 1.8rem;
+  }
+  
+  .post-item {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid $border-light;
+    
+    &:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    
+    h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.4rem;
+      
+      a {
+        color: $text-dark;
+        text-decoration: none;
+        
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+    
+    .post-date {
+      display: block;
+      color: $text-muted;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .read-more {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: $primary-color;
+      font-weight: 500;
+      text-decoration: none;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+   HEADING STYLES
+   ========================================================================== */
+
+// Content headings vs Hero headings - Different rules for each
+// Only content headings should be primary color, hero titles should be white
+.page__content h1,
+article.page .page__content h1 {
+  color: $primary-color !important;
+}
+
+// Heading style placeholders
+%colored-heading {
+  color: $primary-color-darker;
+}
+
+// Apply to headings in content areas
+.about-content,
+.post-content,
+.help-content {
+  h2 {
+    @extend %colored-heading;
+    font-weight: bold;
+  }
+
+  h3 {
+    @extend %colored-heading;
+  }
+}
+
+h2 {
+  @extend %colored-heading;
+}
+
+
+/* ==========================================================================
+   SOCIAL SHARING BUTTONS
+   ========================================================================== */
+
+// Target the SHARE ON section specifically
+.SHARE ON,  // This probably needs to be adjusted to match your actual class/id
+#twitter-button, 
+#facebook-button, 
+#linkedin-button,
+a[href*="twitter.com"], 
+a[href*="facebook.com"], 
+a[href*="linkedin.com"] {
+  color: $white !important;
+  background-color: $primary-color;
+  padding: 8px 15px;
+  border-radius: 4px;
+  margin-right: 5px;
+  display: inline-block;
+  
+  &:hover {
+    color: $white !important;
+    background-color: darken($primary-color, 10%);
+    text-decoration: none;
+  }
+}
+
+/* ==========================================================================
+   FOOTER STYLES
+   ========================================================================== */
+
+.page__footer {
+  text-align: center;
+  background-color: $primary-color;
+  color: $white;
+  padding: 2rem 0;
+  margin-top: 3rem;
+  border-top: 5px solid rgba(255, 255, 255, 0.2);
+  background-image: linear-gradient(to bottom, 
+    $primary-color-dark, 
+    $primary-color);
+  
+  a {
+    color: $white !important;
+    
+    &:hover {
+      color: rgba(255, 255, 255, 0.8) !important;
+      text-decoration: underline;
+    }
+  }
+  
+  .page__footer-follow,
+  .page__footer-copyright {
+    text-align: center;
+    width: 100%;
+    float: none;
+    margin: 0 auto;
+  }
+  
+  h2, h3, h4 {
+    color: $white;
+  }
+  
+  .page__footer-follow ul {
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   LINK STYLES
+   ========================================================================== */
+
+// Default link styling
+a {
+  color: $primary-color-darker !important;
+  text-decoration: none;
+  
+  &:hover {
+    color: darken($primary-color-darker, 10%) !important;
+    text-decoration: underline;
+  }
+}
+
+// Contact links
+.contact-links a {
+  color: $primary-color-darker;
+  text-decoration: none;
+  font-weight: bold;
+
+  &:hover {
+    color: lighten($primary-color-darker, 10%);
+  }
+}
+
+.page__meta a, 
+.page__meta .social-icon {
+  color: $primary-color-darker !important;
+}
+.twitter-link {
+  color: #5c00c7 !important;
+  background: none !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+
+.twitter-link:hover {
+  text-decoration: underline; /* Optional: adds underline on hover */
+}
+/* ==========================================================================
+   LAYOUT CONSISTENCY ACROSS ALL PAGES
+   ========================================================================== */
+
+// Ensure all pages get consistent styling
+body.layout--single,
+body.layout--archive,
+body.layout--categories,
+body.layout--tags,
+body.layout--search,
+body.layout--home {
+  .page__hero--overlay {
+    background-image: linear-gradient(
+      rgba(0, 0, 0, 0.15),
+      rgba(0, 0, 0, 0.5)
+    );//, url("../images/home-banner.jpg");
+    height: 60vh;
+  }
+  
+  .page__title {
+    color: $white !important;
+    text-align: center !important;
+    margin: 1.5em auto 0.5em;
+    max-width: 90%;
+  }
+  
+  .page__excerpt {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+/* ==========================================================================
+   CRITICAL OVERRIDES - To ensure hero titles are white and excerpts centered
+   ========================================================================== */
+
+// These are high-specificity overrides that will take precedence
+.page__hero--overlay .page__title {
+  color: $white !important;
+  text-align: center !important;
+}
+
+.page__hero--overlay .page__excerpt, 
+.page__hero--overlay .page__excerpt p {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+// Override for archive items
+.archive__item-title {
+  color: $primary-color !important;
+}
+
+// But make sure hero titles are white
+.page__hero--overlay .archive__item-title {
+  color: $white !important;
+}
+
+
+/* ==========================================================================
+   ABOUT PAGE TEXT SHADOW FIXES
+   ========================================================================== */
+
+// Override for text shadows while maintaining primary color for big text
+.about-md, 
+body.layout--single .about-content,
+.page__content {
+  // Remove text shadows from all text elements
+  h1, h2, h3, h4, h5, h6, p, a, li, span {
+    text-shadow: none !important;
+  }
+  
+  // Big text (headings) should match footer background color
+  h1, h2, h3 {
+    color: $primary-color !important;
+  }
+  
+  // Maintain white color for hero titles
+  .page__hero--overlay {
+    .page__title {
+      color: $white !important;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.95) !important;
+    }
+  }
+}
+
+// Ensure all major headings have the primary color
+.page__content h1,
+.page__content h2,
+article.page .page__content h1,
+article.page .page__content h2 {
+  color: $primary-color !important;
+  text-shadow: none !important;
+}
+
+// Target specifically the about.md content
+.about-content {
+  h1, h2, h3, h4 {
+    color: $primary-color !important;
+    text-shadow: none !important;
+  }
+}
+
+// Ensure the Contact Us heading in about.md has primary color
+.about-content h1,
+.page__content h1.page__title:not(.page__hero--overlay .page__title) {
+  color: $primary-color !important;
 }

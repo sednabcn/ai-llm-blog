@@ -11,8 +11,4 @@ layout: custom
   </div>
 
   <p>Category: {{ page.category }}</p>
-
-  {% if site.comments.custom.enabled and page.comments != false %}
-    {% include comments.html %}
-  {% endif %}
 </article>
