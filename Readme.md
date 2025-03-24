@@ -1,7 +1,9 @@
  # AI-LLM Blog
-🌟 ## Project Overview
+🌟 # Project Overview
+
 The AI-LLM Blog is a cutting-edge platform dedicated to exploring and sharing insights into Large Language Models (LLMs), AI-driven research, and their transformative applications across various domains such as finance, healthcare, and engineering.
-✨ ## Key Features
+
+✨ # Key Features
 
 Static Site Powered by Jekyll: Delivers lightning-fast performance and seamless content management
 Advanced SCSS Styling:
@@ -30,7 +32,8 @@ Enables reader engagement without complex infrastructure
 
 
 
-🛠 ## Prerequisites
+🛠 # Prerequisites
+
 Ensure the following tools are installed:
 
 Ruby (version 2.7 or higher)
@@ -38,7 +41,8 @@ Bundler
 Jekyll
 Node.js (optional, for SCSS compilation)
 
-🚀 ## Local Setup & Installation
+🚀 # Local Setup & Installation
+
 1. Clone the Repository
 bashCopygit clone https://github.com/your-username/ai-llm-blog.git
 cd ai-llm-blog
@@ -47,7 +51,9 @@ bashCopybundle install
 3. Run the Blog Locally
 bashCopybundle exec jekyll serve
 Access the blog at: http://localhost:4000
-🎨 ## Customization Guide
+
+🎨 # Customization Guide
+
 SCSS Styling
 Customize styles in the _sass/ directory:
 
@@ -77,7 +83,7 @@ Description
 Website URL
 Permalink structure
 
-🌐 ## Deployment Options
+🌐 # Deployment Options
 GitHub Pages Deployment
 
 Build for production:
@@ -89,28 +95,33 @@ Configure GitHub Pages in repository settings
 Custom Domain Deployment
 
 Update DNS settings (GoDaddy/Namecheap)
+
 Create/modify CNAME file with your domain
 
-🚀 ## Roadmap & Future Enhancements
+🚀 # Roadmap & Future Enhancements
 
  LLM-powered chatbot integration
  Automated AI-generated post summaries
  AI-curated newsletter subscriptions
  Interactive AI-enhanced UI elements
 
-🤝 ## Contributing
+🤝 # Contributing
+
 Contributions are enthusiastically welcomed!
 
 Submit issues for bug reports or feature requests
 Create pull requests with improvements
 Follow existing code style and documentation standards
 
-📄 ## License
+📄 # License
+
 Licensed under the MIT License. See LICENSE for complete details.
-🌍 ## Resources
+
+🌍 # Resources
 
 Website: modelphysmat.com
-GitHub Repository: AI-LLM Blog Repo
+
+GitHub Repository: ai-llm-blog Repo
 
 
 Maintained with ❤️ by the AI-LLM Blog Team
