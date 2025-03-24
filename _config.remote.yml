@@ -1,6 +1,6 @@
-_config.yml
+_config.remote.yml
 Environment Configuration
-environment: development
+environment: production
 sass properties
 sass:
 sass_dir: _sass
@@ -11,7 +11,7 @@ style: compressed
 logo: "/assets/images/logo.png"
 avatar: "/assets/images/avatar.jpg"
 Theme settings
-theme: minimal-mistakes-jekyll
+remote_theme: "mmistakes/minimal-mistakes"
 minimal_mistakes_skin: "default"
 Site settings
 locale: "en-US"
@@ -20,9 +20,8 @@ title_separator: "|"
 subtitle: "Exploring generative AI in formula discovery"
 name: "Dr. Ruperto Pedro Bonet Chaple"
 description: "A blog dedicated to AI, LLM research, and the LLM-HypatiaX project focusing on generative AI in formula discovery."
-url: "http://localhost:4000"
-baseurl: ""
-repository: "sednabcn/ai-llm-blog"
+url: "https://sednabcn.github.io"
+baseurl: "/ai-llm-blog"
 logo: "/assets/images/logo.png"
 masthead_title: "SiMLeng"
 favicon: favicon-16x16.png
@@ -66,29 +65,33 @@ Outputting
 permalink: ///
 paginate: 5
 paginate_path: "/page/"
-Development Configurations
-development:
-show_drafts: true
-incremental: true
-Production Configurations
-production:
-show_drafts: false
+Conversion
+markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
 incremental: false
+Markdown Processing
+kramdown:
+input: GFM
+hard_wrap: false
+auto_ids: true
+footnote_nr: 1
+entity_output: as_char
+toc_levels: 1..6
+smart_quotes: lsquo,rsquo,ldquo,rdquo
+enable_coderay: false
 Plugins
 plugins:
 
+jekyll-remote-theme
 jekyll-paginate
 jekyll-sitemap
+jekyll-minifier
 jekyll-gist
 jekyll-feed
 jekyll-include-cache
 jekyll-seo-tag
-
-Conditionally load development plugins
-development_plugins:
-
-jekyll-livereload
-jekyll-draft
 
 Archives
 category_archive:
@@ -121,7 +124,15 @@ values:
 layout: single
 author_profile: true
 
-markdown: kramdown
+Optimization settings for production
+compress_html:
+clippings: all
+comments: all
+endings: all
+profile: false
+SEO and performance optimizations
+google_site_verification: "" # Add your verification code
+google_analytics: "" # Add your Google Analytics 4 Measurement ID
 Exclude files from processing
 exclude:
 

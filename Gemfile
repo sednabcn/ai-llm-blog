@@ -1,42 +1,48 @@
+source 'https://rubygems.org'
 
-## Gemfile
+# Core Jekyll Gem
+gem 'jekyll', '~> 4.3.2'
 
-source "https://rubygems.org"
-ENV['DEPRECATION_WARNINGS'] = 'false'
+# Theme
+gem 'minimal-mistakes-jekyll'
 
-gem "jekyll", "~> 4.4.1"
-gem "jekyll-sass-converter"
-gem "webrick", "~> 1.8"
-gem "faraday-retry"
-gem "minimal-mistakes-jekyll", ">= 0"
-
+# Core Plugins
 group :jekyll_plugins do
-  gem "jekyll-paginate"
-  gem "jekyll-sitemap"
-  gem "jekyll-gist"
-  gem "jekyll-feed", "~> 0.12"
-  gem "jekyll-seo-tag"
-  gem "jekyll-include-cache"
-  #gem "github-pages", group: :jekyll_plugins
+  gem 'jekyll-paginate', '~> 1.1.0'
+  gem 'jekyll-sitemap', '~> 1.4.0'
+  gem 'jekyll-gist', '~> 1.5.0'
+  gem 'jekyll-feed', '~> 0.17.0'
+  gem 'jekyll-include-cache', '~> 0.2.1'
+  gem 'jekyll-seo-tag', '~> 2.8.0'
 end
 
+# Development-specific gems
+group :development do
+  gem 'jekyll-livereload', '~> 0.2.2'
+  gem 'jekyll-draft', '~> 1.0.0'
+  gem 'ruby-debug-ide', '~> 0.7.3'
+  gem 'debase', '~> 0.7.6'
+  gem 'webrick', '~> 1.8.1'
+end
 
-# Windows and JRuby does not include zoneinfo files,
-#so bundle the tzinfo-data gem
-# and associated library.
+# Optional performance and optimization gems
+group :development_optional do
+  gem 'mini_racer', '~> 0.8.0'
+  gem 'uglifier', '~> 4.2.0'
+end
 
+# Platforms
 platforms :mingw, :x64_mingw, :mswin, :jruby do
-  gem "tzinfo", ">= 1", "< 3"
-  gem "tzinfo-data"
+  gem 'tzinfo', '~> 1.2.10'
+  gem 'tzinfo-data'
 end
 
-# Performance-booster for watching directories on Windows
+# Performance monitoring
+gem 'fast-stemmer', '~> 1.0.2'
 
-gem "wdm", "~> 0.1", :platforms => [:mingw, :x64_mingw, :mswin]
-
-# Lock `http_parser.rb` gem to `v0.6.x` on JRuby builds since newer versions of the gem
-# do not have a Java counterpart.
-
-gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
+# Markdown and syntax highlighting
+gem 'kramdown', '~> 2.4.0'
+gem 'rouge', '~> 4.1.2'
+L
 
 

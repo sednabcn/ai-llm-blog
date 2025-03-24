@@ -16,6 +16,7 @@ tags:
 toc: true
 toc_label: "Contents"
 toc_icon: "file-alt"
+comments: true
 excerpt: ""
 ---
 

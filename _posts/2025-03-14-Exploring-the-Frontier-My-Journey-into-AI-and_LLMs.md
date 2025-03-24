@@ -19,6 +19,7 @@ excerpt: "Join me on an exploratory journey through the rapidly evolving landsca
 toc: true
 toc_label: "Contents"
 toc_icon: "file-alt"
+comments: true
 ---
 <!-- Apply classes to page title and subtitle -->
 
