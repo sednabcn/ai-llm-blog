@@ -1,11 +1,8 @@
-name: Deploy to GitHub Pages
+name: Deploy Jekyll site to Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["master"]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
@@ -15,7 +12,9 @@ permissions:
   id-token: write
 
 # Allow only one concurrent deployment
-concurrently_at: 1
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   # Build job
@@ -24,21 +23,21 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      
+      # Use Jekyll setup action
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          node-version: "20"
-          cache: 'npm'
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      - name: Install dependencies
-        run: npm ci
-      - name: Build
-        run: npm run build
+          ruby-version: '3.1' # Adjust to your Jekyll site's Ruby version
+          bundler-cache: true
+      
+      - name: Build with Jekyll
+        run: bundle exec jekyll build
+      
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: "./_site"
 
   # Deployment job
   deploy:
@@ -51,6 +50,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-
-

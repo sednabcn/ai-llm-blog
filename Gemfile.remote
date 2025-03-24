@@ -6,6 +6,7 @@ gem 'jekyll', '~> 4.3.2'
 # Remote Theme
 gem 'jekyll-remote-theme'
 
+
 # Core Plugins
 group :jekyll_plugins do
   gem 'jekyll-paginate', '~> 1.1.0'
@@ -21,6 +22,7 @@ group :production do
   gem 'jekyll-compress-images', '~> 0.4.1'
   gem 'html-proofer', '~> 5.0.7'
   gem 'nokogiri', '~> 1.15.3'
+  gem 'github-pages', group: :jekyll_plugins
 end
 
 # Performance and caching

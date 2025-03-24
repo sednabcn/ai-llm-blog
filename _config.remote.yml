@@ -20,8 +20,10 @@ title_separator: "|"
 subtitle: "Exploring generative AI in formula discovery"
 name: "Dr. Ruperto Pedro Bonet Chaple"
 description: "A blog dedicated to AI, LLM research, and the LLM-HypatiaX project focusing on generative AI in formula discovery."
+
 url: "https://sednabcn.github.io"
 baseurl: "/ai-llm-blog"
+
 logo: "/assets/images/logo.png"
 masthead_title: "SiMLeng"
 favicon: favicon-16x16.png

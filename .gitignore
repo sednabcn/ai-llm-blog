@@ -3,3 +3,12 @@ _site
 .jekyll-cache
 .jekyll-metadata
 vendor
+# Next.js / React build outputs
+/out
+/.next
+
+# Dependency directories
+/node_modules
+
+# Deployment artifacts
+/.github/workflows/pages.yml
