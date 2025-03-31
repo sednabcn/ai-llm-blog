@@ -1,7 +1,9 @@
-# Environment Configuration
-environment: development
+# _config.remote.yml
 
-# Sass properties
+# Site Configuration for Production Environment
+environment: production
+
+# Sass Compilation Settings
 sass:
   sass_dir: _sass
   load_paths:
@@ -9,11 +11,11 @@ sass:
     - assets/css
   style: compressed
 
-# Theme settings
-theme: minimal-mistakes-jekyll
+# Theme Configuration
+remote_theme: "mmistakes/minimal-mistakes"
 minimal_mistakes_skin: "default"
 
-# Site settings
+# Site Settings
 locale: "en-US"
 title: "AI, LLM & LLM-HypatiaX Blog"
 title_separator: "|"
@@ -23,29 +25,40 @@ description: "A blog dedicated to AI, LLM research, and the LLM-HypatiaX project
 
 excerpt_length: 156
 
-url: "http://localhost:4000"
-baseurl: ""
-repository: "sednabcn/ai-llm-blog"
+# Production URL Configuration
 
+url: "https://sednabcn.github.io"
+baseurl: "/ai-llm-blog"
+
+# Repository-Specific Settings
+github:
+  repository_name: "ai-llm-blog"
+  is_project_page: true
+  
+
+# Branding Assets
 logo: "/assets/images/logo.png"
 masthead_title: "SiMLeng"
-favicon: favicon-16x16.png
+favicon: "favicon-16x16.png"
 
-# Site Author
+# Site Author Profile
 author:
   name: "Dr. Ruperto Pedro Bonet Chaple"
   avatar: "/assets/images/avatar.jpg"
   bio: "PhD in Computational Mechanics"
-  location: "London,UK"
+  location: "London, UK"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: "mailto@modelphysmat.com"
+      url: "mailto:contact@modelphysmat.com"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/sednabcn"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/"
 
-# Site Footer
+# Site Footer Configuration
 footer:
   links:
     - label: "GitHub"
@@ -64,43 +77,55 @@ footer:
       icon: "fab fa-fw fa-medium"
       url: "https://medium.com/@simleng"
 
-# Reading Files
+# Reading and Processing Settings
 include:
   - _pages
 
-# Outputting
-
-permalink: /:categories/:title/
-
+# Pagination Configuration
+permalink: "/:categories/:title/"
 paginate: 5
+paginate_path: "/page:num/"
 
-paginate_path: "/page/"
+# Markdown Processing
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
 
-# Development Configurations
-development:
-  show_drafts: true
-  incremental: true
+# Syntax Highlighting
+highlighter: rouge
 
-# Production Configurations
-production:
-  show_drafts: false
-  incremental: false
+jekyll-minifier:
+  uglifier_args:
+    harmony: true
+    
+# Content Excerpts
+excerpt_separator: "\n\n"
 
-# Plugins
+# Production-Specific Plugins
 plugins:
+  - jekyll-remote-theme
   - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-minifier
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
   - jekyll-seo-tag
+  - jekyll-github-metadata	
 
-# Conditionally load development plugins
-development_plugins:
-  - jekyll-livereload
-  - jekyll-draft
+# Minifier Options
+jekyll-minifier:
+  uglifier_args:
+    harmony: true
 
-# Archives
+# Archive Configurations
 category_archive:
   type: liquid
   path: /categories/
@@ -108,9 +133,9 @@ tag_archive:
   type: liquid
   path: /tags/
 
-# Defaults
+# Default Page/Post Settings
 defaults:
-  # _posts
+  # Posts defaults
   - scope:
       path: ""
       type: posts
@@ -121,9 +146,8 @@ defaults:
       comments: true
       share: true
       related: true
-     
 
-  # _pages
+  # Pages defaults
   - scope:
       path: "_pages"
       type: pages
@@ -131,9 +155,23 @@ defaults:
       layout: single
       author_profile: true
 
-markdown: kramdown
+# HTML Compression
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  profile: false
 
-# Exclude files from processing
+# Custom headers configuration
+webrick:
+  headers:
+    Content-Security-Policy: "frame-ancestors 'self' https://utteranc.es"
+
+# SEO and Performance Optimizations
+google_site_verification: ""  # Replace with your verification code
+google_analytics: ""  # Replace with your Google Analytics 4 ID
+
+# Files to Exclude from Processing
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -150,3 +188,6 @@ exclude:
   - scripts/
   - README.md
   - LICENSE
+
+
+

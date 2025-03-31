@@ -1,14 +1,61 @@
-_site
+# Ignore generated _site directory completely
+_site/
+
 .sass-cache
 .jekyll-cache
 .jekyll-metadata
-vendor
+
 # Next.js / React build outputs
 /out
 /.next
 
-# Dependency directories
-/node_modules
+
 
 # Deployment artifacts
 /.github/workflows/pages.yml
+
+
+# Ignore system and editor files
+.DS_Store
+.AppleDouble
+.LSOverride
+.idea/
+.vscode/
+*.swp
+*~
+
+# Ignore dependency directories
+node_modules/
+bower_components/
+vendor/
+
+# Ignore build output and temporary files
+*.log
+*.tmp
+.temp/
+.cache/
+
+# Ignore environment-specific files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Ignore compiled or minified files
+*.min.css
+*.min.js
+
+# Include important configuration and source files
+!.gitkeep
+
+# Optionally, track specific files within ignored directories if needed
+# Uncomment and modify as necessary
+# !_site/README.md
+# !_site/some-important-file.tx
+
+# Local Development
+_config.yml
+Gemfile
+config/
+docs/

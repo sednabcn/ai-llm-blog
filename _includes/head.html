@@ -6,7 +6,6 @@
   <link href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
 {% endunless %}
 
-{%- comment %} https://docs.google.com/presentation/d/1rmxwWa9P6_xHqonmh5ONXRS-jPc5XKbnv99Rjkhe04s/present {% endcomment -%}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <script type="text/javascript">
@@ -26,4 +25,22 @@
     <script src="{{ script | relative_url }}"></script>
   {% endfor %}
 {% endif %}
+
 <link rel="icon" href="{{ "/favicon-16x16.png" | relative_url }}" type="image/png">
+
+{% if jekyll.environment == 'production' %}
+  {% include analytics.html %}
+  <link rel="stylesheet" href="{{ '/assets/css/main.min.css' | relative_url }}">
+{% else %}
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+{% endif %}
+
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net/;
+  style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net/;
+  img-src 'self' data: *;
+  font-src 'self' https://cdn.jsdelivr.net/;
+  connect-src 'self';
+  frame-src 'self';
+">

@@ -1,5 +1,5 @@
 ---
-title: "Advancing Formula Discovery with LLM-HypatiaX"
+title: "Advancing Formula Discovery with <span class='no-break'>LLM-HypatiaX</span>"
 classes:
   - header-image-readability
 header:

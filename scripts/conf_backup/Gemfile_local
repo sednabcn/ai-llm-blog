@@ -49,6 +49,5 @@ gem 'csv'
 gem 'faraday-retry'
 
 
-gem 'html-proofer', git: 'https://github.com/gjtorikian/html-proofer.git'
 
 

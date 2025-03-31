@@ -1,0 +1,107 @@
+name: Jekyll Site Deployment
+
+# Triggers
+on:
+  push:
+    branches: ["master", "gh-pages"]
+
+  # Allows manual workflow trigger
+  workflow_dispatch:
+
+# Permissions for GitHub Pages deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Ensure only one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  # Build Job
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout repository
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Setup Ruby 
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2.2'
+          bundler-cache: true
+
+      # Dependency Management
+      - name: Install Dependencies
+        run: |
+          # Check if Gemfile.remote exists and use it
+          if [ -f "Gemfile.remote" ]; then
+            cp Gemfile.remote Gemfile
+          fi
+
+          gem install bundler
+          bundle config set deployment 'true'
+          bundle install
+
+      # Build Jekyll Site with Environment Configuration
+      - name: Build Jekyll Site
+        run: |
+          # Check if config.remote exists and use it
+          if [ -f "_config.remote.yml" ]; then
+            cp _config.remote.yml _config.yml
+          fi
+
+          bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
+
+      # Generate Performance Report (Optional)
+      - name: Generate Build Report
+        if: success()
+        run: |
+          echo "Build completed successfully"
+          du -sh ./_site
+          find ./_site -type f | wc -l
+
+      # Upload build artifact
+      - name: Upload Site Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "./_site"
+
+  # Deployment Job
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    # GitHub Pages Environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      # Enable GitHub Pages Token ✅ FIXED PLACEMENT
+      - name: Enable GitHub Pages Token
+        run: echo "GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
+
+      # Deploy to GitHub Pages ✅ FIXED CONFIGURATION
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  # Optional: Performance and Accessibility Check
+  lighthouse-check:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lighthouse Audit
+        uses: treosh/lighthouse-ci-action@v10
+        with:
+          urls: |
+            https://sednabcn.github.io/ai-llm-blog
+          budgetPath: ./budget.json
+          uploadArtifacts: true

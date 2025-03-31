@@ -22,7 +22,7 @@ $light-bg: #f8f9fa;
 $border-light: #e9ecef;
 
 // Hero Settings
-$overlay-opacity: 0.35; // Reduced opacity to allow more image shine through
+$overlay-opacity: 0.05; // Reduced opacity to allow more image shine through
 
 /* Import minimal-mistakes theme */
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
@@ -166,7 +166,8 @@ $overlay-opacity: 0.35; // Reduced opacity to allow more image shine through
   background-color: #1a1a2e;
   background-size: 110%; // Increased from 100% for more zoomed-in effect
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1); // Improved easing
-  padding: 8% 0;
+  padding: 5% 0;
+  transition: padding 0.5s ease-in-out; 
   position: relative;
   @include image-shine-effect; // Add shine effect to all hero images
   background-image: linear-gradient(
@@ -176,8 +177,8 @@ $overlay-opacity: 0.35; // Reduced opacity to allow more image shine through
   height: 70vh; // Increased from 80vh
   filter: saturate(110%) brightness(1.1) contrast(1.05); // Enhanced saturation and brightness
  // Add or modify these properties
- // display: flex;
- // align-items: center;
+   display: flex;
+   align-items: center;
  // justify-content: center;
   
   // Dimming overlay layer
@@ -195,7 +196,8 @@ $overlay-opacity: 0.35; // Reduced opacity to allow more image shine through
   }
   
   // Text styling - General
-  .page__title, 
+  .page__title,
+  .page__excerpt,
   .page__lead, 
   .page__meta {
     @include text-shadow-dark;
@@ -205,21 +207,25 @@ $overlay-opacity: 0.35; // Reduced opacity to allow more image shine through
   }
   
   // Title styling - white color with !important
-  .page__title {
+  .page__title{
     font-size: 3.8em; // Increased from 3.5em
     font-weight: 800; // Increased from 700
     letter-spacing: -0.03em;
-    line-height: 1.1;
+    line-height: 1.0;
     margin-top: 0.5em; // Added to move title down
     margin-bottom: 0.5em;
     max-width: 90%;
-    margin-left: -0.03em;
+    margin-left: 0.5em;
     margin-right: auto;
     text-align: center !important;
     color: $white !important; // Fixed with !important flag
-    
+    //word-wrap: break-word;
+    //overflow-wrap: break-word;
+
+
     .no-break {
-      white-space: nowrap;
+	white-space: nowrap;
+	display: inline-block;
     }
     
     .title-break:after {
@@ -227,17 +233,20 @@ $overlay-opacity: 0.35; // Reduced opacity to allow more image shine through
       white-space: pre;
     }
   }
-  
-  // Excerpt styling with center alignment
-  .page__excerpt {
-    text-align: center !important;
-    max-width: 80%;
-    margin: 10px auto;
-    line-height: 1.6;
-    word-wrap: break-word;
-    white-space: normal;
-  }
-  
+  /* Inline excerpt styling for the overlay */
+  excerpt-inline {
+  white-space: normal; /* Allow line breaks */
+  overflow: visible; /* Allow content to overflow, if necessary */
+  display: inline-block; /* Ensures inline content */
+  max-width: 90%; /* Control width to avoid overflow */
+  font-size: 1rem; /* Optional: Adjust size */
+  color: #fff; /* Optional: Ensure visibility if background is dark */
+  vertical-align: middle; /* Align content properly */
+  margin-top: 10px; /* Add spacing if needed */
+  word-wrap: break-word; /* Ensure long words break to the next line if necessary */
+}
+
+
   // Meta information styling
   .page__meta {
     font-size: 0.9em;

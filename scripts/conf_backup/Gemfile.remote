@@ -1,0 +1,55 @@
+source 'https://rubygems.org'
+
+# Core Jekyll Gem
+gem 'jekyll', '~> 3.9.2'
+
+# Remote Theme
+
+# Sass Converter
+gem 'jekyll-sass-converter', '~> 1.5.2'
+
+
+# Core Plugins
+group :jekyll_plugins do
+  gem 'jekyll-remote-theme', '0.4.3'
+  gem 'jekyll-paginate', '~> 1.1.0'
+  gem 'jekyll-feed', '~> 0.15.1'
+  gem 'jekyll-include-cache', '~> 0.2.1'
+  gem 'jekyll-seo-tag', '~> 2.8.0'
+end
+
+# Production-specific optimization gems
+group :production do
+  gem 'uglifier'
+  gem 'jekyll-minifier', '~> 0.1.10'
+  gem 'jekyll-compress-images', '~> 1.2'
+  gem 'html-proofer', '~> 5.0.7'
+  gem 'nokogiri', '~> 1.15.3'
+  gem 'github-pages','~> 227', group: :jekyll_plugins
+  gem 'jekyll-github-metadata','~> 2.13.0'
+end
+
+# Performance and caching
+gem 'liquid-c', '~> 4.0.0'
+gem 'redis', '~> 4.8.1'
+
+# Security and performance gems
+gem 'sanitize', '~> 6.0.1'
+gem 'fastimage', '~> 2.2.7'
+
+# Markdown and syntax highlighting
+gem 'kramdown', '~> 2.3.2'
+gem 'rouge', '~> 3.26.0'
+
+# SEO and sitemap generation
+gem 'jekyll-sitemap', '~> 1.4.0'
+
+# Platforms
+platforms :mingw, :x64_mingw, :mswin, :jruby do
+  gem 'tzinfo', '~> 1.2.10'
+  gem 'tzinfo-data'
+end
+# Ensure compatibility
+gem 'webrick'
+
+

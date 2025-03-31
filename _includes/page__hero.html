@@ -33,7 +33,9 @@
       {% if page.tagline %}
         <p class="page__lead" style="text-align: center;">{{ page.tagline | markdownify | remove: "<p>" | remove: "</p>" }}</p>
       {% elsif page.header.show_overlay_excerpt != false and page.excerpt %}
-        <p class="page__lead" style="text-align: center;">{{ page.excerpt | markdownify | remove: "<p>" | remove: "</p>" }}</p>
+     <span class="page__lead excerpt-inline">{{ page.excerpt |  truncate: site.excerpt_length }}</span>
+
+    <!--- <p class="page__lead" style="text-align: center;">{{ page.excerpt | markdownify | remove: "<p>" | remove: "</p>" }}</p>--!>
       {% endif %}
       {% include page__meta.html %}
       {% if page.header.actions %}

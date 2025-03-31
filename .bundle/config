@@ -1,0 +1,4 @@
+---
+BUNDLE_BUILD__DEBASE: "--with-cflags=-Wno-error=implicit-function-declaration"
+BUNDLE_BUILD__MINI_RACER: "--with-v8-dir=/usr/lib"
+BUNDLE_PATH: "vendor/bundle"
