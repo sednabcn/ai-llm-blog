@@ -3,7 +3,7 @@ name: Jekyll Site Deployment
 # Triggers
 on:
   push:
-    branches: ["master", "gh-pages"]
+    branches: ["master"]
 
   # Allows manual workflow trigger
   workflow_dispatch:
@@ -91,7 +91,12 @@ jobs:
       # Deploy to GitHub Pages ✅ FIXED CONFIGURATION
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+	uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages  # Deployment target branch
+          folder: _site      # Jekyll build output directory
+          clean: true        # Remove old files before deployment
+        
 
   # Optional: Performance and Accessibility Check
   lighthouse-check:
