@@ -168,8 +168,16 @@ webrick:
     Content-Security-Policy: "frame-ancestors 'self' https://utteranc.es"
 
 # SEO and Performance Optimizations
-google_site_verification: ""  # Replace with your verification code
-google_analytics: ""  # Replace with your Google Analytics 4 ID
+# Google Services Configuration
+analytics:
+  provider: "google-gtag"
+  google:
+    tracking_id: "G-YOUR_MEASUREMENT_ID" # Replace with your Google Analytics 4 ID
+    anonymize_ip: true  # Set to true for GDPR compliance if needed
+
+google_site_verification: "YOUR_VERIFICATION_CODE"
+
+
 
 # Files to Exclude from Processing
 exclude:
@@ -188,6 +196,3 @@ exclude:
   - scripts/
   - README.md
   - LICENSE
-
-
-

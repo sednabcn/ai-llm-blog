@@ -45,10 +45,5 @@ gem 'fast-stemmer', '~> 1.0.2'
 gem 'kramdown', '~> 2.4.0'
 gem 'rouge', '~> 4.1.2'
 
-gem 'csv'
-gem 'faraday-retry'
-
-
-gem 'html-proofer', git: 'https://github.com/gjtorikian/html-proofer.git'
-
+gem 'webrick'
 

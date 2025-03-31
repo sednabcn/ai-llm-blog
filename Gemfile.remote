@@ -26,7 +26,7 @@ group :production do
   gem 'uglifier', '~> 4.2'              # Minifies JavaScript
   gem 'jekyll-minifier', '~> 0.1.10'    # Minifies HTML, CSS, and JS
   gem 'jekyll-compress-images', '~> 1.2' # Compresses images
-  gem 'html-proofer', '~> 5.0.7'        # Validates links and HTML
+  gem 'html-proofer', '~> 5.0.7',git: 'https://github.com/gjtorikian/html-proofer.git' # Validates links and HTML
   gem 'nokogiri', '~> 1.15.3'           # XML/HTML parser
 end
 
@@ -41,6 +41,9 @@ gem 'fastimage', '~> 2.2.7' # Fast image processing
 # Markdown & Syntax Highlighting
 gem 'kramdown', '~> 2.3.2' # Markdown parser
 gem 'rouge', '~> 3.26.0'   # Syntax highlighting
+gem 'csv'
+gem 'faraday-retry'
+
 
 # Platform Compatibility (Windows/JRuby)
 platforms :mingw, :x64_mingw, :mswin, :jruby do
@@ -48,4 +51,4 @@ platforms :mingw, :x64_mingw, :mswin, :jruby do
   gem 'tzinfo-data'
 end
 
-gem 'webrick'
+
