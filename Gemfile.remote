@@ -31,6 +31,8 @@ group :production do
 end
 
 # Caching and Performance Enhancements
+gem 'liquid', '~> 5.8.2' # Update liquid to a vers compatible to Ruby 3.x
+gem 'liquid-c', '~> 4.0.0' # Faster Liquid template processing
 gem 'liquid-c', '~> 4.0.0' # Faster Liquid template processing
 gem 'redis', '~> 4.8.1'    # Optional caching backend
 
