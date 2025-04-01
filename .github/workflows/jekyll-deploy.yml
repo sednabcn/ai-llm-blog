@@ -30,12 +30,12 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
-      # Setup Ruby 
+      # Setup Ruby with a simpler configuration
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2.2'
-          bundler-cache: true
+          # Removed bundler-cache to troubleshoot issues
 
       # Dependency Management
       - name: Install Dependencies
@@ -46,8 +46,7 @@ jobs:
           fi
           
           gem install bundler
-          bundle config set deployment 'true'
-          bundle install
+          bundle install --jobs 4 --retry 3
 
       # Build Jekyll Site with Environment Configuration
       - name: Build Jekyll Site
