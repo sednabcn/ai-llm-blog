@@ -1,0 +1,52 @@
+name: New Blog Post Issue
+
+on:
+  push:
+    branches:
+      - main  # Runs when a new post is added
+
+jobs:
+  create_issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Find latest post
+        id: latest_post
+        run: |
+          LATEST_FILE=$(ls -t _posts/*.md | head -n 1)
+          echo "Selected file: $LATEST_FILE"
+
+          TITLE=$(grep -m 1 "^title:" "$LATEST_FILE" | sed 's/title: //')
+          DATE=$(basename "$LATEST_FILE" | cut -d'-' -f1-3)  # Extracts YYYY-MM-DD
+          URL="https://github.com/${{ github.repository }}/blob/main/$LATEST_FILE"
+
+          echo "title=$TITLE" >> $GITHUB_ENV
+          echo "date=$DATE" >> $GITHUB_ENV
+          echo "url=$URL" >> $GITHUB_ENV
+
+      - name: Ensure Issue Template Exists
+        run: |
+          mkdir -p .github/ISSUE_TEMPLATE
+          echo "---" > .github/ISSUE_TEMPLATE/new_post.md
+          echo "title: \"New Blog Post: ${{ env.title }}\"" >> .github/ISSUE_TEMPLATE/new_post.md
+          echo 'labels: ["blog-comment"]' >> .github/ISSUE_TEMPLATE/new_post.md
+          echo "---" >> .github/ISSUE_TEMPLATE/new_post.md
+          echo "## 🚀 A new blog post was published!" >> .github/ISSUE_TEMPLATE/new_post.md
+          echo "**Title:** ${{ env.title }}" >> .github/ISSUE_TEMPLATE/new_post.md
+          echo "**Date:** ${{ env.date }}" >> .github/ISSUE_TEMPLATE/new_post.md
+          echo "**Read it here:** [Click to read](${{ env.url }})" >> .github/ISSUE_TEMPLATE/new_post.md
+
+      - name: Create GitHub Issue
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl -X POST -H "Authorization: token $GITHUB_TOKEN" \
+               -H "Accept: application/vnd.github.v3+json" \
+               https://api.github.com/repos/${{ github.repository }}/issues \
+               -d '{
+                 "title": "New Blog Post: '"$title"'",
+                 "body": "'"$(cat .github/ISSUE_TEMPLATE/new_post.md)"'",
+                 "labels": ["blog-comment"]
+               }'
