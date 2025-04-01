@@ -57,6 +57,7 @@ vendor/
 # Local Development
 _config.yml
 Gemfile
+Gemfile.lock
 config/
 docs/
 Manual/

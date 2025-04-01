@@ -35,7 +35,8 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2.2'
-	  bundler-cache: false
+	  bundler-cache: true
+	  
           # Removed bundler-cache to troubleshoot issues
 
       # Dependency Management
