@@ -36,8 +36,8 @@ jobs:
         with:
           ruby-version: '3.2.2'
 	  bundler-cache: true
-	  
-          # Removed bundler-cache to troubleshoot issues
+	 
+      # Removed bundler-cache to troubleshoot issues
 
       # Dependency Management
       - name: Install Dependencies
