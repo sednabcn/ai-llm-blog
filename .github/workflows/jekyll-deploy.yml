@@ -35,9 +35,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2.2'
-	  bundler-cache: true
-	 
-      # Removed bundler-cache to troubleshoot issues
+          bundler-cache: true
 
       # Dependency Management
       - name: Install Dependencies
@@ -60,7 +58,7 @@ jobs:
           
           bundle exec jekyll build
         env:
-  	  JEKYLL_GITHUB_TOKEN: ${{ secrets.JEKYLL_GITHUB_TOKEN }}
+          JEKYLL_GITHUB_TOKEN: ${{ secrets.JEKYLL_GITHUB_TOKEN }}
           JEKYLL_ENV: production
 
       # Deploy to GitHub Pages - using JamesIves action

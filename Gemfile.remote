@@ -1,8 +1,10 @@
 source 'https://rubygems.org'
 
+ruby '3.1.0'
 
 # Use GitHub Pages-compatible Jekyll version
 # (github-pages includes Jekyll, so no need to specify it separately)
+
 gem 'github-pages', '~> 227', group: :jekyll_plugins
 
 # Remote Theme Support
@@ -26,13 +28,12 @@ group :production do
   gem 'uglifier', '~> 4.2'              # Minifies JavaScript
   gem 'jekyll-minifier', '~> 0.1.10'    # Minifies HTML, CSS, and JS
   gem 'jekyll-compress-images', '~> 1.2' # Compresses images
-  gem 'html-proofer', '~> 5.0.7',git: 'https://github.com/gjtorikian/html-proofer.git' # Validates links and HTML
+  gem 'html-proofer', '~> 5.0.7'
   gem 'nokogiri', '~> 1.15.3'           # XML/HTML parser
 end
 
 # Caching and Performance Enhancements
-gem 'liquid', '~> 5.8.2' # Update liquid to a vers compatible to Ruby 3.x
-gem 'liquid-c', '~> 4.0.0' # Faster Liquid template processing
+gem 'liquid', '~> 4.0.3' # Update liquid to a vers compatible to Ruby 3.x
 gem 'liquid-c', '~> 4.0.0' # Faster Liquid template processing
 gem 'redis', '~> 4.8.1'    # Optional caching backend
 
@@ -52,5 +53,4 @@ platforms :mingw, :x64_mingw, :mswin, :jruby do
   gem 'tzinfo', '~> 1.2.10'
   gem 'tzinfo-data'
 end
-
 
