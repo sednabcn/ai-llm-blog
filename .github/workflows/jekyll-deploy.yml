@@ -1,13 +1,10 @@
 name: Jekyll Site Deployment
 
-#Testing
-
 # Triggers
 on:
   push:
     branches: ["master"]
-
-# Allows manual workflow trigger
+  # Allows manual workflow trigger
   workflow_dispatch:
 
 # Permissions for GitHub Pages deployment
@@ -22,13 +19,16 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Build Job
-  build:
+  # Build and Deploy Job
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       # Checkout repository
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
       # Setup Ruby 
       - name: Setup Ruby
@@ -44,7 +44,7 @@ jobs:
           if [ -f "Gemfile.remote" ]; then
             cp Gemfile.remote Gemfile
           fi
-
+          
           gem install bundler
           bundle config set deployment 'true'
           bundle install
@@ -56,54 +56,23 @@ jobs:
           if [ -f "_config.remote.yml" ]; then
             cp _config.remote.yml _config.yml
           fi
-
+          
           bundle exec jekyll build
         env:
           JEKYLL_ENV: production
 
-      # Generate Performance Report (Optional)
-      - name: Generate Build Report
-        if: success()
-        run: |
-          echo "Build completed successfully"
-          du -sh ./_site
-          find ./_site -type f | wc -l
-
-      # Upload build artifact
-      - name: Upload Site Artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: "./_site"
-
- # Deployment Job
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-
-# GitHub Pages Environment
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    steps:
-      # Enable GitHub Pages Token ✅ FIXED PLACEMENT
-      - name: Enable GitHub Pages Token
-        run: echo "GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
-
-      # Deploy to GitHub Pages ✅ FIXED CONFIGURATION
+      # Deploy to GitHub Pages - using JamesIves action
       - name: Deploy to GitHub Pages
-        id: deployment
         uses: JamesIves/github-pages-deploy-action@v4
-	
         with:
-          branch: gh-pages  # Deployment target branch
-          folder: _site      # Jekyll build output directory
-          clean: true        # Remove old files before deployment
-        
+          branch: gh-pages
+          folder: _site
+          clean: true
+          token: ${{ secrets.GITHUB_TOKEN }}
 
- # Optional: Performance and Accessibility Check
+  # Optional: Performance and Accessibility Check (runs after deployment)
   lighthouse-check:
-    needs: deploy
+    needs: build-and-deploy
     runs-on: ubuntu-latest
     steps:
       - name: Lighthouse Audit
@@ -111,5 +80,4 @@ jobs:
         with:
           urls: |
             https://sednabcn.github.io/ai-llm-blog
-          budgetPath: ./budget.json
           uploadArtifacts: true
