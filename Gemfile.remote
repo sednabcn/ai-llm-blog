@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 
-ruby '3.1.0'
+ruby '3.3.4'
 
 # Use GitHub Pages-compatible Jekyll version
 # (github-pages includes Jekyll, so no need to specify it separately)
 
-gem 'github-pages', '~> 227', group: :jekyll_plugins
+gem 'github-pages', '~> 232', group: :jekyll_plugins
 
 # Remote Theme Support
 gem 'jekyll-remote-theme', '~> 0.4.3'
@@ -16,11 +16,11 @@ gem 'jekyll-sass-converter', '~> 1.5.2'
 # Core Jekyll Plugins
 group :jekyll_plugins do
   gem 'jekyll-paginate', '~> 1.1.0'   # Pagination for blog posts
-  gem 'jekyll-feed', '~> 0.15.1'       # RSS feed generation
+  gem 'jekyll-feed', '~> 0.17.0'       # RSS feed generation
   gem 'jekyll-seo-tag', '~> 2.8.0'     # SEO metadata
   gem 'jekyll-include-cache', '~> 0.2.1' # Cached includes for performance
   gem 'jekyll-sitemap', '~> 1.4.0'     # Generates a sitemap.xml
-  gem 'jekyll-github-metadata', '~> 2.13.0' # Fetches GitHub repo metadata
+  gem 'jekyll-github-metadata', '~> 2.16.1' # Fetches GitHub repo metadata
 end
 
 # Performance Optimizations
@@ -29,11 +29,11 @@ group :production do
   gem 'jekyll-minifier', '~> 0.1.10'    # Minifies HTML, CSS, and JS
   gem 'jekyll-compress-images', '~> 1.2' # Compresses images
   gem 'html-proofer', '~> 5.0.7'
-  gem 'nokogiri', '~> 1.15.3'           # XML/HTML parser
+  gem 'nokogiri', '~> 1.18.7'           # XML/HTML parser
 end
 
 # Caching and Performance Enhancements
-gem 'liquid', '~> 4.0.3' # Update liquid to a vers compatible to Ruby 3.x
+gem 'liquid', '~> 4.0.4' # Update liquid to a vers compatible to Ruby 3.x
 gem 'liquid-c', '~> 4.0.0' # Faster Liquid template processing
 gem 'redis', '~> 4.8.1'    # Optional caching backend
 
@@ -42,8 +42,8 @@ gem 'sanitize', '~> 6.0.1'  # Sanitizes HTML content
 gem 'fastimage', '~> 2.2.7' # Fast image processing
 
 # Markdown & Syntax Highlighting
-gem 'kramdown', '~> 2.3.2' # Markdown parser
-gem 'rouge', '~> 3.26.0'   # Syntax highlighting
+gem 'kramdown', '~> 2.4.0' # Markdown parser
+gem 'rouge', '~> 3.30.0'   # Syntax highlighting
 gem 'csv'
 gem 'faraday-retry'
 
