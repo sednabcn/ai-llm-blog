@@ -54,3 +54,5 @@ platforms :mingw, :x64_mingw, :mswin, :jruby do
   gem 'tzinfo-data'
 end
 
+
+gem "minimal-mistakes-jekyll", "~> 4.26"
