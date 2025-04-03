@@ -75,4 +75,4 @@ jobs:
           urls: |
             https://sednabcn.github.io/ai-llm-blog
           uploadArtifacts: true
-          artifactName: auditResults2025 
+          artifactName: auditResults2026
