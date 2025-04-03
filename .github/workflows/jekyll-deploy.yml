@@ -78,8 +78,8 @@ jobs:
       - name: Lighthouse Audit
         uses: treosh/lighthouse-ci-action@v10
 	with:
-        urls: |
+	 urls: |
           https://sednabcn.github.io/ai-llm-blog
-        uploadArtifacts: true
-        artifactName: lighthouse-audit-results
+         uploadArtifacts: true
+         artifactName: lighthouse-audit-results
 	
