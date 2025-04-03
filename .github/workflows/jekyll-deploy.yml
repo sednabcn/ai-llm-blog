@@ -77,8 +77,9 @@ jobs:
     steps:
       - name: Lighthouse Audit
         uses: treosh/lighthouse-ci-action@v10
-        with:
-          urls: |
-            https://sednabcn.github.io/ai-llm-blog
-          uploadArtifacts: true
-	  artifactName: lighthouse-audit-results  # Add this line with a valid name
+	with:
+        urls: |
+          https://sednabcn.github.io/ai-llm-blog
+        uploadArtifacts: true
+        artifactName: lighthouse-audit-results
+	
