@@ -174,10 +174,10 @@ webrick:
 analytics:
   provider: "google-gtag"
   google:
-    tracking_id: "G-YOUR_MEASUREMENT_ID" # Replace with your Google Analytics 4 ID
+    tracking_id: "G-FFJMQ3HXMK" # Replace with your Google Analytics 4 ID
     anonymize_ip: true  # Set to true for GDPR compliance if needed
 
-google_site_verification: "YOUR_VERIFICATION_CODE"
+google_site_verification: "0l5TbPYQ76ChPVEmXUclBOY04jLkGAAQAKAEm2a0j60"
 
 
 
