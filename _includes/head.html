@@ -26,7 +26,7 @@
 
   <!-- Stylesheets -->
   {% if jekyll.environment == 'production' %}
-    <link rel="stylesheet" href="{{ '/assets/css/main.min.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   {% else %}
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   {% endif %}
@@ -46,7 +46,7 @@
   <!-- Content Security Policy -->
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
-    script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net/;
+    script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net/ https://www.googletagmanager.com/ https://www.google-analytics.com/;
     style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net/;
     img-src 'self' data: *;
     font-src 'self' https://cdn.jsdelivr.net/;
