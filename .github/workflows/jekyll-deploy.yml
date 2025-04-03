@@ -1,46 +1,42 @@
 name: Jekyll Site Deployment
 
-# Triggers
+# Triggers when code is pushed to master branch or manually triggered
 on:
   push:
     branches: ["master"]
-  # Allows manual workflow trigger
   workflow_dispatch:
 
-# Permissions for GitHub Pages deployment
+# Set required permissions
 permissions:
   contents: write
   pages: write
   id-token: write
 
-# Ensure only one concurrent deployment
+# Allow only one deployment at a time
 concurrency:
   group: "pages"
   cancel-in-progress: true
 
 jobs:
-  # Build and Deploy Job
+  # Primary job to build and deploy the Jekyll site
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      # Checkout repository
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
-      # Setup Ruby with a simpler configuration
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.3.4'
           bundler-cache: true
 
-      # Dependency Management
       - name: Install Dependencies
         run: |
-          # Check if Gemfile.remote exists and use it
+          # Use Gemfile.remote if it exists
           if [ -f "Gemfile.remote" ]; then
             cp Gemfile.remote Gemfile
           fi
@@ -48,10 +44,9 @@ jobs:
           gem install bundler
           bundle install --jobs 4 --retry 3
 
-      # Build Jekyll Site with Environment Configuration
       - name: Build Jekyll Site
         run: |
-          # Check if config.remote exists and use it
+          # Use remote config if it exists
           if [ -f "_config.remote.yml" ]; then
             cp _config.remote.yml _config.yml
           fi
@@ -61,7 +56,6 @@ jobs:
           JEKYLL_GITHUB_TOKEN: ${{ secrets.JEKYLL_GITHUB_TOKEN }}
           JEKYLL_ENV: production
 
-      # Deploy to GitHub Pages - using JamesIves action
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
@@ -70,16 +64,15 @@ jobs:
           clean: true
           token: ${{ secrets.GITHUB_TOKEN }}
 
-  # Optional: Performance and Accessibility Check (runs after deployment)
+  # Performance and accessibility testing after deployment
   lighthouse-check:
     needs: build-and-deploy
     runs-on: ubuntu-latest
     steps:
       - name: Lighthouse Audit
         uses: treosh/lighthouse-ci-action@v10
-	with:
-	 urls: |
-          https://sednabcn.github.io/ai-llm-blog
-         uploadArtifacts: true
-         artifactName: lighthouse-audit-results
-	
+        with:
+          urls: |
+            https://sednabcn.github.io/ai-llm-blog
+          uploadArtifacts: true
+          artifactName: lighthouse-audit-results
