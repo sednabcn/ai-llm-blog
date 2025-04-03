@@ -75,4 +75,4 @@ jobs:
           urls: |
             https://sednabcn.github.io/ai-llm-blog
           uploadArtifacts: true
-          artifactName: lighthouse_audit_results
+          artifactName: audit_results
