@@ -81,3 +81,4 @@ jobs:
           urls: |
             https://sednabcn.github.io/ai-llm-blog
           uploadArtifacts: true
+	  artifactName: lighthouse-audit-results  # Add this line with a valid name
