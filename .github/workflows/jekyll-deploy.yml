@@ -9,6 +9,7 @@ on:
 # Set required permissions
 permissions:
   contents: write
+  actions: write
   pages: write
   id-token: write
 
@@ -75,4 +76,4 @@ jobs:
           urls: |
             https://sednabcn.github.io/ai-llm-blog
           uploadArtifacts: true
-          artifactName: auditResults2026
+          artifactName: artifact1
