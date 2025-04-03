@@ -76,4 +76,4 @@ jobs:
           urls: |
             https://sednabcn.github.io/ai-llm-blog
           uploadArtifacts: true
-          artifactName: artifact1
+          
