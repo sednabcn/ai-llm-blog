@@ -1,0 +1,37 @@
+name: Test Artifact Upload
+
+on:
+  # Manual trigger
+  workflow_dispatch:
+
+jobs:
+  test-artifacts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create test file
+        run: |
+          mkdir -p test-output
+          echo "This is a test file" > test-output/test.txt
+          
+      - name: Upload with default name
+        uses: actions/upload-artifact@v3
+        with:
+          path: test-output/test.txt
+          
+      - name: Upload with simple name
+        uses: actions/upload-artifact@v3
+        with:
+          name: simple-artifact
+          path: test-output/test.txt
+          
+      - name: Upload with hyphenated name
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-artifact-with-hyphens
+          path: test-output/test.txt
+          
+      - name: Upload with underscore name
+        uses: actions/upload-artifact@v3
+        with:
+          name: test_artifact_with_underscores
+          path: test-output/test.txt
