@@ -14,24 +14,24 @@ jobs:
           echo "This is a test file" > test-output/test.txt
           
       - name: Upload with default name
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4.7.3
         with:
           path: test-output/test.txt
           
       - name: Upload with simple name
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4.7.3
         with:
           name: simple-artifact
           path: test-output/test.txt
           
       - name: Upload with hyphenated name
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4.7.3
         with:
           name: test-artifact-with-hyphens
           path: test-output/test.txt
           
       - name: Upload with underscore name
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4.7.3
         with:
           name: test_artifact_with_underscores
           path: test-output/test.txt
