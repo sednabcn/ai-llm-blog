@@ -80,6 +80,7 @@ footer:
 # Reading and Processing Settings
 include:
   - _pages
+  - google2fe61160aa58a7ea.html
 
 # Pagination Configuration
 permalink: "/:categories/:title/"
@@ -118,7 +119,8 @@ plugins:
   - jekyll-feed
   - jekyll-include-cache
   - jekyll-seo-tag
-  - jekyll-github-metadata	
+  - jekyll-github-metadata
+  - jekyll-redirect-from
 
 # Minifier Options
 jekyll-minifier:

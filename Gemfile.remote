@@ -56,3 +56,5 @@ end
 
 
 gem "minimal-mistakes-jekyll", "~> 4.26"
+
+gem "jekyll-redirect-from", "~> 0.16.0"
