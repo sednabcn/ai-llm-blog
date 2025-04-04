@@ -8,6 +8,8 @@ header:
   overlay_height: 400px
   #caption: "Photo: [AI Research Lab]"
   teaser: /assets/images/posts/ai-journey-header.jpg 
+categories:
+  - posts
 tags:
   - artificial intelligence
   - large language models
