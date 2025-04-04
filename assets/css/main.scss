@@ -855,3 +855,26 @@ article.page .page__content h2 {
 .page__content h1.page__title:not(.page__hero--overlay .page__title) {
   color: $primary-color !important;
 }
+
+/* ==========================================================================
+   CUSTOM: Read More Link Styling
+   ========================================================================== */
+
+.read-more {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: $primary-color;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+
+  &:hover {
+    color: $primary-color-dark;
+    text-decoration: underline;
+  }
+
+  &::after {
+    content: " →";
+    font-weight: bold;
+  }
+}

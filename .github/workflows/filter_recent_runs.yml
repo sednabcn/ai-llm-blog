@@ -1,0 +1,32 @@
+name: Show Runs from the Last Hour
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Runs every hour, at minute 0 (adjust as needed)
+
+jobs:
+  show-recent-runs:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Get the list of runs from the last hour
+      id: get_runs
+      run: |
+        # Get the current timestamp and the timestamp for one hour ago
+        CURRENT_TIME=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+        ONE_HOUR_AGO=$(date -u -d '1 hour ago' +"%Y-%m-%dT%H:%M:%SZ")
+        
+        # Set GitHub API URL to get workflow runs
+        API_URL="https://api.github.com/repos/${{ github.repository }}/actions/runs"
+        
+        # Get the list of runs and filter out those older than one hour
+        RUNS=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" "$API_URL" | jq -r --arg ONE_HOUR_AGO "$ONE_HOUR_AGO" \
+          '.workflow_runs | map(select(.created_at >= $ONE_HOUR_AGO))')
+
+        # Check if any recent runs exist and display
+        if [ -n "$RUNS" ]; then
+          echo "Runs from the last hour:"
+          echo "$RUNS" | jq '.[] | {id: .id, name: .name, status: .status, conclusion: .conclusion, created_at: .created_at}'
+        else
+          echo "No runs in the last hour."
+        fi
