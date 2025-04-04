@@ -4,8 +4,11 @@ layout: custom
 ---
 <head>
   ...
-  <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self' https://utteranc.es">
-  
+  <meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  script-src 'self' https://utteranc.es;
+  connect-src 'self' https://utteranc.es https://region1.google-analytics.com;
+  frame-ancestors 'self' https://utteranc.es;">
   ...
 </head>
 
@@ -27,7 +30,7 @@ layout: custom
 <section class="utterances-comments">
 <script src="https://utteranc.es/client.js"
     repo="sednabcn/ai-llm-blog"
-    issue-term="title"	
+    issue-number="1"	
     label="comment"		    
     theme="github-light"
     crossorigin="anonymous"
