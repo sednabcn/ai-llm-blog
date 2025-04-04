@@ -15,7 +15,6 @@ categories:
 tags:
   - artificial intelligence
   - large language models
-  - LLM-HypatiaX
   - formula discovery
 excerpt: "Join me on an exploratory journey through the rapidly evolving landscape of AI research"
 toc: true
