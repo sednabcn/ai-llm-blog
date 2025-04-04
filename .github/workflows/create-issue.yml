@@ -4,13 +4,15 @@ on:
   push:
     branches:
       - master  # Runs when a new post is added
+    paths:
+      - '_posts/**'  # Only trigger on changes to posts
 
 jobs:
   create_issue:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4.7.3
+        uses: actions/checkout@v4
 
       - name: Find latest post
         id: latest_post
@@ -18,35 +20,49 @@ jobs:
           LATEST_FILE=$(ls -t _posts/*.md | head -n 1)
           echo "Selected file: $LATEST_FILE"
 
-          TITLE=$(grep -m 1 "^title:" "$LATEST_FILE" | sed 's/title: //')
+          # Extract post metadata
+          TITLE=$(grep -m 1 "^title:" "$LATEST_FILE" | sed 's/title: //' | sed 's/"//g')
           DATE=$(basename "$LATEST_FILE" | cut -d'-' -f1-3)  # Extracts YYYY-MM-DD
-          URL="https://github.com/${{ github.repository }}/blob/main/$LATEST_FILE"
-
+          PERMALINK=$(grep -m 1 "^permalink:" "$LATEST_FILE" | sed 's/permalink: //' || echo "")
+          
+          if [ -z "$PERMALINK" ]; then
+            # If no permalink, create one from filename
+            SLUG=$(basename "$LATEST_FILE" | cut -d'-' -f4- | sed 's/\.md$//')
+            URL="https://sednabcn.github.io/ai-llm-blog/posts/$SLUG/"
+          else
+            URL="https://sednabcn.github.io/ai-llm-blog$PERMALINK"
+          fi
+          
+          # Save to GitHub environment variables
+          echo "file=$LATEST_FILE" >> $GITHUB_ENV
           echo "title=$TITLE" >> $GITHUB_ENV
           echo "date=$DATE" >> $GITHUB_ENV
           echo "url=$URL" >> $GITHUB_ENV
-
-      - name: Ensure Issue Template Exists
-        run: |
-          mkdir -p .github/ISSUE_TEMPLATE
-          echo "---" > .github/ISSUE_TEMPLATE/new_post.md
-          echo "title: \"New Blog Post: ${{ env.title }}\"" >> .github/ISSUE_TEMPLATE/new_post.md
-          echo 'labels: ["blog-comment"]' >> .github/ISSUE_TEMPLATE/new_post.md
-          echo "---" >> .github/ISSUE_TEMPLATE/new_post.md
-          echo "## 🚀 A new blog post was published!" >> .github/ISSUE_TEMPLATE/new_post.md
-          echo "**Title:** ${{ env.title }}" >> .github/ISSUE_TEMPLATE/new_post.md
-          echo "**Date:** ${{ env.date }}" >> .github/ISSUE_TEMPLATE/new_post.md
-          echo "**Read it here:** [Click to read](${{ env.url }})" >> .github/ISSUE_TEMPLATE/new_post.md
 
       - name: Create GitHub Issue
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          curl -X POST -H "Authorization: token $GITHUB_TOKEN" \
-               -H "Accept: application/vnd.github.v3+json" \
-               https://api.github.com/repos/${{ github.repository }}/issues \
-               -d '{
-                 "title": "New Blog Post: '"$title"'",
-                 "body": "'"$(cat .github/ISSUE_TEMPLATE/new_post.md)"'",
-                 "labels": ["blog-comment"]
-               }'
+          # Create issue body content
+          BODY="## 🚀 New Blog Post Published!
+          
+          **Title:** ${{ env.title }}
+          **Date:** ${{ env.date }}
+          
+          [Read the full post here](${{ env.url }})
+          
+          ---
+          *This issue is automatically created to track comments for this blog post. Comments made here will appear on the blog post via Utterances.*"
+          
+          # Create the issue via GitHub API
+          curl -X POST \
+            -H "Authorization: token $GITHUB_TOKEN" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/${{ github.repository }}/issues \
+            -d @- << EOF
+          {
+            "title": "Blog Post: ${{ env.title }}",
+            "body": $(echo "$BODY" | jq -Rs .),
+            "labels": ["blog-comment"]
+          }
+          EOF
