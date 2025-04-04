@@ -84,7 +84,7 @@ include:
 
 # Pagination Configuration
 
-permalink: "/:posts/:title/"
+permalink: /posts/:title/
 
 paginate: 5
 paginate_path: "/page:num/"
