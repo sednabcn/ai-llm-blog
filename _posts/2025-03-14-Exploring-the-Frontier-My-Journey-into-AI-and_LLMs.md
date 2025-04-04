@@ -11,7 +11,7 @@ header:
   #caption: "Photo: [AI Research Lab]"
   teaser: /assets/images/posts/ai-journey-header.jpg 
 categories:
-  - [ai-research]
+  - ai-research
 tags:
   - artificial intelligence
   - large language models
