@@ -83,7 +83,9 @@ include:
   - google2fe61160aa58a7ea.html
 
 # Pagination Configuration
-permalink: "/:categories/:title/"
+
+permalink: "/:posts/:title/"
+
 paginate: 5
 paginate_path: "/page:num/"
 

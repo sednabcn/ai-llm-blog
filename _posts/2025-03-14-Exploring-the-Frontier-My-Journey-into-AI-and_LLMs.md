@@ -1,5 +1,7 @@
 ---
+layout: single
 title: "Exploring the Frontier: My Journey into AI and LLMs"
+date: 2025-03-14
 classes:
   - header-image-readability
 header:
@@ -9,7 +11,7 @@ header:
   #caption: "Photo: [AI Research Lab]"
   teaser: /assets/images/posts/ai-journey-header.jpg 
 categories:
-  - posts
+  - [ai-research]
 tags:
   - artificial intelligence
   - large language models
