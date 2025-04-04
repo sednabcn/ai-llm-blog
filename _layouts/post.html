@@ -1,4 +1,3 @@
-
 ---
 layout: custom
 ---
@@ -21,11 +20,120 @@ layout: custom
 <section class="utterances-comments">
 <script src="https://utteranc.es/client.js"
     repo="sednabcn/ai-llm-blog"
-    issue-term="pathname"	
-    label="blog-comment"		    
+    issue-term="title"	
+    label="comment"		    
     theme="github-light"
     crossorigin="anonymous"
     async>
 </script>
 </section>
 {% endif %}
+
+<!-- Add the diagnostic script here -->
+<script>
+// Utterances Diagnostics Script
+(function() {
+  console.log("🔍 Running Utterances diagnostics...");
+  
+  // Check if Utterances script is present
+  const utterancesScripts = Array.from(document.querySelectorAll('script')).filter(script => 
+    script.src && script.src.includes('utteranc.es/client.js')
+  );
+  
+  if (utterancesScripts.length === 0) {
+    console.error("❌ No Utterances script found on this page!");
+    reportIssue("Utterances script is not present on the page");
+    return;
+  }
+  
+  console.log("✅ Utterances script found on page");
+  
+  // Get Utterances configuration
+  const utterancesScript = utterancesScripts[0];
+  const repo = utterancesScript.getAttribute('repo');
+  const issueTerm = utterancesScript.getAttribute('issue-term');
+  const label = utterancesScript.getAttribute('label');
+  
+  console.log("📋 Utterances configuration:", {
+    repo,
+    issueTerm,
+    label,
+    theme: utterancesScript.getAttribute('theme')
+  });
+  
+  // Check if repository is specified
+  if (!repo) {
+    console.error("❌ No repository specified in Utterances configuration!");
+    reportIssue("Repository not specified in Utterances configuration");
+    return;
+  }
+  
+  // Check if iframe is loaded
+  setTimeout(() => {
+    const utterancesIframe = document.querySelector('.utterances-frame');
+    
+    if (!utterancesIframe) {
+      console.error("❌ Utterances iframe not found after 3 seconds!");
+      reportIssue("Utterances iframe not loaded");
+      
+      // Check possible causes
+      checkPossibleCauses(repo, issueTerm, label);
+    } else {
+      console.log("✅ Utterances iframe found");
+      
+      // Check if comments loaded
+      setTimeout(() => {
+        const iframeHeight = utterancesIframe.style.height;
+        if (iframeHeight && parseInt(iframeHeight) < 150) {
+          console.warn("⚠️ Utterances iframe loaded but appears empty (height < 150px)");
+          reportIssue("Utterances iframe loaded but may not contain comments");
+          checkPossibleCauses(repo, issueTerm, label);
+        } else {
+          console.log("✅ Utterances comments appear to be loaded successfully");
+        }
+      }, 2000);
+    }
+  }, 3000);
+  
+  function checkPossibleCauses(repo, issueTerm, label) {
+    // Check if using title mapping
+    if (issueTerm === "title") {
+      const pageTitle = document.title;
+      console.log(`ℹ️ Using title mapping with page title: "${pageTitle}"`);
+      console.log(`ℹ️ Check if an issue with this exact title exists at: https://github.com/${repo}/issues`);
+    }
+    
+    // Check if label is specified
+    if (label) {
+      console.log(`ℹ️ Using label filter: "${label}"`);
+      console.log(`ℹ️ Make sure issues have the "${label}" label at: https://github.com/${repo}/labels/${label}`);
+    }
+    
+    // Generic advice
+    console.log("🔍 Possible issues to check:");
+    console.log("1. Ensure the Utterances GitHub app is installed: https://github.com/apps/utterances");
+    console.log(`2. Make sure the repository "${repo}" is public`);
+    console.log(`3. Check for matching issues at: https://github.com/${repo}/issues`);
+    console.log("4. Look for any Content Security Policy (CSP) errors in console");
+  }
+  
+  function reportIssue(message) {
+    // Create a visible error message on the page
+    const diagnosticDiv = document.createElement('div');
+    diagnosticDiv.style.padding = '10px';
+    diagnosticDiv.style.margin = '10px 0';
+    diagnosticDiv.style.border = '1px solid #f44336';
+    diagnosticDiv.style.backgroundColor = '#ffebee';
+    diagnosticDiv.innerHTML = `
+      <h4 style="margin: 0 0 10px 0; color: #d32f2f;">Utterances Diagnostic: Issue Detected</h4>
+      <p style="margin: 0 0 10px 0;"><strong>${message}</strong></p>
+      <p style="margin: 0;">For details, open your browser's console (F12 or right-click → Inspect → Console)</p>
+    `;
+    
+    // Find the utterances container and insert before it
+    const utterancesContainer = document.querySelector('.utterances-comments') || utterancesScript.parentNode;
+    utterancesContainer.parentNode.insertBefore(diagnosticDiv, utterancesContainer);
+  }
+})();
+</script>
+
