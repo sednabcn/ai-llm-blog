@@ -44,7 +44,8 @@
   {% endif %}
 
   
-<!-- Content Security Policy -->
+ 
+ <!-- Content Security Policy -->
 <meta http-equiv="Content-Security-Policy" content="
   default-src 'self';
   script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net/ https://www.googletagmanager.com/ https://www.google-analytics.com/ https://utteranc.es;
@@ -53,9 +54,7 @@
   font-src 'self' https://cdn.jsdelivr.net/;
   connect-src 'self' https://utteranc.es https://region1.google-analytics.com https://www.google-analytics.com;
   frame-src 'self' https://utteranc.es;
-  frame-ancestors 'self' https://utteranc.es;
-">
-  
+"> 
   <!-- Custom Head Scripts -->
   {% if site.head_scripts %}
     {% for script in site.head_scripts %}

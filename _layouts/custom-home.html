@@ -1,19 +1,55 @@
 ---
 layout: default
 ---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-{% include page__hero.html %}
+  {% if page.title %}
+    <meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">
+  {% endif %}
+  {% if page.excerpt %}
+    <meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">
+  {% endif %}
 
-<div id="main" role="main">
-  {% include sidebar.html %}
+  <!-- ✅ Iframe protection script -->
+  <script>
+    if (window.top !== window.self) {
+      const trusted = ['utteranc.es'];
+      try {
+        const referrer = document.referrer;
+        const fromTrusted = trusted.some(origin => referrer.includes(origin));
+        if (!fromTrusted) {
+          window.top.location = window.location.href;
+        }
+      } catch (e) {
+        window.top.location = window.location.href;
+      }
+    }
+  </script>
 
-  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
-    {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
-    <div class="page__inner-wrap">
-      <section class="page__content" itemprop="text">
-        {{ content }}
-      </section>
-    </div>
-  </article>
-</div>
+  {% include head.html %}
+</head>
+
+<body>
+  {% include page__hero.html %}
+
+  <div id="main" role="main">
+    {% include sidebar.html %}
+
+    <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+      <div class="page__inner-wrap">
+        <section class="page__content" itemprop="text">
+          {{ content }}
+        </section>
+      </div>
+    </article>
+  </div>
+
+  {% include footer.html %}
+</body>
+</html>
+
