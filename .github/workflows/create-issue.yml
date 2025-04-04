@@ -3,14 +3,14 @@ name: New Blog Post Issue
 on:
   push:
     branches:
-      - main  # Runs when a new post is added
+      - master  # Runs when a new post is added
 
 jobs:
   create_issue:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.7.3
 
       - name: Find latest post
         id: latest_post

@@ -3,7 +3,7 @@ name: New Blog Post Issue
 on:
   push:
     branches:
-      - main  # Runs when a new post is added to the main branch
+      - master  # Runs when a new post is added to the main branch
 
 jobs:
   create_issue:
