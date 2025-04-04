@@ -1,44 +1,34 @@
-name: "New Blog Post Issue"
-
-on:
-  push:
-    branches:
-      - master  # Runs when a new post is added to the main branch
-
-jobs:
-  create_issue:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Find latest post
-        id: latest_post
-        run: |
-          LATEST_FILE=$(ls -t _posts/*.md | head -n 1)
-          echo "Selected file: $LATEST_FILE"
-
-          TITLE=$(grep -m 1 "^title:" "$LATEST_FILE" | sed 's/title: //')
-          DATE=$(basename "$LATEST_FILE" | cut -d'-' -f1-3)  # Extracts YYYY-MM-DD from filename
-          URL="https://github.com/${{ github.repository }}/blob/main/$LATEST_FILE"
-
-          echo "Title: $TITLE"
-          echo "Date: $DATE"
-          echo "URL: $URL"
-
-          echo "title=$TITLE" >> $GITHUB_ENV
-          echo "date=$DATE" >> $GITHUB_ENV
-          echo "url=$URL" >> $GITHUB_ENV
-
-      - name: Create GitHub Issue
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          curl -X POST -H "Authorization: token $GITHUB_TOKEN" \
-               -H "Accept: application/vnd.github.v3+json" \
-               https://api.github.com/repos/${{ github.repository }}/issues \
-               -d "{
-                 \"title\": \"New Blog Post: ${{ env.title }}\",
-                 \"body\": \"📢 A new blog post was published on **${{ env.date }}**!\\n\\n[Read the post here](${{ env.url }})\",
-                 \"labels\": [\"blog\"]
-               }"
+name: Blog Post Comment
+description: Template for blog post comments
+title: "[Blog] "
+labels: ["blog-comment"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Blog Post Comments
+        This issue is linked to a blog post via Utterances and displays comments from the post.
+        
+  - type: input
+    id: post-title
+    attributes:
+      label: Post Title
+      description: The title of the blog post
+      placeholder: "e.g., Introduction to LLMs"
+    validations:
+      required: true
+      
+  - type: input
+    id: post-url
+    attributes:
+      label: Post URL
+      description: Link to the blog post
+      placeholder: "https://sednabcn.github.io/ai-llm-blog/posts/..."
+    validations:
+      required: true
+      
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        Comments made on this issue will appear on the blog post via Utterances.
