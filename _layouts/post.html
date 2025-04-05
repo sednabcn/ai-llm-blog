@@ -1,5 +1,6 @@
 ---
 layout: custom
+#permalink: /test-comments/
 ---
 
 <article class="post">
@@ -13,21 +14,52 @@ layout: custom
   <p>Category: {{ page.category }}</p>
 </article>
 
-<!---{% if page.comments %} -->
-  <section id="comments">
-    <!-- Section Heading -->
-    <h3>Comments</h3>
+  
+<body>
+  <h1>🧪 Utterances Comment Test Page</h1>
+  <p>This standalone test page checks if your Utterances comments are loading correctly.</p>
 
-    <!-- Utterances Embed -->
-    <div class="utterances-comments">
-      <script src="https://utteranc.es/client.js"
-              repo="sednabcn/ai-llm-blog"
-              issue-term="pathname"
-	      label="💬 comments"
-              theme="github-light"
-              crossorigin="anonymous"
-              async>
-      </script>
-    </div>
+
+ {% if page.comments %} 
+   <section id="comments">
+    <script src="https://utteranc.es/client.js"
+      repo="sednabcn/ai-llm-blog"
+      issue-term="pathname"
+      label="💬 comments"
+      theme="github-light"
+      crossorigin="anonymous"
+      async>
+    </script>
+   </section>
+ {% endif %}   
+<!-- 
+
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 2rem;
+      background: #f9f9f9;
+      color: #333;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+  </style>
+   <section id="comments">
+    <script src="https://utteranc.es/client.js"
+      repo="sednabcn/ai-llm-blog"
+      issue-term="pathname"
+      label="💬 comments"
+      theme="github-light"
+      crossorigin="anonymous"
+      async>
+    </script>
   </section>
-<!---{% endif %} -->
+</body>
+-->
+
