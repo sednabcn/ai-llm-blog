@@ -1,36 +1,39 @@
 ---
 layout: custom
-permalink: /test-comments/
+#permalink: /test-comments/
 ---
 <!DOCTYPE html>
 <html lang="en">
-  
-<head>
-  <meta charset="UTF-8">
-  <title>Utterances Comments Test</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-</head>
 
+<article class="post">
+  <h1>{{ page.title }}</h1>
+  <p><strong>Published on:</strong> {{ page.date | date: "%B %d, %Y" }}</p>
+ 
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  <p>Category: {{ page.category }}</p>
+</article>
+
+  
 <body>
   <h1>🧪 Utterances Comment Test Page</h1>
   <p>This standalone test page checks if your Utterances comments are loading correctly.</p>
-<section id="comments">
-    <!-- Section Heading -->
-    <h3>Comments</h3>
 
-    <!-- Utterances Embed -->
-    <div class="utterances-comments">
-      <script src="https://utteranc.es/client.js"
-              repo="sednabcn/ai-llm-blog"
-              issue-term="pathname"
-	      label="💬 comments"
-              theme="github-light"
-              crossorigin="anonymous"
-              async>
-      </script>
-    </div>
-</section>
+
+ {% if page.comments %} 
+   <section id="comments">
+    <script src="https://utteranc.es/client.js"
+      repo="sednabcn/ai-llm-blog"
+      issue-term="pathname"
+      label="💬 comments"
+      theme="github-light"
+      crossorigin="anonymous"
+      async>
+    </script>
+   </section>
+ {% endif %}   
 <!-- 
 
   <style>
@@ -49,7 +52,7 @@ permalink: /test-comments/
       margin-bottom: 2rem;
     }
   </style>
-  <section id="comments">
+   <section id="comments">
     <script src="https://utteranc.es/client.js"
       repo="sednabcn/ai-llm-blog"
       issue-term="pathname"
