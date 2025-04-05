@@ -13,6 +13,11 @@ layout: custom
   <p>Category: {{ page.category }}</p>
 </article>
 
+{% if page.comments %}
+<div id="comments">
+  <!-- Utterances Embed -->
+</div>
+{% endif %}
 
 {% if page.comments != false %}
 <!-- Utterances Comments -->
