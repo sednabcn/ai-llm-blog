@@ -1,9 +1,16 @@
-<!-- Theme toggle button -->
-<button onclick="toggleTheme()">Toggle Dark/Light Mode</button>
+<!-- Theme toggle and comments buttons -->
+<div class="theme-comments-container">
+  <button class="theme-button" onclick="toggleTheme()">
+    🌓 Toggle Dark/Light Mode
+  </button>
+  
+  <button class="comments-button" onclick="toggleComments()">
+    💬 Show/Hide Comments
+  </button>
 
-<!-- Comment Section -->
-<button onclick="toggleComments()">💬 Show/Hide Comments</button>
-<section id="comments-section" style="display: none;">
-  <h2>💬 Comments</h2>
-  <div id="utterances-comments"></div>
-</section>
+  <!-- Comment Section -->
+  <section id="comments-section" style="display: none;">
+    <h2 class="comments-heading">💬 Comments</h2>
+    <div id="utterances-comments"></div>
+  </section>
+</div>

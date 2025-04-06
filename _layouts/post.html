@@ -1,5 +1,5 @@
 ---
-layout: custom
+layout: default
 ---
 
 <article class="post">
@@ -9,6 +9,9 @@ layout: custom
   <div class="post-content">
     {{ content }}
   </div>
+
+  <!-- Where you want the buttons and comment section to appear -->
+  {% include theme-comments.html %}
 
   {% if page.comments %}
     <section id="{{ page.comment_section_id | default: 'comments-section' }}">
@@ -27,3 +30,6 @@ layout: custom
 
   <p>Category: {{ page.category }}</p>
 </article>
+
+<!-- Load theme/comment toggle logic -->
+<script src="{{ '/assets/js/theme-comments.js' | relative_url }}"></script>
