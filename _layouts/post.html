@@ -15,7 +15,8 @@ layout: custom-home
   {% if jekyll.environment == "production" %}
   
   {% if page.comments != false %}
-    {% include utterances.html %}
+     {% include utterances.html %}
+     <script src="/assets/js/utterances-style.js"></script> 
   {% endif %}
   
 {% endif %}

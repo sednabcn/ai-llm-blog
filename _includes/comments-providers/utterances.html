@@ -5,8 +5,9 @@
     <script src="https://utteranc.es/client.js"
             repo="{{ utterances.repo }}"
             issue-term="{{ utterances.issue-term | default: 'pathname' }}" 
-            label="{{ utterances.label | default: '💬comments' }}" 
-            theme="{{ utterances.theme | default: 'github-light' }}"
+            label="{{ utterances.label | default: '💬comments' }}"
+	    theme="{{ site.url }}/assets/css/utterances-theme.css"
+            #theme="{{ utterances.theme | default: 'github-light' }}"
             crossorigin="anonymous"
             async>
     </script>
