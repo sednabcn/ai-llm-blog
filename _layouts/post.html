@@ -12,23 +12,20 @@ layout: custom
 
   <p>Category: {{ page.category }}</p>
 
+  
+{% if page.comments != false %}
+<!-- Utterances Comments -->
+<section class="utterances-comments">
+<script src="https://utteranc.es/client.js"
+    repo="sednabcn/ai-llm-blog"
+    issue-term="title"
+    label="💬 comments"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+</section>
+{% endif %}
+	      
 
-<!---{% if page.comments %} -->
-  <section id="comments">
-    <!-- Section Heading -->
-    <h3>Comments</h3>
-
-    <!-- Utterances Embed -->
-    <div class="utterances-comments">
-      <script src="https://utteranc.es/client.js"
-              repo="sednabcn/ai-llm-blog"
-              issue-term="pathname"
-	      label="💬 comments"
-              theme="github-light"
-              crossorigin="anonymous"
-              async>
-      </script>
-    </div>
-  </section>
-<!---{% endif %} -->
 </article>
