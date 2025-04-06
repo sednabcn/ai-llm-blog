@@ -361,6 +361,7 @@ PLATFORMS
   x86_64-linux-gnu
 
 DEPENDENCIES
+  bigdecimal
   csv
   faraday-retry
   fastimage (~> 2.2.7)

@@ -30,4 +30,7 @@ excerpt: "<span class='no-break'>A blog dedicated to AI, LLM research, and the L
     </div>
   {% endfor %}
 </div>
-<script src="assets/js/theme-comments.js"></script>
+<!-- Where you want the buttons and comment section to appear -->
+{% include theme-comments.html %}
+
+<script src="{{ '/assets/js/theme-comments.js' | relative_url }}"></script>
