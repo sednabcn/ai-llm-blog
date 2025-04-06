@@ -1,0 +1,206 @@
+/* Custom Utterances Theme with Purple Sidebar Compatibility */
+
+/* Base colors */
+:root {
+  --background-color: #ffffff;
+  --text-color: #24292e;
+  --border-color: #e1e4e8;
+  --primary-purple: #6200ea; /* Adjust to match your exact purple */
+  --accent-teal: #00b3a4;
+  --button-green: #8bc34a;
+  --link-color: #0366d6;
+  --sidebar-text: #ffffff;
+  --light-bg: #f6f8fa;
+  --comment-border: #d1d5da;
+}
+
+/* Main container */
+.utterances {
+  max-width: 100%;
+}
+
+/* Frame */
+.utterances-frame {
+  border: none;
+  position: relative;
+}
+
+/* Common elements */
+.container {
+  margin: 0 auto;
+}
+
+/* Timeline comments */
+.timeline-comment {
+  background-color: var(--background-color);
+  border: 1px solid var(--comment-border);
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.timeline-comment-header {
+  background-color: var(--light-bg);
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+}
+
+.timeline-comment-header-text {
+  font-weight: 600;
+}
+
+.timeline-comment-avatar {
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.author-association-badge {
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  font-size: 12px;
+  padding: 2px 5px;
+  margin-left: 8px;
+}
+
+.timeline-comment-body {
+  padding: 16px;
+  color: var(--text-color);
+}
+
+/* Comment form */
+.comment-form {
+  background-color: var(--background-color);
+  border: 1px solid var(--comment-border);
+  border-radius: 6px;
+  margin-top: 16px;
+}
+
+.tabnav {
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 8px;
+}
+
+.tabnav-tab {
+  padding: 8px 12px;
+  font-size: 14px;
+  border-bottom: 2px solid transparent;
+  margin-right: 8px;
+}
+
+.tabnav-tab.selected {
+  border-bottom: 2px solid var(--accent-teal);
+  font-weight: 600;
+}
+
+.form-control {
+  width: 100%;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+  padding: 8px;
+  min-height: 100px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.form-control:focus {
+  border-color: var(--accent-teal);
+  box-shadow: 0 0 0 2px rgba(0, 179, 164, 0.2);
+  outline: none;
+}
+
+/* Buttons */
+.btn {
+  border-radius: 6px;
+  font-weight: 500;
+  padding: 5px 16px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--button-green);
+  border: 1px solid var(--button-green);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #7cb342;
+  border-color: #7cb342;
+}
+
+/* Markdown features */
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.markdown-body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.markdown-body h1, 
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.3em;
+}
+
+.markdown-body h2 {
+  font-size: 1.5em;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.3em;
+}
+
+.markdown-body code {
+  padding: 0.2em 0.4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(27, 31, 35, 0.05);
+  border-radius: 3px;
+}
+
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: var(--light-bg);
+  border-radius: 3px;
+}
+
+.markdown-body pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+/* Optional: Purple accents to match your sidebar */
+.markdown-body blockquote {
+  padding: 0 1em;
+  color: #6a737d;
+  border-left: 0.25em solid var(--primary-purple);
+}
+
+/* Comment avatar style to match SiMLeng logo in your blog */
+.avatar {
+  border-radius: 4px;
+}
