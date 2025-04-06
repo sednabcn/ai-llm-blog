@@ -1,36 +1,29 @@
 ---
 layout: custom
-#permalink: /test-comments/
 ---
 
 <article class="post">
   <h1>{{ page.title }}</h1>
   <p><strong>Published on:</strong> {{ page.date | date: "%B %d, %Y" }}</p>
- 
+
   <div class="post-content">
     {{ content }}
   </div>
 
+  {% if page.comments %}
+    <section id="{{ page.comment_section_id | default: 'comments-section' }}">
+      <h2>{{ page.comment_section_title | default: "💬 Comments" }}</h2>
+
+      <!-- Required container -->
+      <div id="utterances-comments"></div>
+
+      {% include comments-providers/utterances.html
+        repo="sednabcn/ai-llm-blog"
+        theme=page.comment_theme
+        label=page.comment_label
+        issue_term=page.comment_issue_term %}
+    </section>
+  {% endif %}
+
   <p>Category: {{ page.category }}</p>
 </article>
-
-  
-<body>
-  <h1>🧪 Utterances Comment Test Page</h1>
-  <p>This standalone test page checks if your Utterances comments are loading correctly.</p>
-
-
- {% if page.comments %} 
-   <section id="comments">
-    <script src="https://utteranc.es/client.js"
-      repo="sednabcn/ai-llm-blog"
-      issue-term="pathname"
-      label="💬 comments"
-      theme="github-light"
-      crossorigin="anonymous"
-      async>
-    </script>
-   </section>
- {% endif %}
- </body>  
-
