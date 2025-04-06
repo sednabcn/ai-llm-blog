@@ -12,9 +12,12 @@ layout: custom-home
 
   <p>Category: {{ page.category }}</p>
 
+  {% if jekyll.environment == "production" %}
   
-{% if page.comments != false %}
- {% include utterances.html %}
+  {% if page.comments != false %}
+    {% include utterances.html %}
+  {% endif %}
+  
 {% endif %}
 	      
 

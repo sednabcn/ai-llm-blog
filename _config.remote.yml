@@ -85,7 +85,7 @@ comments:
 utterances:
   repo:                "sednabcn/ai-llm-blog"
   issue-term:          "title"
-  label:               "💬 comments"
+  label:               "💬comments"
   theme:               "github-light"
   crossorigin:         "anonymous"
 
