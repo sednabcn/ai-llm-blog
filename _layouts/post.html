@@ -1,5 +1,5 @@
 ---
-layout: custom
+layout: custom-home
 ---
 
 <article class="post">
@@ -14,17 +14,7 @@ layout: custom
 
   
 {% if page.comments != false %}
-<!-- Utterances Comments -->
-<section class="utterances-comments">
-<script src="https://utteranc.es/client.js"
-    repo="sednabcn/ai-llm-blog"
-    issue-term="title"
-    label="💬 comments"
-    theme="github-light"
-    crossorigin="anonymous"
-    async>
-</script>
-</section>
+ {% include utterances.html %}
 {% endif %}
 	      
 

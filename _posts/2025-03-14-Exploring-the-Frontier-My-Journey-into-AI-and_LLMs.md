@@ -21,11 +21,6 @@ toc: true
 toc_label: "Contents"
 toc_icon: "file-alt"
 comments: true
-comment_section_id: "discussion-area"
-comment_section_title: "Discussion"
-comment_issue_term: "pathname"
-comment_label: "💬 comments"
-comment_theme: "github-light"
 ---
 <!-- Apply classes to page title and subtitle -->
 
