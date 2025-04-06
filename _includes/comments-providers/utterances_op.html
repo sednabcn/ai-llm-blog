@@ -1,0 +1,29 @@
+<script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+    if (!commentContainer) return;
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+
+    // Set GitHub repo
+    script.setAttribute('repo', '{{ include.repo | default: site.repository | default: "sednabcn/ai-llm-blog" }}');
+
+    // Set issue term
+    script.setAttribute('issue-term', '{{ include.issue_term | default: site.comments.utterances.issue_term | default: "pathname" }}');
+
+    // Optional label
+    {% assign label = include.label | default: site.comments.utterances.label %}
+    {% if label %}
+      script.setAttribute('label', '{{ label }}');
+    {% endif %}crossorigin="anonymous"
+
+    // Theme
+    script.setAttribute('theme', '{{ include.theme | default: site.comments.utterances.theme | default: "github-light" }}');
+
+    script.setAttribute('crossorigin', 'anonymous')async>;
+    commentContainer.appendChild(script);
+  })();
+</script>
