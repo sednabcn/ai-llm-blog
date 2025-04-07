@@ -14,18 +14,18 @@ jobs:
         echo "⚙️ Starting cleanup job..."
 
         CURRENT_TIME=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
-        ONE_HOUR_AGO=$(date -u -d '1 hour ago' +"%Y-%m-%dT%H:%M:%SZ")
+        TWO_HOUR_AGO=$(date -u -d '2 hour ago' +"%Y-%m-%dT%H:%M:%SZ")
         API_URL="https://api.github.com/repos/${{ github.repository }}"
         TOKEN=${{ secrets.GITHUB_TOKEN }}
 
         # ---------------------------
         # 1️⃣ Delete workflow runs
         # ---------------------------
-        echo "🗑️ Deleting workflow runs older than $ONE_HOUR_AGO"
+        echo "🗑️ Deleting workflow runs older than $TWO_HOUR_AGO"
 
         RUNS=$(curl -s -H "Authorization: Bearer $TOKEN" "$API_URL/actions/runs")
 
-        echo "$RUNS" | jq -c --arg ONE_HOUR_AGO "$ONE_HOUR_AGO" '.workflow_runs[] | select(.created_at < $ONE_HOUR_AGO)' | while read -r run; do
+        echo "$RUNS" | jq -c --arg TWO_HOUR_AGO "$TWO_HOUR_AGO" '.workflow_runs[] | select(.created_at < $TWO_HOUR_AGO)' | while read -r run; do
           ID=$(echo "$run" | jq -r '.id')
           CREATED=$(echo "$run" | jq -r '.created_at')
           echo "→ Deleting run ID: $ID (created at: $CREATED)"
@@ -39,7 +39,7 @@ jobs:
 
         ARTIFACTS=$(curl -s -H "Authorization: Bearer $TOKEN" "$API_URL/actions/artifacts")
 
-        echo "$ARTIFACTS" | jq -c --arg ONE_HOUR_AGO "$ONE_HOUR_AGO" '.artifacts[] | select(.created_at < $ONE_HOUR_AGO)' | while read -r artifact; do
+        echo "$ARTIFACTS" | jq -c --arg TWO_HOUR_AGO "$TWO_HOUR_AGO" '.artifacts[] | select(.created_at < $TWO_HOUR_AGO)' | while read -r artifact; do
           ART_ID=$(echo "$artifact" | jq -r '.id')
           ART_NAME=$(echo "$artifact" | jq -r '.name')
           CREATED=$(echo "$artifact" | jq -r '.created_at')
