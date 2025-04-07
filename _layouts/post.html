@@ -19,8 +19,17 @@ layout: custom
   
      {% if page.comments != false %}
          <section class="comments-wrapper">
-            <h2>💬 Comments</h2>
-            {% include utterances.html %}
+           <h2>💬 Comments</h2>
+	   <script src="https://utteranc.es/client.js"
+		   repo="sednabcn/ai-llm-blog"
+		   issue-term="title"
+		   label="💬comments"
+		   theme="https://sednabcn.github.io/ai-llm-blog/assets/css/utterances-theme.css"
+		   crossorigin="anonymous"
+		   async>
+	   </script>
+
+           <!--{% include utterances.html %}-->
          </section> 
      {% endif %}
   

@@ -3,6 +3,10 @@
 # Site Configuration for Production Environment
 environment: production
 
+head:
+  - "<link rel='stylesheet' href='https://sednabcn.github.io/ai-llm-blog/assets/css/utterances-theme.css'>"
+
+
 # Sass Compilation Settings
 sass:
   sass_dir: _sass
