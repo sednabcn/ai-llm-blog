@@ -27,6 +27,7 @@ $overlay-opacity: 0.05; // Reduced opacity to allow more image shine through
 /* Import minimal-mistakes theme */
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+@import "utterances-theme";
 
 /* ==========================================================================
    MIXINS
