@@ -2,7 +2,7 @@ name: Clean Old Workflow Runs and Artifacts
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Every hour, at minute 0
+    - cron: '0 */2 * * *'  # Every 2 hours at minute 0
 
 jobs:
   clean-up:
