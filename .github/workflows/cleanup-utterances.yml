@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup GitHub CLI
-        uses: cli/setup-gh@v1
+        uses: github/setup-gh@v1
 
       - name: Process test issues
         id: process_issues
