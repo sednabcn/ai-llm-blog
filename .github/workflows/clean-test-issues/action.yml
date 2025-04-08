@@ -21,4 +21,4 @@ jobs:
         uses: cli/cli-action@v2
 
       - name: Run cleanup script
-        run: .github/workflows/clean-test-issues/cleanup.sh
+        run: ./cleanup.sh
