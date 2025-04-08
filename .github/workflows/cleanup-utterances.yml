@@ -22,7 +22,7 @@ jobs:
           echo "📋 Processing 'test-comment' labeled issues..."
           
           # Get all test issues in one API call to reduce API usage
-          TEST_ISSUES=$(gh issue list --label "test-comment" --state open --json number,title,locked --limit 100)
+          TEST_ISSUES=$(gh issue list --label "test-comment" --state open --json number,title --limit 100)
           TEST_COUNT=$(echo "$TEST_ISSUES" | jq length)
           echo "Found $TEST_COUNT test issues to process"
           
@@ -30,19 +30,14 @@ jobs:
           echo "$TEST_ISSUES" | jq -c '.[]' | while read -r issue; do
             NUM=$(echo "$issue" | jq -r '.number')
             TITLE=$(echo "$issue" | jq -r '.title')
-            IS_LOCKED=$(echo "$issue" | jq -r '.locked')
             
             echo "🔄 Processing test issue #$NUM: '$TITLE'"
             
-            # Only add comments if the issue isn't already locked
-            if [ "$IS_LOCKED" = "false" ]; then
-              if gh issue comment "$NUM" --body "This issue has been identified as a test/duplicate issue and will be automatically closed and locked."; then
-                echo "💬 Added comment to issue #$NUM"
-              else
-                echo "⚠️ Failed to add comment to issue #$NUM, continuing with closure"
-              fi
+            # Try to add a comment (will fail if locked, but we'll continue)
+            if gh issue comment "$NUM" --body "This issue has been identified as a test/duplicate issue and will be automatically closed and locked." 2>/dev/null; then
+              echo "💬 Added comment to issue #$NUM"
             else
-              echo "ℹ️ Issue #$NUM is already locked, skipping comment"
+              echo "⚠️ Failed to add comment to issue #$NUM (may be locked), continuing with closure"
             fi
             
             # Close the issue if it's open
@@ -52,15 +47,11 @@ jobs:
               echo "ℹ️ Issue #$NUM might already be closed"
             fi
             
-            # Lock the issue if it's not already locked
-            if [ "$IS_LOCKED" = "false" ]; then
-              if gh issue lock "$NUM" --reason "resolved" 2>/dev/null; then
-                echo "🔒 Successfully locked issue #$NUM"
-              else
-                echo "⚠️ Failed to lock issue #$NUM"
-              fi
+            # Try to lock the issue (will fail if already locked, but that's okay)
+            if gh issue lock "$NUM" --reason "resolved" 2>/dev/null; then
+              echo "🔒 Successfully locked issue #$NUM"
             else
-              echo "ℹ️ Issue #$NUM is already locked"
+              echo "ℹ️ Issue #$NUM might already be locked"
             fi
           done
           
@@ -73,6 +64,7 @@ jobs:
           
       - name: Renumber Issues Consecutively
         id: renumber_issues
+        if: success() || failure()  # Run even if previous step fails
         run: |
           echo "🔢 Renumbering open issues consecutively..."
           
@@ -179,3 +171,8 @@ jobs:
           rm tmp.md
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
+
+
+
