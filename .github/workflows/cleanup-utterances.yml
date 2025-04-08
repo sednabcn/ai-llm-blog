@@ -20,17 +20,12 @@ jobs:
       - name: Install GitHub CLI
         run: sudo apt-get install gh -y
 
-      - name: Debug GitHub Token
-        run: |
-          echo "Debugging GitHub Token setup..."
-          echo "Token is: ${{ secrets.GITHUB_TOKEN }}"  # This won't expose the token itself
-
       - name: Authenticate GitHub CLI
         run: |
           echo "Authenticating GitHub CLI..."
           echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
 
-      - name: List issues with 'test-comment' label
+      - name: List open issues with 'test-comment' label
         run: |
           echo "🔍 Listing open issues with the 'test-comment' label..."
           gh issue list --label "test-comment" --state open --json number,labels --limit 100
@@ -39,18 +34,14 @@ jobs:
 
       - name: Close issues labeled 'test-comment'
         run: |
-          echo "🔍 Closing test-comment issues..."
+          echo "🔍 Attempting to close all 'test-comment' issues..."
           gh issue list --label "test-comment" --state open --json number --limit 100 |
             jq -c '.[]' |
             while read -r issue; do
               num=$(echo "$issue" | jq -r '.number')
-              echo "🗑️ Attempting to close issue #$num"
-              # Close the issue, and print success or failure
-              if gh issue close "$num" --reason "not_planned"; then
-                echo "✅ Successfully closed issue #$num"
-              else
-                echo "❌ Failed to close issue #$num"
-              fi
+              echo "🗑️ Closing issue #$num"
+              # Force close the issue, print success or failure message
+              gh issue close "$num" --reason "not_planned" || echo "⚠️ Issue #$num may already be closed."
             done
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -83,3 +74,5 @@ jobs:
           rm tmp.md
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
