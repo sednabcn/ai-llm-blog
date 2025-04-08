@@ -86,7 +86,8 @@ utterances:
   repo:                "sednabcn/ai-llm-blog"
   issue-term:          "title"
   label:               "💬comments"
-  theme:               "custom-theme"
+  theme:               "github-light" 
+#  theme:               "custom-theme"
   crossorigin:         "anonymous"
 
 # Reading and Processing Settings
