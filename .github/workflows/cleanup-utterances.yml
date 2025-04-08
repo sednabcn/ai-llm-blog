@@ -22,7 +22,7 @@ jobs:
           echo "📋 Processing 'test-comment' labeled issues..."
           
           # Get all test issues in one API call to reduce API usage
-          TEST_ISSUES=$(gh issue list --label "test-comment" --state open --json number,title --limit 100)
+          TEST_ISSUES=$(gh issue list --label "test-comment" --state open --json number,title,locked --limit 100)
           TEST_COUNT=$(echo "$TEST_ISSUES" | jq length)
           echo "Found $TEST_COUNT test issues to process"
           
@@ -30,24 +30,37 @@ jobs:
           echo "$TEST_ISSUES" | jq -c '.[]' | while read -r issue; do
             NUM=$(echo "$issue" | jq -r '.number')
             TITLE=$(echo "$issue" | jq -r '.title')
+            IS_LOCKED=$(echo "$issue" | jq -r '.locked')
             
             echo "🔄 Processing test issue #$NUM: '$TITLE'"
             
-            # Add a comment explaining the closure
-            gh issue comment "$NUM" --body "This issue has been identified as a test/duplicate issue and will be automatically closed and locked."
-            
-            # Close the issue
-            if gh issue close "$NUM" --reason "not planned"; then
-              echo "✅ Successfully closed issue #$NUM"
+            # Only add comments if the issue isn't already locked
+            if [ "$IS_LOCKED" = "false" ]; then
+              if gh issue comment "$NUM" --body "This issue has been identified as a test/duplicate issue and will be automatically closed and locked."; then
+                echo "💬 Added comment to issue #$NUM"
+              else
+                echo "⚠️ Failed to add comment to issue #$NUM, continuing with closure"
+              fi
             else
-              echo "⚠️ Failed to close issue #$NUM, it may already be closed"
+              echo "ℹ️ Issue #$NUM is already locked, skipping comment"
             fi
             
-            # Lock the issue
-            if gh issue lock "$NUM" --reason "resolved"; then
-              echo "🔒 Successfully locked issue #$NUM"
+            # Close the issue if it's open
+            if gh issue close "$NUM" --reason "not planned" 2>/dev/null; then
+              echo "✅ Successfully closed issue #$NUM"
             else
-              echo "⚠️ Failed to lock issue #$NUM"
+              echo "ℹ️ Issue #$NUM might already be closed"
+            fi
+            
+            # Lock the issue if it's not already locked
+            if [ "$IS_LOCKED" = "false" ]; then
+              if gh issue lock "$NUM" --reason "resolved" 2>/dev/null; then
+                echo "🔒 Successfully locked issue #$NUM"
+              else
+                echo "⚠️ Failed to lock issue #$NUM"
+              fi
+            else
+              echo "ℹ️ Issue #$NUM is already locked"
             fi
           done
           
@@ -57,7 +70,62 @@ jobs:
           echo "📊 Found $REAL_ISSUES real open issues"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Renumber Issues Consecutively
+        id: renumber_issues
+        run: |
+          echo "🔢 Renumbering open issues consecutively..."
+          
+          # Get all real open issues (excluding test issues)
+          OPEN_ISSUES=$(gh issue list --state open --json number,title,labels --jq '[.[] | select(.labels | map(.name) | index("test-comment") | not)]')
+          
+          # Sort the issues by number
+          SORTED_ISSUES=$(echo "$OPEN_ISSUES" | jq 'sort_by(.number)')
+          ISSUE_COUNT=$(echo "$SORTED_ISSUES" | jq length)
+          
+          echo "📋 Found $ISSUE_COUNT real issues to potentially renumber"
+          
+          # Keep track of renamed issues
+          RENAMED=0
+          
+          # Process each issue
+          for i in $(seq 0 $(($ISSUE_COUNT - 1))); do
+            ISSUE=$(echo "$SORTED_ISSUES" | jq -r ".[$i]")
+            NUM=$(echo "$ISSUE" | jq -r '.number')
+            TITLE=$(echo "$ISSUE" | jq -r '.title')
+            
+            # Extract any existing numbering prefix (like "01:", "1:", etc.)
+            PREFIX=$(echo "$TITLE" | grep -E '^([0-9]+)(:|\.)' | sed -E 's/^([0-9]+)(:|\.).*/\1/')
+            EXPECTED_NUM=$(($i + 1))
+            PADDED_NUM=$(printf "%02d" $EXPECTED_NUM)
+            
+            # If there's no prefix or the prefix doesn't match the expected number
+            if [ -z "$PREFIX" ] || [ "$PREFIX" != "$PADDED_NUM" ]; then
+              # Strip any existing numbering pattern and add the new one
+              NEW_TITLE=$(echo "$TITLE" | sed -E 's/^([0-9]+)(:|\.) *//')
+              NEW_TITLE="$PADDED_NUM: $NEW_TITLE"
+              
+              echo "🔄 Renumbering issue #$NUM: '$TITLE' → '$NEW_TITLE'"
+              
+              # Update the issue title
+              if gh issue edit "$NUM" --title "$NEW_TITLE"; then
+                echo "✅ Successfully renumbered issue #$NUM"
+                RENAMED=$((RENAMED + 1))
+              else
+                echo "❌ Failed to renumber issue #$NUM"
+              fi
+            else
+              echo "✓ Issue #$NUM already has correct numbering: '$TITLE'"
+            fi
+          done
+          
+          echo "🔢 Renumbered $RENAMED issues out of $ISSUE_COUNT total"
+          echo "renamed_count=$RENAMED" >> $GITHUB_OUTPUT
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
       - name: Update Counter Issue
+        if: always()  # Run even if the previous steps fail
         run: |
           echo "🔄 Updating counter issue..."
           
@@ -65,18 +133,39 @@ jobs:
           COUNTER_ISSUE=$(gh issue list --state open --search "Comment Thread Counter in:title" --json number,title --limit 1)
           
           if [ "$(echo "$COUNTER_ISSUE" | jq length)" -eq "0" ]; then
-            echo "⚠️ No 'Comment Thread Counter' issue found, exiting..."
-            exit 1
+            echo "⚠️ No 'Comment Thread Counter' issue found, creating one..."
+            gh issue create --title "Comment Thread Counter" --body "Initial counter creation" --label "meta"
+            COUNTER_ISSUE=$(gh issue list --state open --search "Comment Thread Counter in:title" --json number,title --limit 1)
+            
+            if [ "$(echo "$COUNTER_ISSUE" | jq length)" -eq "0" ]; then
+              echo "❌ Failed to create counter issue, exiting..."
+              exit 1
+            fi
           fi
           
           ISSUE_NUMBER=$(echo "$COUNTER_ISSUE" | jq -r '.[0].number')
           ISSUE_TITLE=$(echo "$COUNTER_ISSUE" | jq -r '.[0].title')
           echo "📍 Found counter issue #$ISSUE_NUMBER: '$ISSUE_TITLE'"
           
-          # Update the counter issue
-          COUNT=${{ steps.process_issues.outputs.open_issue_count }}
+          # Get the count from previous step or use fallback
+          COUNT="${{ steps.process_issues.outputs.open_issue_count }}"
+          
+          # If the count is empty (due to previous step failure), get it directly
+          if [ -z "$COUNT" ]; then
+            echo "⚠️ No count from previous step, calculating directly..."
+            COUNT=$(gh issue list --state open --json number,labels --jq '[.[] | select(.labels | map(.name) | index("test-comment") | not)] | length')
+          fi
+          
+          # Get the renumbered count
+          RENAMED="${{ steps.renumber_issues.outputs.renamed_count }}"
+          if [ -z "$RENAMED" ]; then
+            RENAMED="0"
+          fi
+          
           TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
-          BODY="📊 **Current active comment threads:** $COUNT\n\n_Last updated: $TIMESTAMP by automated workflow_"
+          BODY="📊 **Current active comment threads:** $COUNT\n\n"
+          BODY+="🔢 **Issues renumbered in last run:** $RENAMED\n\n"
+          BODY+="_Last updated: $TIMESTAMP by automated workflow_"
           
           echo -e "$BODY" > tmp.md
           
@@ -90,13 +179,3 @@ jobs:
           rm tmp.md
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-
-
-
-
-
-
-
-
-
