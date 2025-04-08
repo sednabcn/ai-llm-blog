@@ -1,25 +1,21 @@
 name: Clean Test Issues and Update Counter
-
 on:
   workflow_dispatch: # Manual run
   schedule:
     - cron: '0 * * * *' # Run every hour
-
 permissions:
   issues: write  # Required to close and lock issues
   contents: read  # Required to read the repository's content
-
 jobs:
   clean-and-update:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
       - name: Setup GitHub CLI
-        uses: github/setup-gh@v1
-
+        run: |
+          # GitHub CLI is pre-installed on GitHub-hosted runners
+          gh --version
       - name: Process test issues
         id: process_issues
         run: |
@@ -61,7 +57,6 @@ jobs:
           echo "📊 Found $REAL_ISSUES real open issues"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Update Counter Issue
         run: |
           echo "🔄 Updating counter issue..."
@@ -95,6 +90,7 @@ jobs:
           rm tmp.md
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 
 
 

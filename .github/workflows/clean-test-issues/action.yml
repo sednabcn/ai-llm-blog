@@ -1,0 +1,24 @@
+name: Clean Test Issues
+on:
+  workflow_call:
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  clean-test-issues:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Set up GitHub CLI
+        uses: cli/cli-action@v2
+
+      - name: Run cleanup script
+        run: .github/workflows/clean-test-issues/cleanup.sh

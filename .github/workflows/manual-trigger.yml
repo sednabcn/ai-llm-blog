@@ -1,0 +1,8 @@
+name: Trigger Cleanup
+
+on:
+  workflow_dispatch:
+
+jobs:
+  call-cleanup:
+    uses: ./.github/workflows/clean-test-issues/action.yml
