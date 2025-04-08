@@ -22,8 +22,8 @@ jobs:
             jq -c '.[]' |
             while read -r issue; do
               num=$(echo "$issue" | jq -r '.number')
-              echo "🗑️ Closing issue #$num"
-              gh issue close "$num" --reason "not_planned"
+              echo "🗑️ Attempting to close issue #$num"
+              gh issue close "$num" --reason "not_planned" || echo "❌ Failed to close issue #$num"
             done
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -56,4 +56,6 @@ jobs:
           rm tmp.md
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
 
