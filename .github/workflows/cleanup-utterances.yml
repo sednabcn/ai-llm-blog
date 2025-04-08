@@ -1,0 +1,57 @@
+name: Clean Utterances Test Issues and Update Counter
+
+on:
+  workflow_dispatch: # Manual run
+  schedule:
+    - cron: '0 * * * *' # Optional: run every hour
+
+jobs:
+  clean-and-update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install GitHub CLI
+        run: sudo apt-get install gh -y
+
+      - name: Authenticate GitHub CLI
+        run: gh auth setup-git
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Close issues labeled 'test-comment'
+        run: |
+          echo "🔍 Closing test-comment issues..."
+          gh issue list --label "test-comment" --state open --json number --limit 100 |
+            jq -c '.[]' |
+            while read -r issue; do
+              num=$(echo "$issue" | jq -r '.number')
+              echo "🗑️ Closing issue #$num"
+              gh issue close "$num" --reason "not_planned"
+            done
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Count real (non-test) issues
+        id: count_issues
+        run: |
+          TOTAL=$(gh issue list --state open --json labels | \
+            jq '[.[] | select(.labels | all(.name != "test-comment"))] | length')
+          echo "open_issue_count=$TOTAL" >> $GITHUB_OUTPUT
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update Comment Counter Issue
+        run: |
+          ISSUE_NUMBER=$(gh issue list --state open --search "Comment Thread Counter in:title" --json number -q '.[0].number')
+
+          if [ -z "$ISSUE_NUMBER" ]; then
+            echo "⚠️ No 'Comment Thread Counter' issue found!"
+            exit 1
+          fi
+
+          COUNT=${{ steps.count_issues.outputs.open_issue_count }}
+          BODY="📊 **Current active comment threads:** $COUNT\n\n_Last updated: $(date -u)_"
+
+          echo -e "$BODY" > tmp.md
+          gh issue edit "$ISSUE_NUMBER" --body-file tmp.md
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -2,11 +2,7 @@
 
 # Site Configuration for Production Environment
 environment: production
-
-head:
-  - "<link rel='stylesheet' href='https://sednabcn.github.io/ai-llm-blog/assets/css/utterances-theme.css'>"
-
-
+ 
 # Sass Compilation Settings
 sass:
   sass_dir: _sass
@@ -90,7 +86,7 @@ utterances:
   repo:                "sednabcn/ai-llm-blog"
   issue-term:          "title"
   label:               "💬comments"
-#  theme:               "https://sednabcn.github.io/ai-llm-blog/assets/css/utterances-theme.css"
+  theme:               "custom-theme"
   crossorigin:         "anonymous"
 
 # Reading and Processing Settings
