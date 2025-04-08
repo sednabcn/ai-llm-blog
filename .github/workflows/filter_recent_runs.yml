@@ -3,6 +3,13 @@ name: Clean Old Workflow Runs and Artifacts
 on:
   schedule:
     - cron: '0 */2 * * *'  # Every 2 hours
+  # Add manual trigger option for testing
+  workflow_dispatch:
+
+# Ensure the workflow has proper permissions
+permissions:
+  actions: write
+  contents: read
 
 jobs:
   clean-up:
@@ -11,53 +18,124 @@ jobs:
     steps:
     - name: Delete workflow runs and artifacts older than two hours (except latest Jekyll)
       run: |
-        echo "⚙️ Starting cleanup job..."
+        echo "⚙️ Starting cleanup job at $(date -u)"
 
+        # More robust time calculation
         CURRENT_TIME=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
-        TWO_HOUR_AGO=$(date -u -d '2 hour ago' +"%Y-%m-%dT%H:%M:%SZ")
+        # Using -2 hours instead of '2 hour ago' for better compatibility
+        TWO_HOUR_AGO=$(date -u -d '-2 hours' +"%Y-%m-%dT%H:%M:%SZ")
+        
+        echo "Current time: $CURRENT_TIME"
+        echo "Two hours ago: $TWO_HOUR_AGO"
+        
         API_URL="https://api.github.com/repos/${{ github.repository }}"
         TOKEN=${{ secrets.GITHUB_TOKEN }}
-
+        
+        # Add better error handling and pagination for large repositories
         echo "📥 Fetching all workflow runs..."
-        RUNS=$(curl -s -H "Authorization: Bearer $TOKEN" "$API_URL/actions/runs")
-
+        PAGE=1
+        RUNS=$(curl -s -H "Authorization: Bearer $TOKEN" "$API_URL/actions/runs?per_page=100&page=$PAGE")
+        
+        if [[ $(echo "$RUNS" | jq -r '.message // empty') ]]; then
+          echo "❌ API Error: $(echo "$RUNS" | jq -r '.message')"
+          exit 1
+        fi
+        
+        TOTAL_RUNS=$(echo "$RUNS" | jq '.workflow_runs | length')
+        echo "Found $TOTAL_RUNS workflow runs on page 1"
+        
         echo "🔍 Identifying latest Jekyll deployment run..."
         LATEST_JEKYLL_RUN_ID=$(echo "$RUNS" | jq -r '
           .workflow_runs
           | sort_by(.created_at)
           | reverse
           | map(select(.name | test("jekyll|deploy"; "i")))
-          | .[0].id
+          | .[0].id // "none"
         ')
-        echo "🚫 Skipping deletion for Jekyll run ID: $LATEST_JEKYLL_RUN_ID"
-
+        
+        if [[ "$LATEST_JEKYLL_RUN_ID" == "none" ]]; then
+          echo "ℹ️ No Jekyll deployment runs found"
+        else
+          echo "🚫 Skipping deletion for Jekyll run ID: $LATEST_JEKYLL_RUN_ID"
+        fi
+        
+        # Count old runs for debugging
+        OLD_RUNS_COUNT=$(echo "$RUNS" | jq --arg TWO_HOUR_AGO "$TWO_HOUR_AGO" '[.workflow_runs[] | select(.created_at < $TWO_HOUR_AGO)] | length')
+        echo "Found $OLD_RUNS_COUNT runs older than $TWO_HOUR_AGO that are candidates for deletion"
+        
+        # Process runs with better error handling
         echo "🗑️ Deleting workflow runs older than $TWO_HOUR_AGO (except latest Jekyll)"
+        DELETED_COUNT=0
+        SKIPPED_COUNT=0
+        ERROR_COUNT=0
+        
         echo "$RUNS" | jq -c --arg TWO_HOUR_AGO "$TWO_HOUR_AGO" '.workflow_runs[] | select(.created_at < $TWO_HOUR_AGO)' | while read -r run; do
           ID=$(echo "$run" | jq -r '.id')
+          NAME=$(echo "$run" | jq -r '.name')
           CREATED=$(echo "$run" | jq -r '.created_at')
 
           if [[ "$ID" == "$LATEST_JEKYLL_RUN_ID" ]]; then
-            echo "⏭️ Skipping latest Jekyll run (ID: $ID)"
+            echo "⏭️ Skipping latest Jekyll run (ID: $ID, Name: $NAME)"
+            SKIPPED_COUNT=$((SKIPPED_COUNT + 1))
             continue
           fi
 
-          echo "→ Deleting run ID: $ID (created at: $CREATED)"
-          curl -X DELETE -H "Authorization: Bearer $TOKEN" "$API_URL/actions/runs/$ID"
+          echo "→ Deleting run ID: $ID (Name: $NAME, Created at: $CREATED)"
+          DELETE_RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" -X DELETE -H "Authorization: Bearer $TOKEN" "$API_URL/actions/runs/$ID")
+          
+          if [[ "$DELETE_RESPONSE" -ge 200 && "$DELETE_RESPONSE" -lt 300 ]]; then
+            echo "  ✅ Successfully deleted run ID: $ID"
+            DELETED_COUNT=$((DELETED_COUNT + 1))
+          else
+            echo "  ❌ Failed to delete run ID: $ID (HTTP response: $DELETE_RESPONSE)"
+            ERROR_COUNT=$((ERROR_COUNT + 1))
+          fi
+          
+          # Add a small delay to prevent rate limiting
+          sleep 0.5
         done
-
+        
+        echo "📊 Run deletion summary: Deleted: $DELETED_COUNT, Skipped: $SKIPPED_COUNT, Errors: $ERROR_COUNT"
+        
         # ---------------------------
         # 2️⃣ Delete old artifacts
         # ---------------------------
         echo "🧹 Fetching artifacts..."
-        ARTIFACTS=$(curl -s -H "Authorization: Bearer $TOKEN" "$API_URL/actions/artifacts")
-
+        ARTIFACTS=$(curl -s -H "Authorization: Bearer $TOKEN" "$API_URL/actions/artifacts?per_page=100")
+        
+        if [[ $(echo "$ARTIFACTS" | jq -r '.message // empty') ]]; then
+          echo "❌ API Error when fetching artifacts: $(echo "$ARTIFACTS" | jq -r '.message')"
+          exit 1
+        fi
+        
+        TOTAL_ARTIFACTS=$(echo "$ARTIFACTS" | jq '.artifacts | length')
+        OLD_ARTIFACTS_COUNT=$(echo "$ARTIFACTS" | jq --arg TWO_HOUR_AGO "$TWO_HOUR_AGO" '[.artifacts[] | select(.created_at < $TWO_HOUR_AGO)] | length')
+        
+        echo "Found $TOTAL_ARTIFACTS total artifacts, with $OLD_ARTIFACTS_COUNT older than $TWO_HOUR_AGO"
+        
+        ARTIFACT_DELETED=0
+        ARTIFACT_ERROR=0
+        
         echo "$ARTIFACTS" | jq -c --arg TWO_HOUR_AGO "$TWO_HOUR_AGO" '.artifacts[] | select(.created_at < $TWO_HOUR_AGO)' | while read -r artifact; do
           ARTIFACT_ID=$(echo "$artifact" | jq -r '.id')
           ARTIFACT_NAME=$(echo "$artifact" | jq -r '.name')
-          echo "→ Deleting artifact ID: $ARTIFACT_ID (name: $ARTIFACT_NAME)"
-          curl -X DELETE -H "Authorization: Bearer $TOKEN" "$API_URL/actions/artifacts/$ARTIFACT_ID"
+          ARTIFACT_CREATED=$(echo "$artifact" | jq -r '.created_at')
+          
+          echo "→ Deleting artifact ID: $ARTIFACT_ID (Name: $ARTIFACT_NAME, Created: $ARTIFACT_CREATED)"
+          DELETE_RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" -X DELETE -H "Authorization: Bearer $TOKEN" "$API_URL/actions/artifacts/$ARTIFACT_ID")
+          
+          if [[ "$DELETE_RESPONSE" -ge 200 && "$DELETE_RESPONSE" -lt 300 ]]; then
+            echo "  ✅ Successfully deleted artifact ID: $ARTIFACT_ID"
+            ARTIFACT_DELETED=$((ARTIFACT_DELETED + 1))
+          else
+            echo "  ❌ Failed to delete artifact ID: $ARTIFACT_ID (HTTP response: $DELETE_RESPONSE)"
+            ARTIFACT_ERROR=$((ARTIFACT_ERROR + 1))
+          fi
+          
+          # Add a small delay to prevent rate limiting
+          sleep 0.5
         done
-
-        echo "✅ Cleanup complete."
-
+        
+        echo "📊 Artifact deletion summary: Deleted: $ARTIFACT_DELETED, Errors: $ARTIFACT_ERROR"
+        echo "✅ Cleanup complete at $(date -u)"
 
