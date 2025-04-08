@@ -37,7 +37,7 @@ jobs:
             gh issue comment "$NUM" --body "This issue has been identified as a test/duplicate issue and will be automatically closed and locked."
             
             # Close the issue
-            if gh issue close "$NUM" --reason "not_planned"; then
+            if gh issue close "$NUM" --reason "not planned"; then
               echo "✅ Successfully closed issue #$NUM"
             else
               echo "⚠️ Failed to close issue #$NUM, it may already be closed"
