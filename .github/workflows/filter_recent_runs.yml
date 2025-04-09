@@ -14,9 +14,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Keep Recent and Daily Jekyll Deployments
+    - name: Keep One Jekyll Deployment Per Day for Last 7 Days
       run: |
-        echo "⚙️ Starting Jekyll retention cleanup at $(date -u)"
+        echo "⚙️ Starting daily Jekyll retention cleanup at $(date -u)"
         
         API_URL="https://api.github.com/repos/$GITHUB_REPOSITORY"
         TOKEN="${{ secrets.GITHUB_TOKEN }}"
@@ -24,7 +24,6 @@ jobs:
         # Configuration variables
         JEKYLL_PATTERN="jekyll|deploy|build|site|pages"  # Pattern to match Jekyll-related workflows
         RETENTION_DAYS=7                                 # Keep one deployment per day for 7 days
-        RECENT_HOURS=2                                   # Keep ALL deployments from last 2 hours
         
         echo "📥 Fetching all workflow runs..."
         PAGE=1
@@ -35,6 +34,7 @@ jobs:
           exit 1
         fi
         
+        # Rest of script continues as before
         TOTAL_RUNS=$(echo "$RUNS" | jq '.workflow_runs | length')
         echo "Found $TOTAL_RUNS total workflow runs"
         
@@ -49,15 +49,14 @@ jobs:
         TOTAL_JEKYLL=$(echo "$JEKYLL_RUNS" | jq 'length')
         echo "Found $TOTAL_JEKYLL Jekyll-related workflow runs"
         
-        # Calculate timestamps for filtering
-        SEVEN_DAYS_AGO=$(date -u -d "-${RETENTION_DAYS} days" +"%Y-%m-%d")
-        TWO_HOURS_AGO=$(date -u -d "-${RECENT_HOURS} hours" +"%Y-%m-%dT%H:%M:%SZ")
-        echo "🕒 Using time filters: 2 hours ago = $TWO_HOURS_AGO, 7 days ago = $SEVEN_DAYS_AGO"
+        # Group Jekyll runs by day (using date only, not time)
+        # First, create a mapping from full date to date only
+        echo "📅 Grouping Jekyll deployments by day..."
         
         # Create a temporary file for processing
         TMP_FILE=$(mktemp)
         
-        # Extract Jekyll runs with simplified date (YYYY-MM-DD only) and full timestamp
+        # Extract Jekyll runs with simplified date (YYYY-MM-DD only)
         echo "$JEKYLL_RUNS" | jq -c '.[]' | while read -r run; do
           RUN_ID=$(echo "$run" | jq -r '.id')
           FULL_DATE=$(echo "$run" | jq -r '.created_at')
@@ -66,51 +65,33 @@ jobs:
           echo "$RUN_ID,$DATE_ONLY,$FULL_DATE" >> "$TMP_FILE"
         done
         
-        echo "🧮 Processing Jekyll runs with updated retention logic..."
+        # Calculate the date 7 days ago
+        SEVEN_DAYS_AGO=$(date -u -d "-${RETENTION_DAYS} days" +"%Y-%m-%d")
+        
+        echo "🧮 Processing Jekyll runs to keep one per day for last 7 days..."
         
         # Create arrays to track runs to keep and delete
         declare -A DEPLOYMENTS_TO_KEEP
         RUNS_TO_DELETE=()
         
-        # Read the file and apply new retention logic
+        # Read the file and identify which runs to keep (one per day)
         while IFS=, read -r run_id date_only full_date; do
-          # KEEP CONDITION 1: Keep all runs from last 2 hours
-          if [[ "$full_date" > "$TWO_HOURS_AGO" ]]; then
-            echo "⏰ Keeping recent run $run_id from $full_date (within 2-hour window)"
+          # Skip if date is older than retention period
+          # Fix the conditional expression syntax
+          if [[ "$date_only" < "$SEVEN_DAYS_AGO" ]]; then
+            echo "📌 Run $run_id from $date_only is beyond 7-day retention window"
+            RUNS_TO_DELETE+=("$run_id")
             continue
           fi
           
-          # KEEP CONDITION 2: For older runs, keep only the LAST deployment of each day for last 7 days
-          if [[ "$date_only" >= "$SEVEN_DAYS_AGO" ]]; then
-            # Always track the most recent run for each date
-            # If we already have a run for this date, compare timestamps
-            if [[ -z "${DEPLOYMENTS_TO_KEEP[$date_only]}" ]]; then
-              # First run we've seen for this date
-              echo "📅 Tracking run $run_id as latest for $date_only"
-              DEPLOYMENTS_TO_KEEP[$date_only]="$run_id,$full_date"
-            else
-              # We already have a deployment for this day, compare timestamps
-              EXISTING_INFO="${DEPLOYMENTS_TO_KEEP[$date_only]}"
-              EXISTING_RUN_ID="${EXISTING_INFO%%,*}"
-              EXISTING_DATE="${EXISTING_INFO#*,}"
-              
-              if [[ "$full_date" > "$EXISTING_DATE" ]]; then
-                # This is newer than our currently tracked run for this day
-                echo "🔄 Run $run_id is newer than current deployment for $date_only"
-                # Add the previous "newest" to delete list
-                RUNS_TO_DELETE+=($EXISTING_RUN_ID)
-                # Update with this newer run
-                DEPLOYMENTS_TO_KEEP[$date_only]="$run_id,$full_date"
-              else
-                # This run is older than our currently tracked one for this day
-                echo "🗑️ Run $run_id is an older deployment for $date_only"
-                RUNS_TO_DELETE+=($run_id)
-              fi
-            fi
+          # If we haven't seen this date yet, keep this run
+          if [[ -z "${DEPLOYMENTS_TO_KEEP[$date_only]}" ]]; then
+            echo "✅ Keeping run $run_id as the deployment for $date_only"
+            DEPLOYMENTS_TO_KEEP[$date_only]=$run_id
           else
-            # DELETE CONDITION: Runs older than retention period
-            echo "📌 Run $run_id from $date_only is beyond 7-day retention window"
-            RUNS_TO_DELETE+=($run_id)
+            # We already have a deployment for this day, delete this one
+            echo "🗑️ Run $run_id is an extra deployment for $date_only"
+            RUNS_TO_DELETE+=("$run_id")
           fi
         done < "$TMP_FILE"
         
@@ -121,15 +102,12 @@ jobs:
         KEPT_COUNT=${#DEPLOYMENTS_TO_KEEP[@]}
         DELETE_COUNT=${#RUNS_TO_DELETE[@]}
         
-        echo "📊 Jekyll deployment retention summary: Keeping the LAST deployment for each day ($KEPT_COUNT days), deleting $DELETE_COUNT"
+        echo "📊 Jekyll deployment retention summary: Keeping $KEPT_COUNT (one per day), deleting $DELETE_COUNT"
         
         # Log what we're keeping
-        echo "🔍 Deployments being kept (last one per day):"
+        echo "🔍 Deployments being kept (one per day):"
         for date in "${!DEPLOYMENTS_TO_KEEP[@]}"; do
-          KEEP_INFO="${DEPLOYMENTS_TO_KEEP[$date]}"
-          KEEP_ID="${KEEP_INFO%%,*}"
-          KEEP_DATE="${KEEP_INFO#*,}"
-          echo "  • $date: Run ID $KEEP_ID (Created: $KEEP_DATE)"
+          echo "  • $date: Run ID ${DEPLOYMENTS_TO_KEEP[$date]}"
         done
         
         # Delete the unnecessary runs
@@ -232,7 +210,7 @@ jobs:
         done
         
         # ---------------------------
-        # 2️⃣ Handle artifacts with similar retention logic
+        # 2️⃣ Handle artifacts with similar daily retention
         # ---------------------------
         echo "🧹 Fetching artifacts..."
         ARTIFACTS=$(curl -s -H "Authorization: Bearer $TOKEN" "$API_URL/actions/artifacts?per_page=100")
@@ -248,63 +226,42 @@ jobs:
         # Keep artifacts related to the workflow runs we're keeping
         KEEP_ARTIFACTS=()
         
-        # Add artifacts from the last 2 hours
-        echo "Processing artifacts to match new retention pattern..."
+        # Add latest artifact regardless
+        LATEST_ARTIFACT_ID=$(echo "$ARTIFACTS" | jq -r '.artifacts | sort_by(.created_at) | reverse | .[0].id // "none"')
+        if [[ "$LATEST_ARTIFACT_ID" != "none" ]]; then
+          KEEP_ARTIFACTS+=("$LATEST_ARTIFACT_ID")
+        fi
+        
+        # Add one artifact per day matching our retention pattern
+        echo "Processing artifacts to match daily retention pattern..."
         
         # Create a temporary file for processing
         TMP_FILE=$(mktemp)
         
-        # Process Jekyll artifacts
+        # Filter Jekyll artifacts and group by day
         echo "$ARTIFACTS" | jq -c --arg PATTERN "$JEKYLL_PATTERN" '.artifacts[] | select(.name | test($PATTERN; "i"))' | while read -r artifact; do
           ARTIFACT_ID=$(echo "$artifact" | jq -r '.id')
           FULL_DATE=$(echo "$artifact" | jq -r '.created_at')
           DATE_ONLY=${FULL_DATE%T*}  # Extract YYYY-MM-DD part only
           
-          # Keep artifacts from last 2 hours
-          if [[ "$FULL_DATE" > "$TWO_HOURS_AGO" ]]; then
-            echo "⏰ Keeping recent artifact $ARTIFACT_ID from $FULL_DATE (within 2-hour window)"
-            KEEP_ARTIFACTS+=($ARTIFACT_ID)
-          else
-            # For older artifacts, track each day to keep the latest one
-            echo "$ARTIFACT_ID,$DATE_ONLY,$FULL_DATE" >> "$TMP_FILE"
-          fi
+          echo "$ARTIFACT_ID,$DATE_ONLY,$FULL_DATE" >> "$TMP_FILE"
         done
         
-        # Process artifacts to keep only the latest one per day
+        # Process artifacts to keep one per day
         declare -A ARTIFACTS_TO_KEEP
-        
         while IFS=, read -r artifact_id date_only full_date; do
           # Skip if date is older than retention period
           if [[ "$date_only" < "$SEVEN_DAYS_AGO" ]]; then
             continue
           fi
           
-          # Always keep the latest artifact for each day
+          # If we haven't seen this date yet, keep this artifact
           if [[ -z "${ARTIFACTS_TO_KEEP[$date_only]}" ]]; then
-            # First artifact we've seen for this date
-            echo "📅 Tracking artifact $artifact_id as latest for $date_only"
-            ARTIFACTS_TO_KEEP[$date_only]="$artifact_id,$full_date"
-          else
-            # Compare timestamps to keep the latest
-            EXISTING_INFO="${ARTIFACTS_TO_KEEP[$date_only]}"
-            EXISTING_ID="${EXISTING_INFO%%,*}"
-            EXISTING_DATE="${EXISTING_INFO#*,}"
-            
-            if [[ "$full_date" > "$EXISTING_DATE" ]]; then
-              # This is newer than our currently tracked artifact for this day
-              echo "🔄 Artifact $artifact_id is newer than current one for $date_only"
-              ARTIFACTS_TO_KEEP[$date_only]="$artifact_id,$full_date"
-            fi
+            echo "✅ Keeping artifact $artifact_id for $date_only"
+            ARTIFACTS_TO_KEEP[$date_only]=$artifact_id
+            KEEP_ARTIFACTS+=("$artifact_id")
           fi
         done < "$TMP_FILE"
-        
-        # Add the latest artifact ID from each day to our keep list
-        for date in "${!ARTIFACTS_TO_KEEP[@]}"; do
-          KEEP_INFO="${ARTIFACTS_TO_KEEP[$date]}"
-          KEEP_ID="${KEEP_INFO%%,*}"
-          echo "✅ Keeping artifact $KEEP_ID as the latest for $date"
-          KEEP_ARTIFACTS+=($KEEP_ID)
-        done
         
         # Clean up temp file
         rm "$TMP_FILE"
@@ -318,7 +275,7 @@ jobs:
           ARTIFACT_NAME=$(echo "$artifact" | jq -r '.name')
           ARTIFACT_CREATED=$(echo "$artifact" | jq -r '.created_at')
           
-          # Check if this is an artifact we want to keep
+          # Check if this is a Jekyll artifact we want to keep
           KEEP=false
           for keep_id in "${KEEP_ARTIFACTS[@]}"; do
             if [[ "$ARTIFACT_ID" == "$keep_id" ]]; then
@@ -356,11 +313,7 @@ jobs:
         done
         
         # Final summary
-        echo "📊 Jekyll Workflow Summary:"
-        echo "  • Kept: All workflows from last 2 hours + latest deployment per day for past 7 days"
-        echo "  • Deleted: $DELETED workflows, Errors: $ERRORS"
+        echo "📊 Jekyll Deployment Summary: Kept $KEPT_COUNT (one per day for last 7 days), Deleted: $DELETED, Errors: $ERRORS"
         echo "📊 Other Workflow Summary: Kept: $OTHER_KEPT, Deleted: $OTHER_DELETED, Errors: $OTHER_ERRORS"
-        echo "📊 Artifact Summary: Kept: ${#KEEP_ARTIFACTS[@]}, Deleted: $ARTIFACT_DELETED, Errors: $ARTIFACT_ERROR"
-        echo "✅ Retention cleanup complete at $(date -u)"
-
-
+        echo "📊 Artifact Summary: Kept: ${#KEEP_ARTIFACTS[@]} (one per day), Deleted: $ARTIFACT_DELETED, Errors: $ARTIFACT_ERROR"
+        echo "✅ Daily retention cleanup complete at $(date -u)"
