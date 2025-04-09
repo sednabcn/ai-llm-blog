@@ -78,18 +78,6 @@ footer:
       url: "https://medium.com/@simleng"
 
 
-# Set which comment system to use
-comments:
-  provider:  'utterances'          
-
-utterances:
-  repo:                "sednabcn/ai-llm-blog"
-  issue-term:          "pathname"
-  label:               "💬comments"
-  theme:               "github-light" 
-#  theme:               "custom-theme"
-  crossorigin:         "anonymous"
-
 # Reading and Processing Settings
 include:
   - _pages

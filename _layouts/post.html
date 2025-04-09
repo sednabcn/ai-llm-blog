@@ -18,13 +18,15 @@ layout: custom
 
   <p>Category: {{ page.category }}</p>
 
-{% if jekyll.environment == "production" %}
+  {% if jekyll.environment == "production" %}
   
-     {% if page.comments != false %}
-           {% include utterances.html %}
+    {% if page.comments != false %}
+           {% include comments-providers/utterances.html %}
+
      {% endif %}
   
 {% endif %}
+
 
 </article>
 
