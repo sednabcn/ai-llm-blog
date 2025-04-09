@@ -18,8 +18,8 @@ jobs:
       run: |
         echo "⚙️ Starting daily Jekyll retention cleanup at $(date -u)"
         
-        API_URL="https://api.github.com/repos/${{ github.repository }}"
-        TOKEN=${{ secrets.GITHUB_TOKEN }}
+        API_URL="https://api.github.com/repos/$GITHUB_REPOSITORY"
+        TOKEN="${{ secrets.GITHUB_TOKEN }}"
         
         # Configuration variables
         JEKYLL_PATTERN="jekyll|deploy|build|site|pages"  # Pattern to match Jekyll-related workflows
@@ -34,6 +34,7 @@ jobs:
           exit 1
         fi
         
+        # Rest of script continues as before
         TOTAL_RUNS=$(echo "$RUNS" | jq '.workflow_runs | length')
         echo "Found $TOTAL_RUNS total workflow runs"
         
@@ -153,7 +154,6 @@ jobs:
         OTHER_KEPT=0
         
         # For non-Jekyll workflows, keep only the latest 2 of each type
-	
         echo "$WORKFLOW_NAMES" | while read -r workflow_name; do
           [[ -z "$workflow_name" ]] && continue
           
@@ -179,8 +179,7 @@ jobs:
           echo "  Found $TOTAL_OF_TYPE runs, keeping latest $TO_KEEP, deleting $TO_DELETE"
           
           # Delete runs beyond our keep limit
-	  RUNS_TO_DELETE=$(echo "$WORKFLOW_RUNS" | jq -c --arg KEEP "$TO_KEEP" '.[($KEEP | tonumber):]')
-          #RUNS_TO_DELETE=$(echo "$WORKFLOW_RUNS" | jq -c --arg KEEP "$TO_KEEP" 'slice($KEEP | tonumber; length)')
+          RUNS_TO_DELETE=$(echo "$WORKFLOW_RUNS" | jq -c --arg KEEP "$TO_KEEP" '.[($KEEP | tonumber):]')
           
           DELETED=0
           ERRORS=0
