@@ -1,39 +1,58 @@
 name: Process test issues
-  id: process_issues
-  run: |
-    echo "📋 Processing 'test-comment' labeled issues..."
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs daily at midnight
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  process_issues:
+    runs-on: ubuntu-latest
+    outputs:
+      open_issue_count: ${{ steps.process_issues.outputs.open_issue_count }}
     
-    # Get all test issues in one API call to reduce API usage
-    TEST_ISSUES=$(gh issue list --label "test-comment" --state open --json number,title --limit 100)
-    TEST_COUNT=$(echo "$TEST_ISSUES" | jq length)
-    echo "Found $TEST_COUNT test issues to process"
-    
-    # Process each test issue
-    echo "$TEST_ISSUES" | jq -c '.[]' | while read -r issue; do
-      NUM=$(echo "$issue" | jq -r '.number')
-      TITLE=$(echo "$issue" | jq -r '.title')
-      
-      echo "🔄 Processing test issue #$NUM: '$TITLE'"
-      
-      # Add a comment explaining the closure
-      gh issue comment "$NUM" --body "This issue has been identified as a test/duplicate issue and will be automatically closed and locked."
-      
-      # Close the issue
-      if gh issue close "$NUM" --reason "not planned"; then
-        echo "✅ Successfully closed issue #$NUM"
-      else
-        echo "⚠️ Failed to close issue #$NUM, it may already be closed"
-      fi
-      
-      # Lock the issue
-      if gh issue lock "$NUM" --reason "resolved"; then
-        echo "🔒 Successfully locked issue #$NUM"
-      else
-        echo "⚠️ Failed to lock issue #$NUM"
-      fi
-    done
-    
-    # Count real issues (excluding test issues) - just count the actual OPEN issues
-    REAL_ISSUES=$(gh issue list --state open --json number --jq 'length')
-    echo "open_issue_count=$REAL_ISSUES" >> $GITHUB_OUTPUT
-    echo "📊 Found $REAL_ISSUES real open issues"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+      - name: Process test issues
+        id: process_issues
+        run: |
+          echo "📋 Processing 'test-comment' labeled issues..."
+          
+          # Get all test issues in one API call to reduce API usage
+          TEST_ISSUES=$(gh issue list --label "test-comment" --state open --json number,title --limit 100)
+          TEST_COUNT=$(echo "$TEST_ISSUES" | jq length)
+          echo "Found $TEST_COUNT test issues to process"
+          
+          # Process each test issue
+          echo "$TEST_ISSUES" | jq -c '.[]' | while read -r issue; do
+            NUM=$(echo "$issue" | jq -r '.number')
+            TITLE=$(echo "$issue" | jq -r '.title')
+            
+            echo "🔄 Processing test issue #$NUM: '$TITLE'"
+            
+            # Add a comment explaining the closure
+            gh issue comment "$NUM" --body "This issue has been identified as a test/duplicate issue and will be automatically closed and locked."
+            
+            # Close the issue
+            if gh issue close "$NUM" --reason "not planned"; then
+              echo "✅ Successfully closed issue #$NUM"
+            else
+              echo "⚠️ Failed to close issue #$NUM, it may already be closed"
+            fi
+            
+            # Lock the issue
+            if gh issue lock "$NUM" --reason "resolved"; then
+              echo "🔒 Successfully locked issue #$NUM"
+            else
+              echo "⚠️ Failed to lock issue #$NUM"
+            fi
+          done
+          
+          # Count real issues (excluding test issues) - just count the actual OPEN issues
+          REAL_ISSUES=$(gh issue list --state open --json number --jq 'length')
+          echo "open_issue_count=$REAL_ISSUES" >> $GITHUB_OUTPUT
+          echo "📊 Found $REAL_ISSUES real open issues"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
