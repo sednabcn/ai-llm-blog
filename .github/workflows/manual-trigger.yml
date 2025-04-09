@@ -5,7 +5,7 @@ on:
 
 jobs:
   call-cleanup:
-    uses: ./.github/workflows/clean-test-issues/action.yml@main
+    uses: ./.github/workflows/clean-test-issues/action.yml
 
 
     

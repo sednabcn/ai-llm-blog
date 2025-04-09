@@ -1,4 +1,4 @@
-- name: Process test issues
+name: Process test issues
   id: process_issues
   run: |
     echo "📋 Processing 'test-comment' labeled issues..."
