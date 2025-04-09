@@ -84,7 +84,7 @@ comments:
 
 utterances:
   repo:                "sednabcn/ai-llm-blog"
-  issue-term:          "title"
+  issue-term:          "pathname"
   label:               "💬comments"
   theme:               "github-light" 
 #  theme:               "custom-theme"
