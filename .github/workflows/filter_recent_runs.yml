@@ -153,6 +153,7 @@ jobs:
         OTHER_KEPT=0
         
         # For non-Jekyll workflows, keep only the latest 2 of each type
+	
         echo "$WORKFLOW_NAMES" | while read -r workflow_name; do
           [[ -z "$workflow_name" ]] && continue
           
@@ -178,7 +179,8 @@ jobs:
           echo "  Found $TOTAL_OF_TYPE runs, keeping latest $TO_KEEP, deleting $TO_DELETE"
           
           # Delete runs beyond our keep limit
-          RUNS_TO_DELETE=$(echo "$WORKFLOW_RUNS" | jq -c --arg KEEP "$TO_KEEP" 'slice($KEEP | tonumber; length)')
+	  RUNS_TO_DELETE=$(echo "$WORKFLOW_RUNS" | jq -c --arg KEEP "$TO_KEEP" '.[($KEEP | tonumber):]')
+          #RUNS_TO_DELETE=$(echo "$WORKFLOW_RUNS" | jq -c --arg KEEP "$TO_KEEP" 'slice($KEEP | tonumber; length)')
           
           DELETED=0
           ERRORS=0
