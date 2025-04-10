@@ -87,7 +87,6 @@ utterances:
   issue-term:          "pathname"
   label:               "💬comments"
   theme:               "github-light" 
-#  theme:               "custom-theme"
   crossorigin:         "anonymous"
 
 # Reading and Processing Settings
