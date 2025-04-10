@@ -5,7 +5,7 @@ date: 2025-03-14
 classes:
   - header-image-readability
 header:
-  overlay_image: /assets/images/posts/ai-journey-header.jpg
+  overlay_image: /assets/images/posts/ai-journey-header.webp
   overlay_filter: rgba(0, 0, 0, 0.6)
   overlay_height: 400px
   #caption: "Photo: [AI Research Lab]"
