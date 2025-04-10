@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: post
 title: "Exploring the Frontier: My Journey into AI and LLMs"
 date: 2025-03-14
 classes:
