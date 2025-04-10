@@ -856,3 +856,92 @@ article.page .page__content h2 {
 .page__content h1.page__title:not(.page__hero--overlay .page__title) {
   color: $primary-color !important;
 }
+/* ==========================================================================
+// Utterances comments style
+ ========================================================================== */
+/* Positioning Utterances to the right */
+.utterances {
+    margin-left: 300px;  /* Adjust this depending on the width of your sidebar */
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 0;
+    border-top: 1px solid #ddd;
+}
+
+/* Styling Utterances container */
+.utterances {
+    padding: 0;
+    border-top: 1px solid #ddd;
+}
+
+/* Customizing the header of the comment section */
+.utterances-header {
+    background-color: white;  /* White background for title */
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;  /* Dark text */
+}
+
+/* Customizing the comment box */
+.utterances-comments {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+/* Adding some spacing between comments */
+.utterances-comment {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Styling individual comments */
+.utterances-comment .comment-body {
+    font-size: 14px;
+    color: #444;
+}
+
+/* Hover effect on comment author's name */
+.utterances-comment .comment-author:hover {
+    color: #0077cc;
+    text-decoration: underline;
+}
+
+/* Styling the input field for new comments */
+.utterances-new-comment textarea {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    resize: vertical;
+}
+
+/* Purple background for buttons */
+.utterances-button {
+    background-color: #6a0dad;  /* Purple */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.utterances-button:hover {
+    background-color: #8a2be2;  /* Lighter purple on hover */
+}
+
+/* Purple background for footer */
+.utterances-footer {
+    background-color: #6a0dad;  /* Purple */
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
