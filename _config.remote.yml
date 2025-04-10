@@ -82,13 +82,6 @@ footer:
 comments:
   provider:  'utterances'          
 
-utterances:
-  repo:                "sednabcn/ai-llm-blog"
-  issue-term:          "pathname"
-  label:               "💬comments"
-  theme:               "github-light" 
-  crossorigin:         "anonymous"
-
 # Reading and Processing Settings
 include:
   - _pages
