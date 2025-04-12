@@ -1,0 +1,77 @@
+---
+layout: single
+---
+
+<div class="container">
+  <div class="archive">
+    <h1 class="category-title">{{ page.title }}</h1>
+    
+    <div class="category-description">
+      {{ content }}
+    </div>
+
+    <div class="entries-{{ page.entries_layout | default: 'list' }}">
+      {% assign url_parts = page.url | split: '/' %}
+      {% assign category_from_url = url_parts | last %}
+      
+      <!-- Try multiple ways to find the category -->
+      {% assign category_name = page.category | default: category_from_url | default: page.title | downcase %}
+      
+      {% if site.categories[category_name] %}
+        <p>Found {{ site.categories[category_name].size }} posts in category: {{ category_name }}</p>
+        {% for post in site.categories[category_name] %}
+          <article class="category-item">
+            <h2 class="post-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+            <p class="post-date"><small>{{ post.date | date: "%B %d, %Y" }}</small></p>
+            {% if post.excerpt %}
+              <div class="post-excerpt">
+                {{ post.excerpt | markdownify }}
+                <a href="{{ post.url | relative_url }}" class="read-more">Read More &raquo;</a>
+              </div>
+            {% endif %}
+          </article>
+        {% endfor %}
+      {% else %}
+        <p>No posts found in category: {{ category_name }}</p>
+        
+        <p>Available categories:</p>
+        <ul>
+          {% for category in site.categories %}
+            <li>{{ category[0] }} ({{ category[1].size }} posts)</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<style>
+  .category-title {
+    margin-bottom: 0.5em;
+    color: #1a1a2e;
+  }
+  .category-description {
+    margin-bottom: 2em;
+  }
+  .category-item {
+    margin-bottom: 2em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #eee;
+  }
+  .post-title {
+    margin-bottom: 0.3em;
+  }
+  .post-date {
+    margin-bottom: 1em;
+    color: #666;
+  }
+  .post-excerpt {
+    margin-top: 1em;
+  }
+  .read-more {
+    display: inline-block;
+    margin-top: 0.5em;
+    font-weight: bold;
+  }
+</style>
+

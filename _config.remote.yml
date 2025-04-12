@@ -87,6 +87,17 @@ include:
   - _pages
   - google2fe61160aa58a7ea.html
 
+
+# Outputting
+collections:
+  # categories:  # Comment this out or rename it to avoid conflict
+  #   output: true
+  tags:
+    output: true
+  category_pages:  # Rename to something clearer
+    output: true
+
+
 # Pagination Configuration
 
 permalink: /posts/:title/

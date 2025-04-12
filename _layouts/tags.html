@@ -1,0 +1,55 @@
+---
+layout: single
+---
+<div class="container">
+  <div class="archive">
+    <h1 class="tag-title">{{ page.title }}</h1>
+    
+    <div class="tag-description">
+      <p>{{ page.description }}</p>
+    </div>
+
+    <div class="entries">
+      {% assign tag_name = page.slug %}
+      {% if site.tags[tag_name] %}
+        <p>Found {{ site.tags[tag_name].size }} posts in tag: {{ page.title }}</p>
+        {% for post in site.tags[tag_name] %}
+          <article class="tag-item">
+            <h2 class="post-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+            <p class="post-date"><small>{{ post.date | date: "%B %d, %Y" }}</small></p>
+            {% if post.excerpt %}
+              <div class="post-excerpt">
+                {{ post.excerpt | markdownify }}
+                <a href="{{ post.url | relative_url }}" class="read-more">Read More &raquo;</a>
+              </div>
+            {% endif %}
+          </article>
+        {% endfor %}
+      {% else %}
+        <p>No posts found in this tag.</p>
+        <p><a href="/tags/">View all available tags</a></p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<style>
+  .tag-title {
+    font-size: 2em;
+    margin-bottom: 1em;
+  }
+  .tag-item {
+    margin-bottom: 2em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #ddd;
+  }
+  .post-title {
+    font-size: 1.5em;
+  }
+  .post-date {
+    color: #777;
+  }
+  .post-excerpt {
+    margin-top: 1em;
+  }
+</style>

@@ -10,12 +10,11 @@ header:
   overlay_height: 400px
   #caption: "Photo: [AI Research Lab]"
   teaser: /assets/images/posts/ai-journey-header.jpg 
-categories:
-  - ai-research
+categories: ai-research
 tags:
-  - artificial intelligence
-  - large language models
-  - formula discovery
+  - artificial-intelligence
+  - large-language-models
+  - formula-discovery
 excerpt: "Join me on an exploratory journey through the rapidly evolving landscape of AI research"
 toc: true
 toc_label: "Contents"
