@@ -1,0 +1,71 @@
+
+---
+layout: single
+---
+
+<div class="container">
+  {% assign selected_tag = page.url | split: '/' | last | split: '#' | last %}
+
+  {% if selected_tag %}
+    <h2>Posts tagged with: <span style="color: purple;">{{ selected_tag }}</span></h2>
+    <ul>
+      {% for post in site.posts %}
+        {% if post.tags contains selected_tag %}
+          <li>
+            <a href="{{ post.url }}">{{ post.title }}</a>
+            <span style="color: gray;">({{ post.date | date: "%B %d, %Y" }})</span>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+
+    {% assign matching_posts = site.posts | where_exp: "item", "item.tags contains selected_tag" %}
+    {% if matching_posts == empty %}
+      <p>No posts found with this tag.</p>
+    {% endif %}
+  {% else %}
+    <h2>No tag selected.</h2>
+    <p>Please select a tag to view related posts.</p>
+  {% endif %}
+</div>
+
+<style>
+  .tag-title {
+    font-size: 2em;
+    margin-bottom: 1em;
+  }
+  .tag-post-list {
+    list-style: none;
+    padding-left: 0;
+  }
+  .tag-post {
+    margin-bottom: 2em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #eee;
+  }
+  .post-date {
+    color: #999;
+    font-size: 0.9em;
+  }
+  .post-excerpt {
+    margin-top: 0.5em;
+  }
+  .post-tags {
+    font-size: 0.85em;
+    margin-top: 0.5em;
+  }
+  .tag-pill {
+    display: inline-block;
+    background: #f1f1f1;
+    padding: 2px 8px;
+    margin-right: 5px;
+    border-radius: 12px;
+    font-size: 0.9em;
+  }
+  .similar-tags {
+    margin-top: 2em;
+    padding: 1em;
+    background: #f9f9f9;
+    border-left: 3px solid #0366d6;
+  }
+</style>

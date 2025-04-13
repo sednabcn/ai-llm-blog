@@ -50,7 +50,7 @@ author:
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:contact@modelphysmat.com"
+      url: "mailto:info@modelphysmat.com"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/sednabcn"
@@ -76,6 +76,10 @@ footer:
     - label: "Medium"
       icon: "fab fa-fw fa-medium"
       url: "https://medium.com/@simleng"
+    - label: "Feed"
+      icon: "fab fa-fw fa-feed"
+      url: "/feed.xml"
+
 
 
 # Set which comment system to use
@@ -90,13 +94,10 @@ include:
 
 # Outputting
 collections:
-  # categories:  # Comment this out or rename it to avoid conflict
-  #   output: true
-  tags:
+  tag_pages:
     output: true
-  category_pages:  # Rename to something clearer
+  category_pages:  
     output: true
-
 
 # Pagination Configuration
 

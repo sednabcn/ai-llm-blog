@@ -66,4 +66,23 @@
   {% if jekyll.environment == "production" %}
     {% include analytics.html %}
   {% endif %}
+
+ <!-- Open Graph / Facebook -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:title" content="{{ page.title }}">
+<meta property="og:description" content="{{ page.excerpt | strip_html | truncate: 160 }}">
+{% if page.header.image %}
+<meta property="og:image" content="{{ site.url }}{{ page.header.image }}">
+{% endif %}
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
+<meta name="twitter:title" content="{{ page.title }}">
+<meta name="twitter:description" content="{{ page.excerpt | strip_html | truncate: 160 }}">
+{% if page.header.image %}
+<meta name="twitter:image" content="{{ site.url }}{{ page.header.image }}">
+{% endif %}
+
 </head>

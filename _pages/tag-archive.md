@@ -1,43 +1,51 @@
 ---
-title: "Posts by Tag"
+title: "Browse All Posts by Tag"
 permalink: /tags/
 layout: single
+author_profile: true
+classes:
+  -wide
+  -header-image-readability
+header:
+  overlay_image: /assets/images/posts/tag-banner_.png
+  overlay_color: "#333"
+  overlay_filter: "0.7"  
+excerpt: >
+  Browse all categorized posts on Artificial Intelligence, LLMs, and Formula Discovery, grouped for easy access.
 ---
 
-# Browse Posts by Tag
-
-Click on a tag to see all posts with that tag.
-
-<div class="tag-cloud">
-  {% assign sorted_tags = site.tags | sort %}
-  {% for tag in sorted_tags %}
-    <a href="/tags/{{ tag[0] | slugify }}/" class="tag-link">
-      {{ tag[0] }} <span class="tag-count">({{ tag[1].size }})</span>
-    </a>
-  {% endfor %}
+<div class="container">
+  <div class="main-content">
+    <p class="tag-intro">Welcome to your categorized archive of insights behind <strong>AI</strong>, <strong>LLMs</strong>, and <strong>Formula Discovery</strong>. Each section below represents a tag, listing all related posts.</p>
+    
+    {% for tag in site.tags %}
+      <section class="tag-block" id="{{ tag[0] | slugify }}">
+        <h2>{{ tag[0] | capitalize }} ({{ tag[1].size }})</h2>
+        <ul>
+          {% assign posts = tag[1] %}
+          {% for post in posts %}
+            <li>
+              <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+              <small>({{ post.date | date: "%B %d, %Y" }})</small>
+            </li>
+          {% endfor %}
+        </ul>
+      </section>
+    {% endfor %}
+  </div>
+<script src="{{ '/assets/js/tag-filter.js' | relative_url }}"></script>
 </div>
 
 <style>
-  .tag-cloud {
-    margin: 2em 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8em;
+  .tag-intro {
+    margin-bottom: 2em;
+    font-size: 1.1em;
+    line-height: 1.6;
   }
-  .tag-link {
-    background-color: #f0f0f0;
-    border-radius: 4px;
-    padding: 0.4em 0.8em;
-    text-decoration: none;
-    color: #333;
-    transition: background-color 0.2s;
-  }
-  .tag-link:hover {
-    background-color: #e0e0e0;
-    text-decoration: none;
-  }
-  .tag-count {
-    font-size: 0.9em;
-    color: #666;
+  .tag-block {
+    margin-bottom: 2em;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 1em;
   }
 </style>
+

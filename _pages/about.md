@@ -83,7 +83,7 @@ We specialize in several key areas:
 <div class="profile-section">
   <div class="profile-details"> 
     <p>Feel free to reach out to us with any questions, comments, or suggestions:</p>
-    <p><strong>Email:</strong> simleng@modelphysmat.com</p>
+    <p><strong>Email:</strong> info@modelphysmat.com</p>
     <p><strong>Twitter:</strong> <a href="https://twitter.com/BONETCHAPLE" style="color: #5c00c7;">@BONETCHAPLE</a></p>
     <p><strong>GitHub:</strong> <a href="https://github.com/sednabcn" style="color: #5c00c7 !important;">sednabcn</a></p>
     <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/ " target="_blank" style="color: #5c00c7 ;">Connect with me on LinkedIn</a> to explore collaboration opportunities in computational mechanics and LLM research.</p>
