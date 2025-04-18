@@ -1,0 +1,139 @@
+---
+title: "Tutorials"
+layout: single
+permalink: /tutorials/
+collection: tutorials
+entries_layout: grid
+classes:
+   -wide
+   -inner-page
+   -header-image-readability
+author_profile: true
+sort_by: date
+sort_order: reverse
+header:
+  overlay_color: "#333"
+  overlay_filter: "0.7"
+  overlay_image: /assets/images/tutorials/tutorials-banner.png
+entries_layout: grid
+show_excerpts: true
+toc: true
+toc_label: "Tutorial Topics"
+toc_icon: "question-circle"
+---
+
+# Tutorials
+
+Welcome to our comprehensive collection of AI and LLM tutorials. Whether you're just starting out or looking to expand your expertise, our step-by-step guides will help you master essential concepts and techniques.
+
+"Explore in-depth tutorials designed to make complex AI and data science topics approachable. Whether you're a beginner or an advanced user, our guides—written by researchers and practitioners—walk you through real-world applications, best practices, and the latest techniques."
+
+## Getting Started
+
+Explore our core tutorials to help you make the most of our resources:
+
+- **Setting Up Your Environment** - Learn how to configure your development environment for AI and LLM projects
+- **Basic Customization** - Discover how to customize models and applications to suit your specific needs
+- **Advanced Features** - Master sophisticated techniques and unlock the full potential of AI models
+
+## Specialized Topics
+
+### Ethical Considerations
+
+- [Ethical Considerations](/tutorials/ethical-considerations/) - Understanding the ethical implications of AI and LLM development
+
+## Coming Soon
+
+We're constantly working to expand our tutorial library. Our team is currently developing new content in these exciting areas:
+
+- Model-specific implementation guides
+- Integration tutorials for various applications
+- Practical, project-based learning materials
+- Advanced techniques and best practices
+
+> Subscribe to our [newsletter](/subscribe) to be notified when new tutorials are released!
+
+## Join Our Community
+
+Join our [Community Forum](/tutorials/community-forum/) to share your experiences and learn from others. Our active community is a great place to get feedback on your projects, discover new ideas, and connect with fellow AI enthusiasts.
+
+## Help Shape Our Content
+
+👉 <span style="color:#5c00c7;">Your input matters!</span> Which AI and LLM topics would you like to learn more about? Our development schedule is directly influenced by community feedback, ensuring we deliver the tutorials that matter most to you.
+
+## Request a Tutorial
+
+📌 <span style="color: #5c00c7;">Can't find what you're looking for?</span> Submit a specific tutorial request with details about your use case and learning goals. Our team reviews all submissions to identify high-demand topics for our content roadmap.
+
+## Available Tutorials
+
+{% for category in site.data.tutorial_categories %}
+{% assign dir_exists = false %}
+{% for file in site.static_files %}
+  {% if file.path contains category.id %}
+    {% assign dir_exists = true %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+{% if dir_exists %}
+<h3>{{ category.name }}</h3>
+<p>{{ category.description }}</p>
+
+<ul class="tutorial-list">
+  {% for item in category.items %}
+  {% assign file_exists = false %}
+  {% for file in site.static_files %}
+    {% if file.path contains category.id and file.path contains item.file %}
+      {% assign file_exists = true %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+  {% if file_exists %}
+  <li>
+    <a href="/tutorials/{{ category.id }}/{{ item.id }}/">{{ item.name }}</a>
+    {% if item.tags %} 
+      {% for tag in item.tags limit: 2 %}
+        <span class="tag">{{ tag }}</span>
+      {% endfor %}
+    {% endif %}
+    <p class="item-description">{{ item.description }}</p>
+  </li>
+  {% endif %}
+  {% endfor %}
+</ul>
+{% endif %}
+{% endfor %}
+
+<style>
+.tag {
+  display: inline-block;
+  background: #f0e7ff;
+  color: #5c00c7;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  border-radius: 12px;
+  margin-left: 8px;
+}
+
+.tutorial-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.tutorial-list li {
+  margin-bottom: 15px;
+  padding-left: 20px;
+  border-left: 3px solid #5c00c7;
+}
+
+.tutorial-list a {
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.item-description {
+  margin-top: 5px;
+  color: #666;
+  font-size: 0.9rem;
+}
+</style>

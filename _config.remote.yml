@@ -76,9 +76,6 @@ footer:
     - label: "Medium"
       icon: "fab fa-fw fa-medium"
       url: "https://medium.com/@simleng"
-    - label: "Feed"
-      icon: "fab fa-fw fa-feed"
-      url: "/feed.xml"
 
 
 
@@ -98,6 +95,9 @@ collections:
     output: true
   category_pages:  
     output: true
+  tutorials:
+    output: true
+    permalink: /tutorials/:path/
 
 # Pagination Configuration
 

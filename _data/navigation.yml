@@ -5,5 +5,7 @@ main:
     url: /about/
   - title: "Posts"
     url: /posts/
+  - title: "Tutorials"
+    url: /tutorials/
   - title: "Help"
     url: /help/

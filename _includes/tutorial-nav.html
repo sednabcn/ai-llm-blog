@@ -1,0 +1,16 @@
+<nav class="tutorial-nav">
+  <h3>Tutorials</h3>
+  <ul>
+    {% for category in site.data.tutorial_categories %}
+      <li>
+        <a href="/tutorials/{{ category.id }}/">{{ category.name }}</a>
+        <ul>
+          {% assign category_tutorials = site.tutorials | where: "category", category.id %}
+          {% for tutorial in category_tutorials %}
+            <li><a href="{{ tutorial.url }}">{{ tutorial.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

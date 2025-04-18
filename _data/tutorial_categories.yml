@@ -1,0 +1,155 @@
+- id: setup
+  name: "Setup & Installation"
+  description: "Installation and configuration guides for AI development environments"
+  items:
+    - id: python-setup
+      name: "Python Setup"
+      description: "How to set up Python for machine learning and AI projects"
+      file: python-setup.md
+      tags:
+        - python
+        - installation
+    - id: virtual-environments
+      name: "Virtual Environments"
+      description: "Creating isolated Python environments for your projects"
+      file: virtual-environments.md
+      tags:
+        - python
+        - environments
+    - id: gpu-setup
+      name: "GPU Setup"
+      description: "Configure your GPU for deep learning"
+      file: gpu-setup.md
+      tags:
+        - hardware
+        - performance
+
+- id: basic-customization
+  name: "Basic Customization"
+  description: "Learn to customize and fine-tune machine learning models"
+  items:
+    - id: customization
+      name: "Customization Basics"
+      description: "Introduction to customizing AI models"
+      file: customization.md
+      tags:
+        - fundamentals
+    - id: fine-tuning-basics
+      name: "Fine-tuning Basics"
+      description: "Fine-tune models on your custom data"
+      file: fine-tuning-basics.md
+      tags:
+        - training
+        - datasets
+    - id: prompt-engineering
+      name: "Prompt Engineering"
+      description: "Craft effective prompts for LLMs"
+      file: prompt-engineering.md
+      tags:
+        - prompts
+        - generation
+
+- id: advanced-features
+  name: "Advanced Features"
+  description: "Advanced techniques and architectures for building powerful AI applications"
+  items:
+    - id: retrieval-augmented-generation
+      name: "Retrieval-Augmented Generation"
+      description: "Implement RAG to enhance LLM knowledge capabilities"
+      file: retrieval-augmented-generation.md
+      tags:
+        - RAG
+        - knowledge
+    - id: ai-agents
+      name: "AI Agents"
+      description: "Create AI agents with LLM backends"
+      file: ai-agents.md
+      tags:
+        - agents
+        - systems
+    - id: multi-modal
+      name: "Multi-modal Applications"
+      description: "Build applications that process text, images, and audio"
+      file: multi-modal.md
+      tags:
+        - multimodal
+        - vision
+        - audio
+
+- id: llm-specific
+  name: "LLM-Specific Tutorials"
+  description: "Guides specific to popular large language models"
+  items:
+    - id: gpt-guide
+      name: "Getting Started with GPT Models"
+      description: "Learn to use GPT models effectively"
+      file: gpt-guide.md
+      tags:
+        - GPT
+        - OpenAI
+    - id: claude-guide
+      name: "Exploring Claude and Anthropic Models"
+      description: "Guide to working with Claude models"
+      file: claude-guide.md
+      tags:
+        - Claude
+        - Anthropic
+    - id: open-source-llms
+      name: "Working with Open Source LLMs"
+      description: "Deploy and use open source language models"
+      file: open-source-llms.md
+      tags:
+        - open-source
+        - self-hosting
+
+- id: project-based
+  name: "Project-Based Learning"
+  description: "Complete end-to-end projects to apply your knowledge"
+  items:
+    - id: chatbot-development
+      name: "Creating AI Chatbots"
+      description: "Build conversational AI systems"
+      file: chatbot-development.md
+      tags:
+        - chatbots
+        - conversational AI
+    - id: sentiment-analysis
+      name: "Building a Sentiment Analysis Tool"
+      description: "Create a tool to analyze sentiment in text data"
+      file: sentiment-analysis.md
+      tags:
+        - NLP
+        - sentiment
+    - id: content-generation
+      name: "Automated Content Generation"
+      description: "Build systems that generate creative content"
+      file: content-generation.md
+      tags:
+        - generation
+        - creativity
+
+- id: resources
+  name: "Resources and References"
+  description: "Supplementary materials to support your learning journey"
+  items:
+    - id: ai-glossary
+      name: "AI and LLM Glossary"
+      description: "Definitions for common AI and LLM terminology"
+      file: ai-glossary.md
+      tags:
+        - reference
+        - terminology
+    - id: troubleshooting
+      name: "Common Issues and Solutions"
+      description: "Troubleshooting guide for common AI development problems"
+      file: troubleshooting.md
+      tags:
+        - debugging
+        - solutions
+    - id: best-practices
+      name: "AI Development Best Practices"
+      description: "Recommended approaches for building robust AI systems"
+      file: best-practices.md
+      tags:
+        - guidelines
+        - production
