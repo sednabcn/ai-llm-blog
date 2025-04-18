@@ -1,0 +1,852 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en-US" class="no-js">
+  <head>
+    
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Setting Up Your Environment</title>
+
+  <!-- SEO -->
+  <!-- begin _includes/seo.html --><title>Setting Up Your Environment | AI, LLM &amp; LLM-HypatiaX Blog</title>
+<meta name="description" content="Prerequsites and Installation Guidelines">
+
+
+  <meta name="author" content="Dr. Ruperto Pedro Bonet Chaple">
+  
+  <meta property="article:author" content="Dr. Ruperto Pedro Bonet Chaple">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="AI, LLM & LLM-HypatiaX Blog">
+<meta property="og:title" content="Setting Up Your Environment">
+<meta property="og:url" content="https://sednabcn.github.io/ai-llm-blog/tutorials/setup/">
+
+
+  <meta property="og:description" content="Prerequsites and Installation Guidelines">
+
+
+
+  <meta property="og:image" content="https://sednabcn.github.io/ai-llm-blog/assets/images/tutorials/tutorials-banner.webp">
+
+
+
+
+
+  <meta property="article:published_time" content="2025-04-18T11:20:32+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://sednabcn.github.io/ai-llm-blog/tutorials/setup/">
+
+
+
+
+
+
+
+  <meta name="google-site-verification" content="0l5TbPYQ76ChPVEmXUclBOY04jLkGAAQAKAEm2a0j60" />
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+  <!-- Atom Feed -->
+  
+    <link href="/ai-llm-blog/feed.xml" 
+          type="application/atom+xml" rel="alternate" title="AI, LLM & LLM-HypatiaX Blog Feed">
+  
+
+  <!-- Favicon -->
+  <link rel="icon" href="/ai-llm-blog/favicon-16x16.png" type="image/png">
+
+  <!-- JavaScript Detection -->
+  <script>
+    document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+    
+  </script>
+
+  <!-- Stylesheets -->
+  
+    <link rel="stylesheet" href="/ai-llm-blog/assets/css/main.css">
+  
+
+  <!-- Font Awesome (with performance optimization) -->
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" 
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css">
+  </noscript>
+
+  <!-- Google Site Verification -->
+  
+    <meta name="google-site-verification" content="0l5TbPYQ76ChPVEmXUclBOY04jLkGAAQAKAEm2a0j60">
+  
+
+  
+ 
+ <!-- Content Security Policy -->
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net/ https://www.googletagmanager.com/ https://www.google-analytics.com/ https://utteranc.es;
+  style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net/;
+  img-src 'self' data: *;
+  font-src 'self' https://cdn.jsdelivr.net/;
+  connect-src 'self' https://utteranc.es https://region1.google-analytics.com https://www.google-analytics.com;
+  frame-src 'self' https://utteranc.es;
+"> 
+  <!-- Custom Head Scripts -->
+  
+
+  <!-- Analytics (production only) -->
+  
+    
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FFJMQ3HXMK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FFJMQ3HXMK', { 'anonymize_ip': true});
+</script>
+
+
+
+
+  
+
+ <!-- Open Graph / Facebook -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://sednabcn.github.io/tutorials/setup/">
+<meta property="og:title" content="Setting Up Your Environment">
+<meta property="og:description" content=" Prerequsites and Installation Guidelines">
+
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://sednabcn.github.io/tutorials/setup/">
+<meta name="twitter:title" content="Setting Up Your Environment">
+<meta name="twitter:description" content=" Prerequsites and Installation Guidelines">
+
+
+</head>
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single -inner-page -header-image-readability" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/ai-llm-blog/"><img src="/ai-llm-blog/assets/images/logo.png" alt="SiMLeng"></a>
+        
+        <a class="site-title" href="/ai-llm-blog/">
+          SiMLeng
+          <span class="site-subtitle">Exploring generative AI in formula discovery</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/ai-llm-blog/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/ai-llm-blog/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/ai-llm-blog/posts/"
+                
+                
+              >Posts</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/ai-llm-blog/tutorials/"
+                
+                
+              >Tutorials</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/ai-llm-blog/help/"
+                
+                
+              >Help</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+  
+
+
+
+
+
+
+
+<div class="page__hero--overlay"
+  style=" background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/ai-llm-blog/assets/images/tutorials/tutorials-banner.webp');"
+>
+  
+    <div class="wrapper">
+      <h1 id="page-title" class="page__title" itemprop="headline">
+        
+          Setting Up Your Environment
+
+        
+      </h1>
+      
+     <span class="page__lead excerpt-inline"> Prerequsites and Installation Guidelines</span>
+
+    <!--- <p class="page__lead" style="text-align: center;">Prerequsites and Installation Guidelines
+</p>--!>
+      
+      
+
+
+      
+    </div>
+  
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="https://sednabcn.github.io/ai-llm-blog/">
+        <img src="/ai-llm-blog/assets/images/avatar.jpg" alt="Dr. Ruperto Pedro Bonet Chaple" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://sednabcn.github.io/ai-llm-blog/" itemprop="url">Dr. Ruperto Pedro Bonet Chaple</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>PhD in Computational Mechanics</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">London, UK</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:info@modelphysmat.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/sednabcn" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <meta itemprop="headline" content="Setting Up Your Environment">
+    
+    
+      <meta itemprop="description" content="Prerequsites and Installation Guidelines">
+    
+    
+      <meta itemprop="datePublished" content="2025-04-18T11:20:32+00:00">
+    
+    
+
+    <div class="page__inner-wrap">
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header>
+                <h4 class="nav__title">
+                  <i class="fas fa-question-circle"></i> Setting Up Topics
+                </h4>
+              </header>
+              <ul class="toc__menu"><li><a href="#setting-up-your-environment">Setting Up Your Environment</a><ul><li><a href="#prerequisites">Prerequisites</a></li><li><a href="#installing-python">Installing Python</a><ul><li><a href="#windows-installation">Windows Installation</a></li><li><a href="#macos-installation">macOS Installation</a></li><li><a href="#linux-installation">Linux Installation</a></li></ul></li><li><a href="#setting-up-virtual-environments">Setting Up Virtual Environments</a><ul><li><a href="#creating-a-virtual-environment">Creating a Virtual Environment</a></li><li><a href="#using-conda-alternative">Using Conda (Alternative)</a></li></ul></li><li><a href="#installing-essential-libraries">Installing Essential Libraries</a></li><li><a href="#gpu-setup-optional-but-recommended">GPU Setup (Optional but Recommended)</a><ul><li><a href="#nvidia-gpu-setup">NVIDIA GPU Setup</a></li><li><a href="#amd-gpu-setup">AMD GPU Setup</a></li></ul></li><li><a href="#ide-setup">IDE Setup</a><ul><li><a href="#vs-code-recommended">VS Code (Recommended)</a></li><li><a href="#pycharm">PyCharm</a></li><li><a href="#jupyter-notebooks">Jupyter Notebooks</a></li></ul></li><li><a href="#version-control-setup">Version Control Setup</a></li><li><a href="#model-caching-and-storage">Model Caching and Storage</a></li><li><a href="#testing-your-environment">Testing Your Environment</a></li><li><a href="#troubleshooting-common-issues">Troubleshooting Common Issues</a><ul><li><a href="#package-installation-failures">Package Installation Failures</a></li><li><a href="#cuda-not-detected">CUDA Not Detected</a></li><li><a href="#memory-issues">Memory Issues</a></li></ul></li><li><a href="#next-steps">Next Steps</a></li><li><a href="#happy-developing">Happy developing!</a></li></ul></li></ul>
+            </nav>
+          </aside>
+        
+        <h1 id="setting-up-your-environment">Setting Up Your Environment</h1>
+
+<p>This comprehensive guide will walk you through creating the optimal development environment for working with AI and Large Language Models (LLMs).</p>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<p>Before you begin, ensure you have:</p>
+<ul>
+  <li>A computer with at least 8GB RAM (16GB+ recommended)</li>
+  <li>Administrator/sudo access to your system</li>
+  <li>Basic familiarity with command line interfaces</li>
+</ul>
+
+<h2 id="installing-python">Installing Python</h2>
+
+<p>LLM development typically requires Python 3.8 or newer.</p>
+
+<h3 id="windows-installation">Windows Installation</h3>
+
+<ol>
+  <li><strong>Download Python:</strong>
+    <ul>
+      <li>Visit <a href="https://python.org">python.org</a></li>
+      <li>Download the latest Python 3.x installer</li>
+      <li>Ensure you check “Add Python to PATH” during installation</li>
+    </ul>
+  </li>
+  <li><strong>Verify Installation:</strong>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python --version
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="macos-installation">macOS Installation</h3>
+
+<ol>
+  <li><strong>Using Homebrew (recommended):</strong>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew install python
+</code></pre></div>    </div>
+  </li>
+  <li><strong>Alternative Method:</strong>
+    <ul>
+      <li>Download from <a href="https://python.org">python.org</a></li>
+      <li>Run the installer package</li>
+    </ul>
+  </li>
+  <li><strong>Verify Installation:</strong>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 --version
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="linux-installation">Linux Installation</h3>
+
+<p>Most Linux distributions come with Python pre-installed. If not:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt update
+sudo apt install python3 python3-pip
+</code></pre></div></div>
+
+<p>Verify with:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 --version
+</code></pre></div></div>
+
+<h2 id="setting-up-virtual-environments">Setting Up Virtual Environments</h2>
+
+<p>Virtual environments keep dependencies organized and prevent conflicts.</p>
+
+<h3 id="creating-a-virtual-environment">Creating a Virtual Environment</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Install virtualenv if not already installed
+pip install virtualenv
+
+# Create a new environment
+virtualenv llm_env
+
+# Activate the environment
+# On Windows:
+llm_env\Scripts\activate
+
+# On macOS/Linux:
+source llm_env/bin/activate
+</code></pre></div></div>
+
+<h3 id="using-conda-alternative">Using Conda (Alternative)</h3>
+
+<ol>
+  <li><strong>Install Miniconda:</strong>
+    <ul>
+      <li>Download from <a href="https://docs.conda.io/en/latest/miniconda.html">conda.io</a></li>
+      <li>Follow installation instructions</li>
+    </ul>
+  </li>
+  <li><strong>Create a Conda Environment:</strong>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda create -n llm_env python=3.10
+conda activate llm_env
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="installing-essential-libraries">Installing Essential Libraries</h2>
+
+<p>With your environment activated, install these core packages:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install numpy pandas matplotlib scikit-learn torch transformers datasets
+</code></pre></div></div>
+
+<p>For additional LLM-specific tools:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install accelerate bitsandbytes sentencepiece tokenizers
+</code></pre></div></div>
+
+<h2 id="gpu-setup-optional-but-recommended">GPU Setup (Optional but Recommended)</h2>
+
+<h3 id="nvidia-gpu-setup">NVIDIA GPU Setup</h3>
+
+<ol>
+  <li><strong>Install CUDA Toolkit:</strong>
+    <ul>
+      <li>Download from <a href="https://developer.nvidia.com/cuda-downloads">NVIDIA Developer site</a></li>
+      <li>Follow installation instructions for your OS</li>
+    </ul>
+  </li>
+  <li><strong>Install cuDNN:</strong>
+    <ul>
+      <li>Register at NVIDIA Developer Program</li>
+      <li>Download and install cuDNN</li>
+    </ul>
+  </li>
+  <li><strong>Install PyTorch with CUDA support:</strong>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+</code></pre></div>    </div>
+    <p>(Adjust CUDA version as needed)</p>
+  </li>
+  <li><strong>Verify GPU availability:</strong>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">torch</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"CUDA available: </span><span class="si">{</span><span class="n">torch</span><span class="p">.</span><span class="n">cuda</span><span class="p">.</span><span class="n">is_available</span><span class="p">()</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"CUDA device count: </span><span class="si">{</span><span class="n">torch</span><span class="p">.</span><span class="n">cuda</span><span class="p">.</span><span class="n">device_count</span><span class="p">()</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"CUDA device name: </span><span class="si">{</span><span class="n">torch</span><span class="p">.</span><span class="n">cuda</span><span class="p">.</span><span class="n">get_device_name</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="amd-gpu-setup">AMD GPU Setup</h3>
+
+<p>For AMD GPUs, use ROCm:</p>
+
+<ol>
+  <li><strong>Install ROCm:</strong>
+    <ul>
+      <li>Follow instructions at <a href="https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html">ROCm Documentation</a></li>
+    </ul>
+  </li>
+  <li><strong>Install PyTorch with ROCm support:</strong>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm5.4.2
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="ide-setup">IDE Setup</h2>
+
+<p>Choose a development environment that suits your workflow:</p>
+
+<h3 id="vs-code-recommended">VS Code (Recommended)</h3>
+
+<ol>
+  <li><strong>Install VS Code:</strong>
+    <ul>
+      <li>Download from <a href="https://code.visualstudio.com/">code.visualstudio.com</a></li>
+    </ul>
+  </li>
+  <li><strong>Install extensions:</strong>
+    <ul>
+      <li>Python extension</li>
+      <li>Jupyter extension</li>
+      <li>IntelliCode</li>
+      <li>Pylance</li>
+    </ul>
+  </li>
+  <li><strong>Configure settings:</strong>
+    <ul>
+      <li>Set your Python interpreter to your virtual environment</li>
+      <li>Enable linting and formatting</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="pycharm">PyCharm</h3>
+
+<ol>
+  <li><strong>Install PyCharm:</strong>
+    <ul>
+      <li>Download Community Edition from <a href="https://www.jetbrains.com/pycharm/">jetbrains.com</a></li>
+    </ul>
+  </li>
+  <li><strong>Configure Python interpreter:</strong>
+    <ul>
+      <li>File &gt; Settings &gt; Project &gt; Python Interpreter</li>
+      <li>Add your virtual environment</li>
+    </ul>
+  </li>
+  <li><strong>Install plugins:</strong>
+    <ul>
+      <li>Jupyter</li>
+      <li>.env file support</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="jupyter-notebooks">Jupyter Notebooks</h3>
+
+<p>For exploratory work:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install jupyter
+jupyter notebook
+</code></pre></div></div>
+
+<h2 id="version-control-setup">Version Control Setup</h2>
+
+<ol>
+  <li><strong>Install Git:</strong>
+    <ul>
+      <li><a href="https://git-scm.com/">git-scm.com</a></li>
+    </ul>
+  </li>
+  <li><strong>Configure Git:</strong>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
+</code></pre></div>    </div>
+  </li>
+  <li><strong>Connect to GitHub/GitLab:</strong>
+    <ul>
+      <li>Generate SSH key:
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh-keygen -t ed25519 -C "your.email@example.com"
+</code></pre></div>        </div>
+      </li>
+      <li>Add key to GitHub/GitLab account</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="model-caching-and-storage">Model Caching and Storage</h2>
+
+<p>Configure Hugging Face cache location:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># On Windows
+setx HF_HOME "D:\AI\huggingface"
+
+# On macOS/Linux
+echo 'export HF_HOME="/path/to/storage"' &gt;&gt; ~/.bashrc
+source ~/.bashrc
+</code></pre></div></div>
+
+<h2 id="testing-your-environment">Testing Your Environment</h2>
+
+<p>Create a simple test script:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># test_environment.py
+</span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">transformers</span>
+
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Python version: </span><span class="si">{</span><span class="n">sys</span><span class="p">.</span><span class="n">version</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"PyTorch version: </span><span class="si">{</span><span class="n">torch</span><span class="p">.</span><span class="n">__version__</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Transformers version: </span><span class="si">{</span><span class="n">transformers</span><span class="p">.</span><span class="n">__version__</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+
+<span class="c1"># Test loading a small model
+</span><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">pipeline</span>
+<span class="n">classifier</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="s">'sentiment-analysis'</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="mi">0</span> <span class="k">if</span> <span class="n">torch</span><span class="p">.</span><span class="n">cuda</span><span class="p">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">classifier</span><span class="p">(</span><span class="s">"This environment setup is working great!"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Run it:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python test_environment.py
+</code></pre></div></div>
+
+<h2 id="troubleshooting-common-issues">Troubleshooting Common Issues</h2>
+
+<h3 id="package-installation-failures">Package Installation Failures</h3>
+
+<ul>
+  <li>Update pip: <code class="language-plaintext highlighter-rouge">pip install --upgrade pip</code></li>
+  <li>Install build tools:
+    <ul>
+      <li>Windows: <code class="language-plaintext highlighter-rouge">pip install wheel</code></li>
+      <li>Linux: <code class="language-plaintext highlighter-rouge">sudo apt install build-essential</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="cuda-not-detected">CUDA Not Detected</h3>
+
+<ul>
+  <li>Verify CUDA installation: <code class="language-plaintext highlighter-rouge">nvcc --version</code></li>
+  <li>Check GPU compatibility</li>
+  <li>Ensure matching CUDA toolkit and PyTorch versions</li>
+</ul>
+
+<h3 id="memory-issues">Memory Issues</h3>
+
+<ul>
+  <li>Close unnecessary applications</li>
+  <li>Use smaller model variants</li>
+  <li>Enable model optimization techniques like quantization</li>
+</ul>
+
+<h2 id="next-steps">Next Steps</h2>
+
+<p>Now that your environment is set up, you’re ready to:</p>
+
+<ul>
+  <li>Explore our <a href="/tutorials/basic-customization/">Basic Customization</a> tutorial</li>
+  <li>Learn advanced capabilities in our <a href="/tutorials/advanced-features/">Advanced Features</a> tutorial</li>
+</ul>
+
+<h2 id="happy-developing">Happy developing!</h2>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-04-18T11:20:32+00:00">April 18, 2025</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/ai-llm-blog/tutorials/contact/tutorial-request/" class="pagination--pager" title="Request a Tutorial
+">Previous</a>
+    
+    
+      <a href="/ai-llm-blog/tutorials/setup/python-setup/" class="pagination--pager" title="Python Setup
+">Next</a>
+    
+  </nav>
+
+    </div>
+  </article>
+
+  
+
+  
+  
+</div>
+
+
+
+
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/sednabcn" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/BONETCHAPLE" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://www.instagram.com/RUPERTOPEDROBONET" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+        
+          <li><a href="https://medium.com/@simleng" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-medium" aria-hidden="true"></i> Medium</a></li>
+        
+      
+    
+
+    
+      <li><a href="/ai-llm-blog/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2025 <a href="https://sednabcn.github.io">AI, LLM & LLM-HypatiaX Blog</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/ai-llm-blog/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FFJMQ3HXMK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FFJMQ3HXMK', { 'anonymize_ip': true});
+</script>
+
+
+
+
+
+
+
+
+  </body>
+</html>
