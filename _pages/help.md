@@ -19,24 +19,24 @@ toc_icon: "question-circle"
 
 ### How do I get started?
 
-To get started, we recommend browsing our [Getting Started Guide](/help/getting-started/) which walks you through the basics of using our site and resources.
+To get started, we recommend browsing our [Getting Started Guide]({{ site.baseurl }}/help/getting-started/) which walks you through the basics of using our site and resources.
 
 ### How can I contribute?
 
-We welcome contributions from our community! Please check out our [Contribution Guidelines](/help/contribute/) for more information on how you can help improve our content.
+We welcome contributions from our community! Please check out our [Contribution Guidelines]({{ site.baseurl }}/help/contribute/) for more information on how you can help improve our content.
 
 ### Where can I report issues?
 
 If you encounter any issues with our site or content, please submit an issue on our [GitHub repository](https://github.com/sednabcn/ai-llm-blog/issues).
 
-## [Tutorials](/tutorials/index/) 
+## [Tutorials]({{ site.baseurl }}/tutorials/index/) 
    
 Check out our step-by-step tutorials to help you make the most of our resources:
 
-1. [Setting Up Your Environment](/tutorials/setup/)
-2. [Basic Customization](/tutorials/basic-customization/)
-3. [Advanced Features](/tutorials/advanced-features/)
-4. [Ethical Considerations](/tutorials/ethical-considerations/)  
+1. [Setting Up Your Environment]({{ site.baseurl }}/tutorials/setup/)
+2. [Basic Customization]({{ site.baseurl }}/tutorials/basic-customization/)
+3. [Advanced Features]({{ site.baseurl }}/tutorials/advanced-features/)
+4. [Ethical Considerations]({{ site.baseurl }}/tutorials/ethical-considerations/)  
 
 ## Contact Support
 

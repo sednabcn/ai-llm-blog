@@ -67,5 +67,5 @@ Join our growing community of AI practitioners today and accelerate your journey
 ## Next Steps
 
 Ready to dive deeper into AI customization?
-- Explore our [Ethical Considerations](/tutorials/ethical-considerations/) guide
-- Return to [Basic Customization](/tutorials/basic-customization/) to refine your skills
+- Explore our [Ethical Considerations]({{ site.baseurl }}/tutorials/ethical-considerations/) guide
+- Return to [Basic Customization]({{ site.baseurl }}/tutorials/basic-customization/) to refine your skills

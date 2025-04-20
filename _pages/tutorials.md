@@ -37,16 +37,16 @@ Welcome to our comprehensive collection of AI and LLM tutorials. Whether you're 
 
 Explore our core tutorials to help you make the most of our resources:
 
-- [Setting Up Your Environment](/tutorials/setup)  
+- [Setting Up Your Environment]({{ site.baseurl }}/tutorials/setup)  
   Learn how to configure your development environment for AI and LLM projects.
 
-- [Basic Customization](/tutorials/basic-customization/)  
+- [Basic Customization]({{ site.baseurl }}/tutorials/basic-customization/)  
   Discover how to customize models and applications to suit your specific needs.
 
-- [Advanced Features](/tutorials/advanced-features/)  
+- [Advanced Features]({{ site.baseurl }}/tutorials/advanced-features/)  
   Master sophisticated techniques and unlock the full potential of AI models.
 
-- [Ethical Considerations](/tutorials/ethical-considerations/)  
+- [Ethical Considerations]({{ site.baseurl }}/tutorials/ethical-considerations/)  
   Understand the ethical implications of AI and LLM development.
 
 ## Future Tutorial Roadmap
@@ -63,19 +63,19 @@ We're constantly expanding our tutorial library with new content in these exciti
 
 ### Join Our Community
 
-<p>Connect with fellow AI enthusiasts in our <a href="/community/forum">active community forum.</a> Share your projects, ask questions, and learn from others' experiences.</p>
+<p>Connect with fellow AI enthusiasts in our <a href="{{ site.baseurl }}/community/forum">active community forum.</a> Share your projects, ask questions, and learn from others' experiences.</p>
 
 ### Shape Our Content
 
-<p>👉<a href="/community/feedback">Your input matters!</a> Help us prioritize upcoming tutorials by sharing which LLM topics interest you most. Our content development is directly influenced by community feedback.</p>
+<p>👉<a href="{{ site.baseurl }}/community/feedback">Your input matters!</a> Help us prioritize upcoming tutorials by sharing which LLM topics interest you most. Our content development is directly influenced by community feedback.</p>
 
 ### Request a Tutorial
 
-<p>📌Can't find what you're looking for?<a href="/community/request"> Submit a specific tutorial request</a> with details about your use case and learning goals. Our team reviews all submissions for our content roadmap.</p>
+<p>📌Can't find what you're looking for?<a href="{{ site.baseurl }}/community/request"> Submit a specific tutorial request</a> with details about your use case and learning goals. Our team reviews all submissions for our content roadmap.</p>
 
 ### Stay Updated
 
-<p><a href="/community/subscribe">Subscribe to our newsletter</a> to be notified when new tutorials are released!</p>
+<p><a href="{{ site.baseurl }}/community/subscribe">Subscribe to our newsletter</a> to be notified when new tutorials are released!</p>
 
 Check back regularly as we continue to expand our tutorial library with the latest techniques and best practices in AI and LLM development.
 
@@ -93,7 +93,7 @@ Check back regularly as we continue to expand our tutorial library with the late
         <ul id="{{ list_id }}" class="category-list" style="display: none;">
           {% for tutorial in actual_tutorials %}
             <li>
-              <a href="{{ tutorial.url }}">{{ tutorial.title }}</a>
+	      <a href="{{ site.baseurl }}{{ tutorial.url }}">{{ tutorial.title }}</a>
               <small>({{ tutorial.date | date: "%Y-%m-%d" }})</small>
             </li>
           {% endfor %}
