@@ -1,5 +1,6 @@
 ---
 title: Performance Optimization Strategies
+date: 2025-04-15
 description: Learn how to improve the efficiency and responsiveness of your customized AI models through proven performance optimization techniques.
 date: 2025-04-18
 layout: single

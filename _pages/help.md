@@ -36,6 +36,7 @@ Check out our step-by-step tutorials to help you make the most of our resources:
 1. [Setting Up Your Environment](/tutorials/setup/)
 2. [Basic Customization](/tutorials/basic-customization/)
 3. [Advanced Features](/tutorials/advanced-features/)
+4. [Ethical Considerations](/tutorials/ethical-considerations/)  
 
 ## Contact Support
 
@@ -43,4 +44,7 @@ Need more help? Contact our support team:
 
 - **Email:** info@modelphysmat.com
 - **Support Hours:** Monday-Friday, 9am-5pm EST
+
+
+
 

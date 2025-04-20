@@ -1,5 +1,6 @@
 ---
 title: "Setting Up Your Environment"
+date: 2025-04-15
 permalink: /tutorials/setup/
 layout: single
 author_profile: true  

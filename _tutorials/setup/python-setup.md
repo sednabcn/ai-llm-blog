@@ -1,5 +1,6 @@
 ---
 title: "Python Setup"
+date: 2025-04-15
 layout: single
 permalink: /tutorials/setup/python-setup/
 classes:
@@ -9,7 +10,6 @@ author_profile: true
 toc: true
 toc_label: "Contents"
 toc_icon: "list"
-date: 2025-01-15
 tags:
   - python
   - setup
@@ -26,20 +26,23 @@ tags:
   <span>{{ tutorial.name }}</span>
 </div>
 
-# Python Setup Tutorial
+# Python Setup
 
-This tutorial will guide you through setting up Python for your AI and machine learning projects, ensuring you have the right configuration for developing LLM applications.
+This comprehensive guide will walk you through creating the optimal development environment for working with AI and Large Language Models (LLMs).
 
 ## Prerequisites
 
-Before you begin, make sure you have:
-- Administrative access to your computer
+Before you begin, ensure you have:
+
+- A computer with at least 8GB RAM (16GB+ recommended)
+- Administrator/sudo access to your system
+- Basic familiarity with command line interfaces
 - At least 5GB of free disk space
 - A reliable internet connection
 
-## Step 1: Download Python
+## Installing Python
 
-The first step is to download the appropriate Python version for your operating system.
+LLM development typically requires Python 3.8 or newer.
 
 ```bash
 # For Ubuntu/Debian
@@ -53,7 +56,7 @@ brew install python@3.11
 # Download from python.org and run the installer
 ```
 
-## Step 2: Create a Virtual Environment
+## Setting Up Virtual Environments
 
 It's recommended to use virtual environments for your projects:
 
@@ -68,7 +71,7 @@ myenv\Scripts\activate
 source myenv/bin/activate
 ```
 
-## Step 3: Install Essential Packages
+## Installing Essential Libraries
 
 With your environment activated, install the necessary packages:
 
@@ -76,49 +79,39 @@ With your environment activated, install the necessary packages:
 pip install numpy pandas matplotlib scikit-learn torch transformers
 ```
 
+## GPU Setup (Optional but Recommended)
+
+For optimal performance with machine learning models:
+
+### NVIDIA GPU Setup
+```bash
+# Install CUDA toolkit and cuDNN
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+```
+
+### AMD GPU Setup
+```bash
+# For ROCm support
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm5.6
+```
+
+## IDE Setup
+
+### VS Code (Recommended)
+1. Download from code.visualstudio.com
+2. Install Python extension
+3. Configure for your virtual environment
+
+### PyCharm
+1. Download Community or Professional edition
+2. Set up interpreter pointing to your virtual environment
+
 ## Common Issues and Troubleshooting
 
 If you encounter issues during installation, here are some common problems and solutions:
 
 ### Path Issues on Windows
-...
+Ensure Python is added to your PATH environment variable during installation.
 
-<style>
-.breadcrumbs {
-  margin-bottom: 30px;
-  padding: 8px 0;
-  font-size: 0.9rem;
-}
-
-.breadcrumbs a {
-  color: #5c00c7;
-  text-decoration: none;
-}
-
-pre {
-  background: #f1f1f1;
-  padding: 15px;
-  border-radius: 5px;
-  overflow-x: auto;
-}
-
-code {
-  font-family: 'Consolas', 'Monaco', monospace;
-}
-
-.note {
-  background: #f0e7ff;
-  border-left: 4px solid #5c00c7;
-  padding: 15px;
-  margin: 20px 0;
-  border-radius: 0 5px 5px 0;
-}
-
-.warning {
-  background: #fff7e0;
-  border-left: 4px solid #ffc107;
-  padding: 15px;
-  margin: 20px 0;
-  border-radius: 0 5px 5px 0;
-}
-</style>
+### Package Installation Errors
+Try upgrading pip first: `pip install --upgrade pip`

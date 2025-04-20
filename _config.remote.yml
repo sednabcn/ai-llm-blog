@@ -98,6 +98,9 @@ collections:
   tutorials:
     output: true
     permalink: /tutorials/:path/
+  community:
+    output: true
+    permalink: /community/:path/
 
 # Pagination Configuration
 
@@ -140,6 +143,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-github-metadata
   - jekyll-redirect-from
+  - jekyll-toc
 
 # Minifier Options
 jekyll-minifier:
@@ -217,3 +221,4 @@ exclude:
   - scripts/
   - README.md
   - LICENSE
+  - _tutorials/community-forum/

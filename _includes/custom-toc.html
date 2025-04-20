@@ -1,0 +1,22 @@
+{% capture toc %}
+  <ul class="toc-list">
+    {% assign nodes = content | split: '<h2' %}
+    {% assign listItems = '' %}
+
+    {% for node in nodes %}
+      {% if node != "" %}
+        {% assign idStart = node | split: 'id="' %}
+        {% assign idEnd = idStart[1] | split: '"' %}
+        {% assign id = idEnd[0] %}
+
+        {% assign headerText = node | split: '>' | last | strip_html | strip %}
+        
+        {% if id != "" %}
+          <li><a href="#{{ id }}">{{ headerText }}</a></li>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </ul>
+{% endcapture %}
+
+{{ toc }}

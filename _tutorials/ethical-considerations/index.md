@@ -1,5 +1,6 @@
 ---
 title: "Ethical Considerations When Customizing AI Models"
+date: 2025-04-15
 permalink: /tutorials/ethical-considerations/
 layout: single
 author_profile: true  

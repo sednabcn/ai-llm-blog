@@ -1,5 +1,6 @@
 ---
 title: "Basic Customization"
+date: 2025-04-15
 permalink: /tutorials/basic-customization/
 layout: single
 author_profile: true  

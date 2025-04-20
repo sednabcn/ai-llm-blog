@@ -1,5 +1,6 @@
 ---
 title: "Advanced Features"
+date: 2025-04-15
 permalink: /tutorials/advanced-features/
 layout: single
 classes:
@@ -1320,4 +1321,4 @@ Analytics to track which generated content performs best
 Multi-LLM support to leverage different models for different tasks
 User feedback collection to improve prompt engineering over time
 
-<span style="color: #5c00c7;">Good luck with your AI-powered blog platform!</span>
+## Happy developing!
