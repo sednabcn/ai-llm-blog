@@ -18,7 +18,7 @@ toc_icon: "question-circle"
 
 We welcome contributions from the AI/LLM community! This guide will help you understand how to submit content and collaborate with us effectively.
 
-## Types of Contributions We Accept
+## How to Get Involved
 
 - <span style="color:#5c00c7;">**Technical Articles**</span>: Deep dives into AI/LLM concepts, implementations, or research
 - <span style="color:#5c00c7;">**Tutorials**</span>: Step-by-step guides for working with AI tools and technologies
@@ -42,10 +42,10 @@ All contributions should:
 - Technical claims should be supported by evidence or references
 - Explanations should be clear and accessible to the target audience
 
-## Submission Process
+## 📧 Submission Process
 
 1. <span style="color:#5c00c7;">**Initial Proposal**</span>: 
-   - Email your pitch to [contributions@our-ai-blog.com](mailto:contributions@our-ai-blog.com)
+   - Email your pitch to [editorial@modelphysmat.com](mailto:editorial@modelphysmat.com)
    - Include a brief outline (300-500 words) describing your proposed contribution
    - Mention your relevant expertise and background
 
@@ -125,8 +125,8 @@ By submitting content, you agree that:
 - You grant us the right to publish your content under our site's [CC BY-NC-SA 4.0 license](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 - You retain copyright of your work
 
-## Questions?
+## 🤔 Questions?
 
-If you have questions about contributing, please contact our editorial team at [editor@our-ai-blog.com](mailto:editor@our-ai-blog.com).
+If you have questions about contributing, please contact our editorial team at [editorial@modelphysmat.com](mailto:editorial@modelphysmat.com).
 
-## We look forward to your contributions!
+## We welcome your contributions!

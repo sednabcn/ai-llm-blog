@@ -26,7 +26,11 @@ toc_icon: "question-circle"
      </header>
 
     <div class="subscription-form">
-      <form id="subscribeForm">
+      <!-- ✅ Buttondown form goes here -->
+       <form action="https://buttondown.email/api/emails/embed-subscribe/YOUR_USERNAME" method="post" target="popupwindow" 
+        onsubmit="window.open('https://buttondown.email/YOUR_USERNAME', 'popupwindow')" 
+        class="embeddable-buttondown-form" style="max-width:400px; margin: 0 auto;">
+    
         <div class="form-group">
           <label for="name">Full Name</label>
           <input type="text" id="name" name="name" placeholder="Enter your name" required>
@@ -61,7 +65,8 @@ toc_icon: "question-circle"
         
         <button type="submit">Subscribe Now</button>
       </form>
-    </div>
+
+</div>
 
     <div class="benefits">
      <h2 id="Benefits for Subscribing">Benefits for Subscribing</h2>      

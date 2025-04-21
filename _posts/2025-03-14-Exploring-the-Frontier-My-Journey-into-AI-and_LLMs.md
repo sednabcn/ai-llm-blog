@@ -1,7 +1,11 @@
 ---
-layout: single
+
 title: "Exploring the Frontier: My Journey into AI and LLMs"
+premalink: /posts/2025-03-14-Exploring-the-Frontier-My-Journey-into-AI-and_LLMs
+layout: single
+author_profile: true
 date: 2025-03-14
+
 classes:
   - header-image-readability
 header:

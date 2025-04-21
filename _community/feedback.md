@@ -1,8 +1,10 @@
 ---
 title: "Share Your LLM Learning Interests"
-date: 2025-04-17
+
 permalink: /community/feedback/
 layout: single
+date: 2025-04-17
+author_profile: true  
 classes:
   -wide
   -inner-page

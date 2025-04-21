@@ -101,6 +101,9 @@ collections:
   community:
     output: true
     permalink: /community/:path/
+  resources:
+    output: true
+    permalink: /resources/:path/
 
 # Pagination Configuration
 

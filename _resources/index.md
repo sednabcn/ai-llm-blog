@@ -1,8 +1,8 @@
 ---
-title: "Tutorials"
+title: "Resources"
 layout: single
-permalink: /tutorials/
-collection: tutorials
+permalink: /resources/
+collection: resources
 entries_layout: grid
 classes:
    -wide
@@ -14,21 +14,14 @@ sort_order: reverse
 header:
   overlay_color: "#333"
   overlay_filter: "0.7"
-  overlay_image: /assets/images/tutorials/tutorials-banner.png
+  overlay_image: /assets/images/tutorials/resources-banner.png
 #  caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
-excerpt: "Hands-on tutorials to master core concepts, dive into code, and build expertise in machine learning and data science."
-# Add this line to control what appears in each grid item
+excerpt: "Discover curated tools, articles, and learning materials to support your journey in mathematics, data science, and AI."
 entries_layout: grid
 show_excerpts: true
 toc: true
-toc_label: "Tutorial Topics"
+toc_label: "Resources Topics"
 toc_icon: "question-circle"
----
-
----
-layout: single
-title: Resources
-permalink: /resources/
 ---
 
 ## Curated Tools, Libraries, and Datasets
@@ -52,4 +45,4 @@ Here you'll find valuable tools, libraries, and datasets to support your AI and 
 
 ---
 
-Want to suggest a resource? [Reach out to us](/#providing-feedback)!
+Want to suggest a resource? [Reach out to us]({{ '/community/feedback' | relative_url }})!

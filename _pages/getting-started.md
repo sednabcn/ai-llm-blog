@@ -19,51 +19,71 @@ toc_icon: "question-circle"
 
 <span style="color:#5c00c7;">Welcome to our AI/LLM blog!</span> This guide will help you navigate our resources and get the most out of our content.
 
-## What You'll Find Here
+## 🚀 What You'll Find Here
 
 Our blog focuses on artificial intelligence, with a special emphasis on Large <span style="color:#5c00c7;">Language Models (LLMs)</span>. We cover everything from fundamental concepts to cutting-edge developments in the field.
 
+- <span style="color:#5c00c7;">**Tutorials**</span>: Hands-on guides covering beginner to advanced AI/LLM topics  
+- <span style="color:#5c00c7;">**Resources**</span>: Tools, datasets, and glossaries curated by domain experts  
+- <span style="color:#5c00c7;">**Community**</span>: Engage with fellow learners and developers through shared projects and discussion  
+- <span style="color:#5c00c7;">**Project Updates**</span>: Stay current with the latest blog posts and experiments  
+- <span style="color:#5c00c7;">**Posts**</span>: Explore articles, case studies, and insights from the AI frontier
 
-## Quick Navigation
+
+## 🔗 Quick Navigation
 
 - **[Home]({{ '/' | relative_url }})**: Latest articles and featured content  
 - **[Tutorials]({{ '/tutorials/' | relative_url }})**: Step-by-step guides for various AI/LLM topics  
-[CHECKKKK]
+
 - **[Resources]({{ '/resources/' | relative_url }})**: Curated tools, libraries, and datasets  
-- **[Community]({{ '/community/' | relative_url }})**: Join discussions with fellow AI enthusiasts  
+- **[Community]({{ '/community/forum' | relative_url }})**: Join discussions with fellow AI enthusiasts  
 - **[About]({{ '/about/' | relative_url }})**: Learn more about our mission and team  
+- **[Posts]({{ '/posts/' | relative_url }})**: Read the latest thoughts, research, and commentary
 
-## For Beginners
 
-If you're new to AI and LLMs:
+## 📰 Stay Updated
 
-1. Start with our [Introduction to LLMs](/tutorials/intro-to-llms/) post
-2. Explore the [AI Terminology Glossary](/resources/glossary/)
-3. Follow our [beginner-friendly tutorials](/tutorials/tag/beginner/)
+You can stay in the loop in two ways:
 
-## For Advanced Users
+### 🌟 GitHub
 
-If you're already familiar with AI/LLM concepts:
+Follow the project and updates on 👉 [GitHub](https://github.com/sednabcn/ai-llm-blog)
 
-1. Check out our [technical deep dives](/tag/technical/)
-2. Explore [implementation guides](/tutorials/tag/implementation/)
-3. Join our [monthly challenges](/challenges/)
+Star the repo, check issues, and explore how the blog is built.
 
-## Stay Updated
+### 📬 Newsletter Signup
 
-- Subscribe to our [newsletter](#newsletter-signup) for weekly updates
-- Follow us on [Twitter](https://twitter.com/our-ai-blog) and [LinkedIn](https://linkedin.com/company/our-ai-blog)
-- Enable notifications to get alerts about new content
+Join our mailing list to receive blog highlights, new tutorials, and occasional AI insights:
 
-## Providing Feedback
 
-We value your input! You can:
-- Comment on articles
-- Use the [feedback form]( ) at the bottom of each page
-- [Contact us directly](/contact/) with suggestions or questions
+<div class="page__content" style="max-width: 700px; margin: 0 auto;">
+<form action="https://buttondown.email/api/emails/embed-subscribe/sednaletter" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.email/sednaletter', 'popupwindow')" class="embeddable-buttondown-form">
+  <label for="bd-email">Enter your email to get updates:</label><br>
+  <input type="email" name="email" id="bd-email" style="padding:5px; margin-top:5px; width:250px;"><br><br>
+  <input type="submit" value="Subscribe" style="background:#5c00c7; color:white; border:none; padding:8px 16px; border-radius:4px; cursor:pointer;">
+</form>
+<div class="spacer" style="height: 50px;"></div>
+</div>
 
-## Need Help?
 
-If you encounter any issues or have questions, please [reach out to our team](/contact/). We're here to help you navigate the exciting world of AI and LLMs!
 
-## Happy exploring!
+
+## 💬 Feedback & Collaboration
+
+We love hearing from readers and collaborators. You can:
+
+- Leave comments on posts  
+- Share [feedback]({{ '/community/feedback' | relative_url }}) in the community forum  
+- Visit the [About Us]({{ '/about/' | relative_url }}) page for collaboration opportunities  
+
+
+## ❓ Need Help?
+
+Have a question or unsure where to begin?  
+Visit the [About Us]({{ '/about/' | relative_url }}) page and reach out to us from there.
+
+
+## 🎉 Happy Learning!
+
+Whether you're exploring AI for the first time or refining your advanced skills, we're glad you're here. Dive in!
+

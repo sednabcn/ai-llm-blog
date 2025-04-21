@@ -29,7 +29,7 @@ toc_icon: "question-circle"
 
 Welcome to our comprehensive collection of AI and LLM tutorials. Whether you're just starting out or looking to expand your expertise, our step-by-step guides will help you master essential concepts and techniques.
 
-"Explore in-depth tutorials designed to make complex AI and data science topics approachable. Whether you're a beginner or an advanced user, our guides—written by researchers and practitioners—walk you through real-world applications, best practices, and the latest techniques."
+Explore in-depth tutorials designed to make complex AI and data science topics approachable. Whether you're a beginner or an advanced user, our guides—written by researchers and practitioners—walk you through real-world applications, best practices, and the latest techniques.
 
 
 

@@ -8,7 +8,7 @@ classes:
   -inner-page
   -header-image-readability
 header:
-  overlay_image:  /assets/images/tutorials/tutorials-banner.webp
+  overlay_image: /assets/images/tutorials/tutorials-banner.webp
   overlay_filter: rgba(0, 0, 0, 0.5)
 caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
 excerpt: "Join our Community Forum — a space for collaboration, knowledge-sharing, and advancing AI customization together."
@@ -17,55 +17,98 @@ toc_label: "Forum Features"
 toc_icon: "users"
 ---
 
-
+# Welcome to the Community Forum
 
 Our Community Forum is designed to foster collaboration, knowledge-sharing, and continuous improvement in AI customization practices. Here's what you can expect:
 
-## Forum Structure
-- <span style="color:#5c00c7;">**Learning Tracks**</span>: Dedicated spaces for beginners, intermediate, and advanced practitioners
-- <span style="color:#5c00c7;">**Use Case Galleries**</span>: Showcases of successful customization implementations across industries
-- <span style="color:#5c00c7;">**Troubleshooting Hubs**</span>: Collaborative problem-solving spaces organized by common challenges
+---
 
-## Community Features
-- <span style="color:#5c00c7;">**Expert Office Hours**</span>: Regular sessions with our technical team and industry experts
-- <span style="color:#5c00c7;">**Code Repository**</span>: Shareable templates and snippets for common customization patterns
-- <span style="color:#5c00c7;">**Monthly Challenges**</span>: Structured exercises to build skills and explore new techniques
+## 🧱 Forum Structure
 
-## Knowledge Resources
-- <span style="color:#5c00c7;">**Case Studies Library**</span>: In-depth analyses of real-world customization projects
-- <span style="color:#5c00c7;">**Best Practices Wiki**</span>: Community-maintained documentation of recommended approaches
-- <span style="color:#5c00c7;">**Implementation Guides**</span>: Step-by-step walkthroughs for specific customization tasks
+- <span style="color:#5c00c7;">**Learning Tracks**</span>: Spaces for beginners, intermediate, and advanced practitioners  
+- <span style="color:#5c00c7;">**Use Case Galleries**</span>: Showcase successful customization projects across industries  
+- <span style="color:#5c00c7;">**Troubleshooting Hubs**</span>: Solve real challenges together in topic-specific spaces  
 
-## Getting Started
+---
+
+## 🌟 Community Features
+
+- <span style="color:#5c00c7;">**Expert Office Hours**</span>: Live Q&A with the technical team and industry mentors  
+- <span style="color:#5c00c7;">**Code Repository**</span>: Shareable snippets and patterns for LLM and AI customization  
+- <span style="color:#5c00c7;">**Monthly Challenges**</span>: Exercises to sharpen your skills and explore new tools  
+
+---
+
+## 📚 Knowledge Resources
+
+- <span style="color:#5c00c7;">**Case Studies Library**</span>: Real-world examples and lessons learned  
+- <span style="color:#5c00c7;">**Best Practices Wiki**</span>: Curated by the community, for the community  
+- <span style="color:#5c00c7;">**Implementation Guides**</span>: Step-by-step walk-throughs and frameworks  
+
+---
+
+## 🚀 Getting Started
 
 ### Creating Your Account
-1. Click the <span style="color:#5c00c7;">"Sign Up"</span> button in the top-right corner
-2. Complete your profile with relevant expertise and interests
-3. Set notification preferences for topics that matter to you
 
-### Finding Your Community
-1. Browse the learning tracks that match your experience level
-2. Introduce yourself in the <span style="color:#5c00c7;">"New Members"</span> thread
-3. Explore current discussions and contribute where you can
+> 🔐 *Currently, we don’t use an account-based login on this GitHub-hosted site.*  
+> Instead, you can join the conversation via:
 
-### Contributing Content
-1. Share your customization experiences in relevant sections
-2. Document solved problems in the Troubleshooting Hubs
-3. Provide feedback on other members' implementations
+- 🗨️ [Submit questions or ideas via GitHub Discussions](https://github.com/sednabcn/ai-llm-blog/discussions)  
+- 💬 [Send us feedback]({{ site.baseurl }}/community/feedback/)  
+- 📬 [Subscribe]({{ site.baseurl }}/community/subscribe/) to get updates on future forums & live sessions
 
-## Community Guidelines
+### Participating in Discussions
 
-To ensure a productive and welcoming environment:
+- Browse learning tracks based on your experience level  
+- Introduce yourself on our <span style="color:#5c00c7;">**New Members**</span> thread (coming soon)  
+- Contribute your insights to ongoing topics  
 
-- Be respectful and constructive in all interactions
-- Provide context and details when asking questions
-- Give credit when building upon others' work
-- Report inappropriate content to moderators
+---
 
-Join our growing community of AI practitioners today and accelerate your journey from customization novice to expert!
+## ✅ Community Guidelines
 
-## Next Steps
+To keep our forum helpful and respectful:
 
-Ready to dive deeper into AI customization?
-- Explore our [Ethical Considerations]({{ site.baseurl }}/tutorials/ethical-considerations/) guide
-- Return to [Basic Customization]({{ site.baseurl }}/tutorials/basic-customization/) to refine your skills
+- Be constructive, kind, and curious  
+- Provide details when asking or answering questions  
+- Always credit others’ ideas and code  
+- Use GitHub issues or our [contact page]({{ site.baseurl }}/about/) to report inappropriate content
+
+---
+
+## 📨 Stay Connected
+
+<p>
+  <a href="{{ site.baseurl }}/community/subscribe/" 
+     style="display:inline-block; background:#5c00c7; color:white; padding:10px 16px; text-decoration:none; border-radius:6px;">
+     📬 <span style="color:white;">Subscribe to the Newsletter</span>
+  </a>
+</p>
+
+<p>
+  <a href="{{ site.baseurl }}/about/" 
+     style="display:inline-block; background:#5c00c7; color:white; padding:10px 16px; text-decoration:none; border-radius:6px;">
+     👥 <span style="color:white;">Meet the Team</span>
+  </a>
+</p>
+
+<p>Share this forum:</p>
+<a href="https://twitter.com/intent/tweet?url={{ site.url }}{{ page.url }}&text=Join our AI Customization Forum!" target="_blank" style="color:#5c00c7;">🐦 Twitter</a> |
+<a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url }}{{ page.url }}" target="_blank" style="color:#5c00c7;">💼 LinkedIn</a>
+
+---
+
+## 🎯 Next Steps
+
+Continue your learning journey:
+
+- 📘 [Ethical Considerations]({{ site.baseurl }}/tutorials/ethical-considerations/): Understand AI responsibilities  
+- 🛠️ [Basic Customization]({{ site.baseurl }}/tutorials/basic-customization/): Practice hands-on skills  
+- 🔗 [GitHub Discussions](https://github.com/sednabcn/ai-llm-blog/discussions): Post your ideas or questions  
+
+---
+ 
+Thanks for being part of the community — let’s build something amazing together!
+<!-- Include the comments section -->
+{% include comments.html %}
