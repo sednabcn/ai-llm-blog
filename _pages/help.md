@@ -42,8 +42,8 @@ Check out our step-by-step tutorials to help you make the most of our resources:
 
 Need more help? Contact our support team:
 
-- **Email:** info@modelphysmat.com
-- **Support Hours:** Monday-Friday, 9am-5pm EST
+- <span style="color:#5c00c7;">**Email:**</span> info@modelphysmat.com
+- <span style="color:#5c00c7;">**Support Hours:**</span> Monday-Friday, 9am-5pm EST
 
 
 

@@ -20,9 +20,9 @@ tags:
 {% assign tutorial = category.items | where: "id", "python-setup" | first %}
 
 <div class="breadcrumbs">
-  <a href="/">Home</a> &raquo; 
-  <a href="/tutorials/">Tutorials</a> &raquo; 
-  <a href="/tutorials/setup/">{{ category.name }}</a> &raquo; 
+  <a href="{{ site.baseurl }}/">Home</a> &raquo; 
+  <a href="{{ site.baseurl }}/tutorials/">Tutorials</a> &raquo; 
+  <a href="{{ site.baseurl }}/tutorials/setup/">{{ category.name }}</a> &raquo; 
   <span>{{ tutorial.name }}</span>
 </div>
 

@@ -31,10 +31,10 @@ Hello and welcome to my corner of the digital universe dedicated to artificial i
 
 This blog aims to be your window into the fascinating developments happening in:
 
-- **Cutting-edge AI research** - Breaking down complex papers and developments into accessible insights
-- **Large Language Model capabilities** - Exploring the boundaries of what's possible with generative AI
-- **The LLM-HypatiaX project** - Documenting my work on this innovative initiative that bridges AI and mathematical discovery
-- **Formula discovery using generative AI** - Investigating how LLMs can help us uncover new mathematical and scientific relationships
+- <span style="color:#5c00c7;">**Cutting-edge AI research**</span> - Breaking down complex papers and developments into accessible insights
+- <span style="color:#5c00c7;">**Large Language Model capabilities**</span> - Exploring the boundaries of what's possible with generative AI
+- <span style="color:#5c00c7;">**The LLM-HypatiaX project**</span> - Documenting my work on this innovative initiative that bridges AI and mathematical discovery
+- <span style="color:#5c00c7;">**Formula discovery using generative AI**</span> - Investigating how LLMs can help us uncover new mathematical and scientific relationships
 
 ## Why I Started This Blog
 

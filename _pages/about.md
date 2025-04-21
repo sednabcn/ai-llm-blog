@@ -30,10 +30,10 @@ We strive to help organizations leverage machine learning and AI to achieve mean
 
 Our core principles:
 
-- Innovation - Pushing boundaries to discover new approaches
-- Accessibility - Making AI understandable and available to all
-- Ethics - Ensuring responsible development and deployment of AI
-- Impact - Creating solutions that drive real-world change
+- <span style="color:#5c00c7;">Innovation</span> - Pushing boundaries to discover new approaches
+- <span style="color:#5c00c7;">Accessibility</span> - Making AI understandable and available to all
+- <span style="color:#5c00c7;">Ethics</span> - Ensuring responsible development and deployment of AI
+- <span style="color:#5c00c7;">Impact</span> - Creating solutions that drive real-world change
 
 ## Our Team
 
@@ -72,11 +72,11 @@ Our core principles:
 
 We specialize in several key areas:
 
-- Natural Language Processing - Building systems that understand and generate human language
-- Computer Vision - Developing algorithms that interpret and analyze visual information
-- Predictive Analytics - Creating models that forecast trends and outcomes
-- Reinforcement Learning - Designing agents that learn through interaction
-- LLM-HypatiaX - Advancing formula discovery through our proprietary large language model
+- <span style="color:#5c00c7;">Natural Language Processing</span> - Building systems that understand and generate human language
+- <span style="color:#5c00c7;">Computer Vision</span> - Developing algorithms that interpret and analyze visual information
+- <span style="color:#5c00c7;">Predictive Analytics</span> - Creating models that forecast trends and outcomes
+- <span style="color:#5c00c7;">Reinforcement Learning</span> - Designing agents that learn through interaction
+- <span style="color:#5c00c7;">LLM-HypatiaX</span> - Advancing formula discovery through our proprietary large language model
 
 
 ## Contact Us

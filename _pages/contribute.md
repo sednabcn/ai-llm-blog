@@ -20,11 +20,11 @@ We welcome contributions from the AI/LLM community! This guide will help you und
 
 ## Types of Contributions We Accept
 
-- **Technical Articles**: Deep dives into AI/LLM concepts, implementations, or research
-- **Tutorials**: Step-by-step guides for working with AI tools and technologies
-- **Case Studies**: Real-world applications of AI/LLM solutions
-- **Resource Reviews**: Evaluations of tools, libraries, datasets, or papers
-- **Opinion Pieces**: Well-reasoned perspectives on AI/LLM developments and trends
+- <span style="color:#5c00c7;">**Technical Articles**</span>: Deep dives into AI/LLM concepts, implementations, or research
+- <span style="color:#5c00c7;">**Tutorials**</span>: Step-by-step guides for working with AI tools and technologies
+- <span style="color:#5c00c7;">**Case Studies**</span>: Real-world applications of AI/LLM solutions
+- <span style="color:#5c00c7;">**Resource Reviews**</span>: Evaluations of tools, libraries, datasets, or papers
+- <span style="color:#5c00c7;">**Opinion Pieces**</span>: Well-reasoned perspectives on AI/LLM developments and trends
 
 ## Content Requirements
 
@@ -44,25 +44,25 @@ All contributions should:
 
 ## Submission Process
 
-1. **Initial Proposal**: 
+1. <span style="color:#5c00c7;">**Initial Proposal**</span>: 
    - Email your pitch to [contributions@our-ai-blog.com](mailto:contributions@our-ai-blog.com)
    - Include a brief outline (300-500 words) describing your proposed contribution
    - Mention your relevant expertise and background
 
-2. **Review Process**:
+2. <span style="color:#5c00c7;">**Review Process**</span>:
    - Our editorial team will review your proposal within 5-7 business days
    - We may suggest revisions or refinements to better align with our audience's needs
 
-3. **Content Creation**:
+3. <span style="color:#5c00c7;">**Content Creation**</span>:
    - Once approved, develop your full draft according to our guidelines
    - Submit your draft as a Markdown file via pull request to our GitHub repository
    - Include any associated resources (images, code samples, etc.)
 
-4. **Editorial Review**:
+4. <span style="color:#5c00c7;">**Editorial Review**</span>:
    - Our team will review your submission for technical accuracy, clarity, and style
    - We may request revisions before final acceptance
 
-5. **Publication**:
+5. <span style="color:#5c00c7;">**Publication**</span>:
    - Accepted content will be scheduled for publication
    - You'll receive credit as the author with a brief bio
 
@@ -129,4 +129,4 @@ By submitting content, you agree that:
 
 If you have questions about contributing, please contact our editorial team at [editor@our-ai-blog.com](mailto:editor@our-ai-blog.com).
 
-We look forward to your contributions!
+## We look forward to your contributions!

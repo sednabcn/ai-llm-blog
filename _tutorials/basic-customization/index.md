@@ -361,9 +361,9 @@ with open("evaluation_results.json", "w") as f:
 
 Once you've mastered these basic customization techniques, you can:
 
-1. Explore [Advanced Features](/tutorials/advanced-features/) for more sophisticated customization
-2. Learn about [Ethical Considerations](/tutorials/ethical-considerations/) when customizing AI models
-3. Review [Performance Optimization Strategies](/tutorials/advanced-features/optimization-strategies/) to ensure your customized AI runs efficiently in real-world scenarios.
+1. Explore [Advanced Features]({{ site.baseurl }}/tutorials/advanced-features/) for more sophisticated customization
+2. Learn about [Ethical Considerations]({{ site.baseurl }}/tutorials/ethical-considerations/) when customizing AI models
+3. Review [Performance Optimization Strategies]({{ site.baseurl }}/tutorials/advanced-features/optimization-strategies/) to ensure your customized AI runs efficiently in real-world scenarios.
 Remember that effective customization is often iterative—start simple, evaluate results, and refine your approach based on feedback and performance metrics.
 
 ## Happy customizing!

@@ -62,5 +62,5 @@ Remember that ethical AI customization is not just about avoiding harm—it's ab
 ## Next Steps
 
 Now that you understand the ethical considerations of AI customization, you can:
-- Join our [Community Forum](/tutorials/community-forum/) to discuss ethical practices with other developers
-- Return to [Basic Customization](/tutorials/basic-customization/) to ensure your implementations follow ethical guidelines
+- Join our [Community Forum]({{ site.baseurl }}/tutorials/community-forum/) to discuss ethical practices with other developers
+- Return to [Basic Customization]({{ site.baseurl }}/tutorials/basic-customization/) to ensure your implementations follow ethical guidelines

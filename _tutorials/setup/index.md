@@ -283,7 +283,7 @@ python test_environment.py
 
 Now that your environment is set up, you're ready to:
 
-- Explore our [Basic Customization](/tutorials/basic-customization/) tutorial
-- Learn advanced capabilities in our [Advanced Features](/tutorials/advanced-features/) tutorial
+- Explore our [Basic Customization]({{ site.baseurl }}/tutorials/basic-customization/) tutorial
+- Learn advanced capabilities in our [Advanced Features]({{ site.baseurl }}/tutorials/advanced-features/) tutorial
 
 ## Happy developing!

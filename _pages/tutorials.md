@@ -71,7 +71,7 @@ We're constantly expanding our tutorial library with new content in these exciti
 
 ### Request a Tutorial
 
-<p>📌Can't find what you're looking for?<a href="{{ site.baseurl }}/community/request"> Submit a specific tutorial request</a> with details about your use case and learning goals. Our team reviews all submissions for our content roadmap.</p>
+<p>📌<span style="color:#5c00c7;">Can't find what you're looking for?</span><a href="{{ site.baseurl }}/community/request"> Submit a specific tutorial request</a> with details about your use case and learning goals. Our team reviews all submissions for our content roadmap.</p>
 
 ### Stay Updated
 
