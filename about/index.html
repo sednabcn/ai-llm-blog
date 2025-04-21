@@ -467,17 +467,73 @@ We are a collaborative team of AI researchers, data scientists, and computationa
 </ul>
 
 <h2 id="contact-us">Contact Us</h2>
+
 <div class="profile-section">
-  <div class="profile-details"> 
-    <p>Feel free to reach out to us with any questions, comments, or suggestions:</p>
-    <p><strong>Email:</strong> info@modelphysmat.com</p>
-    <p><strong>Twitter:</strong> <a href="https://twitter.com/BONETCHAPLE" style="color: #5c00c7;">@BONETCHAPLE</a></p>
-    <p><strong>GitHub:</strong> <a href="https://github.com/sednabcn" style="color: #5c00c7 !important;">sednabcn</a></p>
-    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/ " target="_blank" style="color: #5c00c7 ;">Connect with me on LinkedIn</a> to explore collaboration opportunities in computational mechanics and LLM research.</p>
-    <p><strong>Office:</strong> Flat 26 Spenlow House, Jamaica Road SE26 4SJ, London, UK</p>
-    <p>We're always open to collaboration opportunities and new challenges!</p>
+  <div class="profile-details">
+
+    <p>Feel free to reach out with any questions, suggestions, or collaboration ideas. We're always open to exploring new challenges!</p>
+
+    <p><strong>Email:</strong> 
+      <a href="mailto:info@modelphysmat.com" style="color: #5c00c7;">info@modelphysmat.com</a>
+    </p>
+
+    <p><strong>Twitter:</strong> 
+      <a href="https://twitter.com/BONETCHAPLE" target="_blank" style="color: #5c00c7;">@BONETCHAPLE</a>
+    </p>
+
+    <p><strong>GitHub:</strong> 
+      <a href="https://github.com/sednabcn" target="_blank" style="color: #5c00c7;">sednabcn</a>
+    </p>
+
+    <p><strong>LinkedIn:</strong> 
+      <a href="https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/" target="_blank" style="color: #5c00c7;">
+        Connect with me on LinkedIn
+      </a>
+    </p>
+
+    <p><strong>Office:</strong> Flat 26 Spenlow House, Jamaica Road SE16 4SJ, London, UK</p>
+
+    <p>
+    <button onclick="handleEmailClick()" style="display:inline-block; background:#5c00c7 !important; color:white; padding:10px 16px; text-decoration:none; border:none; border-radius:6px; cursor:pointer;">
+    📧 <span style="color:white;">Send Us a Message</span>
+    </button>
+    </p>
+     <!-- Hidden fallback form -->
+    <div id="fallbackForm" style="display:none; margin-top: 20px;">
+    	 <p><strong>Can't use email?</strong> Use the form below:</p>
+	 <!--Insert contact form here -->
+
+	 <form action="https://formspree.io/f/mjkykaqp" method="POST">
+  	   <label>Your Name: <input type="text" name="name" required="" /></label><br />
+  	   <label>Email: <input type="email" name="_replyto" required="" /></label><br />
+  	   <label>Topic: <input type="text" name="topic" required="" /></label><br />
+  	   <label>Message:<br /><textarea name="message" required=""></textarea></label><br />
+  	   <button type="submit">Send Email</button>
+         </form>
+    </div>
   </div>
 </div>
+
+<script>
+  function handleEmailClick() {
+    try {
+      // Attempt to open email client
+      window.location.href = "mailto:info@modelphysmat.com";
+      
+      // Optional: If fallback needed after a delay (if email client fails to launch)
+      setTimeout(() => {
+        const confirmUseForm = confirm("If your email app didn't open, would you like to use our form instead?");
+        if (confirmUseForm) {
+          document.getElementById('fallbackForm').style.display = 'block';
+        }
+      }, 1000);
+    } catch (err) {
+      // If mail client fails (e.g., in browser without mailto support)
+      alert("Your email app couldn't open. Use the form below.");
+      document.getElementById('fallbackForm').style.display = 'block';
+    }
+  }
+</script>
 
 
 

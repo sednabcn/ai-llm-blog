@@ -1,6 +1,6 @@
 var store = [{
         "title": "Community Forum",
-        "excerpt":"Our Community Forum is designed to foster collaboration, knowledge-sharing, and continuous improvement in AI customization practices. Here’s what you can expect: Forum Structure Learning Tracks: Dedicated spaces for beginners, intermediate, and advanced practitioners Use Case Galleries: Showcases of successful customization implementations across industries Troubleshooting Hubs: Collaborative problem-solving spaces organized by...","categories": [],
+        "excerpt":"Welcome to the Community Forum Our Community Forum is designed to foster collaboration, knowledge-sharing, and continuous improvement in AI customization practices. Here’s what you can expect: 🧱 Forum Structure Learning Tracks: Spaces for beginners, intermediate, and advanced practitioners Use Case Galleries: Showcase successful customization projects across industries Troubleshooting Hubs: Solve...","categories": [],
         "tags": [],
         "url": "/ai-llm-blog/community/forum/",
         "teaser": null
@@ -12,7 +12,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Request a Tutorial",
-        "excerpt":"Submit a Tutorial Request   Can’t find what you’re looking for? Submit your specific tutorial request with details about your use case and learning goals.   Submit Request  ","categories": [],
+        "excerpt":"Submit a Tutorial Request   Can’t find what you’re looking for? Submit your specific tutorial request with details about your use case and learning goals.   If you'd like to email us directly, click below:  Submit Request   Can't use email? Use the form below:       Your Name:     Email:     Topic:     Message:     Send Request  ","categories": [],
         "tags": [],
         "url": "/ai-llm-blog/community/request/",
         "teaser": null
@@ -28,6 +28,12 @@ var store = [{
         "tags": ["artificial-intelligence","large-language-models","formula-discovery"],
         "url": "/ai-llm-blog/posts/Exploring-the-Frontier-My-Journey-into-AI-and_LLMs/",
         "teaser": "/ai-llm-blog/assets/images/posts/ai-journey-header.jpg"
+      },{
+        "title": "Resources",
+        "excerpt":"Curated Tools, Libraries, and Datasets Here you’ll find valuable tools, libraries, and datasets to support your AI and LLM journey. 🧰 Tools Hugging Face Transformers OpenAI Playground LangChain 📦 Libraries Scikit-learn PyTorch TensorFlow 📊 Datasets The Pile Google Dataset Search Kaggle Datasets Want to suggest a resource? Reach out to...","categories": [],
+        "tags": [],
+        "url": "/ai-llm-blog/resources/",
+        "teaser": null
       },{
         "title": "Advanced Features",
         "excerpt":"Advanced Features This tutorial explores sophisticated techniques and advanced strategies for maximizing the capabilities of Large Language Models (LLMs). Building on the foundations covered in our previous tutorials, we’ll delve into complex approaches that enable more powerful and specialized AI applications. 1. Advanced Fine-tuning Strategies Constitutional AI &amp; Alignment Techniques...","categories": [],
