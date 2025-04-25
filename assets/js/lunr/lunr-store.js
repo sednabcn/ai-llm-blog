@@ -27,7 +27,7 @@ var store = [{
         "excerpt":"Welcome to the AI Frontier Hello and welcome to my corner of the digital universe dedicated to artificial intelligence and large language models! I’m thrilled to embark on this journey of exploration and discovery with you. As we stand at the precipice of what many are calling the fourth industrial...","categories": ["ai-research"],
         "tags": ["artificial-intelligence","large-language-models","formula-discovery"],
         "url": "/ai-llm-blog/posts/Exploring-the-Frontier-My-Journey-into-AI-and_LLMs/",
-        "teaser": "/ai-llm-blog/assets/images/posts/ai-journey-header.jpg"
+        "teaser": "/ai-llm-blog/assets/images/posts/ai-journey-header.webp"
       },{
         "title": "Resources",
         "excerpt":"Curated Tools, Libraries, and Datasets Here you’ll find valuable tools, libraries, and datasets to support your AI and LLM journey. 🧰 Tools Hugging Face Transformers OpenAI Playground LangChain 📦 Libraries Scikit-learn PyTorch TensorFlow 📊 Datasets The Pile Google Dataset Search Kaggle Datasets Want to suggest a resource? Reach out to...","categories": [],
@@ -54,7 +54,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Setting Up Your Environment",
-        "excerpt":"Setting Up Your Environment This comprehensive guide will walk you through creating the optimal development environment for working with AI and Large Language Models (LLMs). Prerequisites Before you begin, ensure you have: A computer with at least 8GB RAM (16GB+ recommended) Administrator/sudo access to your system Basic familiarity with command...","categories": [],
+        "excerpt":"Setting Up Your Environment This comprehensive guide will walk you through creating the optimal development environment for working with AI and Large Language Models (LLMs). Prerequisites Before you begin, ensure you have: A computer with at least 8GB RAM (16GB+ recommended) Administrator/sudo access to your system Basic familiarity with command...","categories": ["ai-research"],
         "tags": [],
         "url": "/ai-llm-blog/tutorials/setup/",
         "teaser": null

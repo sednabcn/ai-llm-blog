@@ -36,7 +36,7 @@
 
 
 
-  <meta property="og:image" content="https://sednabcn.github.io/ai-llm-blog/assets/images/tutorials/tutorials-banner.png">
+  <meta property="og:image" content="https://sednabcn.github.io/ai-llm-blog/assets/images/tutorials/performance-optimization-banner.png">
 
 
 
@@ -138,18 +138,14 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://sednabcn.github.io/tutorials/advanced-features/performance-optimization/">
 <meta property="og:title" content="Performance Optimization Strategies">
-<meta property="og:description" content="Performance Optimization Strategies
-
-">
+<meta property="og:description" content="Discover key strategies to boost the speed, efficiency, and scalability of your AI applications.">
 
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://sednabcn.github.io/tutorials/advanced-features/performance-optimization/">
 <meta name="twitter:title" content="Performance Optimization Strategies">
-<meta name="twitter:description" content="Performance Optimization Strategies
-
-">
+<meta name="twitter:description" content="Discover key strategies to boost the speed, efficiency, and scalability of your AI applications.">
 
 
 </head>
@@ -162,7 +158,7 @@
 
   </head>
 
-  <body class="layout--single -wide -inner-page -header-image-readability" dir="ltr">
+  <body class="layout--single -inner-page -header-image-readability" dir="ltr">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
@@ -238,7 +234,7 @@
 
 
 <div class="page__hero--overlay"
-  style="background-color: #333; background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/ai-llm-blog/assets/images/tutorials/tutorials-banner.png');"
+  style="background-color: #333; background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/ai-llm-blog/assets/images/tutorials/performance-optimization-banner.png');"
 >
   
     <div class="wrapper">
@@ -249,12 +245,9 @@
         
       </h1>
       
-     <span class="page__lead excerpt-inline"><h1 id="performance-optimization-strategies">Performance Optimization Strategies</h1>
+     <span class="page__lead excerpt-inline">Discover key strategies to boost the speed, efficiency, and scalability of your AI applications.</span>
 
-</span>
-
-    <!--- <p class="page__lead" style="text-align: center;"><h1 id="performance-optimization-strategies">Performance Optimization Strategies</h1>
-
+    <!--- <p class="page__lead" style="text-align: center;">Discover key strategies to boost the speed, efficiency, and scalability of your AI applications.
 </p>--!>
       
       
@@ -397,7 +390,7 @@
       <meta itemprop="headline" content="Performance Optimization Strategies">
     
     
-      <meta itemprop="description" content="Performance Optimization Strategies">
+      <meta itemprop="description" content="Discover key strategies to boost the speed, efficiency, and scalability of your AI applications.">
     
     
       <meta itemprop="datePublished" content="2025-04-18T00:00:00+00:00">
@@ -444,32 +437,32 @@
 <p>Reduce model size by using lower-precision data types (e.g., FP16 or INT8) without significantly affecting accuracy.</p>
 
 <ul>
-  <li><strong>Toolkits</strong>: <a href="https://onnxruntime.ai/">ONNX Runtime</a>, <a href="https://developer.nvidia.com/tensorrt">TensorRT</a></li>
-  <li><strong>Benefits</strong>: Decreases memory footprint and speeds up inference</li>
+  <li><span style="color:#5c00c7;"><strong>Toolkits</strong></span>: <a href="https://onnxruntime.ai/">ONNX Runtime</a>, <a href="https://developer.nvidia.com/tensorrt">TensorRT</a></li>
+  <li><span style="color:#5c00c7;"><strong>Benefits</strong></span>: Decreases memory footprint and speeds up inference</li>
 </ul>
 
 <h3 id="2-model-pruning">2. <strong>Model Pruning</strong></h3>
 <p>Remove weights or neurons that have minimal impact on model output.</p>
 
 <ul>
-  <li><strong>Techniques</strong>: Unstructured (individual weights) or Structured (entire layers or channels)</li>
-  <li><strong>Goal</strong>: Maintain accuracy while reducing complexity</li>
+  <li><span style="color:#5c00c7;"><strong>Techniques</strong></span>: Unstructured (individual weights) or Structured (entire layers or channels)</li>
+  <li><span style="color:#5c00c7;"><strong>Goal</strong></span>: Maintain accuracy while reducing complexity</li>
 </ul>
 
 <h3 id="3-knowledge-distillation">3. <strong>Knowledge Distillation</strong></h3>
 <p>Train a smaller, faster “student” model to mimic a larger “teacher” model.</p>
 
 <ul>
-  <li><strong>Use Case</strong>: Deploy lightweight models in mobile or edge environments</li>
-  <li><strong>Bonus</strong>: Reduces latency and improves inference speed</li>
+  <li><span style="color:#5c00c7;"><strong>Use Case</strong></span>: Deploy lightweight models in mobile or edge environments</li>
+  <li><span style="color:#5c00c7;"><strong>Bonus</strong></span>: Reduces latency and improves inference speed</li>
 </ul>
 
 <h3 id="4-batching-inference-requests">4. <strong>Batching Inference Requests</strong></h3>
 <p>Combine multiple inference requests into a single batch.</p>
 
 <ul>
-  <li><strong>Why?</strong>: GPUs handle batch processing more efficiently</li>
-  <li><strong>When?</strong>: In multi-user or high-throughput applications</li>
+  <li><span style="color:#5c00c7;"><strong>Why?</strong></span>: GPUs handle batch processing more efficiently</li>
+  <li><span style="color:#5c00c7;"><strong>When?</strong></span>: In multi-user or high-throughput applications</li>
 </ul>
 
 <hr />
@@ -477,13 +470,14 @@
 <h2 id="-monitoring-and-metrics">🧪 Monitoring and Metrics</h2>
 
 <ul>
-  <li><strong>Latency</strong>: Time taken for a single prediction</li>
-  <li><strong>Throughput</strong>: Number of predictions per second</li>
-  <li><strong>Resource Usage</strong>: CPU/GPU load and memory footprint</li>
-  <li><strong>Error Rate</strong>: Ensure optimizations don’t degrade accuracy</li>
+  <li><span style="color:#5c00c7;"><strong>Latency</strong></span>: Time taken for a single prediction</li>
+  <li><span style="color:#5c00c7;"><strong>Throughput</strong></span>: Number of predictions per second</li>
+  <li><span style="color:#5c00c7;"><strong>Resource Usage</strong></span>: CPU/GPU load and memory footprint</li>
+  <li>
+    <p><span style="color:#5c00c7;"><strong>Error Rate</strong></span>: Ensure optimizations don’t degrade accuracy</p>
+  </li>
+  <li><span style="color:#5c00c7;"><strong>Tip</strong></span>: Use tools like Prometheus + Grafana or built-in cloud monitoring to track real-time performance.</li>
 </ul>
-
-<p><strong>Tip</strong>: Use tools like Prometheus + Grafana or built-in cloud monitoring to track real-time performance.</p>
 
 <hr />
 
@@ -514,7 +508,7 @@
   <li>Repeat</li>
 </ol>
 
-<p><strong>Pro Tip</strong>: Keep a baseline version for comparison after every major optimization round.</p>
+<p><span style="color:#5c00c7;"><strong>Pro Tip</strong></span>: Keep a baseline version for comparison after every major optimization round.</p>
 
 <hr />
 
@@ -621,6 +615,15 @@
   
 
   
+  
+
+  <nav class="pagination">
+    
+      <a href="/tutorials/setup/python-setup/" class="prev">&laquo; Previous</a>
+    
+
+    
+  </nav>
   
 </div>
 

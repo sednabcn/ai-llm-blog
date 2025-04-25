@@ -430,9 +430,34 @@
 <p>Need more help? Contact our support team:</p>
 
 <ul>
-  <li><span style="color:#5c00c7;"><strong>Email:</strong></span> info@modelphysmat.com</li>
-  <li><span style="color:#5c00c7;"><strong>Support Hours:</strong></span> Monday-Friday, 9am-5pm EST</li>
+  <li>
+    <p><span style="color:#5c00c7;"><strong>Email:</strong></span> info@modelphysmat.com</p>
+
+    <p>
+  <button onclick="handleEmailClick()" style="display:inline-block; background:#5c00c7 !important; color:white; padding:10px 16px; text-decoration:none; border:none; border-radius:6px; cursor:pointer;">
+  📧 <span style="color:white;">Send Us a Message</span>
+  </button>
+  </p>
+    <p><!-- Hidden fallback form --></p>
+    <div id="fallbackForm" style="display:none; margin-top: 20px;">
+  	 <p><strong>Can't use email?</strong> Use the form below:</p>
+   <!--Insert contact form here -->
+
+   <form action="https://formspree.io/f/mjkykaqp" method="POST">
+	   <label>Your Name: <input type="text" name="name" required="" /></label><br />
+	   <label>Email: <input type="email" name="_replyto" required="" /></label><br />
+	   <label>Topic: <input type="text" name="topic" required="" /></label><br />
+	   <label>Message:<br /><textarea name="message" required=""></textarea></label><br />
+	   <button type="submit">Send Email</button>
+       </form>
+  </div>
+  </li>
+  <li>
+    <p><span style="color:#5c00c7;"><strong>Support Hours:</strong></span> Monday-Friday, 9am-5pm EST</p>
+  </li>
 </ul>
+
+<script src="/ai-llm-blog/assets/js/email-toggle.js"></script>
 
 
 
@@ -457,6 +482,13 @@
   
 
   
+  
+
+  <nav class="pagination">
+    
+
+    
+  </nav>
   
 </div>
 

@@ -16,7 +16,7 @@
 
   <!-- SEO -->
   <!-- begin _includes/seo.html --><title>Python Setup | AI, LLM &amp; LLM-HypatiaX Blog</title>
-<meta name="description" content="">
+<meta name="description" content="Get your Python environment ready for AI projects with this step-by-step tutorial.">
 
 
   <meta name="author" content="Dr. Ruperto Pedro Bonet Chaple">
@@ -32,9 +32,11 @@
 <meta property="og:url" content="https://sednabcn.github.io/ai-llm-blog/tutorials/setup/python-setup/">
 
 
-  <meta property="og:description" content="">
+  <meta property="og:description" content="Get your Python environment ready for AI projects with this step-by-step tutorial.">
 
 
+
+  <meta property="og:image" content="https://sednabcn.github.io/ai-llm-blog/assets/images/tutorials/python-setup-banner.png">
 
 
 
@@ -136,16 +138,14 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://sednabcn.github.io/tutorials/setup/python-setup/">
 <meta property="og:title" content="Python Setup">
-<meta property="og:description" content="
-">
+<meta property="og:description" content="Get your Python environment ready for AI projects with this step-by-step tutorial.">
 
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://sednabcn.github.io/tutorials/setup/python-setup/">
 <meta name="twitter:title" content="Python Setup">
-<meta name="twitter:description" content="
-">
+<meta name="twitter:description" content="Get your Python environment ready for AI projects with this step-by-step tutorial.">
 
 
 </head>
@@ -158,7 +158,7 @@
 
   </head>
 
-  <body class="layout--single wide inner-page" dir="ltr">
+  <body class="layout--single inner-page header-image-readability" dir="ltr">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
@@ -225,6 +225,44 @@
 
     <div class="initial-content">
       
+  
+
+
+
+
+
+
+
+<div class="page__hero--overlay"
+  style="background-color: #333; background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/ai-llm-blog/assets/images/tutorials/python-setup-banner.png');"
+>
+  
+    <div class="wrapper">
+      <h1 id="page-title" class="page__title" itemprop="headline">
+        
+          Python Setup
+
+        
+      </h1>
+      
+     <span class="page__lead excerpt-inline">Get your Python environment ready for AI projects with this step-by-step tutorial.</span>
+
+    <!--- <p class="page__lead" style="text-align: center;">Get your Python environment ready for AI projects with this step-by-step tutorial.
+</p>--!>
+      
+      
+
+
+      
+    </div>
+  
+  
+</div>
+
+
+
+
+
 
 
 
@@ -352,7 +390,7 @@
       <meta itemprop="headline" content="Python Setup">
     
     
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="Get your Python environment ready for AI projects with this step-by-step tutorial.">
     
     
       <meta itemprop="datePublished" content="2025-04-15T00:00:00+00:00">
@@ -360,18 +398,6 @@
     
 
     <div class="page__inner-wrap">
-      
-        <header>
-          
-            <h1 id="page-title" class="page__title" itemprop="headline">
-              <a href="https://sednabcn.github.io/ai-llm-blog/tutorials/setup/python-setup/" itemprop="url">Python Setup
-</a>
-            </h1>
-          
-          
-
-
-        </header>
       
 
       <section class="page__content" itemprop="text">
@@ -383,7 +409,7 @@
                   <i class="fas fa-list"></i> Contents
                 </h4>
               </header>
-              <ul class="toc__menu"><li><a href="#python-setup">Python Setup</a><ul><li><a href="#prerequisites">Prerequisites</a></li><li><a href="#installing-python">Installing Python</a></li><li><a href="#setting-up-virtual-environments">Setting Up Virtual Environments</a></li><li><a href="#installing-essential-libraries">Installing Essential Libraries</a></li><li><a href="#gpu-setup-optional-but-recommended">GPU Setup (Optional but Recommended)</a><ul><li><a href="#nvidia-gpu-setup">NVIDIA GPU Setup</a></li><li><a href="#amd-gpu-setup">AMD GPU Setup</a></li></ul></li><li><a href="#ide-setup">IDE Setup</a><ul><li><a href="#vs-code-recommended">VS Code (Recommended)</a></li><li><a href="#pycharm">PyCharm</a></li></ul></li><li><a href="#common-issues-and-troubleshooting">Common Issues and Troubleshooting</a><ul><li><a href="#path-issues-on-windows">Path Issues on Windows</a></li><li><a href="#package-installation-errors">Package Installation Errors</a></li></ul></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#python-setup">Python Setup</a><ul><li><a href="#prerequisites">Prerequisites</a></li><li><a href="#installing-python">Installing Python</a></li><li><a href="#setting-up-virtual-environments">Setting Up Virtual Environments</a></li><li><a href="#installing-essential-libraries">Installing Essential Libraries</a></li><li><a href="#gpu-setup-recommended">GPU Setup (Recommended)</a><ul><li><a href="#nvidia-gpu-setup">NVIDIA GPU Setup</a></li><li><a href="#amd-gpu-setup">AMD GPU Setup</a></li></ul></li><li><a href="#ide-setup">IDE Setup</a><ul><li><a href="#vs-code-recommended">VS Code (Recommended)</a></li><li><a href="#pycharm">PyCharm</a></li></ul></li><li><a href="#common-issues-and-troubleshooting">Common Issues and Troubleshooting</a><ul><li><a href="#path-issues-on-windows">Path Issues on Windows</a></li><li><a href="#package-installation-errors">Package Installation Errors</a></li></ul></li></ul></li></ul>
             </nav>
           </aside>
         
@@ -447,7 +473,7 @@ myenv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>numpy pandas matplotlib scikit-learn torch transformers
 </code></pre></div></div>
 
-<h2 id="gpu-setup-optional-but-recommended">GPU Setup (Optional but Recommended)</h2>
+<h2 id="gpu-setup-recommended">GPU Setup (Recommended)</h2>
 
 <p>For optimal performance with machine learning models:</p>
 
@@ -540,6 +566,17 @@ pip <span class="nb">install </span>torch torchvision torchaudio <span class="nt
   
 
   
+  
+
+  <nav class="pagination">
+    
+      <a href="/tutorials/setup/" class="prev">&laquo; Previous</a>
+    
+
+    
+      <a href="/tutorials/advanced-features/performance-optimization/" class="next">Next &raquo;</a>
+    
+  </nav>
   
 </div>
 
