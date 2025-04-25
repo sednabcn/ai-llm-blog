@@ -1155,11 +1155,30 @@ li {
 }
 
 /* ==========================================================================
-// Custom styles for mobile optimization  
+// Custom styles for responsive layout
  ==========================================================================
 */
 
-/* Improve masthead navigation on mobile */
+/* Default styles for all screen sizes - desktop first approach */
+.sidebar {
+  position: sticky !important;
+  top: 2em;
+  float: left;
+  width: 200px !important;
+  margin-right: 2em !important;
+  padding: 1em !important;
+}
+
+.utterances-container {
+  max-width: 760px;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  padding: 0;
+  border-top: 2px solid #4a00e0;
+  margin-left: 0; /* Reset to avoid fixed positioning issues */
+}
+
+/* Mobile styles - apply only to screens smaller than 768px */
 @media (max-width: 767px) {
   .masthead {
     position: relative;
@@ -1173,21 +1192,18 @@ li {
     a {
       padding: 0.5em 0.75em;
     }
+    
+    .visible-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    &__toggle {
+      padding: 0.5em;
+    }
   }
   
-  /* Fix for hamburger menu positioning */
-  .greedy-nav .visible-links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  /* Ensure proper display of toggle button */
-  .greedy-nav__toggle {
-    padding: 0.5em;
-  }
-  
-  /* Sidebar adjustments for mobile */
   .sidebar {
     position: relative !important;
     float: none;
@@ -1201,20 +1217,6 @@ li {
     }
   }
   
-  /* Fix widget display issues */
-  .sidebar .widget {
-    padding: 0.5em;
-    margin-bottom: 1em;
-    width: 100%;
-    clear: both;
-    
-    /* Fix for nested lists in widgets */
-    ul li {
-      margin-bottom: 0.25em;
-    }
-  }
-  
-  /* Center align widgets on mobile */
   .page__sidebar {
     float: none;
     width: 100%;
@@ -1227,28 +1229,13 @@ li {
     }
   }
   
-  /* Fix for archive layout on mobile */
   .archive {
     .archive__item {
       width: 100%;
       margin-right: 0;
     }
   }
-}
-
-/* Tablet-specific adjustments */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .sidebar {
-    width: 30% !important;
-  }
   
-  .page__content {
-    width: 65% !important;
-  }
-}
-
-/* Hero Overlay Image Fix for Mobile */
-@media (max-width: 767px) {
   .page__hero--overlay {
     padding: 1.5em 0;
     
@@ -1268,35 +1255,22 @@ li {
       font-size: 0.9em;
     }
     
-    /* Improve hero image display */
     &::before {
       background-position: center center;
       background-size: cover;
     }
   }
   
-  /* Fix for utterances comments widget */
-  .utterances {
-    position: relative !important;
+  .utterances-container {
     width: 100% !important;
     max-width: 100% !important;
     margin-left: 0 !important;
-    margin-right: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
   }
   
-  /* Fix for any iframe-based comment systems */
-  .page__comments iframe {
-    width: 100% !important;
-    left: 0 !important;
-    margin-left: 0 !important;
-  }
-  
-  /* Ensure content doesn't overflow on mobile */
   .page__content {
     overflow-x: hidden;
     word-wrap: break-word;
+    width: 100% !important;
     
     img, iframe, table {
       max-width: 100%;
@@ -1305,16 +1279,42 @@ li {
   }
 }
 
-/* Fix for tablet-sized screens */
+/* Tablet styles */
 @media (min-width: 768px) and (max-width: 1024px) {
-  .utterances {
-    max-width: 100% !important;
-    width: 100% !important;
+  .sidebar {
+    width: 25% !important;
+  }
+  
+  .page__content {
+    width: 70% !important;
+    float: right;
+  }
+  
+  .utterances-container {
+    width: 70% !important;
+    margin-left: 25% !important;
   }
   
   .page__hero--overlay {
     .page__lead {
       font-size: 1em;
     }
+  }
+}
+
+/* Desktop styles - explicitly defined to ensure override */
+@media (min-width: 1025px) {
+  .sidebar {
+    width: 200px !important;
+  }
+  
+  .page__content {
+    width: calc(100% - 250px) !important;
+    float: right;
+  }
+  
+  .utterances-container {
+    width: calc(100% - 250px) !important;
+    margin-left: 220px !important;
   }
 }
