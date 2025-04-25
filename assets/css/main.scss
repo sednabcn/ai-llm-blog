@@ -31,6 +31,12 @@ $overlay-opacity: 0.05; // Reduced opacity to allow more image shine through
 /* ==========================================================================
    MIXINS
    ========================================================================== */
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* Custom CSS modifications */
 .grid__item .archive__item-excerpt {
   display: none !important;

@@ -1,0 +1,96 @@
+/* ==========================================================================
+   Custom responsive layout – REWRITTEN CLEAN VERSION
+========================================================================== */
+/* main-media.scss - Rewritten to fix gap issues and clean structure */
+
+
+/* main-media.scss - Fully responsive rewrite for desktop, tablet, and mobile */
+
+/* Base Reset */
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  font-family: sans-serif;
+}
+
+/* Layout Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+/* Main content and sidebar layout */
+.main-content {
+  flex: 3;
+}
+
+.sidebar {
+  flex: 1;
+}
+
+/* Header */
+header {
+  width: 100%;
+  padding: 2rem 0;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+/* Utility classes */
+.text-center {
+  text-align: center;
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+.p-2 {
+  padding: 2rem;
+}
+
+/* Tablets (768px – 1024px) */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+  .main-content, .sidebar {
+    width: 100%;
+  }
+}
+
+/* Mobiles (≤ 767px) */
+@media (max-width: 767px) {
+  .container {
+    padding: 1rem;
+  }
+  header {
+    padding: 1rem 0;
+  }
+  .main-content, .sidebar {
+    width: 100%;
+  }
+}
+
+/* Small Phones (≤ 480px) */
+@media (max-width: 480px) {
+  .container {
+    padding: 0.5rem;
+    gap: 1rem;
+  }
+  .p-2 {
+    padding: 1rem;
+  }
+}

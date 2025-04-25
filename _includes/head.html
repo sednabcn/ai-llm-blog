@@ -30,6 +30,12 @@
   {% else %}
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   {% endif %}
+  <!-- Stylesheets -->
+  {% if jekyll.environment == 'production' %}
+    <link rel="stylesheet" href="{{ '/assets/css/main-media.css' | relative_url }}">
+  {% else %}
+    <link rel="stylesheet" href="{{ '/assets/css/main-media.css' | relative_url }}">
+  {% endif %}
 
   <!-- Font Awesome (with performance optimization) -->
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" 
