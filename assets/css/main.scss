@@ -1153,3 +1153,188 @@ li {
 .toc-list li {
   margin-bottom: 5px; /* Optional: Add some spacing between the list items */
 }
+
+/* ==========================================================================
+// Custom styles for responsive layout
+ ==========================================================================
+*/
+
+/* Default styles for all screen sizes - desktop first approach */
+.sidebar {
+  position: sticky !important;
+  top: 2em;
+  float: left;
+  width: 200px !important;
+  margin-right: 2em !important;
+  padding: 1em !important;
+}
+
+.page__content {
+  width: calc(100% - 250px) !important; /* Add this to maintain proper content width */
+  float: right; /* Ensure content flows properly */
+  clear: none; /* Prevent layout breaking */
+}
+
+.utterances-container {
+  max-width: 760px;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  padding: 0;
+  border-top: 2px solid #4a00e0;
+  margin-left: 0; /* Reset to avoid fixed positioning issues */
+}
+
+/* Mobile styles - apply only to screens smaller than 768px */
+@media (max-width: 767px) {
+  .masthead {
+    position: relative;
+    
+    &__menu-item {
+      font-size: 0.8em;
+    }
+  }
+  
+  .greedy-nav {
+    a {
+      padding: 0.5em 0.75em;
+    }
+    
+    .visible-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    &__toggle {
+      padding: 0.5em;
+    }
+  }
+  
+  .sidebar {
+    position: relative !important;
+    float: none;
+    width: 100% !important;
+    margin: 0 0 1em 0 !important;
+    padding: 0 !important;
+    
+    .author__avatar img {
+      max-width: 110px;
+      border-radius: 50%;
+    }
+  }
+  
+  .page__content {
+    float: none; /* Reset float for mobile */
+    width: 100% !important; /* Full width on mobile */
+    clear: both; /* Clear any floats */
+    overflow-x: hidden;
+    word-wrap: break-word;
+    
+    img, iframe, table {
+      max-width: 100%;
+      display: block;
+    }
+  }
+  
+  .page__sidebar {
+    float: none;
+    width: 100%;
+    clear: both;
+    margin-left: 0;
+    text-align: center;
+    
+    h3 {
+      margin-bottom: 0.5em;
+    }
+  }
+  
+  .archive {
+    .archive__item {
+      width: 100%;
+      margin-right: 0;
+    }
+  }
+  
+  .page__hero--overlay {
+    padding: 1.5em 0;
+    
+    .wrapper {
+      padding-left: 1em;
+      padding-right: 1em;
+    }
+    
+    .page__title,
+    .page__meta,
+    .page__lead {
+      width: 100%;
+      max-width: 100%;
+    }
+    
+    .page__lead {
+      font-size: 0.9em;
+    }
+    
+    &::before {
+      background-position: center center;
+      background-size: cover;
+    }
+  }
+  
+  .utterances-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+  }
+}
+
+/* Tablet styles */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .sidebar {
+    width: 25% !important;
+  }
+  
+  .page__content {
+    width: 70% !important;
+    float: right;
+    clear: none; /* Prevent breaking layout */
+  }
+  
+  .utterances-container {
+    width: 70% !important;
+    margin-left: 0 !important; /* Fix positioning */
+    float: right; /* Align with content */
+  }
+  
+  .page__hero--overlay {
+    .page__lead {
+      font-size: 1em;
+    }
+  }
+}
+
+/* Desktop styles - explicitly defined to ensure override */
+@media (min-width: 1025px) {
+  .sidebar {
+    width: 200px !important;
+  }
+  
+  .page__content {
+    width: calc(100% - 250px) !important;
+    float: right;
+    clear: none;
+  }
+  
+  .utterances-container {
+    width: calc(100% - 250px) !important;
+    margin-left: 0 !important; /* Reset margin */
+    float: right; /* Align with content */
+  }
+}
+
+/* Fix for main container to prevent gap issues */
+.initial-content, 
+.archive, 
+.page {
+  display: flow-root; /* Modern clearfix to prevent float issues */
+  min-height: 70vh; /* Ensure content fills the page */
+}

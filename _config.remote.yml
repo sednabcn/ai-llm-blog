@@ -180,8 +180,7 @@ defaults:
       export_to_linkedin: false
       share: true
       related: true
-      sidebar:
-        nav: "main"
+
 
   # _tutorials   
   - scope:
