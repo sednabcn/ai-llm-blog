@@ -11,9 +11,13 @@ layout: archive
 
   <p>Category: {{ page.category }}</p>
 
-  {% include comments.html %}
-
+ <!-- Conditionally Include the Comment Section -->
+ {% unless page.export_to_linkedin == false %}
+  {% if page.comments != false %}
+    {% include comments.html %}
+  {% endif %}
+ {% endunless %}
+ 
 </article>
-
 
 

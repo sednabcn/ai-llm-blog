@@ -8,7 +8,7 @@ classes:
   -inner-page
   -header-image-readability
 header:
-  overlay_image: /assets/images/tutorials/feed-req-subs.webp
+  overlay_image: /assets/images/community/feed-req-subs.webp
   overlay_filter: rgba(0, 0, 0, 0.5)
 caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
 excerpt: "Get the latest guides, tips, and insights delivered straight to your inbox to elevate your AI skills."

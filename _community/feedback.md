@@ -10,7 +10,7 @@ classes:
   -inner-page
   -header-image-readability
 header:
-  overlay_image: /assets/images/tutorials/feed-req-subs.webp
+  overlay_image: /assets/images/community/feed-req-subs.webp
   overlay_filter: rgba(0, 0, 0, 0.5)
 caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
 excerpt: "Help Shape Our Tutorial Roadmap — share your insights, suggest topics, and guide us in creating tutorials that truly support your AI customization journey."

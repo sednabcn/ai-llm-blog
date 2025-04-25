@@ -1,77 +1,183 @@
 ---
 layout: single
 ---
-
 <div class="container">
-  <div class="archive">
-    <h1 class="category-title">{{ page.title }}</h1>
-    
-    <div class="category-description">
-      {{ content }}
-    </div>
+  <div class="main-content">
 
-    <div class="entries-{{ page.entries_layout | default: 'list' }}">
-      {% assign url_parts = page.url | split: '/' %}
-      {% assign category_from_url = url_parts | last %}
+    <!-- Heading for All Categories -->
+    <h1 class="category-heading">Index of Posts & Tutorials by Categories</h1>
+
+    <!-- Optional Category Introduction/Description -->
+    {% if page.excerpt %}
+      <p class="category-intro">{{ page.excerpt }}</p>
+    {% endif %}
+    
+    <!-- First, collect all tutorials -->
+    {% assign all_tutorials = site.tutorials %}
+    
+    <!-- Loop through all categories -->
+    {% for category in site.categories %}
+      {% assign category_name = category[0] %}
+      {% assign category_posts = category[1] %}
       
-      <!-- Try multiple ways to find the category -->
-      {% assign category_name = page.category | default: category_from_url | default: page.title | downcase %}
-      
-      {% if site.categories[category_name] %}
-        <p>Found {{ site.categories[category_name].size }} posts in category: {{ category_name }}</p>
-        {% for post in site.categories[category_name] %}
-          <article class="category-item">
-            <h2 class="post-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-            <p class="post-date"><small>{{ post.date | date: "%B %d, %Y" }}</small></p>
-            {% if post.excerpt %}
-              <div class="post-excerpt">
-                {{ post.excerpt | markdownify }}
-                <a href="{{ post.url | relative_url }}" class="read-more">Read More &raquo;</a>
-              </div>
-            {% endif %}
-          </article>
-        {% endfor %}
-      {% else %}
-        <p>No posts found in category: {{ category_name }}</p>
+      <section class="category-block" id="{{ category_name | slugify }}">
+        <h2>Category:{{ category_name | capitalize }} ({{ category_posts.size }})</h2>
+
+        <!-- Category Description -->
+        {% assign category_page = site.pages | where: "category", category_name | first %}
+        {% if category_page %}
+          <p class="category-description">{{ category_page.description | default: category_page.excerpt }}</p>
+        {% else %}
+          <p class="category-description">No description available for this category.</p>
+        {% endif %}
+
+        <!-- List of Posts and Tutorials -->
+        <div class="category-posts">
+          <!-- Find tutorials with this category -->
+          {% assign category_tutorials = all_tutorials | where_exp: "item", "item.categories contains category_name" %}
+          
+          <!-- Combine posts and tutorials -->
+          {% assign combined_items = category_posts | concat: category_tutorials %}
+          
+          {% if combined_items.size > 0 %}
+            <ul class="post-list">
+              {% for item in combined_items %}
+                <li class="post-item">
+                  <h4>
+                    <!-- Check if item is from tutorials collection -->
+                    {% if item.collection == 'tutorials' or item.path contains '_tutorials/' %}
+                      <a href="{{ item.url | relative_url }}">Tutorial: {{ item.title }}</a>
+                    {% else %}
+                      <a href="{{ item.url | relative_url }}">Post: {{ item.title }}</a>
+                    {% endif %}
+                    <span class="post-meta"><small>({{ item.date | date: "%B %d, %Y" }})</small></span>
+                  </h4>
+                  
+                  {% if item.excerpt %}
+                    <div class="post-excerpt">
+                      {{ item.excerpt | markdownify }}
+                      <p><a href="{{ item.url | relative_url }}" class="read-more">Read More &raquo;</a></p>
+                    </div>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <p>No posts or tutorials found in this category.</p>
+          {% endif %}
+        </div>
+      </section>
+    {% endfor %}
+
+    <!-- Now add categories that only exist in tutorials -->
+    {% assign tutorial_categories = "" | split: "" %}
+    {% for tutorial in all_tutorials %}
+      {% for cat in tutorial.categories %}
+        {% assign tutorial_categories = tutorial_categories | push: cat %}
+      {% endfor %}
+    {% endfor %}
+    
+    {% assign unique_tutorial_categories = tutorial_categories | uniq %}
+    
+    {% for cat in unique_tutorial_categories %}
+      {% unless site.categories[cat] %}
+        <!-- This category only exists in tutorials -->
+        {% assign category_tutorials = all_tutorials | where_exp: "item", "item.categories contains cat" %}
         
-        <p>Available categories:</p>
-        <ul>
-          {% for category in site.categories %}
-            <li>{{ category[0] }} ({{ category[1].size }} posts)</li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-    </div>
+        <section class="category-block" id="{{ cat | slugify }}">
+          <h2>{{ cat | capitalize }} ({{ category_tutorials.size }})</h2>
+          
+          <!-- Category Description -->
+          {% assign category_page = site.pages | where: "category", cat | first %}
+          {% if category_page %}
+            <p class="category-description">{{ category_page.description | default: category_page.excerpt }}</p>
+          {% else %}
+            <p class="category-description">No description available for this category.</p>
+          {% endif %}
+          
+          <div class="category-posts">
+            <ul class="post-list">
+              {% for tutorial in category_tutorials %}
+                <li class="post-item">
+                  <h4>
+                    <a href="{{ tutorial.url | relative_url }}">Tutorial: {{ tutorial.title }}</a>
+                    <span class="post-meta"><small>({{ tutorial.date | date: "%B %d, %Y" }})</small></span>
+                  </h4>
+                  
+                  {% if tutorial.excerpt %}
+                    <div class="post-excerpt">
+                      {{ tutorial.excerpt | markdownify }}
+                      <p><a href="{{ tutorial.url | relative_url }}" class="read-more">Read More &raquo;</a></p>
+                    </div>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </section>
+      {% endunless %}
+    {% endfor %}
   </div>
 </div>
 
 <style>
-  .category-title {
-    margin-bottom: 0.5em;
-    color: #1a1a2e;
-  }
-  .category-description {
+  .category-intro {
     margin-bottom: 2em;
+    font-size: 1.1em;
+    line-height: 1.6;
   }
-  .category-item {
+
+  .category-block {
     margin-bottom: 2em;
+    border-bottom: 1px solid #ddd;
     padding-bottom: 1em;
-    border-bottom: 1px solid #eee;
   }
-  .post-title {
-    margin-bottom: 0.3em;
-  }
-  .post-date {
+
+  .category-heading {
+    white-space: nowrap;
+    font-size: 2em;
     margin-bottom: 1em;
+   }
+  .category-description {
+    font-style: italic;
     color: #666;
+    margin-bottom: 2em;
   }
+
+  .post-list {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .post-item {
+    margin-bottom: 1.5em;
+  }
+
+  .post-meta {
+    font-size: 0.9em;
+    display: inline-block;  
+    color: #888;
+    margin-left: 10px; /* Space between the title and the date */
+  }
+
   .post-excerpt {
-    margin-top: 1em;
-  }
-  .read-more {
-    display: inline-block;
     margin-top: 0.5em;
+    font-size: 1em;
+  }
+
+  .read-more {
     font-weight: bold;
+    color: #5c00c7;
+    text-decoration: none;
+  }
+
+  .read-more:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .category-heading {
+      font-size: 1.5em;
+    }
   }
 </style>
-

@@ -43,8 +43,28 @@ Check out our step-by-step tutorials to help you make the most of our resources:
 Need more help? Contact our support team:
 
 - <span style="color:#5c00c7;">**Email:**</span> info@modelphysmat.com
+  
+    <p>
+    <button onclick="handleEmailClick()" style="display:inline-block; background:#5c00c7 !important; color:white; padding:10px 16px; text-decoration:none; border:none; border-radius:6px; cursor:pointer;">
+    📧 <span style="color:white;">Send Us a Message</span>
+    </button>
+    </p>
+     <!-- Hidden fallback form -->
+    <div id="fallbackForm" style="display:none; margin-top: 20px;">
+    	 <p><strong>Can't use email?</strong> Use the form below:</p>
+	 <!--Insert contact form here -->
+
+	 <form action="https://formspree.io/f/mjkykaqp" method="POST">
+  	   <label>Your Name: <input type="text" name="name" required></label><br>
+  	   <label>Email: <input type="email" name="_replyto" required></label><br>
+  	   <label>Topic: <input type="text" name="topic" required></label><br>
+  	   <label>Message:<br><textarea name="message" required></textarea></label><br>
+  	   <button type="submit">Send Email</button>
+         </form>
+    </div>
+
 - <span style="color:#5c00c7;">**Support Hours:**</span> Monday-Friday, 9am-5pm EST
 
-
+<script src="{{ '/assets/js/email-toggle.js' | relative_url }}"></script>
 
 

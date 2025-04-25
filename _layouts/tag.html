@@ -1,71 +1,186 @@
-
 ---
 layout: single
 ---
-
 <div class="container">
-  {% assign selected_tag = page.url | split: '/' | last | split: '#' | last %}
+  <div class="main-content">
 
-  {% if selected_tag %}
-    <h2>Posts tagged with: <span style="color: purple;">{{ selected_tag }}</span></h2>
-    <ul>
-      {% for post in site.posts %}
-        {% if post.tags contains selected_tag %}
-          <li>
-            <a href="{{ post.url }}">{{ post.title }}</a>
-            <span style="color: gray;">({{ post.date | date: "%B %d, %Y" }})</span>
-          </li>
-        {% endif %}
-      {% endfor %}
-    </ul>
+    <!-- Heading for All Tags -->
+    <h1 class="tag-heading">Index of Posts & Tutorials by Tags</h1>
 
-    {% assign matching_posts = site.posts | where_exp: "item", "item.tags contains selected_tag" %}
-    {% if matching_posts == empty %}
-      <p>No posts found with this tag.</p>
+    <!-- Optional Tag Introduction/Description -->
+    {% if page.excerpt %}
+      <p class="tag-intro">{{ page.excerpt }}</p>
     {% endif %}
-  {% else %}
-    <h2>No tag selected.</h2>
-    <p>Please select a tag to view related posts.</p>
-  {% endif %}
+    
+    <!-- First, collect all tutorials -->
+    {% assign all_tutorials = site.tutorials %}
+    
+    <!-- Loop through all tags -->
+    {% for tag in site.tags %}
+      {% assign tag_name = tag[0] %}
+      {% assign tag_posts = tag[1] %}
+      
+      <section class="tag-block" id="{{ tag_name | slugify }}">
+        <h2>Tag: {{ tag_name | capitalize }} ({{ tag_posts.size }})</h2>
+
+        <!-- Tag Description -->
+        {% assign tag_page = site.pages | where: "tag", tag_name | first %}
+        {% if tag_page %}
+          <p class="tag-description">{{ tag_page.description | default: tag_page.excerpt }}</p>
+        {% else %}
+          <p class="tag-description">No description available for this tag.</p>
+        {% endif %}
+
+        <!-- List of Posts and Tutorials -->
+        <div class="tag-posts">
+          <!-- Find tutorials with this tag -->
+          {% assign tag_tutorials = all_tutorials | where_exp: "item", "item.tags contains tag_name" %}
+          
+          <!-- Combine posts and tutorials -->
+          {% assign combined_items = tag_posts | concat: tag_tutorials %}
+          
+          {% if combined_items.size > 0 %}
+            <ul class="post-list">
+              {% for item in combined_items %}
+                <li class="post-item">
+                  <h4>
+                    <!-- Check if item is from tutorials collection -->
+                    {% if item.collection == 'tutorials' or item.path contains '_tutorials/' %}
+                      <a href="{{ item.url | relative_url }}">Tutorial: {{ item.title }}</a>
+                    {% else %}
+                      <a href="{{ item.url | relative_url }}">Post: {{ item.title }}</a>
+                    {% endif %}
+                    <span class="post-meta"><small>({{ item.date | date: "%B %d, %Y" }})</small></span>
+                  </h4>
+                  
+                  {% if item.excerpt %}
+                    <div class="post-excerpt">
+                      {{ item.excerpt | markdownify }}
+                      <p><a href="{{ item.url | relative_url }}" class="read-more">Read More &raquo;</a></p>
+                    </div>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <p>No posts or tutorials found in this tag.</p>
+          {% endif %}
+        </div>
+      </section>
+    {% endfor %}
+
+    <!-- Now add tags that only exist in tutorials -->
+    {% assign tutorial_tags = "" | split: "" %}
+    {% for tutorial in all_tutorials %}
+      {% for tag_item in tutorial.tags %}
+        {% assign tutorial_tags = tutorial_tags | push: tag_item %}
+      {% endfor %}
+    {% endfor %}
+    
+    {% assign unique_tutorial_tags = tutorial_tags | uniq %}
+    
+    {% for tag_item in unique_tutorial_tags %}
+      {% unless site.tags[tag_item] %}
+        <!-- This tag only exists in tutorials -->
+        {% assign tag_tutorials = all_tutorials | where_exp: "item", "item.tags contains tag_item" %}
+        
+        <section class="tag-block" id="{{ tag_item | slugify }}">
+          <h2>{{ tag_item | capitalize }} ({{ tag_tutorials.size }})</h2>
+          
+          <!-- Tag Description -->
+          {% assign tag_page = site.pages | where: "tag", tag_item | first %}
+          {% if tag_page %}
+            <p class="tag-description">{{ tag_page.description | default: tag_page.excerpt }}</p>
+          {% else %}
+            <p class="tag-description">No description available for this tag.</p>
+          {% endif %}
+          
+          <div class="tag-posts">
+            <ul class="post-list">
+              {% for tutorial in tag_tutorials %}
+                <li class="post-item">
+                  <h4>
+                    <a href="{{ tutorial.url | relative_url }}">Tutorial: {{ tutorial.title }}</a>
+                    <span class="post-meta"><small>({{ tutorial.date | date: "%B %d, %Y" }})</small></span>
+                  </h4>
+                  
+                  {% if tutorial.excerpt %}
+                    <div class="post-excerpt">
+                      {{ tutorial.excerpt | markdownify }}
+                      <p><a href="{{ tutorial.url | relative_url }}" class="read-more">Read More &raquo;</a></p>
+                    </div>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </section>
+      {% endunless %}
+    {% endfor %}
+  </div>
 </div>
 
+<!-- Include the tag filter script -->
+<script src="{{ '/assets/js/tag-filter.js' | relative_url }}"></script>
+
 <style>
-  .tag-title {
+  .tag-intro {
+    margin-bottom: 2em;
+    font-size: 1.1em;
+    line-height: 1.6;
+  }
+
+  .tag-block {
+    margin-bottom: 2em;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 1em;
+  }
+
+  .tag-heading {
+    white-space: nowrap;
     font-size: 2em;
     margin-bottom: 1em;
+   }
+  .tag-description {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 2em;
   }
-  .tag-post-list {
+
+  .post-list {
     list-style: none;
     padding-left: 0;
   }
-  .tag-post {
-    margin-bottom: 2em;
-    padding-bottom: 1em;
-    border-bottom: 1px solid #eee;
+
+  .post-item {
+    margin-bottom: 1.5em;
   }
-  .post-date {
-    color: #999;
+
+  .post-meta {
     font-size: 0.9em;
+    display: inline-block;  
+    color: #888;
+    margin-left: 10px; /* Space between the title and the date */
   }
+
   .post-excerpt {
     margin-top: 0.5em;
+    font-size: 1em;
   }
-  .post-tags {
-    font-size: 0.85em;
-    margin-top: 0.5em;
+
+  .read-more {
+    font-weight: bold;
+    color: #5c00c7;
+    text-decoration: none;
   }
-  .tag-pill {
-    display: inline-block;
-    background: #f1f1f1;
-    padding: 2px 8px;
-    margin-right: 5px;
-    border-radius: 12px;
-    font-size: 0.9em;
+
+  .read-more:hover {
+    text-decoration: underline;
   }
-  .similar-tags {
-    margin-top: 2em;
-    padding: 1em;
-    background: #f9f9f9;
-    border-left: 3px solid #0366d6;
+
+  @media (max-width: 768px) {
+    .tag-heading {
+      font-size: 1.5em;
+    }
   }
 </style>

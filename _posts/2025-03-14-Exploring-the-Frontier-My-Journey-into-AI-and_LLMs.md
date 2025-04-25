@@ -1,5 +1,4 @@
 ---
-
 title: "Exploring the Frontier: My Journey into AI and LLMs"
 premalink: /posts/2025-03-14-Exploring-the-Frontier-My-Journey-into-AI-and_LLMs
 layout: single
@@ -13,7 +12,7 @@ header:
   overlay_filter: rgba(0, 0, 0, 0.6)
   overlay_height: 400px
   #caption: "Photo: [AI Research Lab]"
-  teaser: /assets/images/posts/ai-journey-header.jpg 
+  teaser: /assets/images/posts/ai-journey-header.webp 
 categories: ai-research
 tags:
   - artificial-intelligence

@@ -3,10 +3,42 @@ layout: archive
 ---
 
 <h1>{{ page.title }}</h1>
+
+<!-- Meta Information -->
 <div class="tutorial-meta">
-  {{ page.date | date: "%b %d, %Y" }} | {{ page.category }}
+  {{ page.date | date: "%B %d, %Y" }}
+  {% if page.category %}
+    | <strong>Category:</strong> {{ page.category }}
+  {% endif %}
 </div>
 
+<!-- Main Content -->
 <div class="tutorial-content">
   {{ content }}
 </div>
+
+<!-- Tags Section -->
+{% if page.tags and page.tags.size > 0 %}
+  <div class="tutorial-tags">
+    <p><strong>Tags:</strong> 
+      {% for tag in page.tags %}
+        <a href="{{ '/tags/' | append: tag | slugify | append: '/' | relative_url }}">{{ tag }}</a>
+
+<!--- <a href="/tags/{{ tag | slugify }}/">{{ tag }}</a>{% unless forloop.last %}, {% endunless %} -->
+      {% endfor %}
+    </p>
+  </div>
+{% endif %}
+
+<!-- Optional: Reading Time -->
+{% assign word_count = content | number_of_words %}
+{% assign reading_time = word_count | divided_by: 200 | round %}
+<p class="reading-time"><em>Estimated reading time: {{ reading_time }} min</em></p>
+
+<!-- Optional: Back to Tutorials Link -->
+<p><a href="/tutorials/" class="back-link">&larr; Back to Tutorials</a></p>
+
+<!-- Comments Section (conditionally included) -->
+{% if page.export_to_linkedin != false and page.comments != false %}
+  {% include comments.html %}
+{% endif %}

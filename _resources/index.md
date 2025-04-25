@@ -14,7 +14,7 @@ sort_order: reverse
 header:
   overlay_color: "#333"
   overlay_filter: "0.7"
-  overlay_image: /assets/images/tutorials/resources-banner.png
+  overlay_image: /assets/images/resources/resources-banner.png
 #  caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
 excerpt: "Discover curated tools, articles, and learning materials to support your journey in mathematics, data science, and AI."
 entries_layout: grid

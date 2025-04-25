@@ -8,7 +8,7 @@ classes:
   -header-image-readability
 author_profile: true
 header:
-  overlay_image:  /assets/images/tutorials/tutorials-banner.webp
+  overlay_image:  /assets/images/tutorials/advanced-features-banner.png
   overlay_filter: rgba(0, 0, 0, 0.5)
 caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
 excerpt: "Unlock fine-tuning, prompt control, and domain-specific enhancements to push LLM performance further."

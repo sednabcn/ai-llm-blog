@@ -93,8 +93,12 @@ include:
 collections:
   tag_pages:
     output: true
+    permalink: /tags/:name/
+    source: _pages/tags
   category_pages:  
     output: true
+    permalink: /categories/:name/
+    source: _pages/categories
   tutorials:
     output: true
     permalink: /tutorials/:path/
@@ -104,6 +108,7 @@ collections:
   resources:
     output: true
     permalink: /resources/:path/
+
 
 # Pagination Configuration
 
@@ -171,12 +176,20 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comments: true
+      comments: false
+      export_to_linkedin: false
       share: true
       related: true
       sidebar:
         nav: "main"
-	
+
+  # _tutorials   
+  - scope:
+      path: "_tutorials"
+      type: "tutorials"
+    values:
+      layout: tutorial
+  
   # Pages defaults
   - scope:
       path: "_pages"
@@ -227,3 +240,4 @@ exclude:
   - README.md
   - LICENSE
   - _tutorials/community-forum/
+  - _lib

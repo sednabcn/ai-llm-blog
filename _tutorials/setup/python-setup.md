@@ -3,17 +3,24 @@ title: "Python Setup"
 date: 2025-04-15
 layout: single
 permalink: /tutorials/setup/python-setup/
-classes:
-  - wide
-  - inner-page
 author_profile: true
-toc: true
-toc_label: "Contents"
-toc_icon: "list"
+collection: tutorials
+classes:
+  - inner-page
+  - header-image-readability
+header:
+    overlay_color: "#333"
+    overlay_filter: "0.7"
+    overlay_image: /assets/images/tutorials/python-setup-banner.png
+#caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
+excerpt: "Get your Python environment ready for AI projects with this step-by-step tutorial."
 tags:
   - python
   - setup
   - installation
+toc: true
+toc_label: "Contents"
+toc_icon: "list"
 ---
 
 {% assign category = site.data.tutorial_categories | where: "id", "setup" | first %}
@@ -79,7 +86,7 @@ With your environment activated, install the necessary packages:
 pip install numpy pandas matplotlib scikit-learn torch transformers
 ```
 
-## GPU Setup (Optional but Recommended)
+## GPU Setup (Recommended)
 
 For optimal performance with machine learning models:
 

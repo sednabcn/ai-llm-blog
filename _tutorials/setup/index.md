@@ -11,6 +11,7 @@ header:
   overlay_image:  /assets/images/tutorials/tutorials-banner.webp
   overlay_filter: rgba(0, 0, 0, 0.5)
 caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
+categories: ai-research
 excerpt: " Prerequsites and Installation Guidelines"
 toc: true
 toc_label: "Setting Up Topics"

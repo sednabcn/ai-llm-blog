@@ -8,13 +8,14 @@ classes:
   -inner-page
   -header-image-readability
 header:
-  overlay_image: /assets/images/tutorials/tutorials-banner.webp
+  overlay_image: /assets/images/community/forum-banner.webp
   overlay_filter: rgba(0, 0, 0, 0.5)
 caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
 excerpt: "Join our Community Forum — a space for collaboration, knowledge-sharing, and advancing AI customization together."
 toc: true
 toc_label: "Forum Features"
 toc_icon: "users"
+comments: true
 ---
 
 # Welcome to the Community Forum
@@ -110,5 +111,3 @@ Continue your learning journey:
 ---
  
 Thanks for being part of the community — let’s build something amazing together!
-<!-- Include the comments section -->
-{% include comments.html %}

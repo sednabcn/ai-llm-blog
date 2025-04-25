@@ -174,8 +174,8 @@ $overlay-opacity: 0.05; // Reduced opacity to allow more image shine through
     rgba(0, 0, 0, 0.15), // Reduced darkness for more shine
     rgba(0, 0, 0, 0.5)  
   );//,url("../images/home-banner.jpg");
-  //height: 70vh; // Increased from 80vh
-  height: auto;
+  height: 70vh; // Increased from 80vh
+  //height: auto;
   overflow: hidden;
   filter: saturate(110%) brightness(1.1) contrast(1.05); // Enhanced saturation and brightness
  // Add or modify these properties
@@ -330,16 +330,26 @@ $overlay-opacity: 0.05; // Reduced opacity to allow more image shine through
 .home-page,
 .about-page,
 .help-page,
+.posts-page,
+.contribute-page,
+.getting-started-page,
+.posts-page,
+.tag-archive-page,
+.tutorials-page,
 .post-listing-page,
 .single-post-page,
 .archive,
+.tutorials,          // Add this
+.community,          // Add this
+.tutorials-page,     // Already here, but fine to repeat
+.community-page,
 .layout--single {
   .page__hero--overlay {
     background-image: linear-gradient(
       rgba(0, 0, 0, 0.25), // Reduced darkness for more shine
       rgba(0, 0, 0, 0.7)  
     ), url("../images/home-banner.jpg");
-    height: 65vh; // Increased from 80vh
+    height: 70vh; // Increased from 80vh
     filter: saturate(110%) brightness(1.1) contrast(1.05); // Enhanced saturation and brightness
     
     .page__title {
@@ -371,9 +381,13 @@ $overlay-opacity: 0.05; // Reduced opacity to allow more image shine through
 }
 
 // Inner page styles consistency
+.tutorials,          // Add this
+.community,          // Add this
+.tutorials-page,     // Already here, but fine to repeat
+.community-page,
 .inner-page {
   .page__hero--overlay {
-      height: 200px; //65vh; // Match home page
+      height: 70vh; //200px; //65vh; // Match home page
     background-image: linear-gradient(
       rgba(0, 0, 0, 0.15), // Reduced darkness
       rgba(0, 0, 0, 0.5)  // Reduced darkness
@@ -397,10 +411,15 @@ $overlay-opacity: 0.05; // Reduced opacity to allow more image shine through
 
 // All page types need centered titles and matching styles
 .about-page, 
-.help-page, 
+.help-page,
+.posts-page,
 .post-listing-page, 
 .single-post-page,
 .archive,
+.tutorials,          // Add this
+.community,          // Add this
+.tutorials-page,     // Already here, but fine to repeat
+.community-page,
 .layout--single {
   .page__hero--overlay {
     .page__title, .page__excerpt, .page__meta {
@@ -763,7 +782,7 @@ body.layout--home {
       rgba(0, 0, 0, 0.15),
       rgba(0, 0, 0, 0.5)
     );//, url("../images/home-banner.jpg");
-    height: 65vh;
+    height: 70vh;//65vh;
   }
   
   .page__title {

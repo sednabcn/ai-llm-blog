@@ -8,7 +8,7 @@ classes:
   -inner-page
   -header-image-readability
 header:
-  overlay_image: /assets/images/tutorials/feed-req-subs.webp
+  overlay_image: /assets/images/community/feed-req-subs.webp
   overlay_filter: rgba(0, 0, 0, 0.5)
 caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
 excerpt: "Submit a Tutorial Request — tell us what you'd like to learn, and we’ll craft tutorials tailored to your needs and interests."

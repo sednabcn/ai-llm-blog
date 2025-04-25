@@ -102,6 +102,17 @@ layout: default
   {% elsif page.id and page.related %}
     {% include page__related.html posts=site.posts %}
   {% endif %}
+
+  <nav class="pagination">
+    {% if page.previous %}
+      <a href="{{ page.previous.url }}" class="prev">&laquo; Previous</a>
+    {% endif %}
+
+    {% if page.next %}
+      <a href="{{ page.next.url }}" class="next">Next &raquo;</a>
+    {% endif %}
+  </nav>
+  
 </div>
 
 

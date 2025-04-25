@@ -16,7 +16,7 @@ toc_icon: "question-circle"
 
 # Contribution Guidelines
 
-We welcome contributions from the AI/LLM community! This guide will help you understand how to submit content and collaborate with us effectively.
+We welcome contributions from the<span style="color:#5c00c7;"> AI/LLM community!</span>. This guide will help you understand how to submit content and collaborate with us effectively.
 
 ## How to Get Involved
 
@@ -128,5 +128,27 @@ By submitting content, you agree that:
 ## 🤔 Questions?
 
 If you have questions about contributing, please contact our editorial team at [editorial@modelphysmat.com](mailto:editorial@modelphysmat.com).
+    <p>
+    <button onclick="handleEmailClick()" style="display:inline-block; background:#5c00c7 !important; color:white; padding:10px 16px; text-decoration:none; border:none; border-radius:6px; cursor:pointer;">
+    📧 <span style="color:white;">Inquire about contributing</span>
+    </button>
+    </p>
+     <!-- Hidden fallback form -->
+    <div id="fallbackForm" style="display:none; margin-top: 20px;">
+    	 <p><strong>Can't use email?</strong> Use the form below:</p>
+	 <!--Insert contact form here -->
+
+	 <form action="https://formspree.io/f/mjkykaqp" method="POST">
+  	   <label>Your Name: <input type="text" name="name" required></label><br>
+  	   <label>Email: <input type="email" name="_replyto" required></label><br>
+  	   <label>Topic: <input type="text" name="topic" required></label><br>
+  	   <label>Message:<br><textarea name="message" required></textarea></label><br>
+  	   <button type="submit">Send Email</button>
+         </form>
+    </div>
+  
+
+<script src="{{ '/assets/js/email-toggle.js' | relative_url }}"></script>
+
 
 ## We welcome your contributions!
