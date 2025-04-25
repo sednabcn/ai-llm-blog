@@ -54,7 +54,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Setting Up Your Environment",
-        "excerpt":"Setting Up Your Environment This comprehensive guide will walk you through creating the optimal development environment for working with AI and Large Language Models (LLMs). Prerequisites Before you begin, ensure you have: A computer with at least 8GB RAM (16GB+ recommended) Administrator/sudo access to your system Basic familiarity with command...","categories": ["ai-research"],
+        "excerpt":"Setting Up Your Environment This comprehensive guide will walk you through creating the optimal development environment for working with AI and Large Language Models (LLMs). Prerequisites Before you begin, ensure you have: A computer with at least 8GB RAM (16GB+ recommended) Administrator/sudo access to your system Basic familiarity with command...","categories": [],
         "tags": [],
         "url": "/ai-llm-blog/tutorials/setup/",
         "teaser": null
