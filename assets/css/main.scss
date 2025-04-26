@@ -328,161 +328,166 @@ html, body {
   @include responsive-title;
 }
 
-/* ==========================================================================
-   PAGE TYPE SPECIFIC STYLES
-   ========================================================================== */
+// ==========================================================================
+// PAGE TYPE SPECIFIC STYLES
+// ==========================================================================
 
-// Ensure all pages use the same style as the homepage
+// Shared Hero Section Styles
+@mixin page-hero-common {
+  height: 70vh;
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.25),
+    rgba(0, 0, 0, 0.7)
+  ), url("../images/home-banner.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: saturate(110%) brightness(1.1) contrast(1.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 1rem;
+  
+  .page__title {
+    font-size: 3.8em;
+    color: $white !important;
+    margin-top: 0.5em;
+  }
+
+  .page__excerpt {
+    font-size: 1.2em;
+    margin-top: 0.5em;
+    color: $white;
+  }
+
+  &::before {
+    content: "";
+    background: linear-gradient(135deg,
+      rgba(0, 0, 0, 0.3) 0%,
+      transparent 40%,
+      rgba(255, 255, 255, 0.1) 50%,
+      transparent 60%,
+      rgba(0, 0, 0, 0.3) 100%);
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 1;
+  }
+}
+
+// Inner Pages (tutorials, community, archives, etc.)
+@mixin inner-page-hero {
+  height: 70vh;
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.5)
+  ), url("../images/home-banner.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: saturate(110%) brightness(1.15) contrast(1.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 1rem;
+
+  .page__title {
+    font-size: 3.8em;
+    color: $white !important;
+    margin-top: 0.5em;
+  }
+
+  .page__excerpt {
+    font-size: 1.2em;
+    margin-top: 0.5em;
+    color: $white;
+  }
+}
+
+// Apply the common hero style to all important page types
 .home-page,
 .about-page,
 .help-page,
 .posts-page,
 .contribute-page,
 .getting-started-page,
-.posts-page,
 .tag-archive-page,
 .tutorials-page,
 .post-listing-page,
 .single-post-page,
 .archive,
-.tutorials,          // Add this
-.community,          // Add this
-.tutorials-page,     // Already here, but fine to repeat
+.community,
 .community-page,
+.tutorials,
+.tutorials-page,
 .layout--single {
   .page__hero--overlay {
-    background-image: linear-gradient(
-      rgba(0, 0, 0, 0.25), // Reduced darkness for more shine
-      rgba(0, 0, 0, 0.7)  
-    ), url("../images/home-banner.jpg");
-    height: 70vh; // Increased from 80vh
-    filter: saturate(110%) brightness(1.1) contrast(1.05); // Enhanced saturation and brightness
-    
-    .page__title {
-      font-size: 3.8em; // Increased from 3.5em
-      max-width: 90%;
-      color: $white !important; // FIXED with !important
-      margin-top: 0.5em; // Added to move title down
-      text-align: center !important; // Ensure centered text
-    }
-
-    .page__excerpt {
-      font-size: 1.2em;
-      text-align: center !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
-    }
-    
-    // Additional shine effect specific to home page
-    &::before {
-      background: linear-gradient(135deg,
-                rgba(0, 0, 0, 0.3) 0%,
-                transparent 40%,
-                rgba(255, 255, 255, 0.1) 50%,
-                transparent 60%,
-                rgba(0, 0, 0, 0.3) 100%);
-      z-index: 1;
-    }
+    @include page-hero-common;
   }
 }
 
-// Inner page styles consistency
-.tutorials,          // Add this
-.community,          // Add this
-.tutorials-page,     // Already here, but fine to repeat
-.community-page,
+// Special Inner Pages
+.tutorials,
+.community,
 .inner-page {
   .page__hero--overlay {
-      height: 70vh; //200px; //65vh; // Match home page
-    background-image: linear-gradient(
-      rgba(0, 0, 0, 0.15), // Reduced darkness
-      rgba(0, 0, 0, 0.5)  // Reduced darkness
-    );//, url("../images/home-banner.jpg"); // Use home banner for all pages
-    filter: saturate(110%) brightness(1.15) contrast(1.05); // Enhanced saturation and brightness
-    
-    .page__title {
-      font-size: 3.8em; // Match home page
-      color: $white !important; // FIXED with !important
-      margin-top: 0.5em; // Added to move title down
-      text-align: center !important; // Ensure centered text
-    }
-    
-    .page__excerpt {
-      text-align: center !important; // FIXED with !important
-      margin-left: auto !important;
-      margin-right: auto !important;
-    }
+    @include inner-page-hero;
   }
 }
 
-// All page types need centered titles and matching styles
-.about-page, 
-.help-page,
-.posts-page,
-.post-listing-page, 
-.single-post-page,
-.archive,
-.tutorials,          // Add this
-.community,          // Add this
-.tutorials-page,     // Already here, but fine to repeat
-.community-page,
-.layout--single {
-  .page__hero--overlay {
-    .page__title, .page__excerpt, .page__meta {
-      text-align: center !important; // FIXED with !important
-      margin-left: auto !important;
-      margin-right: auto !important;
-    }
-    
-    .page__title {
-      color: $white !important; // FIXED with !important
-      margin-top: 0.5em; // Added to move title down
-    }
-  }
-}
-
-// Readability enhancement for header text
+// Readability enhancements for pages with headers
 .header-image-readability {
   .page__hero--overlay {
     padding: 3em 0;
-    
     .page__title,
     .page__meta,
     .page__lead {
-      color: $white !important; // FIXED with !important
+      color: $white !important;
       text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+      text-align: center;
     }
-    
-    .page__title {
-      color: $white !important; // FIXED with !important
-      margin-top: 0.5em; // Added to move title down
-      text-align: center !important; // Ensure centered text
-    }
-    
-    .page__excerpt {
-      text-align: center !important; // FIXED with !important
-      margin-left: auto !important;
-      margin-right: auto !important;
-    }
-    
+
     .wrapper {
-      background: rgba(0, 0, 0, 0.45); // Reduced from 0.5 for more shine
-      padding: 1.2em; // Increased from 1em
+      background: rgba(0, 0, 0, 0.45);
+      padding: 1.2em;
       border-radius: 5px;
       width: fit-content;
-      max-width: 90%; // Increased from 80% for better centering with larger text
+      max-width: 90%;
       margin: 0 auto;
-      backdrop-filter: blur(3px); // Adds subtle blur effect
-      box-shadow: 0 0 25px rgba(0, 0, 0, 0.3); // Adds depth
-      border: 1px solid rgba(255, 255, 255, 0.1); // Adds subtle border
-      transition: all 0.3s ease;
+      backdrop-filter: blur(3px);
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       text-align: center;
-      
+      transition: all 0.3s ease;
+
       &:hover {
         background: rgba(0, 0, 0, 0.4);
         box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
       }
     }
+  }
+}
+
+// RESPONSIVE BEHAVIOR
+@media (max-width: 767px) {
+  .page__hero--overlay {
+    padding: 1.5rem 1rem;
+
+    .page__title {
+      font-size: 2.2em; // Shrink title size on mobile
+      margin-top: 0.3em;
+    }
+
+    .page__excerpt {
+      font-size: 1em; // Shrink excerpt size slightly
+      margin-top: 0.3em;
+    }
+  }
+
+  .header-image-readability .wrapper {
+    padding: 1em;
+    max-width: 95%;
   }
 }
 
@@ -514,7 +519,7 @@ html, body {
   padding: 1.5rem;
   background-color: $light-bg;
   border-radius: 5px;
-  
+  flex-wrap: wrap; justify-content: center; gap: 10px;
   .profile-image {
     width: 120px;
     height: 120px;
@@ -886,7 +891,29 @@ article.page .page__content h2 {
 }
 /* ==========================================================================
 // Utterances comments style 
- ========================================================================== /* Utterances comments styling */
+ ==========================================================================
+*/
+
+// Mixin for Responsive Behavior
+
+@mixin responsive-utterances {
+  @media (max-width: 767px) {
+    margin-left: 0;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 0 10px; // slight padding for smaller screens
+  }
+
+ @media (max-width: 767px) {
+  .utterances-header {
+    font-size: 1rem;
+    padding: 10px 15px;
+  }
+}
+}
+
+
+/* Utterances comments styling */
 .utterances-container {
   margin-left: 270px; /*270px;  /* Adjust based on your sidebar width */
   margin-top: 3rem;
@@ -894,6 +921,7 @@ article.page .page__content h2 {
   padding: 0;
   border-top: 2px solid #4a00e0;
   max-width: 760px;
+  @include responsive-utterances;
 }
 
 /* Custom purple header above the Utterances widget */
@@ -1148,13 +1176,43 @@ li {
       color: #6200ee;
       margin-top: 0;
     }
-  
-.toc-list {
-  list-style-type: none; /* Removes the bullet points */
-  padding-left: 0; /* Removes the left padding */
-  margin-left: 0; /* Removes the left margin */
+/*==================================================================
+// TOC List styling (you already have)
+===================================================================*/
+/* Comprehensive TOC text alignment fix */
+.toc-sidebar,
+.toc-sidebar *,
+.toc-list,
+.toc-list li,
+.toc-list a {
+  text-align: left !important;
+}
+
+/* Reset any flex/grid layout that might be affecting text alignment */
+.toc-sidebar {
+  display: block !important;
 }
 
 .toc-list li {
-  margin-bottom: 5px; /* Optional: Add some spacing between the list items */
+  display: block !important;
+}
+
+/* Fix any container issues that might be causing text centering */
+.toc-sidebar .wrapper,
+.toc-list .wrapper {
+  text-align: left !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+/* Ensure proper indentation without affecting alignment */
+.toc-list ul {
+  padding-left: 1rem !important;
+  text-align: left !important;
+}
+
+/* Override any potential center alignment from parent elements */
+body .toc-sidebar,
+.page__content .toc-sidebar {
+  text-align: left !important;
 }
