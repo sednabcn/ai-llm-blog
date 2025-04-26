@@ -85,7 +85,7 @@ layout: single
         {% assign tag_tutorials = all_tutorials | where_exp: "item", "item.tags contains tag_item" %}
         
         <section class="tag-block" id="{{ tag_item | slugify }}">
-          <h2>{{ tag_item | capitalize }} ({{ tag_tutorials.size }})</h2>
+          <h2>Tag: {{ tag_item | capitalize }} ({{ tag_tutorials.size }})</h2>
           
           <!-- Tag Description -->
           {% assign tag_page = site.pages | where: "tag", tag_item | first %}

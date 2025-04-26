@@ -8,7 +8,7 @@ classes:
 header:
   overlay_image: /assets/images/tag-archive-banner.webp
   overlay_color: "#333"
-  overlay_filter: "0.7"
+  overlay_filter: "0.3"
 excerpt: >
   Explore structured articles and tutorials on  <span style="color:#5c00c7;">Artificial Intelligence</span>,  <span style="color:#5c00c7;">LLMs</span>, and  <span style="color:#5c00c7;">Formula Discovery</span> — organized by clearly defined tags for easy browsing.
 ---

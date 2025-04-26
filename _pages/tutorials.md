@@ -13,7 +13,7 @@ sort_by: date
 sort_order: reverse
 header:
   overlay_color: "#333"
-  overlay_filter: "0.7"
+  overlay_filter: "0.3"
   overlay_image: /assets/images/tutorials/tutorials-banner.png
 #  caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
 excerpt: "Hands-on tutorials to master core concepts, dive into code, and build expertise in machine learning and data science."
@@ -59,7 +59,7 @@ We're constantly expanding our tutorial library with new content in these exciti
 - <span style="color:#5c00c7;">Advanced techniques</span> – Master cutting-edge methods in AI development.
 
 
-## Engage With Our Community
+## Engage With Us
 
 ### Join Our Community
 
@@ -79,7 +79,7 @@ We're constantly expanding our tutorial library with new content in these exciti
 
 Check back regularly as we continue to expand our tutorial library with the latest techniques and best practices in AI and LLM development.
 
-<h2>📚 Recent Tutorials by Topics</h2>
+<h2>📚 Recent Tutorials </h2>
 
 <div class="categories">
   {% for dir in site.data.tutorial_categories %}
