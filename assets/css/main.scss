@@ -888,7 +888,7 @@ article.page .page__content h2 {
 // Utterances comments style 
  ========================================================================== /* Utterances comments styling */
 .utterances-container {
-  margin-left: 200px; /*270px;  /* Adjust based on your sidebar width */
+  margin-left: 270px; /*270px;  /* Adjust based on your sidebar width */
   margin-top: 3rem;
   margin-bottom: 3rem;
   padding: 0;
@@ -1050,10 +1050,7 @@ li {
 // Subscribe style 
  ==========================================================================
 */
-
-
-
-    .container {
+.container {
       max-width: 800px;
       margin: 0 auto;
       padding: 2rem;
