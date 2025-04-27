@@ -72,3 +72,43 @@
     font-size: 2.8rem !important;
   }
 }
+/* ==========================================================================
+   FIX FOR NO-BREAK TITLE ON MOBILE
+   ========================================================================== */
+
+/* Ensure no-break spans scale properly on mobile */
+@media (max-width: 767px) {
+  .page__title .no-break {
+    font-size: inherit !important; /* Inherit the parent's font size */
+    white-space: normal !important; /* Allow wrapping on very small screens if absolutely necessary */
+    display: inline !important; /* Change from inline-block to inline */
+    max-width: 100% !important; /* Ensure it doesn't overflow */
+    word-break: break-word !important; /* Allow breaking of long words if needed */
+  }
+  
+  /* Target the specific title span */
+  .page__hero--overlay .page__title {
+    font-size: 2rem !important; /* Force smaller font size on mobile */
+    line-height: 1.2 !important;
+    
+    /* This ensures the .no-break inside it also scales down */
+    span, .no-break {
+      font-size: inherit !important;
+    }
+  }
+}
+
+/* Ensure titles scale properly on tablets too */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .page__title .no-break {
+    font-size: inherit !important; 
+  }
+  
+  .page__hero--overlay .page__title {
+    font-size: 2.5rem !important;
+    
+    span, .no-break {
+      font-size: inherit !important;
+    }
+  }
+}
