@@ -21,9 +21,10 @@ layout: default
       {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
       <div class="page__inner-wrap">
         <section class="page__content" itemprop="text">
-	  <h1 class="blog-title">
-	    {{ page.title | raw }}
+	   <h1 class="blog-title">
+	   {{ page.title | raw }}
 	  </h1>
+     
           {{ content }}
         </section>
       </div>
@@ -32,5 +33,9 @@ layout: default
 
   <!-- Include the external JavaScript file at the bottom of the body -->
   <script src="{{ site.baseurl }}/assets/js/title-small-devices.js"></script>
+   <!-- Auto-updating version tag for GitHub Pages -->
+  <p id="version-tag" style="text-align:center; font-size:0.9em; color:#888;">
+    Updated: <!--VERSION-->
+  </p>
 </body>
 </html>
