@@ -1,52 +1,67 @@
----
-layout: none
-permalink: /sitemap.xml
----
-
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  {% assign all_pages = site.pages | concat: site.posts | concat: site.tutorials %}
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://sednabcn.github.io/ai-llm-blog/</loc>
+    <lastmod>2025-04-29T16:19:32+00:00</lastmod>
+    <priority>1.00</priority>
+  </url>
 
-  {% for page in all_pages %}
-    {% if page.sitemap != false and page.url %}
-    <url>
-      <loc>{{ site.url }}{{ page.url | replace:'index.html','' }}</loc>
-      <lastmod>
-        {% if page.last_modified_at %}
-          {{ page.last_modified_at | date_to_xmlschema }}
-        {% elsif page.date %}
-          {{ page.date | date_to_xmlschema }}
-        {% endif %}
-      </lastmod>
-      <changefreq>
-        {% if page.url == "/" %}
-          daily
-        {% elsif page.url contains "/posts/" %}
-          weekly
-        {% elsif page.url contains "/tutorials/" %}
-          monthly
-        {% else %}
-          yearly
-        {% endif %}
-      </changefreq>
-      <priority>
-        {% if page.url == "/" %}
-          1.00
-        {% elsif page.url == "/posts/" or page.url == "/tutorials/" or page.url == "/help/" %}
-          0.80
-        {% elsif page.url contains "/posts/" %}
-          0.80
-        {% elsif page.url contains "/tutorials/" %}
-          0.64
-        {% elsif page.url contains "/categories/" or page.url contains "/tags/" %}
-          0.64
-        {% else %}
-          0.51
-        {% endif %}
-      </priority>
-    </url>
-    {% endif %}
-  {% endfor %}
+  <!-- About Page -->
+  <url>
+    <loc>https://sednabcn.github.io/ai-llm-blog/about/</loc>
+    <lastmod>2025-04-29T16:19:32+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Posts Section -->
+  <url>
+    <loc>https://sednabcn.github.io/ai-llm-blog/posts/Exploring-the-Frontier-My-Journey-into-AI-and_LLMs/</loc>
+    <lastmod>2025-03-14T00:00:00+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Tutorials Section -->
+  <url>
+    <loc>https://sednabcn.github.io/ai-llm-blog/tutorials/setup/</loc>
+    <lastmod>2025-04-29T16:19:32+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+
+  <!-- Tags Section -->
+  <url>
+    <loc>https://sednabcn.github.io/ai-llm-blog/tags/artificial-intelligence/</loc>
+    <lastmod>2025-04-29T16:19:32+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+
+  <!-- Categories Section -->
+  <url>
+    <loc>https://sednabcn.github.io/ai-llm-blog/categories/ai-research/</loc>
+    <lastmod>2025-04-29T16:19:32+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+
+  <!-- Help Section -->
+  <url>
+    <loc>https://sednabcn.github.io/ai-llm-blog/help/getting-started/</loc>
+    <lastmod>2025-04-29T16:19:32+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+
+  <!-- Resources Section -->
+  <url>
+    <loc>https://sednabcn.github.io/ai-llm-blog/resources/</loc>
+    <lastmod>2025-04-27T17:24:18+01:00</lastmod>
+    <priority>0.51</priority>
+  </url>
+
+  <!-- Exclude 404 page (example) -->
+  <!-- Make sure 404.html is excluded from sitemap -->
+  <!-- <url> 
+    <loc>https://sednabcn.github.io/404.html</loc> 
+    <lastmod>2025-04-29T16:19:32+00:00</lastmod> 
+  </url> -->
+
 </urlset>
-
-
