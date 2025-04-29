@@ -16,11 +16,11 @@ document.addEventListener('DOMContentLoaded', function() {
       // If the title contains "AI, LLM & LLM-HypatiaX Blog"
       if (originalTitle.includes('AI, LLM & LLM-HypatiaX Blog')) {
         // Replace with split version using a line break
-        titleElement.innerHTML = 'AI, LLM & LLM-<br>HypatiaX Blog';
+        titleElement.innerHTML = 'AI, LLM & <br>LLM-HypatiaX Blog';
       }
     } else {
       // On larger screens, restore the original title without line break
-      if (originalTitle.includes('AI, LLM & LLM') && originalTitle.includes('HypatiaX Blog')) {
+      if (originalTitle.includes('AI, LLM & ') && originalTitle.includes('LLM-HypatiaX Blog')) {
         titleElement.innerHTML = 'AI, LLM & LLM-HypatiaX Blog';
       }
     }
