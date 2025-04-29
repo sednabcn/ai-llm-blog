@@ -28,5 +28,7 @@ excerpt: "<span class='no-break'>A blog dedicated to AI, LLM research, and the L
       <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
       <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More →</a>
     </div>
-  {% endfor %}
+    {% endfor %}
 </div>
+ <!-- Include the external JavaScript file at the bottom of the body -->
+ <script src="{{ site.baseurl }}/assets/js/title-small-devices.js" defer></script>
