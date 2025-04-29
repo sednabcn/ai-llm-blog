@@ -10,6 +10,7 @@ gem 'github-pages', '~> 232', group: :jekyll_plugins
 # Remote Theme Support
 gem 'jekyll-remote-theme', '~> 0.4.3'
 gem 'bigdecimal'
+gem 'jekyll-last-modified-at'
 
 
 
@@ -23,7 +24,7 @@ group :jekyll_plugins do
   gem 'jekyll-feed', '~> 0.17.0'       # RSS feed generation
   gem 'jekyll-seo-tag', '~> 2.8.0'     # SEO metadata
   gem 'jekyll-include-cache', '~> 0.2.1' # Cached includes for performance
-  gem 'jekyll-sitemap', '~> 1.4.0'     # Generates a sitemap.xml
+#  gem 'jekyll-sitemap', '~> 1.4.0'     # Generates a sitemap.xml
   gem 'jekyll-github-metadata', '~> 2.16.1' # Fetches GitHub repo metadata 
 end
 

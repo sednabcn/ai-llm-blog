@@ -143,7 +143,7 @@ excerpt_separator: "\n\n"
 plugins:
   - jekyll-remote-theme
   - jekyll-paginate
-  - jekyll-sitemap
+#  - jekyll-sitemap
   - jekyll-minifier
   - jekyll-gist
   - jekyll-feed
@@ -152,7 +152,8 @@ plugins:
   - jekyll-github-metadata
   - jekyll-redirect-from
   - jekyll-toc
-
+  - jekyll-last-modified-at
+  
 # Minifier Options
 jekyll-minifier:
   uglifier_args:
