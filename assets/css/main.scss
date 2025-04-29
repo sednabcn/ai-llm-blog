@@ -874,7 +874,7 @@ article.page .page__content h2 {
 /* Desktop styling - for larger screens */
 @media (min-width: 1024px) {
   .utterances-container {
-    margin-left: 240px; /* Apply the sidebar width offset on large screens */
+    margin-left: 215px; /* Apply the sidebar width offset on large screens */
     max-width: 760px;
   }
 }

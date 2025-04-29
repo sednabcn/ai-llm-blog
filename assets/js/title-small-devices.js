@@ -3,7 +3,7 @@
       
       if (window.innerWidth <= 768) {  // Small device
         if (titleElement) {
-          titleElement.innerHTML = "AI, LLM & LLM‑HypatiaX Blog";
+          titleElement.innerHTML = "AI, LLM &  <span class="no-break-hyphen">LLM-HypatiaX</span> Blog";
         }
       } else {  // Large device
         if (titleElement) {
@@ -11,3 +11,6 @@
         }
       }
     });
+.no-break-hyphen {
+  white-space: nowrap;
+}
