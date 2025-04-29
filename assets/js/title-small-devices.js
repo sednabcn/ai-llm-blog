@@ -3,7 +3,11 @@
       
       if (window.innerWidth <= 768) {  // Small device
           if (titleElement) {
-	      titleElement.innerHTML = 'AI, LLM &<br>LLM-HypatiaX Blog';
+	      titleElement.innerHTML = `
+      <span class="title-part">AI, LLM &</span>
+      <span class="no-break-hyphen">LLM-HypatiaX</span>
+      <span class="title-part">Blog</span>
+    `;
         }
       } else {  // Large device
         if (titleElement) {
