@@ -225,7 +225,7 @@ $overlay-opacity: 0.05; // Reduced opacity to allow more image shine through
     //overflow-wrap: break-word;
 
 
-    .no-break {
+   .no-break-hyphen, .no-break {
 	white-space: nowrap;
 	display: inline-block;
     }
