@@ -21,6 +21,9 @@ layout: default
       {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
       <div class="page__inner-wrap">
         <section class="page__content" itemprop="text">
+	  <h1 class="blog-title">
+	    {{ page.title | raw }}
+	  </h1>
           {{ content }}
         </section>
       </div>
