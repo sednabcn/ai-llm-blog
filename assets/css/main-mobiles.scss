@@ -78,13 +78,27 @@
 
 /* Ensure no-break spans scale properly on mobile */
 @media (max-width: 767px) {
-  .page__title .no-break {
-    font-size: inherit !important; /* Inherit the parent's font size */
-    white-space: normal !important; /* Allow wrapping on very small screens if absolutely necessary */
-    display: inline !important; /* Change from inline-block to inline */
-    max-width: 100% !important; /* Ensure it doesn't overflow */
-    word-break: break-word !important; /* Allow breaking of long words if needed */
+  .blog-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.3em; /* Optional: space between title parts */
+    line-height: 1.3; /* Improved readability */
+    padding: 0.5em 1em; /* Optional padding for spacing */
+    word-wrap: break-word; /* Handle long words gracefully */
   }
+
+  .blog-title .nowrap,
+  .blog-title .no-break,
+  .blog-title .no-break-hyphen {
+    white-space: nowrap;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    font-size: 1em;
+  }
+}
   
   /* Target the specific title span */
   .page__hero--overlay .page__title {
