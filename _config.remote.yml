@@ -87,7 +87,7 @@ comments:
 include:
   - _pages
   - google2fe61160aa58a7ea.html
-
+  - robots.txt
 
 # Outputting
 collections:
