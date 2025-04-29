@@ -15,7 +15,7 @@ jobs:
     - name: Update version timestamp
       run: |
         TIMESTAMP=$(date +"%Y-%m-%d %H:%M")
-        sed -i "s|<!--VERSION-->|$TIMESTAMP|g" custom-home.html
+        sed -i "s|<!--VERSION-->|$TIMESTAMP|g" _layouts/custom-home.html
 
     - name: Commit updated file
       run: |
