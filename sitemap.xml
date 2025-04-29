@@ -1,121 +1,748 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
-<loc>https://sednabcn.github.io/ai-llm-blog/community/forum/</loc>
-<lastmod>2025-04-15T00:00:00+00:00</lastmod>
-</url>
-<url>
-<loc>https://sednabcn.github.io/ai-llm-blog/community/feedback/</loc>
-<lastmod>2025-04-17T00:00:00+00:00</lastmod>
-</url>
-<url>
-<loc>https://sednabcn.github.io/ai-llm-blog/community/request/</loc>
-<lastmod>2025-04-17T00:00:00+00:00</lastmod>
-</url>
-<url>
-<loc>https://sednabcn.github.io/ai-llm-blog/community/subscribe/</loc>
-<lastmod>2025-04-17T00:00:00+00:00</lastmod>
-</url>
-<url>
-<loc>https://sednabcn.github.io/ai-llm-blog/posts/Exploring-the-Frontier-My-Journey-into-AI-and_LLMs/</loc>
-<lastmod>2025-03-14T00:00:00+00:00</lastmod>
-</url>
-<url>
-<loc>https://sednabcn.github.io/ai-llm-blog/resources/</loc>
-<lastmod>2025-04-29T16:18:49+00:00</lastmod>
-</url>
-<url>
-<loc>https://sednabcn.github.io/ai-llm-blog/tutorials/advanced-features/</loc>
-<lastmod>2025-04-15T00:00:00+00:00</lastmod>
-</url>
-<url>
-<loc>https://sednabcn.github.io/ai-llm-blog/tutorials/basic-customization/</loc>
-<lastmod>2025-04-15T00:00:00+00:00</lastmod>
-</url>
-<url>
-<loc>https://sednabcn.github.io/ai-llm-blog/tutorials/ethical-considerations/</loc>
-<lastmod>2025-04-15T00:00:00+00:00</lastmod>
-</url>
-<url>
-<loc>https://sednabcn.github.io/ai-llm-blog/tutorials/setup/</loc>
-<lastmod>2025-04-15T00:00:00+00:00</lastmod>
-</url>
-<url>
-<loc>https://sednabcn.github.io/ai-llm-blog/tutorials/setup/python-setup/</loc>
-<lastmod>2025-04-15T00:00:00+00:00</lastmod>
-</url>
-<url>
-<loc>https://sednabcn.github.io/ai-llm-blog/tutorials/advanced-features/performance-optimization/</loc>
-<lastmod>2025-04-18T00:00:00+00:00</lastmod>
-</url>
-<url>
-<loc>https://sednabcn.github.io/ai-llm-blog/about/</loc>
-</url>
-<url>
-<loc>https://sednabcn.github.io/ai-llm-blog/categories/ai-research/</loc>
-</url>
-<url>
-<loc>https://sednabcn.github.io/ai-llm-blog/tags/artificial-intelligence/</loc>
-</url>
-<url>
-<loc>https://sednabcn.github.io/ai-llm-blog/categories/</loc>
-</url>
-<url>
-<loc>https://sednabcn.github.io/ai-llm-blog/help/contribute/</loc>
-</url>
-<url>
-<loc>https://sednabcn.github.io/ai-llm-blog/tags/deployment/</loc>
-</url>
-<url>
-<loc>https://sednabcn.github.io/ai-llm-blog/tags/efficiency/</loc>
-</url>
-<url>
-<loc>https://sednabcn.github.io/ai-llm-blog/tags/formula-discovery/</loc>
-</url>
-<url>
-<loc>https://sednabcn.github.io/ai-llm-blog/categories/formula-discovery/</loc>
-</url>
-<url>
-<loc>https://sednabcn.github.io/ai-llm-blog/help/getting-started/</loc>
-</url>
-<url>
-<loc>https://sednabcn.github.io/ai-llm-blog/help/</loc>
-</url>
-<url>
-<loc>https://sednabcn.github.io/ai-llm-blog/</loc>
-</url>
-<url>
-<loc>https://sednabcn.github.io/ai-llm-blog/tags/installation/</loc>
-</url>
-<url>
-<loc>https://sednabcn.github.io/ai-llm-blog/tags/large-language-models/</loc>
-</url>
-<url>
-<loc>https://sednabcn.github.io/ai-llm-blog/categories/llms/</loc>
-</url>
-<url>
-<loc>https://sednabcn.github.io/ai-llm-blog/tags/optimization/</loc>
-</url>
-<url>
-<loc>https://sednabcn.github.io/ai-llm-blog/tags/performance/</loc>
-</url>
-<url>
-<loc>https://sednabcn.github.io/ai-llm-blog/posts/</loc>
-</url>
-<url>
-<loc>https://sednabcn.github.io/ai-llm-blog/tags/python/</loc>
-</url>
-<url>
-<loc>https://sednabcn.github.io/ai-llm-blog/tags/setup/</loc>
-</url>
-<url>
-<loc>https://sednabcn.github.io/ai-llm-blog/tags/</loc>
-</url>
-<url>
-<loc>https://sednabcn.github.io/ai-llm-blog/tutorials/</loc>
-</url>
-<url>
-<loc>https://sednabcn.github.io/ai-llm-blog/google2fe61160aa58a7ea.html</loc>
-<lastmod>2025-04-29T16:18:21+00:00</lastmod>
-</url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/404.html</loc>
+      <lastmod>
+        
+      </lastmod>
+      <changefreq>
+        
+          yearly
+        
+      </changefreq>
+      <priority>
+        
+          0.51
+        
+      </priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/about/</loc>
+      <lastmod>
+        
+      </lastmod>
+      <changefreq>
+        
+          yearly
+        
+      </changefreq>
+      <priority>
+        
+          0.51
+        
+      </priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/categories/ai-research/</loc>
+      <lastmod>
+        
+      </lastmod>
+      <changefreq>
+        
+          yearly
+        
+      </changefreq>
+      <priority>
+        
+          0.64
+        
+      </priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/tags/artificial-intelligence/</loc>
+      <lastmod>
+        
+      </lastmod>
+      <changefreq>
+        
+          yearly
+        
+      </changefreq>
+      <priority>
+        
+          0.64
+        
+      </priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/categories/</loc>
+      <lastmod>
+        
+      </lastmod>
+      <changefreq>
+        
+          yearly
+        
+      </changefreq>
+      <priority>
+        
+          0.64
+        
+      </priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/help/contribute/</loc>
+      <lastmod>
+        
+      </lastmod>
+      <changefreq>
+        
+          yearly
+        
+      </changefreq>
+      <priority>
+        
+          0.51
+        
+      </priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/tags/deployment/</loc>
+      <lastmod>
+        
+      </lastmod>
+      <changefreq>
+        
+          yearly
+        
+      </changefreq>
+      <priority>
+        
+          0.64
+        
+      </priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/tags/efficiency/</loc>
+      <lastmod>
+        
+      </lastmod>
+      <changefreq>
+        
+          yearly
+        
+      </changefreq>
+      <priority>
+        
+          0.64
+        
+      </priority>
+    </url>
+    
+  
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/tags/formula-discovery/</loc>
+      <lastmod>
+        
+      </lastmod>
+      <changefreq>
+        
+          yearly
+        
+      </changefreq>
+      <priority>
+        
+          0.64
+        
+      </priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/categories/formula-discovery/</loc>
+      <lastmod>
+        
+      </lastmod>
+      <changefreq>
+        
+          yearly
+        
+      </changefreq>
+      <priority>
+        
+          0.64
+        
+      </priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/help/getting-started/</loc>
+      <lastmod>
+        
+      </lastmod>
+      <changefreq>
+        
+          yearly
+        
+      </changefreq>
+      <priority>
+        
+          0.51
+        
+      </priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/help/</loc>
+      <lastmod>
+        
+      </lastmod>
+      <changefreq>
+        
+          yearly
+        
+      </changefreq>
+      <priority>
+        
+          0.80
+        
+      </priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/</loc>
+      <lastmod>
+        
+      </lastmod>
+      <changefreq>
+        
+          daily
+        
+      </changefreq>
+      <priority>
+        
+          1.00
+        
+      </priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/tags/installation/</loc>
+      <lastmod>
+        
+      </lastmod>
+      <changefreq>
+        
+          yearly
+        
+      </changefreq>
+      <priority>
+        
+          0.64
+        
+      </priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/tags/large-language-models/</loc>
+      <lastmod>
+        
+      </lastmod>
+      <changefreq>
+        
+          yearly
+        
+      </changefreq>
+      <priority>
+        
+          0.64
+        
+      </priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/categories/llms/</loc>
+      <lastmod>
+        
+      </lastmod>
+      <changefreq>
+        
+          yearly
+        
+      </changefreq>
+      <priority>
+        
+          0.64
+        
+      </priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/assets/js/lunr/lunr-en.js</loc>
+      <lastmod>
+        
+      </lastmod>
+      <changefreq>
+        
+          yearly
+        
+      </changefreq>
+      <priority>
+        
+          0.51
+        
+      </priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/assets/js/lunr/lunr-gr.js</loc>
+      <lastmod>
+        
+      </lastmod>
+      <changefreq>
+        
+          yearly
+        
+      </changefreq>
+      <priority>
+        
+          0.51
+        
+      </priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/assets/js/lunr/lunr-store.js</loc>
+      <lastmod>
+        
+      </lastmod>
+      <changefreq>
+        
+          yearly
+        
+      </changefreq>
+      <priority>
+        
+          0.51
+        
+      </priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/assets/css/main-grid.css</loc>
+      <lastmod>
+        
+      </lastmod>
+      <changefreq>
+        
+          yearly
+        
+      </changefreq>
+      <priority>
+        
+          0.51
+        
+      </priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/assets/css/main.css</loc>
+      <lastmod>
+        
+      </lastmod>
+      <changefreq>
+        
+          yearly
+        
+      </changefreq>
+      <priority>
+        
+          0.51
+        
+      </priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/tags/optimization/</loc>
+      <lastmod>
+        
+      </lastmod>
+      <changefreq>
+        
+          yearly
+        
+      </changefreq>
+      <priority>
+        
+          0.64
+        
+      </priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/tags/performance/</loc>
+      <lastmod>
+        
+      </lastmod>
+      <changefreq>
+        
+          yearly
+        
+      </changefreq>
+      <priority>
+        
+          0.64
+        
+      </priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/posts/</loc>
+      <lastmod>
+        
+      </lastmod>
+      <changefreq>
+        
+          weekly
+        
+      </changefreq>
+      <priority>
+        
+          0.80
+        
+      </priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/tags/python/</loc>
+      <lastmod>
+        
+      </lastmod>
+      <changefreq>
+        
+          yearly
+        
+      </changefreq>
+      <priority>
+        
+          0.64
+        
+      </priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/tags/setup/</loc>
+      <lastmod>
+        
+      </lastmod>
+      <changefreq>
+        
+          yearly
+        
+      </changefreq>
+      <priority>
+        
+          0.64
+        
+      </priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/sitemap.xml</loc>
+      <lastmod>
+        
+      </lastmod>
+      <changefreq>
+        
+          yearly
+        
+      </changefreq>
+      <priority>
+        
+          0.51
+        
+      </priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/tags/</loc>
+      <lastmod>
+        
+      </lastmod>
+      <changefreq>
+        
+          yearly
+        
+      </changefreq>
+      <priority>
+        
+          0.64
+        
+      </priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/assets/js/theme-comments.js</loc>
+      <lastmod>
+        
+      </lastmod>
+      <changefreq>
+        
+          yearly
+        
+      </changefreq>
+      <priority>
+        
+          0.51
+        
+      </priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/tutorials/</loc>
+      <lastmod>
+        
+      </lastmod>
+      <changefreq>
+        
+          monthly
+        
+      </changefreq>
+      <priority>
+        
+          0.80
+        
+      </priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/redirects.json</loc>
+      <lastmod>
+        
+      </lastmod>
+      <changefreq>
+        
+          yearly
+        
+      </changefreq>
+      <priority>
+        
+          0.51
+        
+      </priority>
+    </url>
+    
+  
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/posts/Exploring-the-Frontier-My-Journey-into-AI-and_LLMs/</loc>
+      <lastmod>
+        
+          2025-03-14T00:00:00+00:00
+        
+      </lastmod>
+      <changefreq>
+        
+          weekly
+        
+      </changefreq>
+      <priority>
+        
+          0.80
+        
+      </priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/tutorials/advanced-features/</loc>
+      <lastmod>
+        
+          2025-04-15T00:00:00+00:00
+        
+      </lastmod>
+      <changefreq>
+        
+          monthly
+        
+      </changefreq>
+      <priority>
+        
+          0.64
+        
+      </priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/tutorials/basic-customization/</loc>
+      <lastmod>
+        
+          2025-04-15T00:00:00+00:00
+        
+      </lastmod>
+      <changefreq>
+        
+          monthly
+        
+      </changefreq>
+      <priority>
+        
+          0.64
+        
+      </priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/tutorials/ethical-considerations/</loc>
+      <lastmod>
+        
+          2025-04-15T00:00:00+00:00
+        
+      </lastmod>
+      <changefreq>
+        
+          monthly
+        
+      </changefreq>
+      <priority>
+        
+          0.64
+        
+      </priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/tutorials/setup/</loc>
+      <lastmod>
+        
+          2025-04-15T00:00:00+00:00
+        
+      </lastmod>
+      <changefreq>
+        
+          monthly
+        
+      </changefreq>
+      <priority>
+        
+          0.64
+        
+      </priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/tutorials/setup/python-setup/</loc>
+      <lastmod>
+        
+          2025-04-15T00:00:00+00:00
+        
+      </lastmod>
+      <changefreq>
+        
+          monthly
+        
+      </changefreq>
+      <priority>
+        
+          0.64
+        
+      </priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://sednabcn.github.io/tutorials/advanced-features/performance-optimization/</loc>
+      <lastmod>
+        
+          2025-04-18T00:00:00+00:00
+        
+      </lastmod>
+      <changefreq>
+        
+          monthly
+        
+      </changefreq>
+      <priority>
+        
+          0.64
+        
+      </priority>
+    </url>
+    
+  
 </urlset>
+
+
