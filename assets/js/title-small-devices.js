@@ -2,8 +2,8 @@
       const titleElement = document.querySelector('h1');
       
       if (window.innerWidth <= 768) {  // Small device
-        if (titleElement) {
-          titleElement.innerHTML = "AI, LLM &  <span class="no-break-hyphen">LLM-HypatiaX</span> Blog";
+          if (titleElement) {
+	      titleElement.innerHTML = `AI, LLM & <span class="no-break-hyphen">LLM-HypatiaX</span> Blog`;
         }
       } else {  // Large device
         if (titleElement) {
