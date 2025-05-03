@@ -24,7 +24,7 @@ group :jekyll_plugins do
   gem 'jekyll-feed', '~> 0.17.0'       # RSS feed generation
   gem 'jekyll-seo-tag', '~> 2.8.0'     # SEO metadata
   gem 'jekyll-include-cache', '~> 0.2.1' # Cached includes for performance
-#  gem 'jekyll-sitemap', '~> 1.4.0'     # Generates a sitemap.xml
+  gem 'jekyll-sitemap', '~> 1.4.0'     # Generates a sitemap.xml
   gem 'jekyll-github-metadata', '~> 2.16.1' # Fetches GitHub repo metadata 
 end
 
@@ -33,8 +33,13 @@ group :production do
   gem 'uglifier', '~> 4.2'              # Minifies JavaScript
   gem 'jekyll-minifier', '~> 0.1.10'    # Minifies HTML, CSS, and JS
   gem 'jekyll-compress-images', '~> 1.2' # Compresses images
-  gem 'html-proofer', '~> 5.0.7'
   gem 'nokogiri', '~> 1.18.7'           # XML/HTML parser
+end
+
+# Broken Links Checker Tools
+group :checker do
+  gem 'html-proofer', '~> 5.0.7'
+  gem 'colorize'
 end
 
 # Caching and Performance Enhancements

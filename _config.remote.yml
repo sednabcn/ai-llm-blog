@@ -144,7 +144,7 @@ excerpt_separator: "\n\n"
 plugins:
   - jekyll-remote-theme
   - jekyll-paginate
-#  - jekyll-sitemap
+  - jekyll-sitemap
   - jekyll-minifier
   - jekyll-gist
   - jekyll-feed
@@ -221,6 +221,14 @@ analytics:
 
 google_site_verification: "0l5TbPYQ76ChPVEmXUclBOY04jLkGAAQAKAEm2a0j60"
 
+checker:
+  ignore_urls:
+    - "linkedin.com"
+    - "twitter.com"
+  ignore_files:
+    - "404.html"
+    - "search.html"
+  domain: "sednabcn.github.io"
 
 
 # Files to Exclude from Processing

@@ -1,0 +1,70 @@
+name: Test Broken Links
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'
+          bundler-cache: true
+
+      - name: Use Gemfile.remote
+        run: |
+          cp Gemfile.remote Gemfile
+          cp _config.remote.yml _config.yml
+
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundle install
+
+      - name: Build Jekyll site (remote config)
+        run: bundle exec jekyll build
+
+      - name: Run Broken Links Checker
+        run: ruby ./tests/broken_links_checker.rb --remote
+
+      - name: Archive HTMLProofer Log (if available)
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: htmlproofer-log
+          path: broken-links.log
+
+      # Notify via Slack if broken links are found
+      - name: Slack Notification on Broken Links
+        if: failure()
+        run: |
+          curl -X POST -H 'Content-type: application/json' \
+          --data '{
+            "text": "⚠️ Broken links were found during the Jekyll deployment. Check the logs for details: https://github.com/sednabcn/ai-llm-blog/actions/runs/${{ github.run_id }}",
+            "channel": "#your-slack-channel",
+            "username": "GitHub Actions"
+          }'"${{ secrets.SLACK_WEBHOOK_URL }}"
+
+      # Send an email notification if broken links are found
+      - name: Send Email on Broken Links
+        if: failure()
+  	run: ruby _tests/send_email_smtp.rb
+  	env:
+   	 SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
+    	 SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+    	 SMTP_HOST: ${{ secrets.SMTP_HOST }}
+    	 SMTP_PORT: ${{ secrets.SMTP_PORT }}
+    	 TO_EMAIL: ${{ secrets.SMTP_USERNAME }}
+       
+
+  

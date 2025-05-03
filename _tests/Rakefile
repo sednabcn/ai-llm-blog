@@ -1,0 +1,20 @@
+# _tests/Rakefile
+require_relative 'test_helpers'
+
+namespace :test do
+  desc "Check internal links only"
+  task :internal do
+    Tests::LinkChecker.check_links("./_site", {disable_external: true})
+  end
+  
+  desc "Check all links"
+  task :all do
+    Tests::LinkChecker.check_links
+  end
+  
+  desc "Check specific directory"
+  task :dir, [:dir] do |t, args|
+    dir = args[:dir] || "./_site"
+    Tests::LinkChecker.check_links(dir)
+  end
+end

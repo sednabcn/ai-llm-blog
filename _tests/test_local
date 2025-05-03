@@ -1,0 +1,4 @@
+# Local testing
+bundle exec rake check:internal    # Check only internal links
+bundle exec rake check:all         # Check all links
+bundle exec rake check:dir[./path] # Check specific directory
