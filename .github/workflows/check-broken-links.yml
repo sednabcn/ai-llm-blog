@@ -1,14 +1,11 @@
 name: Check Broken Links
 
 on:
-  # Run manually from the Actions tab
   workflow_dispatch:
-  # Run on schedule (once a week on Monday)
   schedule:
     - cron: '0 0 * * 1'
-  # Run when pushing to main branch (optional)
   push:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   check-links:
@@ -23,15 +20,24 @@ jobs:
           ruby-version: '3.0'
           bundler-cache: true
 
-      - name: Install html-proofer
-        run: gem install html-proofer -v 5.0.10 nokogiri
+      - name: Rename remote files to standard names
+        run: |
+          if [ -f Gemfile.remote ]; then mv Gemfile.remote Gemfile; fi
+          if [ -f _config.remote.yml ]; then mv _config.remote.yml _config.yml; fi
+
+      - name: Install html-proofer and other dependencies
+        run: |
+          gem install html-proofer -v 5.0.10 nokogiri
+          gem install bundler jekyll
+          bundle install
 
       - name: Build site
         run: |
-          # If you're using Jekyll, uncomment the following lines
-          # gem install bundler jekyll
-          # bundle install
-          # bundle exec jekyll build
+          bundle exec jekyll build
+
+      - name: List contents of _site directory
+        run: |
+          ls -la _site
 
       - name: Check links with html-proofer
         run: |
@@ -62,7 +68,7 @@ options = {
 
 begin
   puts "Checking links in _site directory..."
-  proofer = HTMLProofer.check_directory("./_site", options)
+  proofer = HtmlProofer.check_directory("./_site", options)
   proofer.run
 rescue => e
   puts "Error during link checking: #{e.message}"
@@ -91,5 +97,4 @@ EOF
       - name: Notify on failure
         if: failure()
         run: |
-          echo "Broken links were found in the website. Check the GitHub Actions run for details."
-          # Add notification steps here if needed (e.g., send email, Slack message)
+          echo "❌ Broken links were found in the website. Check the GitHub Actions run for details."
