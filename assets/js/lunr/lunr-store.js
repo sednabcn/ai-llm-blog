@@ -5,6 +5,12 @@ var store = [{
         "url": "/ai-llm-blog/community/forum/",
         "teaser": null
       },{
+        "title": "Community Forum",
+        "excerpt":"# Welcome to the Community Forum Our Community Forum is designed to foster collaboration, knowledge-sharing, and continuous improvement in AI customization practices. Here's what you can expect: --- ## 🧱 Forum Structure - **Learning Tracks**: Spaces for beginners, intermediate, and advanced practitioners - **Use Case Galleries**: Showcase successful customization projects...","categories": [],
+        "tags": [],
+        "url": "/ai-llm-blog/community/forum/",
+        "teaser": null
+      },{
         "title": "Share Your LLM Learning Interests",
         "excerpt":"Help Shape Our Tutorial Roadmap   Your input matters! Help us prioritize our upcoming content by sharing which LLM topics interest you most.   Share Your Interests  ","categories": [],
         "tags": [],

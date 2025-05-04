@@ -9,32 +9,32 @@
 <html lang="en-US" class="no-js">
   <head>
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Getting Started Guide | AI, LLM &amp; LLM-HypatiaX Blog</title>
+<title>Help &amp; Resources | AI, LLM &amp; LLM-HypatiaX Blog</title>
 <meta name="generator" content="Jekyll v3.10.0" />
-<meta property="og:title" content="Getting Started Guide" />
+<meta property="og:title" content="Help &amp; Resources" />
 <meta name="author" content="Dr. Ruperto Pedro Bonet Chaple" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="A blog dedicated to AI, LLM research, and the LLM-HypatiaX project focusing on generative AI in formula discovery." />
 <meta property="og:description" content="A blog dedicated to AI, LLM research, and the LLM-HypatiaX project focusing on generative AI in formula discovery." />
-<link rel="canonical" href="https://sednabcn.github.io/ai-llm-blog/help/getting-started/" />
-<meta property="og:url" content="https://sednabcn.github.io/ai-llm-blog/help/getting-started/" />
+<link rel="canonical" href="https://sednabcn.github.io/ai-llm-blog/help/" />
+<meta property="og:url" content="https://sednabcn.github.io/ai-llm-blog/help/" />
 <meta property="og:site_name" content="AI, LLM &amp; LLM-HypatiaX Blog" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Getting Started Guide" />
+<meta property="twitter:title" content="Help &amp; Resources" />
 <meta name="google-site-verification" content="0l5TbPYQ76ChPVEmXUclBOY04jLkGAAQAKAEm2a0j60" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Dr. Ruperto Pedro Bonet Chaple"},"description":"A blog dedicated to AI, LLM research, and the LLM-HypatiaX project focusing on generative AI in formula discovery.","headline":"Getting Started Guide","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://sednabcn.github.io/ai-llm-blog/assets/images/logo.png"},"name":"Dr. Ruperto Pedro Bonet Chaple"},"url":"https://sednabcn.github.io/ai-llm-blog/help/getting-started/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Dr. Ruperto Pedro Bonet Chaple"},"description":"A blog dedicated to AI, LLM research, and the LLM-HypatiaX project focusing on generative AI in formula discovery.","headline":"Help &amp; Resources","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://sednabcn.github.io/ai-llm-blog/assets/images/logo.png"},"name":"Dr. Ruperto Pedro Bonet Chaple"},"url":"https://sednabcn.github.io/ai-llm-blog/help/"}</script>
 <!-- End Jekyll SEO tag -->
 
     
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Getting Started Guide</title>
+  <title>Help & Resources</title>
 
   <!-- SEO -->
-  <!-- begin _includes/seo.html --><title>Getting Started Guide | AI, LLM &amp; LLM-HypatiaX Blog</title>
+  <!-- begin _includes/seo.html --><title>Help &amp; Resources | AI, LLM &amp; LLM-HypatiaX Blog</title>
 <meta name="description" content="A blog dedicated to AI, LLM research, and the LLM-HypatiaX project focusing on generative AI in formula discovery.">
 
 
@@ -45,8 +45,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="AI, LLM & LLM-HypatiaX Blog">
-<meta property="og:title" content="Getting Started Guide">
-<meta property="og:url" content="https://sednabcn.github.io/ai-llm-blog/help/getting-started/">
+<meta property="og:title" content="Help &amp; Resources">
+<meta property="og:url" content="https://sednabcn.github.io/ai-llm-blog/help/">
 
 
   <meta property="og:description" content="A blog dedicated to AI, LLM research, and the LLM-HypatiaX project focusing on generative AI in formula discovery.">
@@ -64,7 +64,7 @@
 
 
 
-<link rel="canonical" href="https://sednabcn.github.io/ai-llm-blog/help/getting-started/">
+<link rel="canonical" href="https://sednabcn.github.io/ai-llm-blog/help/">
 
 
 
@@ -158,15 +158,15 @@
 
  <!-- Open Graph / Facebook -->
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://sednabcn.github.io/help/getting-started/">
-<meta property="og:title" content="Getting Started Guide">
+<meta property="og:url" content="https://sednabcn.github.io/help/">
+<meta property="og:title" content="Help & Resources">
 <meta property="og:description" content="">
 
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://sednabcn.github.io/help/getting-started/">
-<meta name="twitter:title" content="Getting Started Guide">
+<meta name="twitter:url" content="https://sednabcn.github.io/help/">
+<meta name="twitter:title" content="Help & Resources">
 <meta name="twitter:description" content="">
 
 
@@ -262,7 +262,7 @@
     <div class="wrapper">
       <h1 id="page-title" class="page__title" itemprop="headline">
         
-          Getting Started Guide
+          Help &amp; Resources
 
         
       </h1>
@@ -404,7 +404,7 @@
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     
-      <meta itemprop="headline" content="Getting Started Guide">
+      <meta itemprop="headline" content="Help &amp; Resources">
     
     
     
@@ -422,80 +422,62 @@
                   <i class="fas fa-question-circle"></i> Help Topics
                 </h4>
               </header>
-              <ul class="toc__menu"><li><a href="#getting-started-guide">Getting Started Guide</a><ul><li><a href="#-what-youll-find-here">🚀 What You’ll Find Here</a></li><li><a href="#-quick-navigation">🔗 Quick Navigation</a></li><li><a href="#-stay-updated">📰 Stay Updated</a><ul><li><a href="#-github">🌟 GitHub</a></li><li><a href="#-newsletter-signup">📬 Newsletter Signup</a></li></ul></li><li><a href="#-feedback--collaboration">💬 Feedback &amp; Collaboration</a></li><li><a href="#-need-help">❓ Need Help?</a></li><li><a href="#-happy-learning">🎉 Happy Learning!</a></li></ul></li></ul>
+              
             </nav>
           </aside>
         
-        <h1 id="getting-started-guide">Getting Started Guide</h1>
+        ## Frequently Asked Questions
 
-<p><span style="color:#5c00c7;">Welcome to our AI/LLM blog!</span> This guide will help you navigate our resources and get the most out of our content.</p>
+### How do I get started?
 
-<h2 id="-what-youll-find-here">🚀 What You’ll Find Here</h2>
+To get started, we recommend browsing our [Getting Started Guide](/ai-llm-blog/help/getting-started/) which walks you through the basics of using our site and resources.
 
-<p>Our blog focuses on artificial intelligence, with a special emphasis on Large <span style="color:#5c00c7;">Language Models (LLMs)</span>. We cover everything from fundamental concepts to cutting-edge developments in the field.</p>
+### How can I contribute?
 
-<ul>
-  <li><span style="color:#5c00c7;"><strong>Tutorials</strong></span>: Hands-on guides covering beginner to advanced AI/LLM topics</li>
-  <li><span style="color:#5c00c7;"><strong>Resources</strong></span>: Tools, datasets, and glossaries curated by domain experts</li>
-  <li><span style="color:#5c00c7;"><strong>Community</strong></span>: Engage with fellow learners and developers through shared projects and discussion</li>
-  <li><span style="color:#5c00c7;"><strong>Project Updates</strong></span>: Stay current with the latest blog posts and experiments</li>
-  <li><span style="color:#5c00c7;"><strong>Posts</strong></span>: Explore articles, case studies, and insights from the AI frontier</li>
-</ul>
+We welcome contributions from our community! Please check out our [Contribution Guidelines](/ai-llm-blog/help/contribute/) for more information on how you can help improve our content.
 
-<h2 id="-quick-navigation">🔗 Quick Navigation</h2>
+### Where can I report issues?
 
-<ul>
-  <li><strong><a href="/ai-llm-blog/">Home</a></strong>: Latest articles and featured content</li>
-  <li>
-    <p><strong><a href="/ai-llm-blog/tutorials/">Tutorials</a></strong>: Step-by-step guides for various AI/LLM topics</p>
-  </li>
-  <li><strong><a href="/ai-llm-blog/resources/">Resources</a></strong>: Curated tools, libraries, and datasets</li>
-  <li><strong><a href="/ai-llm-blog/community/forum">Community</a></strong>: Join discussions with fellow AI enthusiasts</li>
-  <li><strong><a href="/ai-llm-blog/about/">About</a></strong>: Learn more about our mission and team</li>
-  <li><strong><a href="/ai-llm-blog/posts/">Posts</a></strong>: Read the latest thoughts, research, and commentary</li>
-</ul>
+If you encounter any issues with our site or content, please submit an issue on our [GitHub repository](https://github.com/sednabcn/ai-llm-blog/issues).
 
-<h2 id="-stay-updated">📰 Stay Updated</h2>
+## [Tutorials](/ai-llm-blog/tutorials/index/) 
+   
+Check out our step-by-step tutorials to help you make the most of our resources:
 
-<p>You can stay in the loop in two ways:</p>
+1. [Setting Up Your Environment](/ai-llm-blog/tutorials/setup/)
+2. [Basic Customization](/ai-llm-blog/tutorials/basic-customization/)
+3. [Advanced Features](/ai-llm-blog/tutorials/advanced-features/)
+4. [Ethical Considerations](/ai-llm-blog/tutorials/ethical-considerations/)  
 
-<h3 id="-github">🌟 GitHub</h3>
+## Contact Support
 
-<p>Follow the project and updates on 👉 <a href="https://github.com/sednabcn/ai-llm-blog">GitHub</a></p>
+Need more help? Contact our support team:
 
-<p>Star the repo, check issues, and explore how the blog is built.</p>
+- <span style="color:#5c00c7;">**Email:**</span> info@modelphysmat.com
+  
+    <p>
+    <button onclick="handleEmailClick()" style="display:inline-block; background:#5c00c7 !important; color:white; padding:10px 16px; text-decoration:none; border:none; border-radius:6px; cursor:pointer;">
+    📧 <span style="color:white;">Send Us a Message</span>
+    </button>
+    </p>
+     <!-- Hidden fallback form -->
+    <div id="fallbackForm" style="display:none; margin-top: 20px;">
+    	 <p><strong>Can't use email?</strong> Use the form below:</p>
+	 <!--Insert contact form here -->
 
-<h3 id="-newsletter-signup">📬 Newsletter Signup</h3>
+	 <form action="https://formspree.io/f/mjkykaqp" method="POST">
+  	   <label>Your Name: <input type="text" name="name" required></label><br>
+  	   <label>Email: <input type="email" name="_replyto" required></label><br>
+  	   <label>Topic: <input type="text" name="topic" required></label><br>
+  	   <label>Message:<br><textarea name="message" required></textarea></label><br>
+  	   <button type="submit">Send Email</button>
+         </form>
+    </div>
 
-<p>Join our mailing list to receive blog highlights, new tutorials, and occasional AI insights:</p>
+- <span style="color:#5c00c7;">**Support Hours:**</span> Monday-Friday, 9am-5pm EST
 
-<div class="page__content" style="max-width: 700px; margin: 0 auto;">
-<form action="https://buttondown.email/api/emails/embed-subscribe/sednaletter" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.email/sednaletter', 'popupwindow')" class="embeddable-buttondown-form">
-  <label for="bd-email">Enter your email to get updates:</label><br />
-  <input type="email" name="email" id="bd-email" style="padding:5px; margin-top:5px; width:250px;" /><br /><br />
-  <input type="submit" value="Subscribe" style="background:#5c00c7; color:white; border:none; padding:8px 16px; border-radius:4px; cursor:pointer;" />
-</form>
-<div class="spacer" style="height: 50px;"></div>
-</div>
+<script src="/ai-llm-blog/assets/js/email-toggle.js"></script>
 
-<h2 id="-feedback--collaboration">💬 Feedback &amp; Collaboration</h2>
-
-<p>We love hearing from readers and collaborators. You can:</p>
-
-<ul>
-  <li>Leave comments on posts</li>
-  <li>Share <a href="/ai-llm-blog/community/feedback">feedback</a> in the community forum</li>
-  <li>Visit the <a href="/ai-llm-blog/about/">About Us</a> page for collaboration opportunities</li>
-</ul>
-
-<h2 id="-need-help">❓ Need Help?</h2>
-
-<p>Have a question or unsure where to begin?<br />
-Visit the <a href="/ai-llm-blog/about/">About Us</a> page and reach out to us from there.</p>
-
-<h2 id="-happy-learning">🎉 Happy Learning!</h2>
-
-<p>Whether you’re exploring AI for the first time or refining your advanced skills, we’re glad you’re here. Dive in!</p>
 
 
 

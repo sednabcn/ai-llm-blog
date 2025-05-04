@@ -1,0 +1,251 @@
+BROKEN LINKS REPORT
+Generated on: 2025-05-03 23:12:30 +0100
+--------------------------------------------------------------------------------
+Total Links Checked: 1067
+Total Broken Links: 242
+--------------------------------------------------------------------------------
+
+Link                                                        Type      Status              Source
+--------------------------------------------------------------------------------------------------------------
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)about/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)about/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (405)        about/index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        about/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (405)        about/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        about/index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        about/index.html
+http://localhost:5000                                       External  Broken (Failed to open TCP connection t...)about/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)ai-llm-blog/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)ai-llm-blog/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        ai-llm-blog/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        ai-llm-blog/index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        ai-llm-blog/index.html
+http://localhost:5000                                       External  Broken (Failed to open TCP connection t...)ai-llm-blog/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)categories/ai-research/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)categories/ai-research/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        categories/ai-research/index.html
+http://localhost:5000/ai-llm-blog/categories/ai-research/   External  Broken (Failed to open TCP connection t...)categories/ai-research/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (405)        categories/ai-research/index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        categories/ai-research/index.html
+http://localhost:5000                                       External  Broken (Failed to open TCP connection t...)categories/ai-research/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)categories/formula-discovery/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)categories/formula-discovery/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        categories/formula-discovery/index.html
+http://localhost:5000/ai-llm-blog/categories/formula-discovery/External  Broken (Failed to open TCP connection t...)categories/formula-discovery/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        categories/formula-discovery/index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        categories/formula-discovery/index.html
+http://localhost:5000                                       External  Broken (Failed to open TCP connection t...)categories/formula-discovery/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)categories/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)categories/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        categories/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        categories/index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        categories/index.html
+http://localhost:5000                                       External  Broken (Failed to open TCP connection t...)categories/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)categories/llms/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)categories/llms/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        categories/llms/index.html
+http://localhost:5000/ai-llm-blog/categories/llms/          External  Broken (Failed to open TCP connection t...)categories/llms/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        categories/llms/index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        categories/llms/index.html
+http://localhost:5000                                       External  Broken (Failed to open TCP connection t...)categories/llms/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)community/feedback/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)community/feedback/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        community/feedback/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        community/feedback/index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        community/feedback/index.html
+http://localhost:5000                                       External  Broken (Failed to open TCP connection t...)community/feedback/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)community/forum/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)community/forum/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        community/forum/index.html
+https://twitter.com/intent/tweet?url=http://localhost:5000/community/forum/&text=Join our AI Customization Forum!External  Broken (403)        community/forum/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        community/forum/index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        community/forum/index.html
+http://localhost:5000                                       External  Broken (Failed to open TCP connection t...)community/forum/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)community/request/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)community/request/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        community/request/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (405)        community/request/index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        community/request/index.html
+http://localhost:5000                                       External  Broken (Failed to open TCP connection t...)community/request/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)community/subscribe/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)community/subscribe/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        community/subscribe/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        community/subscribe/index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        community/subscribe/index.html
+http://localhost:5000                                       External  Broken (Failed to open TCP connection t...)community/subscribe/index.html
+http://localhost:5000/ai-llm-blog/favicon-16x16.png         External  Broken (Failed to open TCP connection t...)favicon.ico/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)help/contribute/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)help/contribute/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        help/contribute/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        help/contribute/index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        help/contribute/index.html
+http://localhost:5000                                       External  Broken (Failed to open TCP connection t...)help/contribute/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)help/getting-started/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)help/getting-started/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        help/getting-started/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        help/getting-started/index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        help/getting-started/index.html
+http://localhost:5000                                       External  Broken (Failed to open TCP connection t...)help/getting-started/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)help/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)help/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        help/index.html
+/ai-llm-blog/tutorials/index/                               Internal  Broken              help/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        help/index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        help/index.html
+http://localhost:5000                                       External  Broken (Failed to open TCP connection t...)help/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        index.html
+http://localhost:5000                                       External  Broken (Failed to open TCP connection t...)index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)posts/Exploring-the-Frontier-My-Journey-into-AI-and_LLMs/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)posts/Exploring-the-Frontier-My-Journey-into-AI-and_LLMs/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        posts/Exploring-the-Frontier-My-Journey-into-AI-and_LLMs/index.html
+/ai-llm-blog/tags/#artificial-intelligence                  Internal  Broken              posts/Exploring-the-Frontier-My-Journey-into-AI-and_LLMs/index.html
+/ai-llm-blog/tags/#formula-discovery                        Internal  Broken              posts/Exploring-the-Frontier-My-Journey-into-AI-and_LLMs/index.html
+/ai-llm-blog/tags/#large-language-models                    Internal  Broken              posts/Exploring-the-Frontier-My-Journey-into-AI-and_LLMs/index.html
+/ai-llm-blog/categories/#ai-research                        Internal  Broken              posts/Exploring-the-Frontier-My-Journey-into-AI-and_LLMs/index.html
+https://twitter.com/intent/tweet?text=Exploring+the+Frontier%3A+My+Journey+into+AI+and+LLMs%20http%3A%2F%2Flocalhost%3A5000%2Fai-llm-blog%2Fposts%2FExploring-the-Frontier-My-Journey-into-AI-and_LLMs%2FExternal  Broken (403)        posts/Exploring-the-Frontier-My-Journey-into-AI-and_LLMs/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        posts/Exploring-the-Frontier-My-Journey-into-AI-and_LLMs/index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        posts/Exploring-the-Frontier-My-Journey-into-AI-and_LLMs/index.html
+http://localhost:5000                                       External  Broken (Failed to open TCP connection t...)posts/Exploring-the-Frontier-My-Journey-into-AI-and_LLMs/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)posts/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)posts/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        posts/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        posts/index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        posts/index.html
+http://localhost:5000                                       External  Broken (Failed to open TCP connection t...)posts/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)resources/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)resources/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        resources/index.html
+https://www.kaggle.com/datasets                             External  Broken (404)        resources/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        resources/index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        resources/index.html
+http://localhost:5000                                       External  Broken (Failed to open TCP connection t...)resources/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tags/artificial-intelligence/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tags/artificial-intelligence/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (405)        tags/artificial-intelligence/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        tags/artificial-intelligence/index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        tags/artificial-intelligence/index.html
+http://localhost:5000                                       External  Broken (Failed to open TCP connection t...)tags/artificial-intelligence/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tags/deployment/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tags/deployment/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        tags/deployment/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        tags/deployment/index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        tags/deployment/index.html
+http://localhost:5000                                       External  Broken (Failed to open TCP connection t...)tags/deployment/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tags/efficiency/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tags/efficiency/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        tags/efficiency/index.html
+http://localhost:5000/ai-llm-blog/tags/efficiency/          External  Broken (Failed to open TCP connection t...)tags/efficiency/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        tags/efficiency/index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        tags/efficiency/index.html
+http://localhost:5000                                       External  Broken (Failed to open TCP connection t...)tags/efficiency/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tags/formula-discovery/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tags/formula-discovery/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (405)        tags/formula-discovery/index.html
+http://localhost:5000/ai-llm-blog/tags/formula-discovery/   External  Broken (Failed to open TCP connection t...)tags/formula-discovery/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        tags/formula-discovery/index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        tags/formula-discovery/index.html
+http://localhost:5000                                       External  Broken (Failed to open TCP connection t...)tags/formula-discovery/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tags/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tags/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        tags/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        tags/index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        tags/index.html
+http://localhost:5000                                       External  Broken (Failed to open TCP connection t...)tags/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tags/installation/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tags/installation/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        tags/installation/index.html
+http://localhost:5000/ai-llm-blog/tags/installation/        External  Broken (Failed to open TCP connection t...)tags/installation/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        tags/installation/index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        tags/installation/index.html
+http://localhost:5000                                       External  Broken (Failed to open TCP connection t...)tags/installation/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tags/large-language-models/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tags/large-language-models/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        tags/large-language-models/index.html
+http://localhost:5000/ai-llm-blog/tags/large-language-models/External  Broken (Failed to open TCP connection t...)tags/large-language-models/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        tags/large-language-models/index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        tags/large-language-models/index.html
+http://localhost:5000                                       External  Broken (Failed to open TCP connection t...)tags/large-language-models/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tags/optimization/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tags/optimization/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        tags/optimization/index.html
+http://localhost:5000/ai-llm-blog/tags/optimization/        External  Broken (Failed to open TCP connection t...)tags/optimization/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        tags/optimization/index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        tags/optimization/index.html
+http://localhost:5000                                       External  Broken (Failed to open TCP connection t...)tags/optimization/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tags/performance/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tags/performance/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        tags/performance/index.html
+http://localhost:5000/ai-llm-blog/tags/performance/         External  Broken (Failed to open TCP connection t...)tags/performance/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        tags/performance/index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        tags/performance/index.html
+http://localhost:5000                                       External  Broken (Failed to open TCP connection t...)tags/performance/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tags/python/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tags/python/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        tags/python/index.html
+http://localhost:5000/ai-llm-blog/tags/python/              External  Broken (Failed to open TCP connection t...)tags/python/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        tags/python/index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        tags/python/index.html
+http://localhost:5000                                       External  Broken (Failed to open TCP connection t...)tags/python/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tags/setup/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tags/setup/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        tags/setup/index.html
+http://localhost:5000/ai-llm-blog/tags/setup/               External  Broken (Failed to open TCP connection t...)tags/setup/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        tags/setup/index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        tags/setup/index.html
+http://localhost:5000                                       External  Broken (Failed to open TCP connection t...)tags/setup/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tutorials/advanced-features/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tutorials/advanced-features/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        tutorials/advanced-features/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        tutorials/advanced-features/index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        tutorials/advanced-features/index.html
+http://localhost:5000                                       External  Broken (Failed to open TCP connection t...)tutorials/advanced-features/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tutorials/advanced-features/performance-optimization/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tutorials/advanced-features/performance-optimization/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        tutorials/advanced-features/performance-optimization/index.html
+/ai-llm-blog/tags/#deployment                               Internal  Broken              tutorials/advanced-features/performance-optimization/index.html
+/ai-llm-blog/tags/#efficiency                               Internal  Broken              tutorials/advanced-features/performance-optimization/index.html
+/ai-llm-blog/tags/#optimization                             Internal  Broken              tutorials/advanced-features/performance-optimization/index.html
+/ai-llm-blog/tags/#performance                              Internal  Broken              tutorials/advanced-features/performance-optimization/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        tutorials/advanced-features/performance-optimization/index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        tutorials/advanced-features/performance-optimization/index.html
+http://localhost:5000                                       External  Broken (Failed to open TCP connection t...)tutorials/advanced-features/performance-optimization/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tutorials/basic-customization/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tutorials/basic-customization/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        tutorials/basic-customization/index.html
+/ai-llm-blog/tutorials/advanced-features/optimization-strategies/Internal  Broken              tutorials/basic-customization/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        tutorials/basic-customization/index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        tutorials/basic-customization/index.html
+http://localhost:5000                                       External  Broken (Failed to open TCP connection t...)tutorials/basic-customization/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tutorials/ethical-considerations/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tutorials/ethical-considerations/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        tutorials/ethical-considerations/index.html
+/ai-llm-blog/tutorials/community-forum/                     Internal  Broken              tutorials/ethical-considerations/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (405)        tutorials/ethical-considerations/index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        tutorials/ethical-considerations/index.html
+http://localhost:5000                                       External  Broken (Failed to open TCP connection t...)tutorials/ethical-considerations/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tutorials/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tutorials/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        tutorials/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        tutorials/index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        tutorials/index.html
+http://localhost:5000                                       External  Broken (Failed to open TCP connection t...)tutorials/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tutorials/setup/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tutorials/setup/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        tutorials/setup/index.html
+https://code.visualstudio.com/                              External  Broken (500)        tutorials/setup/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        tutorials/setup/index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        tutorials/setup/index.html
+http://localhost:5000                                       External  Broken (Failed to open TCP connection t...)tutorials/setup/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tutorials/setup/python-setup/index.html
+http://localhost:5000/ai-llm-blog/                          External  Broken (Failed to open TCP connection t...)tutorials/setup/python-setup/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        tutorials/setup/python-setup/index.html
+/ai-llm-blog/tags/#installation                             Internal  Broken              tutorials/setup/python-setup/index.html
+/ai-llm-blog/tags/#python                                   Internal  Broken              tutorials/setup/python-setup/index.html
+/ai-llm-blog/tags/#setup                                    Internal  Broken              tutorials/setup/python-setup/index.html
+https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/External  Broken (999)        tutorials/setup/python-setup/index.html
+https://twitter.com/BONETCHAPLE                             External  Broken (403)        tutorials/setup/python-setup/index.html
+http://localhost:5000                                       External  Broken (Failed to open TCP connection t...)tutorials/setup/python-setup/index.html
