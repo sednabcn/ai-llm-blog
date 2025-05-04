@@ -42,38 +42,38 @@ jobs:
       - name: Check links with html-proofer
         run: |
           cat > check_links.rb << 'EOF'
-#!/usr/bin/env ruby
-require 'html-proofer'
+          #!/usr/bin/env ruby
+          require 'html-proofer'
 
-options = {
-  assume_extension: true,
-  check_favicon: true,
-  check_html: true,
-  check_img_http: true,
-  enforce_https: true,
-  check_opengraph: true,
-  cache: {
-    timeframe: {
-      internal: '2w'
-    }
-  },
-  typhoeus: {
-    followlocation: true,
-    connecttimeout: 10,
-    timeout: 30,
-    ssl_verifypeer: false,
-    ssl_verifyhost: 0
-  }
-}
+          options = {
+            assume_extension: true,
+            check_favicon: true,
+            check_html: true,
+            check_img_http: true,
+            enforce_https: true,
+            check_opengraph: true,
+            cache: {
+              timeframe: {
+                internal: '2w'
+              }
+            },
+            typhoeus: {
+              followlocation: true,
+              connecttimeout: 10,
+              timeout: 30,
+              ssl_verifypeer: false,
+              ssl_verifyhost: 0
+            }
+          }
 
-begin
-  puts "Checking links in _site directory..."
-  proofer = HtmlProofer.check_directory("./_site", options)
-  proofer.run
-rescue => e
-  puts "Error during link checking: #{e.message}"
-  exit 1
-end
+          begin
+            puts "Checking links in _site directory..."
+            proofer = HtmlProofer.check_directory("./_site", options)
+            proofer.run
+          rescue => e
+            puts "Error during link checking: #{e.message}"
+            exit 1
+          end
 EOF
           chmod +x check_links.rb
           ruby check_links.rb
