@@ -55,7 +55,7 @@ Our Community Forum is designed to foster collaboration, knowledge-sharing, and 
 > 🔐 *Currently, we don’t use an account-based login on this GitHub-hosted site.*  
 > Instead, you can join the conversation via:
 
-- 🗨️ [Submit questions or ideas via GitHub Discussions](https://github.com/sednabcn{{ site.baseurl }}/discussions)  
+- 🗨️ [Submit questions or ideas via GitHub Discussions](https://github.com/sednabcn/ai-llm-blog/discussions)  
 - 💬 [Send us feedback]({{ site.baseurl }}/community/feedback/)  
 - 📬 [Subscribe]({{ site.baseurl }}/community/subscribe/) to get updates on future forums & live sessions
 
@@ -106,7 +106,7 @@ Continue your learning journey:
 
 - 📘 [Ethical Considerations]({{ site.baseurl }}/tutorials/ethical-considerations/): Understand AI responsibilities  
 - 🛠️ [Basic Customization]({{ site.baseurl }}/tutorials/basic-customization/): Practice hands-on skills  
-- 🔗 [GitHub Discussions](https://github.com/sednabcn{{ site.baseurl }}/discussions): Post your ideas or questions  
+- 🔗 [GitHub Discussions](https://github.com/sednabcn/ai-llm-blog/discussions): Post your ideas or questions  
 
 ---
  

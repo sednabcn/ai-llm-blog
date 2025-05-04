@@ -10,7 +10,6 @@ on:
 jobs:
   check-links:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -24,7 +23,7 @@ jobs:
       - name: Use Gemfile.remote
         run: |
           cp Gemfile.remote Gemfile
-          cp _config.remote.yml _config.yml
+          cp *config.remote.yml *config.yml
 
       - name: Install dependencies
         run: |
@@ -49,22 +48,15 @@ jobs:
         if: failure()
         run: |
           curl -X POST -H 'Content-type: application/json' \
-          --data '{
-            "text": "⚠️ Broken links were found during the Jekyll deployment. Check the logs for details: https://github.com/sednabcn/ai-llm-blog/actions/runs/${{ github.run_id }}",
-            "channel": "#your-slack-channel",
-            "username": "GitHub Actions"
-          }'"${{ secrets.SLACK_WEBHOOK_URL }}"
+          --data '{"text": "⚠️ Broken links were found during the Jekyll deployment. Check the logs for details: https://github.com/sednabcn/ai-llm-blog/actions/runs/${{ github.run_id }}", "channel": "#your-slack-channel", "username": "GitHub Actions"}' "${{ secrets.SLACK_WEBHOOK_URL }}"
 
       # Send an email notification if broken links are found
       - name: Send Email on Broken Links
         if: failure()
-  	run: ruby _tests/send_email_smtp.rb
-  	env:
-   	 SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
-    	 SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-    	 SMTP_HOST: ${{ secrets.SMTP_HOST }}
-    	 SMTP_PORT: ${{ secrets.SMTP_PORT }}
-    	 TO_EMAIL: ${{ secrets.SMTP_USERNAME }}
-       
-
-  
+        run: ruby ./tests/send_email_smtp.rb
+        env:
+          SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          TO_EMAIL: ${{ secrets.SMTP_USERNAME }}

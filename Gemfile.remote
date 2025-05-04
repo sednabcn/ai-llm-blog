@@ -9,7 +9,7 @@ gem 'github-pages', '~> 232', group: :jekyll_plugins
 
 # Remote Theme Support
 gem 'jekyll-remote-theme', '~> 0.4.3'
-gem 'bigdecimal'
+gem 'bigdecimal', '~> 3.1.9'
 gem 'jekyll-last-modified-at'
 
 
@@ -34,6 +34,7 @@ group :production do
   gem 'jekyll-minifier', '~> 0.1.10'    # Minifies HTML, CSS, and JS
   gem 'jekyll-compress-images', '~> 1.2' # Compresses images
   gem 'nokogiri', '~> 1.18.7'           # XML/HTML parser
+  gem 'logger', '1.7.0'
 end
 
 # Broken Links Checker Tools
