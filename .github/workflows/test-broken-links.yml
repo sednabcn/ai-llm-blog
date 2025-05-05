@@ -20,7 +20,7 @@ jobs:
         with:
           ruby-version: '3.1'  # Update as required
           bundler-cache: true
-
+      
       - name: Copy Remote Gemfile and Config (if applicable)
         run: |
           if [ -f Gemfile.remote ]; then cp Gemfile.remote Gemfile; fi
@@ -29,8 +29,12 @@ jobs:
           done
 
       - name: Install dependencies
+        run: gem install mail
+
+      - name: Install dependencies
         run: |
           gem install bundler
+	  gem install mail
           bundle install
 
       - name: Build Jekyll site
