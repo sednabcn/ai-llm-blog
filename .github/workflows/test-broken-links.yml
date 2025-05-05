@@ -37,7 +37,7 @@ jobs:
         run: bundle exec jekyll build
 
       - name: Run Broken Links Checker
-        run: ruby ./tests/sitemap_links_checker.rb https://sednabcn.github.io/ai-llm-blog/
+        run: ruby ./_tests/sitemap_links_checker.rb https://sednabcn.github.io/ai-llm-blog/
 
       - name: Show broken link results if available
         if: always()
@@ -65,7 +65,7 @@ jobs:
 
       - name: Send Email on Broken Links
         if: failure()
-        run: ruby ./tests/send_email_smtp.rb
+        run: ruby ./_tests/send_email_smtp.rb
         env:
           SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
