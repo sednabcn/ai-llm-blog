@@ -36,22 +36,54 @@ jobs:
       - name: Run Broken Links Checker
         run: ruby ./tests/sitemap_links_checker.rb https://sednabcn.github.io/ai-llm-blog/
 
-      - name: Announce Upload
-        if: always()
-        run: |
-          echo "Uploading broken links report..."
+      name: Test Broken Links
 
-      - name: Archive Broken Links Report
-        if: always()
-        uses: actions/upload-artifact@v3
-        with:
-          name: broken-links-report
-          path: broken_links_*.txt
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
-      # Notify via Slack if broken links are found
-      - name: Slack Notification on Broken Links
-        if: failure()
-        run: |
+jobs:
+  broken-links:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.1' # Adjust as needed
+
+    - name: Install dependencies
+      run: bundle install
+
+    - name: Run Broken Links Checker
+      run: ruby ./tests/sitemap_links_checker.rb https://sednabcn.github.io/ai-llm-blog/
+
+    - name: Show broken link results if available
+      if: always()
+      run: |
+        if ls broken_links_*.txt 1> /dev/null 2>&1; then
+          echo "Broken link reports:"
+          cat broken_links_*.txt
+        else
+          echo "No broken link report generated."
+        fi
+
+    - name: Upload Broken Links Report
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: broken-links-report
+        path: broken_links_*.txt
+
+    # Notify via Slack if broken links are found
+    - name: Slack Notification on Broken Links
+      if: failure()
+      run: |
           curl -X POST -H 'Content-type: application/json' \
           --data '{"text": "⚠️ Broken links were found during the Jekyll deployment. Check the logs for details: https://github.com/sednabcn/ai-llm-blog/actions/runs/${{ github.run_id }}", "channel": "#your-slack-channel", "username": "GitHub Actions"}' "${{ secrets.SLACK_WEBHOOK_URL }}"
 
