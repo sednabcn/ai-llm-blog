@@ -20,21 +20,21 @@ jobs:
         with:
           ruby-version: '3.3.4'  # Update as required
           bundler-cache: true
-      
+
       - name: Copy Remote Gemfile and Config (if applicable)
         run: |
           if [ -f Gemfile.remote ]; then cp Gemfile.remote Gemfile; fi
           for f in *config.remote.yml; do
             [ -f "$f" ] && cp "$f" "${f/.remote/}";
           done
-	  
+
       - name: Install dependencies
         run: |
           gem install bundler
           gem install mail
           gem install nokogiri
           bundle install
-	  
+
       - name: Build Jekyll site
         run: bundle exec jekyll build
 
