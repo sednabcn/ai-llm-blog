@@ -35,14 +35,19 @@ jobs:
 
       - name: Run Broken Links Checker
         run: ruby ./tests/sitemap_links_checker.rb https://sednabcn.github.io/ai-llm-blog/
+
+      - name: Announce Upload (if available)
+        if: always()	       
+        run: |
+          echo "Uploading broken links report..."
+
       - name: Archive Broken Links Report (if available)
         if: always()
-        run: |
-            echo "Uploading broken links report..."
+        uses: actions/upload-artifact@v3
         with:
-          name: broken-links-report
-          path: broken_links_*.txt
-
+           name: broken-links-report
+           path: broken_links_*.txt
+      
       # Notify via Slack if broken links are found
       - name: Slack Notification on Broken Links
         if: failure()
