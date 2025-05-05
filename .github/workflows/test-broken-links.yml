@@ -27,14 +27,13 @@ jobs:
           for f in *config.remote.yml; do
             [ -f "$f" ] && cp "$f" "${f/.remote/}";
           done
-
       - name: Install dependencies
         run: |
-          gem install bundler
-          gem install mail
-	  gem install nokogiri
-          bundle install
-
+	    gem install bundler
+	    gem install mail
+	    gem install nokogiri
+	    bundle install
+ 
       - name: Build Jekyll site
         run: bundle exec jekyll build
 
