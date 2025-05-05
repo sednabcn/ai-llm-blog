@@ -35,10 +35,11 @@ jobs:
 
       - name: Run Broken Links Checker
         run: ruby ./tests/sitemap_links_checker.rb https://sednabcn.github.io/ai-llm-blog/
-
-      - name: Archive HTMLProofer Log (if available)
+      - name: Archive Broken Links Report (if available)
         if: always()
-	uses: actions/upload-artifact@v3
+        run: |
+            echo "Uploading broken links report..."
+        uses: actions/upload-artifact@v3
         with:
           name: broken-links-report
           path: broken_links_*.txt
