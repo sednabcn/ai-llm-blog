@@ -38,10 +38,10 @@ jobs:
 
       - name: Archive HTMLProofer Log (if available)
         if: always()
-	uses: actions/upload-artifact@7f42d5c931d83fdb663c1b119fb38c64d6ef2d7a
+	uses: actions/upload-artifact@v3
         with:
-          name: htmlproofer-log
-          path: broken-links.log
+          name: broken-links-report
+          path: broken_links_*.txt
 
       # Notify via Slack if broken links are found
       - name: Slack Notification on Broken Links
