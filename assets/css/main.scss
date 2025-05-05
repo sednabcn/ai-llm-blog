@@ -461,6 +461,37 @@ $overlay-opacity: 0.05; // Reduced opacity to allow more image shine through
   }
 }
 
+
+
+/* ==========================================================================
+   Image - Container
+   ========================================================================== */
+
+/* Image Container */
+.image-container {
+  text-align: center;  /* Centers the image */
+  margin: 20px 0; /* Adds some margin above and below the image */
+}
+
+.image-container img {
+  width: 100%; /* Makes the image responsive */
+  max-width: 800px; /* Limits the width of the image */
+  height: auto; /* Maintains the aspect ratio */
+  border-radius: 8px; /* Optional: rounds the corners of the image */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow around the image */
+}
+
+.image-container picture {
+  display: block; /* Ensures that the picture element is block-level */
+  max-width: 100%; /* Ensures that the image will not overflow the container */
+}
+
+/* Optional: Add a hover effect */
+.image-container img:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
 /* ==========================================================================
    CONTENT SECTIONS
    ========================================================================== */
@@ -543,6 +574,13 @@ $overlay-opacity: 0.05; // Reduced opacity to allow more image shine through
       margin-bottom: 1rem;
     }
   }
+  /* For larger screens (desktop, large screens) */
+@media (min-width: 769px) {
+  .image-container img {
+    max-width: 800px; /* Sets a limit on larger screens */
+  }
+}
+
 }
 
 // Recent posts section

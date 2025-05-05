@@ -55,9 +55,9 @@ Our Community Forum is designed to foster collaboration, knowledge-sharing, and 
 > 🔐 *Currently, we don’t use an account-based login on this GitHub-hosted site.*  
 > Instead, you can join the conversation via:
 
-- 🗨️ [Submit questions or ideas via GitHub Discussions](https://github.com/sednabcn{{ site.baseurl }}/discussions)  
-- 💬 [Send us feedback]({{ site.baseurl }}/community/feedback/)  
-- 📬 [Subscribe]({{ site.baseurl }}/community/subscribe/) to get updates on future forums & live sessions
+- 🗨️ [Submit questions or ideas via GitHub Discussions](https://github.com/sednabcn/ai-llm-blog/discussions)  
+- 💬 [Send us feedback]({{ '/community/feedback/' | relative_url }})
+- 📬 [Subscribe]({{ '/community/subscribe/' | relative_url }}) to get updates on future forums & live sessions
 
 ### Participating in Discussions
 
@@ -74,21 +74,21 @@ To keep our forum helpful and respectful:
 - Be constructive, kind, and curious  
 - Provide details when asking or answering questions  
 - Always credit others’ ideas and code  
-- Use GitHub issues or our [contact page]({{ site.baseurl }}/about/) to report inappropriate content
+- Use GitHub issues or our [contact page]({{ '/about/' | relative_url }}) to report inappropriate content
 
 ---
 
 ## 📨 Stay Connected
 
 <p>
-  <a href="{{ site.baseurl }}/community/subscribe/" 
+  <a href="{{ '/community/subscribe/' | relative_url }}" 
      style="display:inline-block; background:#5c00c7; color:white; padding:10px 16px; text-decoration:none; border-radius:6px;">
      📬 <span style="color:white;">Subscribe to the Newsletter</span>
   </a>
 </p>
 
 <p>
-  <a href="{{ site.baseurl }}/about/" 
+  <a href="{{ '/about/' | relative_url }}" 
      style="display:inline-block; background:#5c00c7; color:white; padding:10px 16px; text-decoration:none; border-radius:6px;">
      👥 <span style="color:white;">Meet the Team</span>
   </a>
@@ -104,9 +104,9 @@ To keep our forum helpful and respectful:
 
 Continue your learning journey:
 
-- 📘 [Ethical Considerations]({{ site.baseurl }}/tutorials/ethical-considerations/): Understand AI responsibilities  
-- 🛠️ [Basic Customization]({{ site.baseurl }}/tutorials/basic-customization/): Practice hands-on skills  
-- 🔗 [GitHub Discussions](https://github.com/sednabcn{{ site.baseurl }}/discussions): Post your ideas or questions  
+- 📘 [Ethical Considerations]({{ '/tutorials/ethical-considerations/' | relative_url }}): Understand AI responsibilities  
+- 🛠️ [Basic Customization]({{ '/tutorials/basic-customization/' | relative_url }}): Practice hands-on skills  
+- 🔗 [GitHub Discussions](https://github.com/sednabcn/ai-llm-blog/discussions): Post your ideas or questions  
 
 ---
  

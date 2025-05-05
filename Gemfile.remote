@@ -13,6 +13,11 @@ gem 'bigdecimal', '~> 3.1.9'
 gem 'jekyll-last-modified-at'
 
 
+# Generated images
+group :jekyll_plugins do
+  gem 'jekyll_picture_tag', '~> 2.0'
+end
+
 
 
 # Sass Converter for CSS Preprocessing

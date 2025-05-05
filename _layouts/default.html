@@ -15,6 +15,15 @@
     {% include_cached masthead.html %}
 
     <div class="initial-content">
+       {% if page.image %}
+        <figure class="image-container">
+          {% picture page.image.src
+            alt=page.image.alt
+            sizes=page.image.sizes
+            formats=page.image.formats
+            lazy=page.image.lazy %}
+        </figure>
+      {% endif %}
       {{ content }}
       {% include after-content.html %}
     </div>
@@ -32,7 +41,20 @@
       </footer>
     </div>
 
-    {% include scripts.html %}
+    {% if page.image %}
+     <figure class="image-container">
+      {% picture page.image.src
+      alt=page.image.alt
+      sizes=page.image.sizes
+      formats=page.image.formats
+      lazy=page.image.lazy %}
+     </figure>
+    {% endif %}
 
+    {% include scripts.html %}
+     <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@10.19.0/dist/lazyload.min.js"></script>
+  <script>
+    new LazyLoad();
+  </script>
   </body>
 </html>
