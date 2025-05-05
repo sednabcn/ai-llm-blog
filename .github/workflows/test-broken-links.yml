@@ -34,7 +34,7 @@ jobs:
         run: bundle exec jekyll build
 
       - name: Run Broken Links Checker
-        run: ruby ./tests/broken_links_checker.rb --remote
+        run: ruby ./tests/sitemap_links_checker.rb https://sednabcn.github.io/ai-llm-blog/
 
       - name: Archive HTMLProofer Log (if available)
         if: always()
