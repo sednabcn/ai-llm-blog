@@ -34,10 +34,13 @@ begin
       password: smtp_password,
       authentication: 'plain',
       enable_starttls_auto: true,
-      open_timeout: 15,   # 15 seconds timeout for opening connections
-      read_timeout: 15,   # 15 seconds timeout for reading operations
-      ssl_timeout: 15,    # 15 seconds timeout for SSL operations
-      verify_mode: OpenSSL::SSL::VERIFY_NONE  # For testing, in production use VERIFY_PEER
+      open_timeout: 10,   # 10 seconds timeout for opening connections
+      read_timeout: 10,   # 10 seconds timeout for reading operations
+      ssl_timeout: 10,    # 10 seconds timeout for SSL operations
+      # Common SMTP troubleshooting settings
+      tls: true,          # Try explicit TLS
+      ssl: true,          # Try SSL connection
+      verify_mode: OpenSSL::SSL::VERIFY_NONE  # For troubleshooting, change to VERIFY_PEER in production
     }
   end
   

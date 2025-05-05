@@ -64,11 +64,11 @@ jobs:
           --data '{"text": "⚠️ Broken links were found during the Jekyll deployment. Check the logs: https://github.com/sednabcn/ai-llm-blog/actions/runs/${{ github.run_id }}", "channel": "#your-slack-channel", "username": "GitHub Actions"}' \
           "${{ secrets.SLACK_WEBHOOK_URL }}"
 
-      - name: Send Email on Broken Links
+      - name: Send Email on Broken Links (Primary Method)
         if: failure()
         run: |
-          echo "Attempting to send email notification..."
-          ruby ./_tests/send_email_smtp.rb || echo "Email sending failed but continuing workflow"
+          echo "Attempting to send email notification via SMTP..."
+          ruby ./_tests/send_email_smtp.rb || echo "SMTP email sending failed, will try alternative method"
         continue-on-error: true
         env:
           SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
@@ -78,3 +78,15 @@ jobs:
           TO_EMAIL: ${{ secrets.SMTP_USERNAME }}
           GITHUB_RUN_ID: ${{ github.run_id }}
           GITHUB_REPOSITORY: ${{ github.repository }}
+      
+      - name: Send Notification via Alternative Method
+        if: failure()
+        run: |
+          echo "Attempting to send notification via alternative method..."
+          ruby ./_tests/email_notification_alternative.rb
+        continue-on-error: true
+        env:
+          EMAIL_WEBHOOK_URL: ${{ secrets.EMAIL_WEBHOOK_URL }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_WORKFLOW: ${{ github.workflow }}
