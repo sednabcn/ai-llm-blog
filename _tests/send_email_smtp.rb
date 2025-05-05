@@ -1,79 +1,46 @@
 #!/usr/bin/env ruby
-# File: ./tests/send_email_smtp.rb
-# This script sends email notifications when broken links are found
+# Updated SMTP email script compatible with newer Net::SMTP versions
 
 require 'net/smtp'
-require 'date'
+require 'mail'
 
-# Get environment variables
-smtp_username = ENV['SMTP_USERNAME']
-smtp_password = ENV['SMTP_PASSWORD']
-smtp_host = ENV['SMTP_HOST'] || 'smtp.gmail.com'
-smtp_port = ENV['SMTP_PORT'] || '587'
-to_email = ENV['TO_EMAIL']
+# Get configuration from environment variables
+smtp_username = ENV['SMTP_USERNAME'] || abort('SMTP_USERNAME is required')
+smtp_password = ENV['SMTP_PASSWORD'] || abort('SMTP_PASSWORD is required')
+smtp_host = ENV['SMTP_HOST'] || abort('SMTP_HOST is required')
+smtp_port = (ENV['SMTP_PORT'] || '587').to_i
+to_email = ENV['TO_EMAIL'] || abort('TO_EMAIL is required')
 
-# Validate required environment variables
-if smtp_username.nil? || smtp_password.nil? || to_email.nil?
-  puts "Error: Missing required environment variables for email notification"
-  puts "Make sure SMTP_USERNAME, SMTP_PASSWORD, and TO_EMAIL are set"
-  exit 1
-end
+from_email = smtp_username
+subject = ENV['EMAIL_SUBJECT'] || 'Test Email'
+body = ENV['EMAIL_BODY'] || 'This is a test email sent from Ruby script.'
 
-# Email content
-from = smtp_username
-to = to_email
-subject = "⚠️ Broken Links Found in AI-LLM Blog"
-date = DateTime.now.strftime("%a, %d %b %Y %H:%M:%S %z")
-repo_name = ENV['GITHUB_REPOSITORY'] || "sednabcn/ai-llm-blog"
-run_id = ENV['GITHUB_RUN_ID'] || "unknown"
-actions_url = "https://github.com/#{repo_name}/actions/runs/#{run_id}"
-
-# Try to read the broken links log if available
-broken_links_content = ""
-if File.exist?('broken-links.log')
-  broken_links_content = File.read('broken-links.log')
-else
-  broken_links_content = "Detailed broken links log not available."
-end
-
-# Limit the content to avoid email size issues
-if broken_links_content.length > 1500
-  broken_links_content = broken_links_content[0..1500] + "\n...(truncated, see full log in GitHub Actions)"
-end
-
-# Construct the email message
-message = <<MESSAGE_END
-From: AI-LLM Blog Checker <#{from}>
-To: Site Admin <#{to}>
-Subject: #{subject}
-Date: #{date}
-Content-Type: text/plain; charset=UTF-8
-
-Broken links were detected in the AI-LLM Blog during the latest automated check.
-
-GitHub Actions Run: #{actions_url}
-
-Please review the broken links and fix them as soon as possible:
-
-#{broken_links_content}
-
-This is an automated message from the GitHub Actions workflow.
-MESSAGE_END
-
-puts "Sending email notification to #{to_email}..."
+puts "📧 Preparing to send email to #{to_email} via #{smtp_host}:#{smtp_port}..."
 
 begin
-  # Set up SMTP client
-  smtp = Net::SMTP.new(smtp_host, smtp_port.to_i)
-  smtp.enable_starttls if smtp.respond_to?(:enable_starttls)
-  
-  # Send the email
-  smtp.start('localhost', smtp_username, smtp_password, :login) do |smtp|
-    smtp.send_message(message, from, to)
+  # Create a new Mail message
+  message = Mail.new do
+    from     from_email
+    to       to_email
+    subject  subject
+    body     body
   end
-  
-  puts "Email notification sent successfully!"
+
+  # Configure delivery method
+  message.delivery_method :smtp, {
+    address: smtp_host,
+    port: smtp_port,
+    user_name: smtp_username,
+    password: smtp_password,
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
+
+  # Send the message
+  message.deliver!
+  puts "✅ Email sent successfully to #{to_email}"
 rescue => e
-  puts "Error sending email: #{e.message}"
+  puts "❌ Error sending email: #{e.class} - #{e.message}"
+  puts e.backtrace[0..5].join("\n") if ENV['DEBUG']
   exit 1
 end
