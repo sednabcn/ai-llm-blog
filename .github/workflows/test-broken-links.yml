@@ -39,7 +39,6 @@ jobs:
         if: always()
         run: |
             echo "Uploading broken links report..."
-        uses: actions/upload-artifact@v3
         with:
           name: broken-links-report
           path: broken_links_*.txt
