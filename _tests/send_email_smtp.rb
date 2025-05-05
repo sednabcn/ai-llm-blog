@@ -1,46 +1,77 @@
 #!/usr/bin/env ruby
-# Updated SMTP email script compatible with newer Net::SMTP versions
-
-require 'net/smtp'
 require 'mail'
+require 'logger'
 
-# Get configuration from environment variables
-smtp_username = ENV['SMTP_USERNAME'] || abort('SMTP_USERNAME is required')
-smtp_password = ENV['SMTP_PASSWORD'] || abort('SMTP_PASSWORD is required')
-smtp_host = ENV['SMTP_HOST'] || abort('SMTP_HOST is required')
-smtp_port = (ENV['SMTP_PORT'] || '587').to_i
-to_email = ENV['TO_EMAIL'] || abort('TO_EMAIL is required')
-
-from_email = smtp_username
-subject = ENV['EMAIL_SUBJECT'] || 'Test Email'
-body = ENV['EMAIL_BODY'] || 'This is a test email sent from Ruby script.'
-
-puts "📧 Preparing to send email to #{to_email} via #{smtp_host}:#{smtp_port}..."
+# Setup logging
+logger = Logger.new(STDOUT)
+logger.level = Logger::INFO
 
 begin
-  # Create a new Mail message
-  message = Mail.new do
-    from     from_email
-    to       to_email
-    subject  subject
-    body     body
+  # Get environment variables
+  smtp_username = ENV['SMTP_USERNAME']
+  smtp_password = ENV['SMTP_PASSWORD']
+  smtp_host = ENV['SMTP_HOST']
+  smtp_port = ENV['SMTP_PORT'] || '587'
+  to_email = ENV['TO_EMAIL']
+  
+  # Check if required variables are set
+  if [smtp_username, smtp_password, smtp_host, to_email].any?(&:nil?)
+    logger.error "Missing required environment variables for email notification"
+    exit 1
   end
 
-  # Configure delivery method
-  message.delivery_method :smtp, {
-    address: smtp_host,
-    port: smtp_port,
-    user_name: smtp_username,
-    password: smtp_password,
-    authentication: 'plain',
-    enable_starttls_auto: true
-  }
+  run_id = ENV['GITHUB_RUN_ID'] || 'unknown'
+  repo = ENV['GITHUB_REPOSITORY'] || 'unknown'
+  
+  logger.info "📧 Preparing to send email to #{to_email} via #{smtp_host}:#{smtp_port}..."
+  
+  # Configure Mail with a timeout
+  Mail.defaults do
+    delivery_method :smtp, {
+      address: smtp_host,
+      port: smtp_port.to_i,
+      user_name: smtp_username,
+      password: smtp_password,
+      authentication: 'plain',
+      enable_starttls_auto: true,
+      open_timeout: 15,   # 15 seconds timeout for opening connections
+      read_timeout: 15,   # 15 seconds timeout for reading operations
+      ssl_timeout: 15,    # 15 seconds timeout for SSL operations
+      verify_mode: OpenSSL::SSL::VERIFY_NONE  # For testing, in production use VERIFY_PEER
+    }
+  end
+  
+  # Create the email
+  mail = Mail.new do
+    from     smtp_username
+    to       to_email
+    subject  "⚠️ Broken Links Detected - #{repo}"
+    
+    text_part do
+      body "Broken links were detected during the Jekyll site deployment.\n\nPlease check the logs at: https://github.com/#{repo}/actions/runs/#{run_id}"
+    end
+    
+    html_part do
+      content_type 'text/html; charset=UTF-8'
+      body "<h2>⚠️ Broken Links Detected</h2><p>Broken links were detected during the Jekyll site deployment.</p><p><a href='https://github.com/#{repo}/actions/runs/#{run_id}'>View the complete logs</a></p>"
+    end
+  end
+  
+  # Send the email with error handling
+  begin
+    Timeout::timeout(30) do  # Overall timeout of 30 seconds for the send operation
+      mail.deliver!
+      logger.info "✅ Email notification sent successfully!"
+    end
+  rescue Timeout::Error
+    logger.error "❌ Email sending timed out after 30 seconds"
+    exit 1
+  rescue => e
+    logger.error "❌ Error sending email: #{e.class} - #{e.message}"
+    exit 1
+  end
 
-  # Send the message
-  message.deliver!
-  puts "✅ Email sent successfully to #{to_email}"
 rescue => e
-  puts "❌ Error sending email: #{e.class} - #{e.message}"
-  puts e.backtrace[0..5].join("\n") if ENV['DEBUG']
+  logger.error "❌ Script error: #{e.class} - #{e.message}"
   exit 1
 end

@@ -66,10 +66,15 @@ jobs:
 
       - name: Send Email on Broken Links
         if: failure()
-        run: ruby ./_tests/send_email_smtp.rb
+        run: |
+          echo "Attempting to send email notification..."
+          ruby ./_tests/send_email_smtp.rb || echo "Email sending failed but continuing workflow"
+        continue-on-error: true
         env:
           SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
           SMTP_HOST: ${{ secrets.SMTP_HOST }}
           SMTP_PORT: ${{ secrets.SMTP_PORT }}
           TO_EMAIL: ${{ secrets.SMTP_USERNAME }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
