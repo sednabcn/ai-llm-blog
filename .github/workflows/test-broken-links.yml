@@ -32,6 +32,7 @@ jobs:
         run: |
           gem install bundler
           gem install mail
+	  gem install nokogiri
           bundle install
 
       - name: Build Jekyll site
