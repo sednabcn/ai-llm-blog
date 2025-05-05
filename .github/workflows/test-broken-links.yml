@@ -29,12 +29,9 @@ jobs:
           done
 
       - name: Install dependencies
-        run: gem install mail
-
-      - name: Install dependencies
         run: |
           gem install bundler
-	  gem install mail
+          gem install mail
           bundle install
 
       - name: Build Jekyll site
