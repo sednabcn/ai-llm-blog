@@ -1,0 +1,30 @@
+name: Webhook Notification
+
+on:
+  workflow_call:
+    inputs:
+      message:
+        required: true
+        type: string
+    secrets:
+      EMAIL_WEBHOOK_URL:
+        required: true
+
+jobs:
+  send-notification:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send webhook notification
+        uses: distributhor/workflow-webhook@v3
+        with:
+          webhook_url: ${{ secrets.EMAIL_WEBHOOK_URL }}
+          webhook_secret: "optional-but-recommended"
+          data: '{"text": "${{ inputs.message }}", "repository": "${{ github.repository }}", "run_id": "${{ github.run_id }}"}'
+        
+      - name: Add fallback notification (curl)
+        if: failure()
+        run: |
+          # URL encode the message
+          MESSAGE=$(echo "${{ inputs.message }}" | sed 's/ /%20/g' | sed 's/\n/%0A/g')
+          curl -s --retry 3 --max-time 10 \
+          "${{ secrets.EMAIL_WEBHOOK_URL }}?text=${MESSAGE}&repository=${{ github.repository }}&run_id=${{ github.run_id }}"

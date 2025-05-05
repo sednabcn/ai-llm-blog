@@ -59,34 +59,33 @@ jobs:
 
       - name: Slack Notification on Broken Links
         if: failure()
-        run: |
-          curl -X POST -H 'Content-type: application/json' \
-          --data '{"text": "⚠️ Broken links were found during the Jekyll deployment. Check the logs: https://github.com/sednabcn/ai-llm-blog/actions/runs/${{ github.run_id }}", "channel": "#your-slack-channel", "username": "GitHub Actions"}' \
-          "${{ secrets.SLACK_WEBHOOK_URL }}"
+        uses: slackapi/slack-github-action@v1.24.0
+        with:
+          payload: |
+            {
+              "text": "⚠️ Broken links were found during the Jekyll deployment.\nCheck the logs: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.EMAIL_WEBHOOK_URL }}
 
-      - name: Send Email on Broken Links (Primary Method)
+      - name: Send Email on Broken Links
         if: failure()
-        run: |
-          echo "Attempting to send email notification via SMTP..."
-          ruby ./_tests/send_email_smtp.rb || echo "SMTP email sending failed, will try alternative method"
-        continue-on-error: true
-        env:
-          SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
-          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-          SMTP_HOST: ${{ secrets.SMTP_HOST }}
-          SMTP_PORT: ${{ secrets.SMTP_PORT }}
-          TO_EMAIL: ${{ secrets.SMTP_USERNAME }}
-          GITHUB_RUN_ID: ${{ github.run_id }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-      
-      - name: Send Notification via Alternative Method
-        if: failure()
-        run: |
-          echo "Attempting to send notification via alternative method..."
-          ruby ./_tests/email_notification_alternative.rb
-        continue-on-error: true
-        env:
-          EMAIL_WEBHOOK_URL: ${{ secrets.EMAIL_WEBHOOK_URL }}
-          GITHUB_RUN_ID: ${{ github.run_id }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          GITHUB_WORKFLOW: ${{ github.workflow }}
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: ${{ secrets.SMTP_HOST }}
+          server_port: ${{ secrets.SMTP_PORT }}
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          subject: "⚠️ Broken Links Detected - ${{ github.repository }}"
+          body: |
+            Broken links were detected during the Jekyll site deployment.
+            
+            Check the logs: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          to: ${{ secrets.SMTP_USERNAME }}
+          from: GitHub Actions
+          secure: true
+          ignore_cert: true
+          convert_markdown: true
+          priority: high
+          # For port 465 specifically:
+          encryption: ssl
