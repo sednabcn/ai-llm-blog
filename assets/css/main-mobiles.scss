@@ -197,3 +197,12 @@
     overflow-wrap: break-word;
   }
 }
+/* For smaller screens (smartphones, tablets) */
+@media (max-width: 768px) {
+  .image-container img {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 4px; /* Smaller radius on smaller screens */
+  }
+}
+

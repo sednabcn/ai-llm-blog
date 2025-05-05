@@ -29,6 +29,12 @@ var store = [{
         "url": "/ai-llm-blog/community/subscribe/",
         "teaser": null
       },{
+        "title": "Thank You",
+        "excerpt":"layout: single title: “Thank You” permalink: /community/thank-you/ image: src: “/assets/img/thank-you.jpg” alt: “Happy community team celebrating” alt: “Thank you message” sizes: “(min-width: 768px) 800px, 100vw” formats: [webp, original] lazy: true caption: “Our amazing community team celebrating your contribution!” — Thank You for Getting in Touch! We appreciate your interest and will...","categories": [],
+        "tags": [],
+        "url": "/ai-llm-blog/community/thank-you/",
+        "teaser": null
+      },{
         "title": "Exploring the Frontier: My Journey into AI and LLMs",
         "excerpt":"Welcome to the AI Frontier Hello and welcome to my corner of the digital universe dedicated to artificial intelligence and large language models! I’m thrilled to embark on this journey of exploration and discovery with you. As we stand at the precipice of what many are calling the fourth industrial...","categories": ["ai-research"],
         "tags": ["artificial-intelligence","large-language-models","formula-discovery"],
