@@ -1,0 +1,4 @@
+default:
+  formats: [webp, original]
+  widths: [400, 800, 1200]
+  sizes: "(min-width: 768px) 800px, 100vw"
