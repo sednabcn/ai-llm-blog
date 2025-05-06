@@ -96,20 +96,24 @@ collections:
     output: true
     permalink: /tags/:name/
     source: _pages/tags
+ 
   category_pages:  
     output: true
     permalink: /categories/:name/
     source: _pages/categories
+ 
   tutorials:
     output: true
     permalink: /tutorials/:path/
+ 
   community:
     output: true
     permalink: /community/:path/
+ 
   resources:
     output: true
     permalink: /resources/:path/
-
+ 
 
 # Pagination Configuration
 
@@ -145,8 +149,6 @@ plugins:
   - jekyll-remote-theme
   - jekyll-paginate
   - jekyll-sitemap
-  - jekyll-minifier
-  - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
   - jekyll-seo-tag
