@@ -26,7 +26,8 @@ module Jekyll
         end
 
         # Ensure the lastmod field is added (using page's modified date or current date)
-        lastmod = page.data["lastmod"] || page.date || Time.now
+        # Fixed: Check if page.data["date"] exists instead of using page.date directly
+        lastmod = page.data["lastmod"] || page.data["date"] || Time.now
 
         # Format the lastmod in ISO 8601 format for better SEO
         formatted_lastmod = lastmod.strftime("%Y-%m-%dT%H:%M:%S%z")
