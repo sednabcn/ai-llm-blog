@@ -263,3 +263,4 @@ exclude:
   - LICENSE
   - _tutorials/community-forum/
   - _lib
+  - "**/.#*"

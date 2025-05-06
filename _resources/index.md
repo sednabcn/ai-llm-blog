@@ -1,5 +1,6 @@
 ---
 title: "Resources"
+date: 2025-04-11
 layout: single
 permalink: /resources/
 collection: resources

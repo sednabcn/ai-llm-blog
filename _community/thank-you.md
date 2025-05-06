@@ -1,6 +1,7 @@
 ---
-layout: default
+layout: single
 title: Thank You
+date: 2025-05-06
 image:
   src: /assets/images/thank-you.jpg
   alt: "Happy community team celebrating"

@@ -1,5 +1,6 @@
 ---
 title: "About Us"
+date: 2025-04-11
 permalink: /about/
 layout: single
 classes:

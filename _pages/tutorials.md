@@ -1,5 +1,6 @@
 ---
 title: "Tutorials"
+date: 2025-04-11
 layout: single
 permalink: /tutorials/
 collection: tutorials

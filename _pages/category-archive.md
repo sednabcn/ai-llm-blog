@@ -1,5 +1,6 @@
 ---
 title: "Browse All Articles & Tutorials by Category"
+date: 2025-04-11
 permalink: /categories/
 layout: category
 author_profile: true

@@ -1,5 +1,6 @@
 ---
 title: "Help & Resources"
+date: 2025-04-11
 permalink: /help/
 layout: single
 classes:

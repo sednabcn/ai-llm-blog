@@ -1,5 +1,6 @@
 ---
 title: "Blog Posts"
+date: 2025-04-11
 layout: collection
 permalink: /posts/
 collection: posts

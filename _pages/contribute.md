@@ -1,5 +1,6 @@
 ---
 title: "Contribution Guidelines"
+date: 2025-04-11
 permalink: /help/contribute/
 layout: single
 classes:

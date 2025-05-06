@@ -1,5 +1,6 @@
 ---
 title: "Getting Started Guide"
+date: 2025-04-11
 permalink: /help/getting-started/
 layout: single
 classes:
