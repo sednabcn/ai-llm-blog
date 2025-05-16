@@ -1,0 +1,17 @@
+---
+layout: none
+permalink: /robots-debug.json
+---
+
+[
+{% assign all_items = site.pages | concat: site.tutorials | concat: site.resources | concat: site.community | concat: site.posts %}
+{% for item in all_items %}
+  {
+    "url": "{{ item.url }}",
+    "title": {{ item.title | jsonify }},
+    "robots": {{ item.robots | default: site.robots | jsonify }},
+    "layout": {{ item.layout | default: "none" | jsonify }},
+    "last_updated": {% if item.last_updated %}"{{ item.last_updated | date_to_xmlschema }}"{% else %}null{% endif %}
+  }{% unless forloop.last %},{% endunless %}
+{% endfor %}
+]
