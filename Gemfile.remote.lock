@@ -382,6 +382,7 @@ DEPENDENCIES
   jekyll-remote-theme (~> 0.4.3)
   jekyll-sass-converter (~> 1.5.2)
   jekyll-seo-tag (~> 2.8.0)
+  jekyll-sitemap (~> 1.4.0)
   kramdown (~> 2.4.0)
   liquid (~> 4.0.4)
   liquid-c (~> 4.0.0)

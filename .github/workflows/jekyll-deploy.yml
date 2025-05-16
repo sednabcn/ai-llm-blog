@@ -56,6 +56,24 @@ jobs:
         env:
           JEKYLL_GITHUB_TOKEN: ${{ secrets.JEKYLL_GITHUB_TOKEN }}
           JEKYLL_ENV: production
+          
+      - name: Delete robots.txt and sitemap.xml
+        run: |
+          # Remove robots.txt if it exists
+          if [ -f "_site/robots.txt" ]; then
+            rm -f "_site/robots.txt"
+            echo "Deleted robots.txt"
+          else
+            echo "robots.txt not found"
+          fi
+          
+          # Remove sitemap.xml if it exists
+          if [ -f "_site/sitemap.xml" ]; then
+            rm -f "_site/sitemap.xml"
+            echo "Deleted sitemap.xml"
+          else
+            echo "sitemap.xml not found"
+          fi
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.7.3

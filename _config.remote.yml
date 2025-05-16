@@ -87,7 +87,7 @@ comments:
 include:
   - _pages
   - google2fe61160aa58a7ea.html
-  - robots.txt
+#  - robots.txt
   - assets
   
 # Outputting
@@ -148,7 +148,7 @@ excerpt_separator: "\n\n"
 plugins:
   - jekyll-remote-theme
   - jekyll-paginate
-  - jekyll-sitemap
+# - jekyll-sitemap
   - jekyll-feed
   - jekyll-include-cache
   - jekyll-seo-tag
@@ -264,3 +264,7 @@ exclude:
   - _tutorials/community-forum/
   - _lib
   - "**/.#*"
+
+disable_generators:
+  - Jekyll::SitemapGenerator
+  - Jekyll::RobotsGenerator
