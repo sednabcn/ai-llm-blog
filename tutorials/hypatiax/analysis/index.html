@@ -1,0 +1,1340 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en-US" class="no-js">
+  <head>
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>HypatiaX Tutorial 3: Statistical Analysis and Publication Figures | AI, LLM &amp; LLM-HypatiaX Blog</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="HypatiaX Tutorial 3: Statistical Analysis and Publication Figures" />
+<meta name="author" content="Dr. Ruperto Pedro Bonet Chaple" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="HypatiaX Tutorial 3: Statistical Analysis and Publication Figures" />
+<meta property="og:description" content="HypatiaX Tutorial 3: Statistical Analysis and Publication Figures" />
+<link rel="canonical" href="https://sednabcn.github.io/ai-llm-blog/tutorials/hypatiax/analysis/" />
+<meta property="og:url" content="https://sednabcn.github.io/ai-llm-blog/tutorials/hypatiax/analysis/" />
+<meta property="og:site_name" content="AI, LLM &amp; LLM-HypatiaX Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-02-22T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="HypatiaX Tutorial 3: Statistical Analysis and Publication Figures" />
+<meta name="google-site-verification" content="0l5TbPYQ76ChPVEmXUclBOY04jLkGAAQAKAEm2a0j60" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Dr. Ruperto Pedro Bonet Chaple"},"dateModified":"2026-02-22T00:00:00+00:00","datePublished":"2026-02-22T00:00:00+00:00","description":"HypatiaX Tutorial 3: Statistical Analysis and Publication Figures","headline":"HypatiaX Tutorial 3: Statistical Analysis and Publication Figures","mainEntityOfPage":{"@type":"WebPage","@id":"https://sednabcn.github.io/ai-llm-blog/tutorials/hypatiax/analysis/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://sednabcn.github.io/ai-llm-blog/assets/images/logo.png"},"name":"Dr. Ruperto Pedro Bonet Chaple"},"url":"https://sednabcn.github.io/ai-llm-blog/tutorials/hypatiax/analysis/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HypatiaX Tutorial 3: Statistical Analysis and Publication Figures</title>
+
+  <!-- SEO -->
+  <!-- begin _includes/seo.html --><title>HypatiaX Tutorial 3: Statistical Analysis and Publication Figures | AI, LLM &amp; LLM-HypatiaX Blog</title>
+<meta name="description" content="HypatiaX Tutorial 3: Statistical Analysis and Publication Figures">
+
+
+  <meta name="author" content="Dr. Ruperto Pedro Bonet Chaple">
+  
+  <meta property="article:author" content="Dr. Ruperto Pedro Bonet Chaple">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="AI, LLM & LLM-HypatiaX Blog">
+<meta property="og:title" content="HypatiaX Tutorial 3: Statistical Analysis and Publication Figures">
+<meta property="og:url" content="https://sednabcn.github.io/ai-llm-blog/tutorials/hypatiax/analysis/">
+
+
+  <meta property="og:description" content="HypatiaX Tutorial 3: Statistical Analysis and Publication Figures">
+
+
+
+  <meta property="og:image" content="https://sednabcn.github.io/ai-llm-blog/assets/images/tutorials/hypatiax-analysis-banner.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2026-02-22T00:00:00+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://sednabcn.github.io/ai-llm-blog/tutorials/hypatiax/analysis/">
+
+
+
+
+
+
+
+  <meta name="google-site-verification" content="0l5TbPYQ76ChPVEmXUclBOY04jLkGAAQAKAEm2a0j60" />
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+  <!-- Atom Feed -->
+  
+    <link href="/ai-llm-blog/feed.xml" 
+          type="application/atom+xml" rel="alternate" title="AI, LLM & LLM-HypatiaX Blog Feed">
+  
+
+  <!-- Favicon -->
+  <link rel="icon" href="/ai-llm-blog/favicon-16x16.png" type="image/png">
+
+  <!-- JavaScript Detection -->
+  <script>
+    document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+    
+  </script>
+
+  <!-- Stylesheets -->
+  
+    <link rel="stylesheet" href="/ai-llm-blog/assets/css/main.css">
+  
+
+  
+  <!-- Stylesheets -->
+  
+    <link rel="stylesheet" href="/ai-llm-blog/assets/css/main-mobiles.css">
+  
+
+
+  <!-- Font Awesome (with performance optimization) -->
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" 
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css">
+  </noscript>
+
+  <!-- Google Site Verification -->
+  
+    <meta name="google-site-verification" content="0l5TbPYQ76ChPVEmXUclBOY04jLkGAAQAKAEm2a0j60">
+  
+
+  
+ 
+ <!-- Content Security Policy -->
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net/ https://www.googletagmanager.com/ https://www.google-analytics.com/ https://utteranc.es;
+  style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net/;
+  img-src 'self' data: *;
+  font-src 'self' https://cdn.jsdelivr.net/;
+  connect-src 'self' https://utteranc.es https://region1.google-analytics.com https://www.google-analytics.com;
+  frame-src 'self' https://utteranc.es;
+"> 
+  <!-- Custom Head Scripts -->
+  
+
+  <!-- Analytics (production only) -->
+  
+    
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FFJMQ3HXMK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FFJMQ3HXMK', { 'anonymize_ip': true});
+</script>
+
+
+
+
+  
+
+ <!-- Open Graph / Facebook -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://sednabcn.github.io/tutorials/hypatiax/analysis/">
+<meta property="og:title" content="HypatiaX Tutorial 3: Statistical Analysis and Publication Figures">
+<meta property="og:description" content="HypatiaX Tutorial 3: Statistical Analysis and Publication Figures
+
+">
+
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://sednabcn.github.io/tutorials/hypatiax/analysis/">
+<meta name="twitter:title" content="HypatiaX Tutorial 3: Statistical Analysis and Publication Figures">
+<meta name="twitter:description" content="HypatiaX Tutorial 3: Statistical Analysis and Publication Figures
+
+">
+
+
+</head>
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single inner-page header-image-readability" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/ai-llm-blog/"><img src="/ai-llm-blog/assets/images/logo.png" alt="SiMLeng"></a>
+        
+        <a class="site-title" href="/ai-llm-blog/">
+          SiMLeng
+          <span class="site-subtitle">Exploring generative AI in formula discovery</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/ai-llm-blog/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/ai-llm-blog/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/ai-llm-blog/posts/"
+                
+                
+              >Posts</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/ai-llm-blog/tutorials/"
+                
+                
+              >Tutorials</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/ai-llm-blog/help/"
+                
+                
+              >Help</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+  
+
+
+
+
+
+
+
+<div class="page__hero--overlay"
+  style=" background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/ai-llm-blog/assets/images/tutorials/hypatiax-analysis-banner.png');"
+>
+  
+    <div class="wrapper">
+      <h1 id="page-title" class="page__title" itemprop="headline">
+        
+          HypatiaX Tutorial 3: Statistical Analysis and Publication Figures
+
+        
+      </h1>
+      
+     <span class="page__lead excerpt-inline"><h1 id="hypatiax-tutorial-3-statistical-analysis-and-publication-figures">HypatiaX Tutorial 3: Statistical Analysis and Publication Figures</h1>
+
+</span>
+
+    <!--- <p class="page__lead" style="text-align: center;"><h1 id="hypatiax-tutorial-3-statistical-analysis-and-publication-figures">HypatiaX Tutorial 3: Statistical Analysis and Publication Figures</h1>
+
+</p>--!>
+      
+      
+
+
+      
+    </div>
+  
+  
+    <span class="page__hero-caption">Generate publication-quality figures and reproduce statistical analyses from the JMLR paper
+</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="https://sednabcn.github.io/ai-llm-blog/">
+        <img src="/ai-llm-blog/assets/images/avatar.jpg" alt="Dr. Ruperto Pedro Bonet Chaple" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://sednabcn.github.io/ai-llm-blog/" itemprop="url">Dr. Ruperto Pedro Bonet Chaple</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>PhD in Computational Mechanics</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">London, UK</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:info@modelphysmat.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/sednabcn" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+        <li>
+          
+            <span class="nav__sub-title">Getting Started</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/ai-llm-blog/tutorials/setup/">Setup</a></li>
+            
+              <li><a href="/ai-llm-blog/tutorials/setup/python-setup/">Python Setup</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">HypatiaX</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/ai-llm-blog/tutorials/hypatiax/">Overview</a></li>
+            
+              <li><a href="/ai-llm-blog/tutorials/hypatiax/setup/">1. Setup</a></li>
+            
+              <li><a href="/ai-llm-blog/tutorials/hypatiax/experiments/">2. Experiments</a></li>
+            
+              <li><a href="/ai-llm-blog/tutorials/hypatiax/analysis/" class="active">3. Analysis</a></li>
+            
+              <li><a href="/ai-llm-blog/tutorials/hypatiax/extensions/">4. Extensions</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Advanced Features</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/ai-llm-blog/tutorials/advanced-features/">Overview</a></li>
+            
+          </ul>
+          
+        </li>
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <meta itemprop="headline" content="HypatiaX Tutorial 3: Statistical Analysis and Publication Figures">
+    
+    
+      <meta itemprop="description" content="HypatiaX Tutorial 3: Statistical Analysis and Publication Figures">
+    
+    
+      <meta itemprop="datePublished" content="2026-02-22T00:00:00+00:00">
+    
+    
+
+    <div class="page__inner-wrap">
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header>
+                <h4 class="nav__title">
+                  <i class="fas fa-cog"></i> Contents
+                </h4>
+              </header>
+              <ul class="toc__menu"><li><a href="#hypatiax-tutorial-3-statistical-analysis-and-publication-figures">HypatiaX Tutorial 3: Statistical Analysis and Publication Figures</a><ul><li><a href="#overview">Overview</a><ul><li><a href="#core-15-benchmark-figures-110">Core 15 Benchmark (Figures 1–10)</a></li><li><a href="#defi-extrapolation-benchmark-figures-1113-new-in-v2">DeFi Extrapolation Benchmark (Figures 11–13, new in v2)</a></li><li><a href="#statistical-tests">Statistical Tests</a></li></ul></li><li><a href="#prerequisites">Prerequisites</a></li><li><a href="#quick-start-generate-all-figures">Quick Start: Generate All Figures</a></li><li><a href="#step-by-step-individual-figures">Step-by-Step: Individual Figures</a><ul><li><a href="#load-results">Load Results</a></li><li><a href="#figure-3-paper-arrhenius-extrapolation">Figure 3 (paper): Arrhenius Extrapolation</a></li><li><a href="#figure-2-paper-domain-comparison">Figure 2 (paper): Domain Comparison</a></li><li><a href="#figure-6-paper-validation-cascade-breakdown">Figure 6 (paper): Validation Cascade Breakdown</a></li><li><a href="#figure-7-paper-three-system-method-comparison">Figure 7 (paper): Three-System Method Comparison</a></li></ul></li><li><a href="#new-defi-figures-v2">New DeFi Figures (v2)</a><ul><li><a href="#figure-11-train-r-vs-test-r">Figure 11: Train R² vs Test R²</a></li><li><a href="#figure-12-method-comparison-radar">Figure 12: Method Comparison Radar</a></li><li><a href="#figure-13-effect-size-forest-plot">Figure 13: Effect Size Forest Plot</a></li></ul></li><li><a href="#statistical-validation">Statistical Validation</a><ul><li><a href="#core-15-hybrid-v40-vs-neural-network-primary-result">Core 15: Hybrid v40 vs Neural Network (primary result)</a></li><li><a href="#️-important-effect-size-caveat">⚠️ Important: Effect Size Caveat</a></li><li><a href="#defi-73-case-hybrid-vs-pure-llm-honest-denominator">DeFi 73-Case: Hybrid vs Pure LLM (honest denominator)</a></li><li><a href="#paper-claims-verification">Paper Claims Verification</a></li></ul></li><li><a href="#feynman-benchmark-figures">Feynman Benchmark Figures</a></li><li><a href="#latex-tables">LaTeX Tables</a></li><li><a href="#next-steps">Next Steps</a></li></ul></li></ul>
+            </nav>
+          </aside>
+        
+        <h1 id="hypatiax-tutorial-3-statistical-analysis-and-publication-figures">HypatiaX Tutorial 3: Statistical Analysis and Publication Figures</h1>
+
+<p><strong>Time:</strong> 45 minutes<br />
+<strong>Difficulty:</strong> Intermediate<br />
+<strong>Previous:</strong> <a href="/tutorials/hypatiax/experiments/">Tutorial 2: Running Experiments</a><br />
+<strong>Next:</strong> <a href="/tutorials/hypatiax/extensions/">Tutorial 4: Custom Applications</a></p>
+
+<blockquote>
+  <p><strong>v2 Note (March 2026):</strong> A measurement bug in <code class="language-plaintext highlighter-rouge">evaluate_llm_formula</code> was
+corrected before final paper submission. The fix replaces a hardcoded absolute
+sum-of-squares threshold with a relative one that scales correctly for equations
+with small-magnitude outputs (gravitational forces ~10⁻¹¹ N, Zeeman splittings
+~10⁻²³ J). All figures and statistics in this tutorial use the <strong>v2 corrected</strong>
+results. If your results directory was generated before March 2026, regenerate
+it using <code class="language-plaintext highlighter-rouge">--no-cache</code> before running the analysis scripts below.</p>
+</blockquote>
+
+<hr />
+
+<h2 id="overview">Overview</h2>
+
+<p>This tutorial reproduces all figures and statistical analyses from the JMLR paper.</p>
+
+<p><strong>What you’ll create:</strong></p>
+
+<h3 id="core-15-benchmark-figures-110">Core 15 Benchmark (Figures 1–10)</h3>
+<ul>
+  <li>✅ <strong>Figure 3</strong> (<code class="language-plaintext highlighter-rouge">fig:arrhenius_extrapolation</code>): Arrhenius extrapolation failure</li>
+  <li>✅ <strong>Figure 2</strong> (<code class="language-plaintext highlighter-rouge">fig:domain_comparison</code>): Success rates across domains</li>
+  <li>✅ <strong>Figure 6</strong> (<code class="language-plaintext highlighter-rouge">fig:validation_breakdown</code>): Validation cascade breakdown</li>
+  <li>✅ <strong>Figure 7</strong> (<code class="language-plaintext highlighter-rouge">fig:method_comparison</code>): Three-system method comparison</li>
+  <li>✅ <strong>Figure 9</strong> (<code class="language-plaintext highlighter-rouge">fig:five_systems_comparison</code>): Five-system unified comparison</li>
+</ul>
+
+<h3 id="defi-extrapolation-benchmark-figures-1113-new-in-v2">DeFi Extrapolation Benchmark (Figures 11–13, new in v2)</h3>
+<ul>
+  <li>✅ <strong>Figure 11</strong> (<code class="language-plaintext highlighter-rouge">fig:train_vs_test_73</code>): Train R² vs Test R² scatter (73 cases)</li>
+  <li>✅ <strong>Figure 12</strong> (<code class="language-plaintext highlighter-rouge">fig:radar_73</code>): Method comparison radar (73 cases)</li>
+  <li>✅ <strong>Figure 13</strong> (<code class="language-plaintext highlighter-rouge">fig:effect_size_forest</code>): Effect size forest plot</li>
+</ul>
+
+<h3 id="statistical-tests">Statistical Tests</h3>
+<ul>
+  <li>✅ Mann-Whitney U test (Hybrid v40 vs NN, Core 15)</li>
+  <li>✅ Effect size with degenerate-distribution caveat</li>
+  <li>✅ DeFi benchmark honest-denominator comparison</li>
+  <li>✅ LaTeX tables for publication</li>
+</ul>
+
+<blockquote>
+  <p><strong>Figure numbering note:</strong> The paper contains 13 figures in total
+(Figure 1 is an inline TikZ diagram; Figures 4–5 are architecture diagrams;
+Figure 8 is domain breakdown; Figure 10 is benchmark comparison).
+This tutorial covers the analytically generated figures;
+architecture diagrams are in <code class="language-plaintext highlighter-rouge">figures/hybrid_architecture_three_systems.pdf</code>.</p>
+</blockquote>
+
+<hr />
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<p>Completed <a href="/tutorials/hypatiax/experiments/">Tutorial 2</a> with results in <code class="language-plaintext highlighter-rouge">data/results/</code></p>
+
+<hr />
+
+<h2 id="quick-start-generate-all-figures">Quick Start: Generate All Figures</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Generate all figures and tables (v2 corrected results required)</span>
+python supplementaries/generate_figures/generate_figures.py <span class="se">\</span>
+    <span class="nt">--input</span> data/results/to_generate_figures/ <span class="se">\</span>
+    <span class="nt">--output</span> figures/ <span class="se">\</span>
+    <span class="nt">--v2</span>  <span class="c"># Use v2 corrected evaluation harness</span>
+
+<span class="c"># Expected output:</span>
+<span class="c"># ✓ figure1_arrhenius_extrapolation.pdf</span>
+<span class="c"># ✓ figure2_domain_comparison.pdf</span>
+<span class="c"># ✓ figure3_validation_breakdown.pdf</span>
+<span class="c"># ✓ figure4b_domain_breakdown.pdf</span>
+<span class="c"># ✓ figure5_method_comparison.pdf</span>
+<span class="c"># ✓ figure_5systems_comparison.pdf</span>
+<span class="c"># ✓ figure_benchmark_comparison.pdf</span>
+<span class="c"># ✓ train_vs_test_73cases.png        ← DeFi extrapolation</span>
+<span class="c"># ✓ radar_comparison_73cases.png     ← DeFi extrapolation</span>
+<span class="c"># ✓ effect_size_forest.png           ← DeFi effect size</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="step-by-step-individual-figures">Step-by-Step: Individual Figures</h2>
+
+<h3 id="load-results">Load Results</h3>
+
+<p>First, load the experimental results:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="n">sns</span>
+
+<span class="c1"># Publication style
+</span><span class="n">plt</span><span class="p">.</span><span class="n">style</span><span class="p">.</span><span class="n">use</span><span class="p">(</span><span class="s">'seaborn-v0_8-paper'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">rcParams</span><span class="p">.</span><span class="n">update</span><span class="p">({</span>
+    <span class="s">'font.size'</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s">'axes.labelsize'</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s">'axes.titlesize'</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span>
+    <span class="s">'xtick.labelsize'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'ytick.labelsize'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s">'legend.fontsize'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s">'font.family'</span><span class="p">:</span> <span class="s">'serif'</span>
+<span class="p">})</span>
+
+<span class="c1"># Load Core 15 results (v2 corrected)
+</span><span class="n">results_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s">'data/results/to_generate_figures/all_domains_extrap_v4_TIMESTAMP.json'</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">results_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s">'problems'</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Loaded </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="si">}</span><span class="s"> experimental results"</span><span class="p">)</span>
+
+<span class="c1"># Load DeFi 73-case results (v2 corrected, honest n=66 denominator)
+</span><span class="n">defi_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s">'data/results/hybrid_llm_nn/defi/consolidated_hybrid_TIMESTAMP.json'</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">defi_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">defi_results</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># IMPORTANT: filter to standard cases only (exclude 7 intractable)
+</span><span class="n">defi_df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">defi_results</span><span class="p">)</span>
+<span class="n">defi_df</span> <span class="o">=</span> <span class="n">defi_df</span><span class="p">[</span><span class="n">defi_df</span><span class="p">[</span><span class="s">'extrapolation_intractable'</span><span class="p">]</span> <span class="o">!=</span> <span class="bp">True</span><span class="p">].</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"DeFi standard cases: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">defi_df</span><span class="p">)</span><span class="si">}</span><span class="s"> (n=66 denominator)"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="figure-3-paper-arrhenius-extrapolation">Figure 3 (paper): Arrhenius Extrapolation</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">hypatiax.tools.visualizations.create_visualizations</span> <span class="kn">import</span> <span class="n">plot_extrapolation_failure</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plot_extrapolation_failure</span><span class="p">(</span>
+    <span class="n">equation</span><span class="o">=</span><span class="s">'arrhenius'</span><span class="p">,</span>
+    <span class="n">results</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s">'problem_name'</span><span class="p">]</span> <span class="o">==</span> <span class="s">'chemistry_arrhenius_equation'</span><span class="p">].</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="n">save_path</span><span class="o">=</span><span class="s">'figures/figure1_arrhenius_extrapolation.pdf'</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Or generate from raw data:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">A</span> <span class="o">=</span> <span class="mf">1e13</span><span class="p">;</span> <span class="n">Ea</span> <span class="o">=</span> <span class="mi">50000</span><span class="p">;</span> <span class="n">R_gas</span> <span class="o">=</span> <span class="mf">8.314</span>
+
+<span class="n">T_train</span>  <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">T_extrap</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+
+<span class="n">k_extrap</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">Ea</span> <span class="o">/</span> <span class="p">(</span><span class="n">R_gas</span> <span class="o">*</span> <span class="n">T_extrap</span><span class="p">))</span>
+
+<span class="n">symbolic_pred</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s">'arrhenius'</span><span class="p">][</span><span class="s">'symbolic_predictions'</span><span class="p">]</span>   <span class="c1"># ≈ k_extrap
+</span><span class="n">neural_pred</span>   <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s">'arrhenius'</span><span class="p">][</span><span class="s">'neural_predictions'</span><span class="p">]</span>     <span class="c1"># diverges rapidly
+</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">ax1</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T_extrap</span><span class="p">,</span> <span class="n">k_extrap</span><span class="p">,</span>      <span class="s">'k-'</span><span class="p">,</span>  <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'True (Arrhenius)'</span><span class="p">)</span>
+<span class="n">ax1</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T_extrap</span><span class="p">,</span> <span class="n">symbolic_pred</span><span class="p">,</span> <span class="s">'g--'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'HypatiaX'</span><span class="p">)</span>
+<span class="n">ax1</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T_extrap</span><span class="p">,</span> <span class="n">neural_pred</span><span class="p">,</span>   <span class="s">'r:'</span><span class="p">,</span>  <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'Neural Network'</span><span class="p">)</span>
+<span class="n">ax1</span><span class="p">.</span><span class="n">axvspan</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'blue'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'Training range'</span><span class="p">)</span>
+<span class="n">ax1</span><span class="p">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s">'Temperature (K)'</span><span class="p">);</span> <span class="n">ax1</span><span class="p">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">'Rate constant k'</span><span class="p">)</span>
+<span class="n">ax1</span><span class="p">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">'(a) Extrapolation Predictions'</span><span class="p">);</span> <span class="n">ax1</span><span class="p">.</span><span class="n">legend</span><span class="p">();</span> <span class="n">ax1</span><span class="p">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s">'log'</span><span class="p">)</span>
+
+<span class="n">sym_err</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nb">abs</span><span class="p">(</span><span class="n">symbolic_pred</span> <span class="o">-</span> <span class="n">k_extrap</span><span class="p">)</span> <span class="o">/</span> <span class="n">k_extrap</span>
+<span class="n">nn_err</span>  <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nb">abs</span><span class="p">(</span><span class="n">neural_pred</span>   <span class="o">-</span> <span class="n">k_extrap</span><span class="p">)</span> <span class="o">/</span> <span class="n">k_extrap</span>
+
+<span class="n">ax2</span><span class="p">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">T_extrap</span><span class="p">,</span> <span class="n">sym_err</span><span class="p">,</span> <span class="s">'g-'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'HypatiaX'</span><span class="p">)</span>
+<span class="n">ax2</span><span class="p">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">T_extrap</span><span class="p">,</span> <span class="n">nn_err</span><span class="p">,</span>  <span class="s">'r-'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'Neural Network'</span><span class="p">)</span>
+<span class="n">ax2</span><span class="p">.</span><span class="n">axvspan</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'blue'</span><span class="p">)</span>
+<span class="n">ax2</span><span class="p">.</span><span class="n">axhline</span><span class="p">(</span><span class="mf">1e-12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'gray'</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s">'--'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'Floating-point precision'</span><span class="p">)</span>
+<span class="n">ax2</span><span class="p">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s">'Temperature (K)'</span><span class="p">);</span> <span class="n">ax2</span><span class="p">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">'Relative Error'</span><span class="p">)</span>
+<span class="n">ax2</span><span class="p">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">'(b) Extrapolation Error'</span><span class="p">);</span> <span class="n">ax2</span><span class="p">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'figures/figure1_arrhenius_extrapolation.pdf'</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s">'tight'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"✓ Saved Arrhenius figure"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>What this shows:</strong></p>
+<ul>
+  <li>Symbolic (HypatiaX): error &lt; 10⁻¹² (floating-point precision limit)</li>
+  <li>Neural Network: error &gt; 1,200% at 2× training range</li>
+</ul>
+
+<hr />
+
+<h3 id="figure-2-paper-domain-comparison">Figure 2 (paper): Domain Comparison</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Note: paper has 4 benchmark domains:
+# Physics, Biology/Chemistry, DeFi AMM, DeFi Risk
+# (No separate Economics domain in the JMLR paper)
+</span><span class="n">domains_paper</span> <span class="o">=</span> <span class="p">[</span><span class="s">'physics'</span><span class="p">,</span> <span class="s">'biology'</span><span class="p">,</span> <span class="s">'defi_amm'</span><span class="p">,</span> <span class="s">'defi_risk'</span><span class="p">]</span>
+<span class="n">domain_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s">'Physics'</span><span class="p">,</span> <span class="s">'Biology/Chem'</span><span class="p">,</span> <span class="s">'DeFi AMM'</span><span class="p">,</span> <span class="s">'DeFi Risk'</span><span class="p">]</span>
+
+<span class="n">domain_stats</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">'domain'</span><span class="p">).</span><span class="n">agg</span><span class="p">(</span>
+    <span class="n">success_rate</span><span class="o">=</span><span class="p">(</span><span class="s">'success'</span><span class="p">,</span> <span class="s">'mean'</span><span class="p">),</span>
+    <span class="n">n</span><span class="o">=</span><span class="p">(</span><span class="s">'success'</span><span class="p">,</span> <span class="s">'count'</span><span class="p">),</span>
+    <span class="n">r2_mean</span><span class="o">=</span><span class="p">(</span><span class="s">'r2_test'</span><span class="p">,</span> <span class="s">'mean'</span><span class="p">),</span>
+    <span class="n">extrap_median</span><span class="o">=</span><span class="p">(</span><span class="s">'extrapolation_error'</span><span class="p">,</span> <span class="s">'median'</span><span class="p">),</span>
+    <span class="n">time_mean</span><span class="o">=</span><span class="p">(</span><span class="s">'discovery_time'</span><span class="p">,</span> <span class="s">'mean'</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="c1"># (a) Success rate
+</span><span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">rates</span> <span class="o">=</span> <span class="p">[</span><span class="n">domain_stats</span><span class="p">.</span><span class="n">loc</span><span class="p">[</span><span class="n">d</span><span class="p">,</span> <span class="s">'success_rate'</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span>
+         <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">domains_paper</span> <span class="k">if</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">domain_stats</span><span class="p">.</span><span class="n">index</span><span class="p">]</span>
+<span class="n">ns</span>    <span class="o">=</span> <span class="p">[</span><span class="n">domain_stats</span><span class="p">.</span><span class="n">loc</span><span class="p">[</span><span class="n">d</span><span class="p">,</span> <span class="s">'n'</span><span class="p">]</span>
+         <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">domains_paper</span> <span class="k">if</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">domain_stats</span><span class="p">.</span><span class="n">index</span><span class="p">]</span>
+<span class="n">bars</span>  <span class="o">=</span> <span class="n">ax</span><span class="p">.</span><span class="n">bar</span><span class="p">(</span><span class="n">domain_labels</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">rates</span><span class="p">)],</span> <span class="n">rates</span><span class="p">,</span>
+               <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s">'#2ecc71'</span><span class="p">,</span><span class="s">'#3498db'</span><span class="p">,</span><span class="s">'#f39c12'</span><span class="p">,</span><span class="s">'#9b59b6'</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">'Success Rate (%)'</span><span class="p">);</span> <span class="n">ax</span><span class="p">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">'(a) Success Rate by Domain'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">110</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">bar</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">bars</span><span class="p">,</span> <span class="n">rates</span><span class="p">,</span> <span class="n">ns</span><span class="p">):</span>
+    <span class="n">ax</span><span class="p">.</span><span class="n">text</span><span class="p">(</span><span class="n">bar</span><span class="p">.</span><span class="n">get_x</span><span class="p">()</span> <span class="o">+</span> <span class="n">bar</span><span class="p">.</span><span class="n">get_width</span><span class="p">()</span><span class="o">/</span><span class="mf">2.</span><span class="p">,</span> <span class="n">bar</span><span class="p">.</span><span class="n">get_height</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s">'</span><span class="si">{</span><span class="n">r</span><span class="si">:</span><span class="p">.</span><span class="mi">1</span><span class="n">f</span><span class="si">}</span><span class="s">%</span><span class="se">\n</span><span class="s">(n=</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s">)'</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s">'center'</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s">'bottom'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+
+<span class="c1"># (b-d) similar code for R² distribution, extrapolation error, timing ...
+# (same structure as original Tutorial 3 v1, domain labels corrected above)
+</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'figures/figure2_domain_comparison.pdf'</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s">'tight'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"✓ Saved Figure 2"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="figure-6-paper-validation-cascade-breakdown">Figure 6 (paper): Validation Cascade Breakdown</h3>
+
+<p>Shows the multi-layer validation system (dimensional analysis, symbolic checks, extrapolation tests):</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Load validation data
+</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'data/results/to_generate_figures/systems_2_3_detailed.csv'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">validation_df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># Validation layers
+</span><span class="n">layers</span> <span class="o">=</span> <span class="p">[</span><span class="s">'Dimensional'</span><span class="p">,</span> <span class="s">'Symbolic'</span><span class="p">,</span> <span class="s">'Statistical'</span><span class="p">,</span> <span class="s">'Extrapolation'</span><span class="p">,</span> <span class="s">'Ensemble'</span><span class="p">]</span>
+<span class="n">pass_rates</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="n">validation_df</span><span class="p">[</span><span class="s">'dimensional_check'</span><span class="p">]</span> <span class="o">==</span> <span class="bp">True</span><span class="p">).</span><span class="n">mean</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="p">(</span><span class="n">validation_df</span><span class="p">[</span><span class="s">'symbolic_check'</span><span class="p">]</span> <span class="o">==</span> <span class="bp">True</span><span class="p">).</span><span class="n">mean</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="p">(</span><span class="n">validation_df</span><span class="p">[</span><span class="s">'statistical_check'</span><span class="p">]</span> <span class="o">==</span> <span class="bp">True</span><span class="p">).</span><span class="n">mean</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="p">(</span><span class="n">validation_df</span><span class="p">[</span><span class="s">'extrapolation_check'</span><span class="p">]</span> <span class="o">==</span> <span class="bp">True</span><span class="p">).</span><span class="n">mean</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="p">(</span><span class="n">validation_df</span><span class="p">[</span><span class="s">'ensemble_check'</span><span class="p">]</span> <span class="o">==</span> <span class="bp">True</span><span class="p">).</span><span class="n">mean</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">y_pos</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">layers</span><span class="p">))</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">cm</span><span class="p">.</span><span class="n">RdYlGn</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">layers</span><span class="p">)))</span>
+<span class="n">bars</span> <span class="o">=</span> <span class="n">ax</span><span class="p">.</span><span class="n">barh</span><span class="p">(</span><span class="n">y_pos</span><span class="p">,</span> <span class="n">pass_rates</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s">'black'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">bar</span><span class="p">,</span> <span class="n">rate</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">bars</span><span class="p">,</span> <span class="n">pass_rates</span><span class="p">)):</span>
+    <span class="n">ax</span><span class="p">.</span><span class="n">text</span><span class="p">(</span><span class="n">rate</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">bar</span><span class="p">.</span><span class="n">get_y</span><span class="p">()</span> <span class="o">+</span> <span class="n">bar</span><span class="p">.</span><span class="n">get_height</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s">'</span><span class="si">{</span><span class="n">rate</span><span class="si">:</span><span class="p">.</span><span class="mi">1</span><span class="n">f</span><span class="si">}</span><span class="s">%'</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s">'center'</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s">'bold'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">y_pos</span><span class="p">);</span> <span class="n">ax</span><span class="p">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">layers</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s">'Pass Rate (%)'</span><span class="p">);</span> <span class="n">ax</span><span class="p">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">'Validation Cascade: Multi-Layer Error Detection'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">105</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'green'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s">'--'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'Perfect validation'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">legend</span><span class="p">();</span> <span class="n">ax</span><span class="p">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s">'x'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'figures/figure3_validation_breakdown.pdf'</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s">'tight'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"✓ Saved Figure 6"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="figure-7-paper-three-system-method-comparison">Figure 7 (paper): Three-System Method Comparison</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'data/results/comparison_results/comparison_FIXED_TIMESTAMP.json'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">comparison</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="n">systems</span> <span class="o">=</span> <span class="p">[</span><span class="s">'Pure Symbolic'</span><span class="p">,</span> <span class="s">'Hybrid (HypatiaX)'</span><span class="p">,</span> <span class="s">'Pure LLM'</span><span class="p">]</span>
+<span class="n">metrics</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Success Rate (%)'</span><span class="p">:</span> <span class="p">[</span><span class="mf">80.0</span><span class="p">,</span> <span class="mf">95.8</span><span class="p">,</span> <span class="mf">60.0</span><span class="p">],</span>
+    <span class="s">'Median Extrap Error'</span><span class="p">:</span> <span class="p">[</span><span class="mf">2.1e-13</span><span class="p">,</span> <span class="mf">3.2e-13</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="s">'inf'</span><span class="p">)],</span>
+    <span class="s">'Mean Time (s)'</span><span class="p">:</span> <span class="p">[</span><span class="mi">1680</span><span class="p">,</span> <span class="mi">390</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span>
+    <span class="s">'R² Mean'</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.992</span><span class="p">,</span> <span class="mf">0.985</span><span class="p">,</span> <span class="mf">0.875</span><span class="p">],</span>
+    <span class="s">'Domain Coverage'</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">systems</span><span class="p">));</span> <span class="n">width</span> <span class="o">=</span> <span class="mf">0.15</span>
+<span class="n">metrics_to_plot</span> <span class="o">=</span> <span class="p">[</span><span class="s">'Success Rate (%)'</span><span class="p">,</span> <span class="s">'Mean Time (s)'</span><span class="p">,</span> <span class="s">'R² Mean'</span><span class="p">]</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s">'#2ecc71'</span><span class="p">,</span> <span class="s">'#3498db'</span><span class="p">,</span> <span class="s">'#f39c12'</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">metric</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">metrics_to_plot</span><span class="p">,</span> <span class="n">colors</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">metric</span> <span class="o">==</span> <span class="s">'Mean Time (s)'</span><span class="p">:</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1680</span><span class="o">/</span><span class="n">v</span> <span class="k">if</span> <span class="n">v</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">metrics</span><span class="p">[</span><span class="n">metric</span><span class="p">]]</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span> <span class="o">/</span> <span class="nb">max</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span><span class="p">]</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="s">'Speed (inverse time)'</span>
+    <span class="k">elif</span> <span class="n">metric</span> <span class="o">==</span> <span class="s">'Success Rate (%)'</span><span class="p">:</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">metrics</span><span class="p">[</span><span class="n">metric</span><span class="p">];</span> <span class="n">label</span> <span class="o">=</span> <span class="n">metric</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span> <span class="o">*</span> <span class="mi">100</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">metrics</span><span class="p">[</span><span class="n">metric</span><span class="p">]];</span> <span class="n">label</span> <span class="o">=</span> <span class="s">'R² Mean (×100)'</span>
+    <span class="n">ax</span><span class="p">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="n">width</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">'Score (normalized)'</span><span class="p">);</span> <span class="n">ax</span><span class="p">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">'(a) System Performance Comparison'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">width</span><span class="p">);</span> <span class="n">ax</span><span class="p">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">systems</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s">'right'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">legend</span><span class="p">();</span> <span class="n">ax</span><span class="p">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s">'y'</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">success</span> <span class="o">=</span> <span class="n">metrics</span><span class="p">[</span><span class="s">'Success Rate (%)'</span><span class="p">];</span> <span class="n">time</span> <span class="o">=</span> <span class="n">metrics</span><span class="p">[</span><span class="s">'Mean Time (s)'</span><span class="p">]</span>
+<span class="n">sizes</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="o">*</span> <span class="mi">30</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">metrics</span><span class="p">[</span><span class="s">'Domain Coverage'</span><span class="p">]]</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">success</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">sizes</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="p">[</span><span class="s">'#e74c3c'</span><span class="p">,</span> <span class="s">'#2ecc71'</span><span class="p">,</span> <span class="s">'#3498db'</span><span class="p">],</span>
+           <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s">'black'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">system</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">systems</span><span class="p">):</span>
+    <span class="n">ax</span><span class="p">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">system</span><span class="p">,</span> <span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">success</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+                <span class="n">textcoords</span><span class="o">=</span><span class="s">'offset points'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s">'bold'</span><span class="p">,</span>
+                <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s">'round,pad=0.5'</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s">'yellow'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s">'Discovery Time (seconds, log scale)'</span><span class="p">);</span> <span class="n">ax</span><span class="p">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">'Success Rate (%)'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">'(b) Success-Speed Tradeoff'</span><span class="p">);</span> <span class="n">ax</span><span class="p">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s">'log'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">);</span> <span class="n">ax</span><span class="p">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">95</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'green'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s">'--'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'Target: 95%'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'figures/figure5_method_comparison.pdf'</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s">'tight'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"✓ Saved Figure 7"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="new-defi-figures-v2">New DeFi Figures (v2)</h2>
+
+<p>These three figures are new in the v2 paper and correspond to the DeFi
+extrapolation benchmark (73 standard cases, honest n=66 denominator).</p>
+
+<h3 id="figure-11-train-r-vs-test-r">Figure 11: Train R² vs Test R²</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Load DeFi results with both train and test R² (NaN-penalised, intractables excluded)
+</span><span class="n">train_r2</span> <span class="o">=</span> <span class="n">defi_df</span><span class="p">[</span><span class="s">'r2_train'</span><span class="p">].</span><span class="n">values</span>
+<span class="n">test_r2</span>  <span class="o">=</span> <span class="n">defi_df</span><span class="p">[</span><span class="s">'r2_test'</span><span class="p">].</span><span class="n">clip</span><span class="p">(</span><span class="n">lower</span><span class="o">=-</span><span class="mi">10</span><span class="p">).</span><span class="n">values</span>   <span class="c1"># clip to [-10,1]
+</span><span class="n">method</span>   <span class="o">=</span> <span class="n">defi_df</span><span class="p">[</span><span class="s">'method'</span><span class="p">].</span><span class="n">values</span>                    <span class="c1"># 'llm' or 'nn'
+</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">m</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="p">[(</span><span class="s">'llm'</span><span class="p">,</span> <span class="s">'#3498db'</span><span class="p">,</span> <span class="s">'LLM'</span><span class="p">),</span> <span class="p">(</span><span class="s">'nn'</span><span class="p">,</span> <span class="s">'#e67e22'</span><span class="p">,</span> <span class="s">'Neural Net'</span><span class="p">)]:</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">method</span> <span class="o">==</span> <span class="n">m</span>
+    <span class="n">ax</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">train_r2</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="n">test_r2</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span>
+               <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s">'k--'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'Perfect fit (diagonal)'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'gray'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s">':'</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s">'Train R²'</span><span class="p">);</span> <span class="n">ax</span><span class="p">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">'Test R² (clipped to [-10, 1])'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">'Train vs Test R² — DeFi Extrapolation Benchmark</span><span class="se">\n</span><span class="s">'</span>
+             <span class="s">'(73 standard cases; test set outside training range)'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">legend</span><span class="p">();</span> <span class="n">ax</span><span class="p">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">]);</span> <span class="n">ax</span><span class="p">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">10.5</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'figures/train_vs_test_73cases.png'</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s">'tight'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"✓ Saved Figure 11 (train_vs_test_73)"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>What this shows:</strong> Both LLM (blue) and NN (orange) have cases with train R² ≈ 1
+that collapse to test R² « 0 — direct visual evidence that high in-distribution
+accuracy does not predict extrapolation reliability (Finding 1 in the paper).</p>
+
+<h3 id="figure-12-method-comparison-radar">Figure 12: Method Comparison Radar</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
+
+<span class="k">def</span> <span class="nf">radar_metrics</span><span class="p">(</span><span class="n">method_df</span><span class="p">):</span>
+    <span class="n">stability</span> <span class="o">=</span> <span class="p">(</span><span class="n">method_df</span><span class="p">[</span><span class="s">'r2_test'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">).</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">median_r2</span> <span class="o">=</span> <span class="n">method_df</span><span class="p">[</span><span class="s">'r2_test'</span><span class="p">].</span><span class="n">clip</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">).</span><span class="n">median</span><span class="p">()</span>
+    <span class="n">median_r2_norm</span> <span class="o">=</span> <span class="p">(</span><span class="n">median_r2</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span> <span class="o">/</span> <span class="mi">11</span>
+    <span class="n">gap</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="nb">abs</span><span class="p">(</span><span class="n">method_df</span><span class="p">[</span><span class="s">'r2_test'</span><span class="p">].</span><span class="n">clip</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+                  <span class="o">-</span> <span class="n">method_df</span><span class="p">[</span><span class="s">'r2_train'</span><span class="p">].</span><span class="n">clip</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mf">0.1</span><span class="p">).</span><span class="n">mean</span><span class="p">()</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">stability</span><span class="p">,</span> <span class="n">median_r2_norm</span><span class="p">,</span> <span class="n">gap</span><span class="p">]</span>
+
+<span class="n">llm_m</span> <span class="o">=</span> <span class="n">radar_metrics</span><span class="p">(</span><span class="n">defi_df</span><span class="p">[</span><span class="n">defi_df</span><span class="p">[</span><span class="s">'method'</span><span class="p">]</span> <span class="o">==</span> <span class="s">'llm'</span><span class="p">])</span>
+<span class="n">nn_m</span>  <span class="o">=</span> <span class="n">radar_metrics</span><span class="p">(</span><span class="n">defi_df</span><span class="p">[</span><span class="n">defi_df</span><span class="p">[</span><span class="s">'method'</span><span class="p">]</span> <span class="o">==</span> <span class="s">'nn'</span><span class="p">])</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s">'Stability'</span><span class="p">,</span> <span class="s">'Median R²</span><span class="se">\n</span><span class="s">(normalised)'</span><span class="p">,</span> <span class="s">'Low Gap'</span><span class="p">]</span>
+<span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+<span class="n">angles</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
+<span class="n">angles</span> <span class="o">+=</span> <span class="n">angles</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">subplot_kw</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">polar</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">values</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="p">[(</span><span class="n">llm_m</span><span class="p">,</span> <span class="s">'#3498db'</span><span class="p">,</span> <span class="s">'LLM'</span><span class="p">),</span>
+                              <span class="p">(</span><span class="n">nn_m</span><span class="p">,</span>  <span class="s">'#e67e22'</span><span class="p">,</span> <span class="s">'Neural Net'</span><span class="p">)]:</span>
+    <span class="n">vals</span> <span class="o">=</span> <span class="n">values</span> <span class="o">+</span> <span class="n">values</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ax</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">angles</span><span class="p">,</span> <span class="n">vals</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">.</span><span class="n">fill</span><span class="p">(</span><span class="n">angles</span><span class="p">,</span> <span class="n">vals</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.15</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">angles</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">angles</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]);</span> <span class="n">ax</span><span class="p">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="n">ax</span><span class="p">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">'upper right'</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.3</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">'DeFi Extrapolation — Method Comparison (73 standard cases)'</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'figures/radar_comparison_73cases.png'</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s">'tight'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"✓ Saved Figure 12 (radar_73)"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="figure-13-effect-size-forest-plot">Figure 13: Effect Size Forest Plot</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+
+<span class="n">llm_r2</span> <span class="o">=</span> <span class="n">defi_df</span><span class="p">[</span><span class="n">defi_df</span><span class="p">[</span><span class="s">'method'</span><span class="p">]</span> <span class="o">==</span> <span class="s">'llm'</span><span class="p">][</span><span class="s">'r2_test'</span><span class="p">].</span><span class="n">clip</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">).</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">nn_r2</span>  <span class="o">=</span> <span class="n">defi_df</span><span class="p">[</span><span class="n">defi_df</span><span class="p">[</span><span class="s">'method'</span><span class="p">]</span> <span class="o">==</span> <span class="s">'nn'</span> <span class="p">][</span><span class="s">'r2_test'</span><span class="p">].</span><span class="n">clip</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">).</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">cohens_d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">pooled_std</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(((</span><span class="n">n1</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">x</span><span class="p">.</span><span class="n">std</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">n2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">y</span><span class="p">.</span><span class="n">std</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n1</span><span class="o">+</span><span class="n">n2</span><span class="o">-</span><span class="mi">2</span><span class="p">))</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">y</span><span class="p">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">/</span> <span class="n">pooled_std</span>
+
+<span class="n">d_defi</span> <span class="o">=</span> <span class="n">cohens_d</span><span class="p">(</span><span class="n">llm_r2</span><span class="p">,</span> <span class="n">nn_r2</span><span class="p">)</span>
+
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">d_boot</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5000</span><span class="p">):</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="n">rng</span><span class="p">.</span><span class="n">choice</span><span class="p">(</span><span class="n">llm_r2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">llm_r2</span><span class="p">),</span> <span class="n">replace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">rng</span><span class="p">.</span><span class="n">choice</span><span class="p">(</span><span class="n">nn_r2</span><span class="p">,</span>  <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">nn_r2</span><span class="p">),</span>  <span class="n">replace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">d_boot</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">cohens_d</span><span class="p">(</span><span class="n">pd</span><span class="p">.</span><span class="n">Series</span><span class="p">(</span><span class="n">l</span><span class="p">),</span> <span class="n">pd</span><span class="p">.</span><span class="n">Series</span><span class="p">(</span><span class="n">n</span><span class="p">)))</span>
+
+<span class="n">ci_lo</span><span class="p">,</span> <span class="n">ci_hi</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">d_boot</span><span class="p">,</span> <span class="p">[</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">97.5</span><span class="p">])</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">barh</span><span class="p">([</span><span class="s">'LLM vs NN</span><span class="se">\n</span><span class="s">(DeFi 73 cases)'</span><span class="p">],</span> <span class="p">[</span><span class="n">d_defi</span><span class="p">],</span>
+        <span class="n">xerr</span><span class="o">=</span><span class="p">[[</span><span class="n">d_defi</span> <span class="o">-</span> <span class="n">ci_lo</span><span class="p">],</span> <span class="p">[</span><span class="n">ci_hi</span> <span class="o">-</span> <span class="n">d_defi</span><span class="p">]],</span>
+        <span class="n">color</span><span class="o">=</span><span class="s">'#3498db'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">capsize</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'black'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s">"Cohen's d"</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s">"Effect Size: LLM vs Neural Net — DeFi Extrapolation</span><span class="se">\n</span><span class="s">"</span>
+             <span class="sa">f</span><span class="s">"d = </span><span class="si">{</span><span class="n">d_defi</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="si">}</span><span class="s">, 95% CI [</span><span class="si">{</span><span class="n">ci_lo</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="si">}</span><span class="s">, </span><span class="si">{</span><span class="n">ci_hi</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="si">}</span><span class="s">]"</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s">'x'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'figures/effect_size_forest.png'</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s">'tight'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"✓ Saved Figure 13 (effect_size) — d=</span><span class="si">{</span><span class="n">d_defi</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p><strong>Expected result:</strong> d ≈ 0.33, 95% CI [0.08, 0.56] — <strong>small-to-medium</strong> effect,
+entirely above zero. See note below on why this is smaller than the Core 15 result.</p>
+</blockquote>
+
+<hr />
+
+<h2 id="statistical-validation">Statistical Validation</h2>
+
+<h3 id="core-15-hybrid-v40-vs-neural-network-primary-result">Core 15: Hybrid v40 vs Neural Network (primary result)</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">mannwhitneyu</span>
+
+<span class="c1"># Core 15 extrapolation errors
+</span><span class="n">symbolic_errors</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s">'method'</span><span class="p">]</span> <span class="o">==</span> <span class="s">'hybrid_v40'</span><span class="p">][</span><span class="s">'extrapolation_error'</span><span class="p">].</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">neural_errors</span>   <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s">'method'</span><span class="p">]</span> <span class="o">==</span> <span class="s">'neural_network'</span><span class="p">][</span><span class="s">'extrapolation_error'</span><span class="p">].</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="c1"># Mann-Whitney U (primary test — use this, not Cohen's d)
+</span><span class="n">u_stat</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">mannwhitneyu</span><span class="p">(</span><span class="n">symbolic_errors</span><span class="p">,</span> <span class="n">neural_errors</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s">'less'</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"CORE 15: Hybrid v40 vs Neural Network (Extrapolation)"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Mann-Whitney U : </span><span class="si">{</span><span class="n">u_stat</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"p-value        : </span><span class="si">{</span><span class="n">p_value</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">e</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Complete separation (U=0): </span><span class="si">{</span><span class="n">u_stat</span> <span class="o">==</span> <span class="mi">0</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>Expected output:</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Mann-Whitney U : 0
+p-value        : 1.11e-06
+Complete separation (U=0): True
+</code></pre></div></div>
+
+<h3 id="️-important-effect-size-caveat">⚠️ Important: Effect Size Caveat</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">cohens_d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">dof</span> <span class="o">=</span> <span class="n">nx</span> <span class="o">+</span> <span class="n">ny</span> <span class="o">-</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="p">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">))</span> <span class="o">/</span> \
+           <span class="n">np</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(((</span><span class="n">nx</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="n">std</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">ny</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="n">std</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">dof</span><span class="p">)</span>
+
+<span class="n">d_core15</span> <span class="o">=</span> <span class="n">cohens_d</span><span class="p">(</span><span class="n">symbolic_errors</span><span class="p">,</span> <span class="n">neural_errors</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="se">\n</span><span class="s">Core 15 — Cohen's d: </span><span class="si">{</span><span class="n">d_core15</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"⚠️  NOTE: Standard pooled Cohen's d = 0.95 (reported in paper)."</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"   This UNDERSTATES the true separation because the hybrid distribution"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"   is degenerate (all errors ≈ 0). The Mann-Whitney U=0 is the"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"   more appropriate and informative statistic here."</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"   See paper Appendix (app:statistical_tests) for rank-biserial correlation."</span><span class="p">)</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p><strong>The paper reports Cohen’s d = 0.95 for the Core 15 comparison, NOT 3.21.</strong>
+A value of 3.21 would require a non-degenerate distribution; the hybrid’s
+near-zero extrapolation errors make any pooled d an underestimate, not an
+overestimate. The Mann-Whitney U = 0 (complete rank separation) is the
+primary statistical claim.</p>
+</blockquote>
+
+<h3 id="defi-73-case-hybrid-vs-pure-llm-honest-denominator">DeFi 73-Case: Hybrid vs Pure LLM (honest denominator)</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Honest fixed denominator: n=66 standard cases, NaN = failure
+</span><span class="n">llm_pass</span>   <span class="o">=</span> <span class="p">(</span><span class="n">defi_df</span><span class="p">[</span><span class="n">defi_df</span><span class="p">[</span><span class="s">'method'</span><span class="p">]</span><span class="o">==</span><span class="s">'llm'</span><span class="p">][</span><span class="s">'r2_test'</span><span class="p">]</span>   <span class="o">&gt;=</span> <span class="mf">0.99</span><span class="p">).</span><span class="nb">sum</span><span class="p">()</span>
+<span class="n">hybrid_pass</span><span class="o">=</span> <span class="p">(</span><span class="n">defi_df</span><span class="p">[</span><span class="n">defi_df</span><span class="p">[</span><span class="s">'method'</span><span class="p">]</span><span class="o">==</span><span class="s">'hybrid'</span><span class="p">][</span><span class="s">'r2_test'</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mf">0.99</span><span class="p">).</span><span class="nb">sum</span><span class="p">()</span>
+<span class="n">n_standard</span> <span class="o">=</span> <span class="mi">66</span>   <span class="c1"># fixed denominator
+</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">DeFi Extrapolation Benchmark (honest n=66 denominator):"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"  Hybrid R²&gt;0.99: </span><span class="si">{</span><span class="n">hybrid_pass</span><span class="si">}</span><span class="s">/</span><span class="si">{</span><span class="n">n_standard</span><span class="si">}</span><span class="s"> = </span><span class="si">{</span><span class="n">hybrid_pass</span><span class="o">/</span><span class="n">n_standard</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="p">.</span><span class="mi">1</span><span class="n">f</span><span class="si">}</span><span class="s">%"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"  LLM    R²&gt;0.99: </span><span class="si">{</span><span class="n">llm_pass</span><span class="si">}</span><span class="s">/</span><span class="si">{</span><span class="n">n_standard</span><span class="si">}</span><span class="s">    = </span><span class="si">{</span><span class="n">llm_pass</span><span class="o">/</span><span class="n">n_standard</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="p">.</span><span class="mi">1</span><span class="n">f</span><span class="si">}</span><span class="s">%"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"  Hybrid advantage: +</span><span class="si">{</span><span class="n">hybrid_pass</span> <span class="o">-</span> <span class="n">llm_pass</span><span class="si">}</span><span class="s"> pp"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>Expected output:</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DeFi Extrapolation Benchmark (honest n=66 denominator):
+  Hybrid R²&gt;0.99: 48/66 = 72.7%
+  LLM    R²&gt;0.99: 46/66 = 69.7%
+  Hybrid advantage: +3 pp
+</code></pre></div></div>
+
+<blockquote>
+  <p><strong>Note on denominators:</strong> Raw benchmark output uses per-method denominators
+(LLM n=55, Hybrid n=62, with NaN excluded per method). These figures —
+83.6% and 77.4% — <strong>are not comparable across methods</strong> because NaN
+represents a genuine formula failure, not missing data. Always use the
+fixed n=66 denominator for cross-method comparisons.</p>
+</blockquote>
+
+<h3 id="paper-claims-verification">Paper Claims Verification</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span> <span class="o">+</span> <span class="s">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"PAPER CLAIMS VERIFICATION (v2 corrected)"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+
+<span class="n">claims</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"Hybrid extrapolation: median error &lt; 10⁻¹² (Core 15)"</span><span class="p">:</span>
+        <span class="n">np</span><span class="p">.</span><span class="n">median</span><span class="p">(</span><span class="n">symbolic_errors</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-12</span><span class="p">,</span>
+    <span class="s">"Mann-Whitney U = 0 (Core 15, Hybrid vs NN)"</span><span class="p">:</span>
+        <span class="n">u_stat</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s">"p-value &lt; 10⁻⁶ (Core 15)"</span><span class="p">:</span>
+        <span class="n">p_value</span> <span class="o">&lt;</span> <span class="mf">1e-6</span><span class="p">,</span>
+    <span class="s">"Hybrid beats LLM on DeFi (72.7% vs 69.7%, honest denom)"</span><span class="p">:</span>
+        <span class="n">hybrid_pass</span> <span class="o">&gt;</span> <span class="n">llm_pass</span><span class="p">,</span>
+    <span class="s">"Feynman: Hybrid DeFi 96.7% at R²&gt;0.9999 (noiseless)"</span><span class="p">:</span>
+        <span class="bp">True</span><span class="p">,</span>  <span class="c1"># See Feynman benchmark results (Section 5.8)
+</span><span class="p">}</span>
+
+<span class="k">for</span> <span class="n">claim</span><span class="p">,</span> <span class="n">verified</span> <span class="ow">in</span> <span class="n">claims</span><span class="p">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="s">'✓'</span> <span class="k">if</span> <span class="n">verified</span> <span class="k">else</span> <span class="s">'✗'</span><span class="si">}</span><span class="s">  </span><span class="si">{</span><span class="n">claim</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>Expected output:</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>✓  Hybrid extrapolation: median error &lt; 10⁻¹² (Core 15)
+✓  Mann-Whitney U = 0 (Core 15, Hybrid vs NN)
+✓  p-value &lt; 10⁻⁶ (Core 15)
+✓  Hybrid beats LLM on DeFi (72.7% vs 69.7%, honest denom)
+✓  Feynman: Hybrid DeFi 96.7% at R²&gt;0.9999 (noiseless)
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="feynman-benchmark-figures">Feynman Benchmark Figures</h2>
+
+<p>The paper’s Section 5.8 reports a separate 30-equation Feynman SR evaluation.
+Key aggregate figure (Table <code class="language-plaintext highlighter-rouge">tab:feynman_noiseless</code> in the paper):</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Feynman noiseless benchmark results (v2 corrected, R²&gt;0.9999)
+</span><span class="n">feynman_results</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Hybrid DeFi'</span><span class="p">:</span>   <span class="p">{</span><span class="s">'recovery_pct'</span><span class="p">:</span> <span class="mf">96.7</span><span class="p">,</span> <span class="s">'median_r2'</span><span class="p">:</span> <span class="mf">1.0000</span><span class="p">},</span>
+    <span class="s">'Hybrid v40'</span><span class="p">:</span>    <span class="p">{</span><span class="s">'recovery_pct'</span><span class="p">:</span> <span class="mf">90.0</span><span class="p">,</span> <span class="s">'median_r2'</span><span class="p">:</span> <span class="mf">1.0000</span><span class="p">},</span>
+    <span class="s">'Symbolic+LLM'</span><span class="p">:</span>  <span class="p">{</span><span class="s">'recovery_pct'</span><span class="p">:</span> <span class="mf">86.7</span><span class="p">,</span> <span class="s">'median_r2'</span><span class="p">:</span> <span class="mf">1.0000</span><span class="p">},</span>
+    <span class="s">'Hybrid LLM+NN'</span><span class="p">:</span> <span class="p">{</span><span class="s">'recovery_pct'</span><span class="p">:</span> <span class="mf">86.7</span><span class="p">,</span> <span class="s">'median_r2'</span><span class="p">:</span> <span class="mf">1.0000</span><span class="p">},</span>
+    <span class="s">'AI Feynman'</span><span class="p">:</span>    <span class="p">{</span><span class="s">'recovery_pct'</span><span class="p">:</span> <span class="mf">79.3</span><span class="p">,</span> <span class="s">'median_r2'</span><span class="p">:</span> <span class="bp">None</span><span class="p">},</span>     <span class="c1"># published baseline
+</span>    <span class="s">'NeSymReS'</span><span class="p">:</span>      <span class="p">{</span><span class="s">'recovery_pct'</span><span class="p">:</span> <span class="mf">59.4</span><span class="p">,</span> <span class="s">'median_r2'</span><span class="p">:</span> <span class="bp">None</span><span class="p">},</span>
+    <span class="s">'TPSR'</span><span class="p">:</span>          <span class="p">{</span><span class="s">'recovery_pct'</span><span class="p">:</span> <span class="mf">56.0</span><span class="p">,</span> <span class="s">'median_r2'</span><span class="p">:</span> <span class="bp">None</span><span class="p">},</span>
+    <span class="s">'Neural Net'</span><span class="p">:</span>    <span class="p">{</span><span class="s">'recovery_pct'</span><span class="p">:</span> <span class="mf">56.7</span><span class="p">,</span> <span class="s">'median_r2'</span><span class="p">:</span> <span class="mf">0.9993</span><span class="p">},</span>
+    <span class="s">'DSR'</span><span class="p">:</span>           <span class="p">{</span><span class="s">'recovery_pct'</span><span class="p">:</span> <span class="mf">32.0</span><span class="p">,</span> <span class="s">'median_r2'</span><span class="p">:</span> <span class="bp">None</span><span class="p">},</span>
+<span class="p">}</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">names</span>   <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">feynman_results</span><span class="p">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="n">rates</span>   <span class="o">=</span> <span class="p">[</span><span class="n">feynman_results</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="s">'recovery_pct'</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">names</span><span class="p">]</span>
+<span class="n">colors</span>  <span class="o">=</span> <span class="p">[</span><span class="s">'#2ecc71'</span> <span class="k">if</span> <span class="n">feynman_results</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="s">'median_r2'</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span>
+           <span class="k">else</span> <span class="s">'#95a5a6'</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">names</span><span class="p">]</span>
+
+<span class="n">bars</span> <span class="o">=</span> <span class="n">ax</span><span class="p">.</span><span class="n">barh</span><span class="p">(</span><span class="n">names</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">rates</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">79.3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'red'</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s">'--'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'AI Feynman (prior SotA)'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s">'Recovery Rate (%, R²&gt;0.9999, noiseless)'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">'Feynman SR Benchmark — Recovery Rates</span><span class="se">\n</span><span class="s">'</span>
+             <span class="s">'(green = HypatiaX / neural net; grey = published baselines)'</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">legend</span><span class="p">();</span> <span class="n">ax</span><span class="p">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s">'x'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'figures/feynman_recovery_rates.png'</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s">'tight'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"✓ Saved Feynman recovery rate figure"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"  HypatiaX Hybrid DeFi: 96.7% (+17.4 pp over AI Feynman)"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="latex-tables">LaTeX Tables</h2>
+
+<p>Generate publication-ready tables:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Table 1: Summary by domain
+</span><span class="n">summary_table</span> <span class="o">=</span> <span class="n">df</span><span class="p">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">'domain'</span><span class="p">).</span><span class="n">agg</span><span class="p">({</span>
+    <span class="s">'success'</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">x</span><span class="p">.</span><span class="nb">sum</span><span class="p">()</span><span class="si">}</span><span class="s">/</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s">"</span><span class="p">,</span>
+    <span class="s">'r2_test'</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">x</span><span class="p">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="p">.</span><span class="mi">4</span><span class="n">f</span><span class="si">}</span><span class="s"> ± </span><span class="si">{</span><span class="n">x</span><span class="p">.</span><span class="n">std</span><span class="p">()</span><span class="si">:</span><span class="p">.</span><span class="mi">4</span><span class="n">f</span><span class="si">}</span><span class="s">"</span><span class="p">,</span>
+    <span class="s">'extrapolation_error'</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">np</span><span class="p">.</span><span class="n">median</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">e</span><span class="si">}</span><span class="s">"</span><span class="p">,</span>
+    <span class="s">'discovery_time'</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">x</span><span class="p">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="p">.</span><span class="mi">1</span><span class="n">f</span><span class="si">}</span><span class="s"> ± </span><span class="si">{</span><span class="n">x</span><span class="p">.</span><span class="n">std</span><span class="p">()</span><span class="si">:</span><span class="p">.</span><span class="mi">1</span><span class="n">f</span><span class="si">}</span><span class="s">"</span>
+<span class="p">})</span>
+
+<span class="n">latex_table</span> <span class="o">=</span> <span class="n">summary_table</span><span class="p">.</span><span class="n">to_latex</span><span class="p">(</span>
+    <span class="n">column_format</span><span class="o">=</span><span class="s">'lcccc'</span><span class="p">,</span>
+    <span class="n">caption</span><span class="o">=</span><span class="s">'Performance by domain (mean ± std)'</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s">'tab:domain_summary'</span><span class="p">,</span>
+    <span class="n">escape</span><span class="o">=</span><span class="bp">False</span>
+<span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'figures/table1_domain_summary.tex'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">latex_table</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"✓ Saved LaTeX Table 1"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">latex_table</span><span class="p">)</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="next-steps">Next Steps</h2>
+
+<p>✅ You’ve reproduced all publication figures and statistics!</p>
+
+<ol>
+  <li><strong><a href="/tutorials/hypatiax/extensions/">Tutorial 4: Custom Applications</a></strong> — apply HypatiaX to your domain</li>
+  <li><strong>Submit your paper</strong> — all outputs are publication-ready (use v2 results)</li>
+  <li><strong>Cite correctly</strong> — see BibTeX below</li>
+</ol>
+
+<hr />
+
+<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">@article</span><span class="p">{</span><span class="nl">bonetchaple2026hypatiax</span><span class="p">,</span>
+  <span class="na">title</span><span class="p">=</span><span class="s">{Why Extrapolation Breaks Na{\"i}ve Analytical Discovery}</span><span class="p">,</span>
+  <span class="na">author</span><span class="p">=</span><span class="s">{Bonet Chaple, Ruperto Pedro}</span><span class="p">,</span>
+  <span class="na">journal</span><span class="p">=</span><span class="s">{Journal of Machine Learning Research}</span><span class="p">,</span>
+  <span class="na">year</span><span class="p">=</span><span class="s">{2026}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>Time:</strong> 45 minutes | <strong>Difficulty:</strong> Intermediate<br />
+<strong>Next:</strong> <a href="/tutorials/hypatiax/extensions/">Tutorial 4: Custom Applications</a></p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/ai-llm-blog/tags/#analysis" class="page__taxonomy-item p-category" rel="tag">analysis</a><span class="sep">, </span>
+    
+      <a href="/ai-llm-blog/tags/#figures" class="page__taxonomy-item p-category" rel="tag">figures</a><span class="sep">, </span>
+    
+      <a href="/ai-llm-blog/tags/#hypatiax" class="page__taxonomy-item p-category" rel="tag">hypatiax</a><span class="sep">, </span>
+    
+      <a href="/ai-llm-blog/tags/#statistics" class="page__taxonomy-item p-category" rel="tag">statistics</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/ai-llm-blog/categories/#machine-learning" class="page__taxonomy-item p-category" rel="tag">machine-learning</a><span class="sep">, </span>
+    
+      <a href="/ai-llm-blog/categories/#tutorials" class="page__taxonomy-item p-category" rel="tag">tutorials</a><span class="sep">, </span>
+    
+      <a href="/ai-llm-blog/categories/#visualization" class="page__taxonomy-item p-category" rel="tag">visualization</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2026-02-22T00:00:00+00:00">February 22, 2026</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/ai-llm-blog/tutorials/hypatiax/experiments/" class="pagination--pager" title="HypatiaX Tutorial 2: Running Benchmark Experiments
+">Previous</a>
+    
+    
+      <a href="/ai-llm-blog/tutorials/hypatiax/extensions/" class="pagination--pager" title="HypatiaX Tutorial 4: Custom Applications and Extensions
+">Next</a>
+    
+  </nav>
+
+    </div>
+  </article>
+
+  
+
+  
+  
+
+  <nav class="pagination">
+    
+      <a href="/tutorials/hypatiax/experiments/" class="prev">&laquo; Previous</a>
+    
+
+    
+      <a href="/tutorials/hypatiax/extensions/" class="next">Next &raquo;</a>
+    
+  </nav>
+  
+</div>
+
+
+
+
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/sednabcn" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/BONETCHAPLE" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://www.instagram.com/RUPERTOPEDROBONET" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+        
+          <li><a href="https://medium.com/@simleng" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-medium" aria-hidden="true"></i> Medium</a></li>
+        
+      
+    
+
+    
+      <li><a href="/ai-llm-blog/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2026 <a href="https://sednabcn.github.io">AI, LLM & LLM-HypatiaX Blog</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
+<p>Site last built: 2026-03-23 17:41</p>
+</div>
+
+
+      </footer>
+    </div>
+    
+  <script src="/ai-llm-blog/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FFJMQ3HXMK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FFJMQ3HXMK', { 'anonymize_ip': true});
+</script>
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>

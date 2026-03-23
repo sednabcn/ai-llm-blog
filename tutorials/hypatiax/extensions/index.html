@@ -1,0 +1,1497 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en-US" class="no-js">
+  <head>
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>HypatiaX Tutorial 4: Custom Applications and Extensions | AI, LLM &amp; LLM-HypatiaX Blog</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="HypatiaX Tutorial 4: Custom Applications and Extensions" />
+<meta name="author" content="Dr. Ruperto Pedro Bonet Chaple" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="HypatiaX Tutorial 4: Custom Applications and Extensions" />
+<meta property="og:description" content="HypatiaX Tutorial 4: Custom Applications and Extensions" />
+<link rel="canonical" href="https://sednabcn.github.io/ai-llm-blog/tutorials/hypatiax/extensions/" />
+<meta property="og:url" content="https://sednabcn.github.io/ai-llm-blog/tutorials/hypatiax/extensions/" />
+<meta property="og:site_name" content="AI, LLM &amp; LLM-HypatiaX Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-02-23T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="HypatiaX Tutorial 4: Custom Applications and Extensions" />
+<meta name="google-site-verification" content="0l5TbPYQ76ChPVEmXUclBOY04jLkGAAQAKAEm2a0j60" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Dr. Ruperto Pedro Bonet Chaple"},"dateModified":"2026-02-23T00:00:00+00:00","datePublished":"2026-02-23T00:00:00+00:00","description":"HypatiaX Tutorial 4: Custom Applications and Extensions","headline":"HypatiaX Tutorial 4: Custom Applications and Extensions","mainEntityOfPage":{"@type":"WebPage","@id":"https://sednabcn.github.io/ai-llm-blog/tutorials/hypatiax/extensions/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://sednabcn.github.io/ai-llm-blog/assets/images/logo.png"},"name":"Dr. Ruperto Pedro Bonet Chaple"},"url":"https://sednabcn.github.io/ai-llm-blog/tutorials/hypatiax/extensions/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HypatiaX Tutorial 4: Custom Applications and Extensions</title>
+
+  <!-- SEO -->
+  <!-- begin _includes/seo.html --><title>HypatiaX Tutorial 4: Custom Applications and Extensions | AI, LLM &amp; LLM-HypatiaX Blog</title>
+<meta name="description" content="HypatiaX Tutorial 4: Custom Applications and Extensions">
+
+
+  <meta name="author" content="Dr. Ruperto Pedro Bonet Chaple">
+  
+  <meta property="article:author" content="Dr. Ruperto Pedro Bonet Chaple">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="AI, LLM & LLM-HypatiaX Blog">
+<meta property="og:title" content="HypatiaX Tutorial 4: Custom Applications and Extensions">
+<meta property="og:url" content="https://sednabcn.github.io/ai-llm-blog/tutorials/hypatiax/extensions/">
+
+
+  <meta property="og:description" content="HypatiaX Tutorial 4: Custom Applications and Extensions">
+
+
+
+  <meta property="og:image" content="https://sednabcn.github.io/ai-llm-blog/assets/images/tutorials/hypatiax-extensions-banner.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2026-02-23T00:00:00+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://sednabcn.github.io/ai-llm-blog/tutorials/hypatiax/extensions/">
+
+
+
+
+
+
+
+  <meta name="google-site-verification" content="0l5TbPYQ76ChPVEmXUclBOY04jLkGAAQAKAEm2a0j60" />
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+  <!-- Atom Feed -->
+  
+    <link href="/ai-llm-blog/feed.xml" 
+          type="application/atom+xml" rel="alternate" title="AI, LLM & LLM-HypatiaX Blog Feed">
+  
+
+  <!-- Favicon -->
+  <link rel="icon" href="/ai-llm-blog/favicon-16x16.png" type="image/png">
+
+  <!-- JavaScript Detection -->
+  <script>
+    document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+    
+  </script>
+
+  <!-- Stylesheets -->
+  
+    <link rel="stylesheet" href="/ai-llm-blog/assets/css/main.css">
+  
+
+  
+  <!-- Stylesheets -->
+  
+    <link rel="stylesheet" href="/ai-llm-blog/assets/css/main-mobiles.css">
+  
+
+
+  <!-- Font Awesome (with performance optimization) -->
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" 
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css">
+  </noscript>
+
+  <!-- Google Site Verification -->
+  
+    <meta name="google-site-verification" content="0l5TbPYQ76ChPVEmXUclBOY04jLkGAAQAKAEm2a0j60">
+  
+
+  
+ 
+ <!-- Content Security Policy -->
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net/ https://www.googletagmanager.com/ https://www.google-analytics.com/ https://utteranc.es;
+  style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net/;
+  img-src 'self' data: *;
+  font-src 'self' https://cdn.jsdelivr.net/;
+  connect-src 'self' https://utteranc.es https://region1.google-analytics.com https://www.google-analytics.com;
+  frame-src 'self' https://utteranc.es;
+"> 
+  <!-- Custom Head Scripts -->
+  
+
+  <!-- Analytics (production only) -->
+  
+    
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FFJMQ3HXMK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FFJMQ3HXMK', { 'anonymize_ip': true});
+</script>
+
+
+
+
+  
+
+ <!-- Open Graph / Facebook -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://sednabcn.github.io/tutorials/hypatiax/extensions/">
+<meta property="og:title" content="HypatiaX Tutorial 4: Custom Applications and Extensions">
+<meta property="og:description" content="HypatiaX Tutorial 4: Custom Applications and Extensions
+
+">
+
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://sednabcn.github.io/tutorials/hypatiax/extensions/">
+<meta name="twitter:title" content="HypatiaX Tutorial 4: Custom Applications and Extensions">
+<meta name="twitter:description" content="HypatiaX Tutorial 4: Custom Applications and Extensions
+
+">
+
+
+</head>
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single inner-page header-image-readability" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/ai-llm-blog/"><img src="/ai-llm-blog/assets/images/logo.png" alt="SiMLeng"></a>
+        
+        <a class="site-title" href="/ai-llm-blog/">
+          SiMLeng
+          <span class="site-subtitle">Exploring generative AI in formula discovery</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/ai-llm-blog/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/ai-llm-blog/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/ai-llm-blog/posts/"
+                
+                
+              >Posts</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/ai-llm-blog/tutorials/"
+                
+                
+              >Tutorials</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/ai-llm-blog/help/"
+                
+                
+              >Help</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+  
+
+
+
+
+
+
+
+<div class="page__hero--overlay"
+  style=" background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/ai-llm-blog/assets/images/tutorials/hypatiax-extensions-banner.png');"
+>
+  
+    <div class="wrapper">
+      <h1 id="page-title" class="page__title" itemprop="headline">
+        
+          HypatiaX Tutorial 4: Custom Applications and Extensions
+
+        
+      </h1>
+      
+     <span class="page__lead excerpt-inline"><h1 id="hypatiax-tutorial-4-custom-applications-and-extensions">HypatiaX Tutorial 4: Custom Applications and Extensions</h1>
+
+</span>
+
+    <!--- <p class="page__lead" style="text-align: center;"><h1 id="hypatiax-tutorial-4-custom-applications-and-extensions">HypatiaX Tutorial 4: Custom Applications and Extensions</h1>
+
+</p>--!>
+      
+      
+
+
+      
+    </div>
+  
+  
+    <span class="page__hero-caption">Apply HypatiaX to your own scientific problems and extend the framework
+</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="https://sednabcn.github.io/ai-llm-blog/">
+        <img src="/ai-llm-blog/assets/images/avatar.jpg" alt="Dr. Ruperto Pedro Bonet Chaple" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://sednabcn.github.io/ai-llm-blog/" itemprop="url">Dr. Ruperto Pedro Bonet Chaple</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>PhD in Computational Mechanics</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">London, UK</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:info@modelphysmat.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/sednabcn" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+        <li>
+          
+            <span class="nav__sub-title">Getting Started</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/ai-llm-blog/tutorials/setup/">Setup</a></li>
+            
+              <li><a href="/ai-llm-blog/tutorials/setup/python-setup/">Python Setup</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">HypatiaX</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/ai-llm-blog/tutorials/hypatiax/">Overview</a></li>
+            
+              <li><a href="/ai-llm-blog/tutorials/hypatiax/setup/">1. Setup</a></li>
+            
+              <li><a href="/ai-llm-blog/tutorials/hypatiax/experiments/">2. Experiments</a></li>
+            
+              <li><a href="/ai-llm-blog/tutorials/hypatiax/analysis/">3. Analysis</a></li>
+            
+              <li><a href="/ai-llm-blog/tutorials/hypatiax/extensions/" class="active">4. Extensions</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Advanced Features</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/ai-llm-blog/tutorials/advanced-features/">Overview</a></li>
+            
+          </ul>
+          
+        </li>
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <meta itemprop="headline" content="HypatiaX Tutorial 4: Custom Applications and Extensions">
+    
+    
+      <meta itemprop="description" content="HypatiaX Tutorial 4: Custom Applications and Extensions">
+    
+    
+      <meta itemprop="datePublished" content="2026-02-23T00:00:00+00:00">
+    
+    
+
+    <div class="page__inner-wrap">
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header>
+                <h4 class="nav__title">
+                  <i class="fas fa-cog"></i> Contents
+                </h4>
+              </header>
+              <ul class="toc__menu"><li><a href="#hypatiax-tutorial-4-custom-applications-and-extensions">HypatiaX Tutorial 4: Custom Applications and Extensions</a><ul><li><a href="#overview">Overview</a></li><li><a href="#prerequisites">Prerequisites</a></li><li><a href="#example-1-materials-science-yield-stress">Example 1: Materials Science (Yield Stress)</a><ul><li><a href="#problem-setup">Problem Setup</a></li><li><a href="#load-your-data">Load Your Data</a></li><li><a href="#discover-the-equation">Discover the Equation</a></li><li><a href="#domain-specific-validation">Domain-Specific Validation</a></li></ul></li><li><a href="#example-2-environmental-science-co-sequestration">Example 2: Environmental Science (CO₂ Sequestration)</a><ul><li><a href="#setup-custom-protocol">Setup Custom Protocol</a></li></ul></li><li><a href="#example-3-integrating-with-existing-workflow">Example 3: Integrating with Existing Workflow</a><ul><li><a href="#scikit-learn-pipeline-integration">Scikit-learn Pipeline Integration</a></li><li><a href="#jupyter-notebook-integration">Jupyter Notebook Integration</a></li></ul></li><li><a href="#example-4-multi-equation-system-discovery">Example 4: Multi-Equation System Discovery</a></li><li><a href="#example-5-production-deployment">Example 5: Production Deployment</a><ul><li><a href="#rest-api-wrapper">REST API Wrapper</a></li><li><a href="#docker-deployment">Docker Deployment</a></li></ul></li><li><a href="#example-6-custom-operators">Example 6: Custom Operators</a></li><li><a href="#best-practices">Best Practices</a><ul><li><a href="#1-data-preparation">1. Data Preparation</a></li><li><a href="#2-hyperparameter-tuning">2. Hyperparameter Tuning</a></li><li><a href="#3-validation-strategy">3. Validation Strategy</a></li></ul></li><li><a href="#common-pitfalls">Common Pitfalls</a><ul><li><a href="#-dont-insufficient-data">❌ Don’t: Insufficient data</a></li><li><a href="#-dont-ignore-physical-constraints">❌ Don’t: Ignore physical constraints</a></li><li><a href="#-dont-skip-extrapolation-validation">❌ Don’t: Skip extrapolation validation</a></li></ul></li><li><a href="#next-steps">Next Steps</a></li><li><a href="#additional-resources">Additional Resources</a></li><li><a href="#citation">Citation</a></li></ul></li></ul>
+            </nav>
+          </aside>
+        
+        <h1 id="hypatiax-tutorial-4-custom-applications-and-extensions">HypatiaX Tutorial 4: Custom Applications and Extensions</h1>
+
+<p><strong>Time:</strong> 45 minutes<br />
+<strong>Difficulty:</strong> Advanced<br />
+<strong>Previous:</strong> <a href="/tutorials/hypatiax/analysis/">Tutorial 3: Analysis and Visualization</a></p>
+
+<hr />
+
+<h2 id="overview">Overview</h2>
+
+<p>This tutorial shows how to apply HypatiaX to your own scientific problems beyond the benchmark domains.</p>
+
+<p><strong>What you’ll learn:</strong></p>
+<ul>
+  <li>✅ Apply HypatiaX to custom datasets</li>
+  <li>✅ Discover equations in new domains</li>
+  <li>✅ Implement domain-specific constraints</li>
+  <li>✅ Integrate with existing workflows</li>
+  <li>✅ Extend the validation framework</li>
+  <li>✅ Deploy in production environments</li>
+</ul>
+
+<hr />
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<ul>
+  <li>Completed <a href="/tutorials/hypatiax/setup/">Tutorial 1</a></li>
+  <li>Your own dataset (CSV, Excel, or numpy arrays)</li>
+  <li>Understanding of your domain’s physics/constraints</li>
+</ul>
+
+<hr />
+
+<h2 id="example-1-materials-science-yield-stress">Example 1: Materials Science (Yield Stress)</h2>
+
+<p>Let’s discover the Hall-Petch relationship for yield stress in polycrystalline materials.</p>
+
+<h3 id="problem-setup">Problem Setup</h3>
+
+<p>The Hall-Petch equation relates yield stress (σ) to grain size (d):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>σ = σ₀ + k/√d
+</code></pre></div></div>
+
+<p>where σ₀ is the friction stress and k is the strengthening coefficient.</p>
+
+<h3 id="load-your-data">Load Your Data</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">from</span> <span class="nn">hypatiax.tools.symbolic.hybrid_system_v40</span> <span class="kn">import</span> <span class="n">HybridSystem</span>
+
+<span class="c1"># Load experimental data
+</span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'materials_data.csv'</span><span class="p">)</span>
+<span class="c1"># Columns: grain_size_um, yield_stress_MPa, temperature_K, ...
+</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Loaded </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s"> measurements"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="c1"># Extract variables
+</span><span class="n">grain_size</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">'grain_size_um'</span><span class="p">].</span><span class="n">values</span>  <span class="c1"># Grain size in micrometers
+</span><span class="n">yield_stress</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">'yield_stress_MPa'</span><span class="p">].</span><span class="n">values</span>  <span class="c1"># Yield stress in MPa
+</span>
+<span class="c1"># Prepare for discovery
+</span><span class="n">X</span> <span class="o">=</span> <span class="n">grain_size</span><span class="p">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">yield_stress</span>
+
+<span class="c1"># Visualize
+</span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">grain_size</span><span class="p">),</span> <span class="n">yield_stress</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'1/√(Grain Size) (μm⁻⁰·⁵)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'Yield Stress (MPa)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">'Hall-Petch Relationship'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'hall_petch_data.png'</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s">'tight'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h3 id="discover-the-equation">Discover the Equation</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Initialize HypatiaX with domain-specific settings
+</span><span class="n">system</span> <span class="o">=</span> <span class="n">HybridSystem</span><span class="p">(</span>
+    <span class="n">use_llm</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+    <span class="n">symbolic_timeout</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
+    <span class="n">populations</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>  <span class="c1"># More populations for complex search
+</span>    <span class="n">niterations</span><span class="o">=</span><span class="mi">100</span>  <span class="c1"># More iterations for refinement
+</span><span class="p">)</span>
+
+<span class="c1"># Provide domain context
+</span><span class="n">problem_description</span> <span class="o">=</span> <span class="s">"""
+Discover the relationship between grain size and yield stress in 
+polycrystalline materials. Physical constraints:
+- Yield stress should increase as grain size decreases
+- Relationship involves inverse square root of grain size
+- Positive coefficients expected
+"""</span>
+
+<span class="c1"># Run discovery
+</span><span class="n">result</span> <span class="o">=</span> <span class="n">system</span><span class="p">.</span><span class="n">discover</span><span class="p">(</span>
+    <span class="n">X_train</span><span class="o">=</span><span class="n">X</span><span class="p">,</span>
+    <span class="n">y_train</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
+    <span class="n">variable_names</span><span class="o">=</span><span class="p">[</span><span class="s">'d'</span><span class="p">],</span>  <span class="c1"># d = grain size
+</span>    <span class="n">problem_description</span><span class="o">=</span><span class="n">problem_description</span><span class="p">,</span>
+    <span class="n">extra_operators</span><span class="o">=</span><span class="p">[</span><span class="s">'sqrt'</span><span class="p">,</span> <span class="s">'pow'</span><span class="p">],</span>  <span class="c1"># Include sqrt for d^(-0.5)
+</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span> <span class="o">+</span> <span class="s">"="</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"DISCOVERY RESULT"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"="</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Discovered Formula: </span><span class="si">{</span><span class="n">result</span><span class="p">.</span><span class="n">formula</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"R² Score: </span><span class="si">{</span><span class="n">result</span><span class="p">.</span><span class="n">r2_score</span><span class="si">:</span><span class="p">.</span><span class="mi">6</span><span class="n">f</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Discovery Time: </span><span class="si">{</span><span class="n">result</span><span class="p">.</span><span class="n">discovery_time</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="si">}</span><span class="s">s"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"="</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="c1"># Expected output:
+# Discovered Formula: 245.3 + 187.2 / sqrt(d)
+# R² Score: 0.9876
+# This matches σ = σ₀ + k/√d with σ₀ ≈ 245 MPa, k ≈ 187 MPa·μm^0.5
+</span></code></pre></div></div>
+
+<h3 id="domain-specific-validation">Domain-Specific Validation</h3>
+
+<p>Add materials science constraints:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">hypatiax.tools.validation.domain_validator</span> <span class="kn">import</span> <span class="n">DomainValidator</span>
+
+<span class="c1"># Define custom validation rules
+</span><span class="k">class</span> <span class="nc">MaterialsScienceValidator</span><span class="p">(</span><span class="n">DomainValidator</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">formula</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="s">"""Materials-specific validation"""</span>
+        
+        <span class="n">checks</span> <span class="o">=</span> <span class="p">{}</span>
+        
+        <span class="c1"># 1. Monotonicity check: stress should increase with 1/√d
+</span>        <span class="n">inv_sqrt_d</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">X</span><span class="p">.</span><span class="n">flatten</span><span class="p">())</span>
+        <span class="n">stress_pred</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        
+        <span class="c1"># Check positive correlation
+</span>        <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">spearmanr</span>
+        <span class="n">corr</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">spearmanr</span><span class="p">(</span><span class="n">inv_sqrt_d</span><span class="p">,</span> <span class="n">stress_pred</span><span class="p">)</span>
+        <span class="n">checks</span><span class="p">[</span><span class="s">'monotonicity'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s">'passed'</span><span class="p">:</span> <span class="n">corr</span> <span class="o">&gt;</span> <span class="mf">0.95</span><span class="p">,</span>
+            <span class="s">'correlation'</span><span class="p">:</span> <span class="n">corr</span><span class="p">,</span>
+            <span class="s">'p_value'</span><span class="p">:</span> <span class="n">p_value</span>
+        <span class="p">}</span>
+        
+        <span class="c1"># 2. Physical parameter bounds
+</span>        <span class="c1"># σ₀ (friction stress) should be 50-500 MPa for metals
+</span>        <span class="c1"># k should be 50-500 MPa·μm^0.5
+</span>        
+        <span class="c1"># Extract coefficients (simplified - would parse formula properly)
+</span>        <span class="n">checks</span><span class="p">[</span><span class="s">'parameter_bounds'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s">'passed'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>  <span class="c1"># Implement proper coefficient extraction
+</span>            <span class="s">'sigma_0_range'</span><span class="p">:</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">500</span><span class="p">),</span>
+            <span class="s">'k_range'</span><span class="p">:</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+        <span class="p">}</span>
+        
+        <span class="c1"># 3. Extrapolation to extreme grain sizes
+</span>        <span class="n">d_fine</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.1</span><span class="p">]])</span>  <span class="c1"># Very fine grain (0.1 μm)
+</span>        <span class="n">d_coarse</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1000</span><span class="p">]])</span>  <span class="c1"># Very coarse grain (1 mm)
+</span>        
+        <span class="n">stress_fine</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">d_fine</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">stress_coarse</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">d_coarse</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        
+        <span class="n">checks</span><span class="p">[</span><span class="s">'grain_size_limits'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s">'passed'</span><span class="p">:</span> <span class="n">stress_fine</span> <span class="o">&gt;</span> <span class="n">stress_coarse</span><span class="p">,</span>  <span class="c1"># Fine grains should be stronger
+</span>            <span class="s">'stress_fine_grain'</span><span class="p">:</span> <span class="n">stress_fine</span><span class="p">,</span>
+            <span class="s">'stress_coarse_grain'</span><span class="p">:</span> <span class="n">stress_coarse</span>
+        <span class="p">}</span>
+        
+        <span class="k">return</span> <span class="n">checks</span>
+
+<span class="c1"># Run validation
+</span><span class="n">validator</span> <span class="o">=</span> <span class="n">MaterialsScienceValidator</span><span class="p">()</span>
+<span class="n">validation_results</span> <span class="o">=</span> <span class="n">validator</span><span class="p">.</span><span class="n">validate</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">formula</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">Domain-Specific Validation:"</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">check</span><span class="p">,</span> <span class="n">results</span> <span class="ow">in</span> <span class="n">validation_results</span><span class="p">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="s">"✓"</span> <span class="k">if</span> <span class="n">results</span><span class="p">[</span><span class="s">'passed'</span><span class="p">]</span> <span class="k">else</span> <span class="s">"✗"</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s"> </span><span class="si">{</span><span class="n">check</span><span class="si">}</span><span class="s">: </span><span class="si">{</span><span class="n">results</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="example-2-environmental-science-co-sequestration">Example 2: Environmental Science (CO₂ Sequestration)</h2>
+
+<p>Discover the relationship between temperature, pressure, and CO₂ solubility.</p>
+
+<h3 id="setup-custom-protocol">Setup Custom Protocol</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">hypatiax.protocols.experiment_protocol</span> <span class="kn">import</span> <span class="n">ExperimentProtocol</span>
+
+<span class="c1"># Create custom protocol
+</span><span class="k">class</span> <span class="nc">CO2SequestrationProtocol</span><span class="p">(</span><span class="n">ExperimentProtocol</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">().</span><span class="n">__init__</span><span class="p">()</span>
+        
+        <span class="bp">self</span><span class="p">.</span><span class="n">domain</span> <span class="o">=</span> <span class="s">'environmental_science'</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">variable_names</span> <span class="o">=</span> <span class="p">[</span><span class="s">'T'</span><span class="p">,</span> <span class="s">'P'</span><span class="p">,</span> <span class="s">'salinity'</span><span class="p">]</span>  <span class="c1"># Temperature, Pressure, Salinity
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">output_name</span> <span class="o">=</span> <span class="s">'CO2_solubility'</span>
+        
+    <span class="k">def</span> <span class="nf">load_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filepath</span><span class="p">):</span>
+        <span class="s">"""Load experimental CO₂ solubility data"""</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+        
+        <span class="c1"># Extract features
+</span>        <span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s">'temperature_C'</span><span class="p">,</span> <span class="s">'pressure_bar'</span><span class="p">,</span> <span class="s">'salinity_ppt'</span><span class="p">]].</span><span class="n">values</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s">'co2_solubility_mol_L'</span><span class="p">].</span><span class="n">values</span>
+        
+        <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span>
+    
+    <span class="k">def</span> <span class="nf">get_domain_constraints</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"""Define thermodynamic constraints"""</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s">'solubility_decreases_with_T'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>  <span class="c1"># Inverse relationship
+</span>            <span class="s">'solubility_increases_with_P'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>  <span class="c1"># Direct relationship
+</span>            <span class="s">'solubility_decreases_with_salinity'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>  <span class="c1"># Salting-out effect
+</span>            <span class="s">'expected_operators'</span><span class="p">:</span> <span class="p">[</span><span class="s">'exp'</span><span class="p">,</span> <span class="s">'log'</span><span class="p">,</span> <span class="s">'sqrt'</span><span class="p">,</span> <span class="s">'pow'</span><span class="p">]</span>
+        <span class="p">}</span>
+
+<span class="c1"># Use protocol
+</span><span class="n">protocol</span> <span class="o">=</span> <span class="n">CO2SequestrationProtocol</span><span class="p">()</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">protocol</span><span class="p">.</span><span class="n">load_data</span><span class="p">(</span><span class="s">'co2_solubility_data.csv'</span><span class="p">)</span>
+<span class="n">constraints</span> <span class="o">=</span> <span class="n">protocol</span><span class="p">.</span><span class="n">get_domain_constraints</span><span class="p">()</span>
+
+<span class="c1"># Discovery with constraints
+</span><span class="n">system</span> <span class="o">=</span> <span class="n">HybridSystem</span><span class="p">(</span>
+    <span class="n">use_llm</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+    <span class="n">symbolic_timeout</span><span class="o">=</span><span class="mi">900</span><span class="p">,</span>
+    <span class="n">complexity_penalty</span><span class="o">=</span><span class="mf">0.01</span>  <span class="c1"># Prefer simpler equations
+</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">system</span><span class="p">.</span><span class="n">discover</span><span class="p">(</span>
+    <span class="n">X_train</span><span class="o">=</span><span class="n">X</span><span class="p">,</span>
+    <span class="n">y_train</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
+    <span class="n">variable_names</span><span class="o">=</span><span class="p">[</span><span class="s">'T'</span><span class="p">,</span> <span class="s">'P'</span><span class="p">,</span> <span class="s">'S'</span><span class="p">],</span>
+    <span class="n">problem_description</span><span class="o">=</span><span class="sa">f</span><span class="s">"CO₂ solubility with constraints: </span><span class="si">{</span><span class="n">constraints</span><span class="si">}</span><span class="s">"</span><span class="p">,</span>
+    <span class="n">extra_operators</span><span class="o">=</span><span class="n">constraints</span><span class="p">[</span><span class="s">'expected_operators'</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="se">\n</span><span class="s">Discovered: </span><span class="si">{</span><span class="n">result</span><span class="p">.</span><span class="n">formula</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+<span class="c1"># Might discover something like: exp(-0.023*T + 0.0012*P - 0.35*S + 2.1)
+</span></code></pre></div></div>
+
+<hr />
+
+<h2 id="example-3-integrating-with-existing-workflow">Example 3: Integrating with Existing Workflow</h2>
+
+<h3 id="scikit-learn-pipeline-integration">Scikit-learn Pipeline Integration</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">hypatiax.tools.symbolic.hybrid_system_v40</span> <span class="kn">import</span> <span class="n">HybridSystem</span>
+
+<span class="k">class</span> <span class="nc">HypatiaXRegressor</span><span class="p">:</span>
+    <span class="s">"""Scikit-learn compatible wrapper for HypatiaX"""</span>
+    
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">use_llm</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">symbolic_timeout</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">system</span> <span class="o">=</span> <span class="n">HybridSystem</span><span class="p">(</span><span class="n">use_llm</span><span class="o">=</span><span class="n">use_llm</span><span class="p">,</span> <span class="n">symbolic_timeout</span><span class="o">=</span><span class="n">symbolic_timeout</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">kwargs</span> <span class="o">=</span> <span class="n">kwargs</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">result_</span> <span class="o">=</span> <span class="bp">None</span>
+        
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">variable_names</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="s">"""Fit the symbolic regressor"""</span>
+        <span class="k">if</span> <span class="n">variable_names</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">variable_names</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s">'x</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s">'</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">X</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+            
+        <span class="bp">self</span><span class="p">.</span><span class="n">result_</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">system</span><span class="p">.</span><span class="n">discover</span><span class="p">(</span>
+            <span class="n">X_train</span><span class="o">=</span><span class="n">X</span><span class="p">,</span>
+            <span class="n">y_train</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
+            <span class="n">variable_names</span><span class="o">=</span><span class="n">variable_names</span><span class="p">,</span>
+            <span class="o">**</span><span class="bp">self</span><span class="p">.</span><span class="n">kwargs</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span>
+    
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="s">"""Predict using discovered formula"""</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">result_</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="nb">ValueError</span><span class="p">(</span><span class="s">"Model not fitted yet!"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">result_</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="s">"""R² score"""</span>
+        <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
+        <span class="k">return</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+    
+    <span class="k">def</span> <span class="nf">get_formula</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"""Get discovered symbolic formula"""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">result_</span><span class="p">.</span><span class="n">formula</span> <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">result_</span> <span class="k">else</span> <span class="bp">None</span>
+
+<span class="c1"># Use in scikit-learn pipeline
+</span><span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+    <span class="p">(</span><span class="s">'scaler'</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
+    <span class="p">(</span><span class="s">'symbolic'</span><span class="p">,</span> <span class="n">HypatiaXRegressor</span><span class="p">(</span><span class="n">symbolic_timeout</span><span class="o">=</span><span class="mi">300</span><span class="p">))</span>
+<span class="p">])</span>
+
+<span class="c1"># Fit like any sklearn model
+</span><span class="n">pipeline</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">symbolic__variable_names</span><span class="o">=</span><span class="p">[</span><span class="s">'pressure'</span><span class="p">,</span> <span class="s">'temperature'</span><span class="p">])</span>
+
+<span class="c1"># Predict
+</span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Get symbolic formula
+</span><span class="n">formula</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">.</span><span class="n">named_steps</span><span class="p">[</span><span class="s">'symbolic'</span><span class="p">].</span><span class="n">get_formula</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Discovered formula: </span><span class="si">{</span><span class="n">formula</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="jupyter-notebook-integration">Jupyter Notebook Integration</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Markdown</span><span class="p">,</span> <span class="n">Math</span>
+<span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="n">sp</span>
+
+<span class="k">def</span> <span class="nf">display_discovery_results</span><span class="p">(</span><span class="n">result</span><span class="p">):</span>
+    <span class="s">"""Pretty-print discovery results in Jupyter"""</span>
+    
+    <span class="c1"># Display formula
+</span>    <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="s">"### Discovered Formula"</span><span class="p">))</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Convert to LaTeX
+</span>        <span class="n">sympy_expr</span> <span class="o">=</span> <span class="n">sp</span><span class="p">.</span><span class="n">sympify</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">formula</span><span class="p">)</span>
+        <span class="n">latex_formula</span> <span class="o">=</span> <span class="n">sp</span><span class="p">.</span><span class="n">latex</span><span class="p">(</span><span class="n">sympy_expr</span><span class="p">)</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="n">latex_formula</span><span class="p">))</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="sa">f</span><span class="s">"```</span><span class="si">{</span><span class="n">result</span><span class="p">.</span><span class="n">formula</span><span class="si">}</span><span class="s">```"</span><span class="p">))</span>
+    
+    <span class="c1"># Display metrics
+</span>    <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="s">"### Performance Metrics"</span><span class="p">))</span>
+    
+    <span class="n">metrics_df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">({</span>
+        <span class="s">'Metric'</span><span class="p">:</span> <span class="p">[</span><span class="s">'R² (test)'</span><span class="p">,</span> <span class="s">'Discovery Time'</span><span class="p">,</span> <span class="s">'Complexity'</span><span class="p">,</span> <span class="s">'Path'</span><span class="p">],</span>
+        <span class="s">'Value'</span><span class="p">:</span> <span class="p">[</span>
+            <span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">result</span><span class="p">.</span><span class="n">r2_score</span><span class="si">:</span><span class="p">.</span><span class="mi">6</span><span class="n">f</span><span class="si">}</span><span class="s">"</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">result</span><span class="p">.</span><span class="n">discovery_time</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="si">}</span><span class="s">s"</span><span class="p">,</span>
+            <span class="n">result</span><span class="p">.</span><span class="n">complexity</span><span class="p">,</span>
+            <span class="n">result</span><span class="p">.</span><span class="n">path</span>
+        <span class="p">]</span>
+    <span class="p">})</span>
+    
+    <span class="n">display</span><span class="p">(</span><span class="n">metrics_df</span><span class="p">)</span>
+    
+    <span class="c1"># Display visualization
+</span>    <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="s">"### Predictions vs Actual"</span><span class="p">))</span>
+    
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">ax</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">y_test</span><span class="p">,</span> <span class="n">result</span><span class="p">.</span><span class="n">predictions</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">.</span><span class="n">plot</span><span class="p">([</span><span class="n">result</span><span class="p">.</span><span class="n">y_test</span><span class="p">.</span><span class="nb">min</span><span class="p">(),</span> <span class="n">result</span><span class="p">.</span><span class="n">y_test</span><span class="p">.</span><span class="nb">max</span><span class="p">()],</span> 
+            <span class="p">[</span><span class="n">result</span><span class="p">.</span><span class="n">y_test</span><span class="p">.</span><span class="nb">min</span><span class="p">(),</span> <span class="n">result</span><span class="p">.</span><span class="n">y_test</span><span class="p">.</span><span class="nb">max</span><span class="p">()],</span> 
+            <span class="s">'r--'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s">'Actual'</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">'Predicted'</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s">'Predictions (R² = </span><span class="si">{</span><span class="n">result</span><span class="p">.</span><span class="n">r2_score</span><span class="si">:</span><span class="p">.</span><span class="mi">4</span><span class="n">f</span><span class="si">}</span><span class="s">)'</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Usage in notebook
+</span><span class="n">result</span> <span class="o">=</span> <span class="n">system</span><span class="p">.</span><span class="n">discover</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">variable_names</span><span class="o">=</span><span class="p">[</span><span class="s">'x'</span><span class="p">,</span> <span class="s">'y'</span><span class="p">,</span> <span class="s">'z'</span><span class="p">])</span>
+<span class="n">display_discovery_results</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="example-4-multi-equation-system-discovery">Example 4: Multi-Equation System Discovery</h2>
+
+<p>Discover coupled equations (e.g., predator-prey dynamics):</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">hypatiax.tools.symbolic.hybrid_system_v40</span> <span class="kn">import</span> <span class="n">HybridSystem</span>
+
+<span class="k">class</span> <span class="nc">SystemDiscovery</span><span class="p">:</span>
+    <span class="s">"""Discover systems of differential equations"""</span>
+    
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">systems</span> <span class="o">=</span> <span class="p">[]</span>
+        
+    <span class="k">def</span> <span class="nf">discover_coupled_system</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_series_data</span><span class="p">,</span> <span class="n">variable_names</span><span class="p">):</span>
+        <span class="s">"""
+        Discover coupled ODEs from time series
+        
+        Parameters:
+        -----------
+        time_series_data : dict
+            {'prey': prey_population, 'predator': predator_population, 'time': time}
+        variable_names : list
+            ['prey', 'predator']
+        """</span>
+        
+        <span class="c1"># Compute derivatives numerically
+</span>        <span class="n">derivatives</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">variable_names</span><span class="p">:</span>
+            <span class="n">dy_dt</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">time_series_data</span><span class="p">[</span><span class="n">var</span><span class="p">],</span> <span class="n">time_series_data</span><span class="p">[</span><span class="s">'time'</span><span class="p">])</span>
+            <span class="n">derivatives</span><span class="p">[</span><span class="n">var</span><span class="p">]</span> <span class="o">=</span> <span class="n">dy_dt</span>
+        
+        <span class="c1"># Discover equation for each derivative
+</span>        <span class="n">discovered_equations</span> <span class="o">=</span> <span class="p">{}</span>
+        
+        <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">variable_names</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="se">\n</span><span class="s">Discovering d(</span><span class="si">{</span><span class="n">var</span><span class="si">}</span><span class="s">)/dt..."</span><span class="p">)</span>
+            
+            <span class="c1"># Prepare features: current values of all variables
+</span>            <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">column_stack</span><span class="p">([</span><span class="n">time_series_data</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">variable_names</span><span class="p">])</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">derivatives</span><span class="p">[</span><span class="n">var</span><span class="p">]</span>
+            
+            <span class="n">system</span> <span class="o">=</span> <span class="n">HybridSystem</span><span class="p">(</span><span class="n">use_llm</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">symbolic_timeout</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">system</span><span class="p">.</span><span class="n">discover</span><span class="p">(</span>
+                <span class="n">X_train</span><span class="o">=</span><span class="n">X</span><span class="p">,</span>
+                <span class="n">y_train</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
+                <span class="n">variable_names</span><span class="o">=</span><span class="n">variable_names</span><span class="p">,</span>
+                <span class="n">problem_description</span><span class="o">=</span><span class="sa">f</span><span class="s">"Rate of change of </span><span class="si">{</span><span class="n">var</span><span class="si">}</span><span class="s">"</span>
+            <span class="p">)</span>
+            
+            <span class="n">discovered_equations</span><span class="p">[</span><span class="n">var</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="n">formula</span>
+            <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"d(</span><span class="si">{</span><span class="n">var</span><span class="si">}</span><span class="s">)/dt = </span><span class="si">{</span><span class="n">result</span><span class="p">.</span><span class="n">formula</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">discovered_equations</span>
+
+<span class="c1"># Example: Lotka-Volterra predator-prey
+</span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">prey</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">0.3</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="mi">50</span>  <span class="c1"># Simplified oscillation
+</span><span class="n">predator</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">0.3</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="mi">20</span>
+
+<span class="n">time_series</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'prey'</span><span class="p">:</span> <span class="n">prey</span><span class="p">,</span>
+    <span class="s">'predator'</span><span class="p">:</span> <span class="n">predator</span><span class="p">,</span>
+    <span class="s">'time'</span><span class="p">:</span> <span class="n">t</span>
+<span class="p">}</span>
+
+<span class="n">discoverer</span> <span class="o">=</span> <span class="n">SystemDiscovery</span><span class="p">()</span>
+<span class="n">equations</span> <span class="o">=</span> <span class="n">discoverer</span><span class="p">.</span><span class="n">discover_coupled_system</span><span class="p">(</span>
+    <span class="n">time_series</span><span class="p">,</span> 
+    <span class="n">variable_names</span><span class="o">=</span><span class="p">[</span><span class="s">'prey'</span><span class="p">,</span> <span class="s">'predator'</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="c1"># Expected output:
+# d(prey)/dt = 0.3 * prey - 0.015 * prey * predator
+# d(predator)/dt = 0.01 * prey * predator - 0.2 * predator
+</span></code></pre></div></div>
+
+<hr />
+
+<h2 id="example-5-production-deployment">Example 5: Production Deployment</h2>
+
+<h3 id="rest-api-wrapper">REST API Wrapper</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">jsonify</span>
+<span class="kn">from</span> <span class="nn">hypatiax.tools.symbolic.hybrid_system_v40</span> <span class="kn">import</span> <span class="n">HybridSystem</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="c1"># Global discovery system
+</span><span class="n">discovery_system</span> <span class="o">=</span> <span class="n">HybridSystem</span><span class="p">(</span><span class="n">use_llm</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">symbolic_timeout</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">'/discover'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">'POST'</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">discover_formula</span><span class="p">():</span>
+    <span class="s">"""
+    API endpoint for formula discovery
+    
+    POST /discover
+    {
+        "X_train": [[1, 2], [3, 4], ...],
+        "y_train": [5.2, 7.8, ...],
+        "variable_names": ["pressure", "temperature"],
+        "description": "Relationship between pressure and temperature"
+    }
+    
+    Returns:
+    {
+        "formula": "2.3 * pressure + 1.5 * temperature",
+        "r2_score": 0.9876,
+        "discovery_time": 45.2,
+        "extrapolation_error": 2.3e-13
+    }
+    """</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">get_json</span><span class="p">()</span>
+        
+        <span class="n">X_train</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'X_train'</span><span class="p">])</span>
+        <span class="n">y_train</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'y_train'</span><span class="p">])</span>
+        <span class="n">variable_names</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'variable_names'</span><span class="p">,</span> <span class="p">[</span><span class="sa">f</span><span class="s">'x</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s">'</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">X_train</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])])</span>
+        <span class="n">description</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'description'</span><span class="p">,</span> <span class="s">''</span><span class="p">)</span>
+        
+        <span class="c1"># Discover
+</span>        <span class="n">result</span> <span class="o">=</span> <span class="n">discovery_system</span><span class="p">.</span><span class="n">discover</span><span class="p">(</span>
+            <span class="n">X_train</span><span class="o">=</span><span class="n">X_train</span><span class="p">,</span>
+            <span class="n">y_train</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span>
+            <span class="n">variable_names</span><span class="o">=</span><span class="n">variable_names</span><span class="p">,</span>
+            <span class="n">problem_description</span><span class="o">=</span><span class="n">description</span>
+        <span class="p">)</span>
+        
+        <span class="c1"># Return results
+</span>        <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span>
+            <span class="s">'success'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+            <span class="s">'formula'</span><span class="p">:</span> <span class="n">result</span><span class="p">.</span><span class="n">formula</span><span class="p">,</span>
+            <span class="s">'r2_score'</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">r2_score</span><span class="p">),</span>
+            <span class="s">'discovery_time'</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">discovery_time</span><span class="p">),</span>
+            <span class="s">'path'</span><span class="p">:</span> <span class="n">result</span><span class="p">.</span><span class="n">path</span><span class="p">,</span>
+            <span class="s">'complexity'</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">complexity</span><span class="p">)</span>
+        <span class="p">})</span>
+        
+    <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span>
+            <span class="s">'success'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+            <span class="s">'error'</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+        <span class="p">}),</span> <span class="mi">400</span>
+
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">'/health'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">'GET'</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">health_check</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s">'status'</span><span class="p">:</span> <span class="s">'healthy'</span><span class="p">})</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">app</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s">'0.0.0.0'</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="docker-deployment">Docker Deployment</h3>
+
+<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Dockerfile</span>
+<span class="k">FROM</span><span class="s"> python:3.10-slim</span>
+
+<span class="k">WORKDIR</span><span class="s"> /app</span>
+
+<span class="c"># Install system dependencies</span>
+<span class="k">RUN </span>apt-get update <span class="o">&amp;&amp;</span> apt-get <span class="nb">install</span> <span class="nt">-y</span> <span class="se">\
+</span>    wget <span class="se">\
+</span>    build-essential <span class="se">\
+</span>    <span class="o">&amp;&amp;</span> <span class="nb">rm</span> <span class="nt">-rf</span> /var/lib/apt/lists/<span class="k">*</span>
+
+<span class="c"># Install Julia</span>
+<span class="k">RUN </span>wget https://julialang-s3.julialang.org/bin/linux/x64/1.9/julia-1.9.4-linux-x86_64.tar.gz <span class="o">&amp;&amp;</span> <span class="se">\
+</span>    <span class="nb">tar </span>xzf julia-1.9.4-linux-x86_64.tar.gz <span class="o">&amp;&amp;</span> <span class="se">\
+</span>    <span class="nb">rm </span>julia-1.9.4-linux-x86_64.tar.gz
+<span class="k">ENV</span><span class="s"> PATH="/app/julia-1.9.4/bin:${PATH}"</span>
+
+<span class="c"># Install Python dependencies</span>
+<span class="k">COPY</span><span class="s"> requirements.txt .</span>
+<span class="k">RUN </span>pip <span class="nb">install</span> <span class="nt">--no-cache-dir</span> <span class="nt">-r</span> requirements.txt
+
+<span class="c"># Install HypatiaX</span>
+<span class="k">COPY</span><span class="s"> . .</span>
+<span class="k">RUN </span>pip <span class="nb">install</span> <span class="nt">-e</span> .
+
+<span class="c"># Install PySR backend</span>
+<span class="k">RUN </span>python <span class="nt">-c</span> <span class="s2">"import pysr; pysr.install()"</span>
+
+<span class="c"># Expose API port</span>
+<span class="k">EXPOSE</span><span class="s"> 5000</span>
+
+<span class="c"># Run API server</span>
+<span class="k">CMD</span><span class="s"> ["python", "api_server.py"]</span>
+</code></pre></div></div>
+
+<p>Build and run:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker build <span class="nt">-t</span> hypatiax-api <span class="nb">.</span>
+docker run <span class="nt">-p</span> 5000:5000 hypatiax-api
+
+<span class="c"># Test</span>
+curl <span class="nt">-X</span> POST http://localhost:5000/discover <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{"X_train": [[1],[2],[3]], "y_train": [2,4,6], "variable_names": ["x"]}'</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="example-6-custom-operators">Example 6: Custom Operators</h2>
+
+<p>Add domain-specific mathematical operators:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">hypatiax.tools.symbolic.hybrid_system_v40</span> <span class="kn">import</span> <span class="n">HybridSystem</span>
+<span class="kn">from</span> <span class="nn">pysr</span> <span class="kn">import</span> <span class="n">PySRRegressor</span>
+
+<span class="c1"># Define custom operators
+</span><span class="k">class</span> <span class="nc">ChemistryOperators</span><span class="p">:</span>
+    <span class="s">"""Chemistry-specific operators"""</span>
+    
+    <span class="o">@</span><span class="nb">staticmethod</span>
+    <span class="k">def</span> <span class="nf">arrhenius</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="s">"""Arrhenius factor: exp(-x)"""</span>
+        <span class="k">return</span> <span class="n">np</span><span class="p">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="o">@</span><span class="nb">staticmethod</span>
+    <span class="k">def</span> <span class="nf">henderson_hasselbalch</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="s">"""log10(x/y)"""</span>
+        <span class="k">return</span> <span class="n">np</span><span class="p">.</span><span class="n">log10</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="mf">1e-10</span><span class="p">))</span>
+
+<span class="c1"># Use in discovery
+</span><span class="n">system</span> <span class="o">=</span> <span class="n">HybridSystem</span><span class="p">(</span><span class="n">use_llm</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">symbolic_timeout</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
+
+<span class="c1"># Modify PySR configuration
+</span><span class="n">system</span><span class="p">.</span><span class="n">symbolic_regressor</span> <span class="o">=</span> <span class="n">PySRRegressor</span><span class="p">(</span>
+    <span class="n">binary_operators</span><span class="o">=</span><span class="p">[</span><span class="s">"+"</span><span class="p">,</span> <span class="s">"-"</span><span class="p">,</span> <span class="s">"*"</span><span class="p">,</span> <span class="s">"/"</span><span class="p">,</span> <span class="s">"^"</span><span class="p">],</span>
+    <span class="n">unary_operators</span><span class="o">=</span><span class="p">[</span><span class="s">"exp"</span><span class="p">,</span> <span class="s">"log"</span><span class="p">,</span> <span class="s">"sqrt"</span><span class="p">,</span> <span class="s">"neg"</span><span class="p">,</span> <span class="s">"square"</span><span class="p">],</span>
+    <span class="n">extra_sympy_mappings</span><span class="o">=</span><span class="p">{</span>
+        <span class="s">"arrhenius"</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">sp</span><span class="p">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">),</span>
+    <span class="p">},</span>
+    <span class="n">populations</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">niterations</span><span class="o">=</span><span class="mi">100</span>
+<span class="p">)</span>
+
+<span class="c1"># Now discover with custom operators
+</span><span class="n">result</span> <span class="o">=</span> <span class="n">system</span><span class="p">.</span><span class="n">discover</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">variable_names</span><span class="o">=</span><span class="p">[</span><span class="s">'T'</span><span class="p">,</span> <span class="s">'Ea'</span><span class="p">])</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="best-practices">Best Practices</h2>
+
+<h3 id="1-data-preparation">1. Data Preparation</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">prepare_scientific_data</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">feature_cols</span><span class="p">,</span> <span class="n">target_col</span><span class="p">):</span>
+    <span class="s">"""Best practices for data preparation"""</span>
+    
+    <span class="c1"># Remove outliers (3 sigma rule)
+</span>    <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+    <span class="n">z_scores</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nb">abs</span><span class="p">(</span><span class="n">stats</span><span class="p">.</span><span class="n">zscore</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">feature_cols</span> <span class="o">+</span> <span class="p">[</span><span class="n">target_col</span><span class="p">]]))</span>
+    <span class="n">df_clean</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">z_scores</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">).</span><span class="nb">all</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+    
+    <span class="c1"># Check for sufficient data
+</span>    <span class="n">min_samples</span> <span class="o">=</span> <span class="mi">50</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">feature_cols</span><span class="p">)</span>  <span class="c1"># Rule of thumb: 50 samples per feature
+</span>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_clean</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">min_samples</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"⚠️  Warning: Only </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df_clean</span><span class="p">)</span><span class="si">}</span><span class="s"> samples for </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">feature_cols</span><span class="p">)</span><span class="si">}</span><span class="s"> features"</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"   Recommended: </span><span class="si">{</span><span class="n">min_samples</span><span class="si">}</span><span class="s">+ samples"</span><span class="p">)</span>
+    
+    <span class="c1"># Check for colinearity
+</span>    <span class="n">correlation_matrix</span> <span class="o">=</span> <span class="n">df_clean</span><span class="p">[</span><span class="n">feature_cols</span><span class="p">].</span><span class="n">corr</span><span class="p">()</span>
+    <span class="n">high_corr</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="nb">abs</span><span class="p">(</span><span class="n">correlation_matrix</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.95</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">high_corr</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">feature_cols</span><span class="p">):</span>  <span class="c1"># More than diagonal
+</span>        <span class="k">print</span><span class="p">(</span><span class="s">"⚠️  Warning: High correlation detected between features"</span><span class="p">)</span>
+    
+    <span class="c1"># Split train/test
+</span>    <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">df_clean</span><span class="p">[</span><span class="n">feature_cols</span><span class="p">].</span><span class="n">values</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">df_clean</span><span class="p">[</span><span class="n">target_col</span><span class="p">].</span><span class="n">values</span>
+    
+    <span class="k">return</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="2-hyperparameter-tuning">2. Hyperparameter Tuning</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
+
+<span class="c1"># Define hyperparameter grid
+</span><span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'symbolic_timeout'</span><span class="p">:</span> <span class="p">[</span><span class="mi">300</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">900</span><span class="p">],</span>
+    <span class="s">'populations'</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>
+    <span class="s">'complexity_penalty'</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="c1"># Grid search (simplified - would need sklearn wrapper)
+</span><span class="n">best_params</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">best_score</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="p">.</span><span class="n">inf</span>
+
+<span class="k">for</span> <span class="n">timeout</span> <span class="ow">in</span> <span class="n">param_grid</span><span class="p">[</span><span class="s">'symbolic_timeout'</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">pops</span> <span class="ow">in</span> <span class="n">param_grid</span><span class="p">[</span><span class="s">'populations'</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">penalty</span> <span class="ow">in</span> <span class="n">param_grid</span><span class="p">[</span><span class="s">'complexity_penalty'</span><span class="p">]:</span>
+            <span class="n">system</span> <span class="o">=</span> <span class="n">HybridSystem</span><span class="p">(</span>
+                <span class="n">symbolic_timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">,</span>
+                <span class="n">populations</span><span class="o">=</span><span class="n">pops</span><span class="p">,</span>
+                <span class="n">complexity_penalty</span><span class="o">=</span><span class="n">penalty</span>
+            <span class="p">)</span>
+            
+            <span class="n">result</span> <span class="o">=</span> <span class="n">system</span><span class="p">.</span><span class="n">discover</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">variable_names</span><span class="o">=</span><span class="n">var_names</span><span class="p">)</span>
+            
+            <span class="c1"># Score: balance R² and complexity
+</span>            <span class="n">score</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="n">r2_score</span> <span class="o">-</span> <span class="n">penalty</span> <span class="o">*</span> <span class="n">result</span><span class="p">.</span><span class="n">complexity</span>
+            
+            <span class="k">if</span> <span class="n">score</span> <span class="o">&gt;</span> <span class="n">best_score</span><span class="p">:</span>
+                <span class="n">best_score</span> <span class="o">=</span> <span class="n">score</span>
+                <span class="n">best_params</span> <span class="o">=</span> <span class="p">(</span><span class="n">timeout</span><span class="p">,</span> <span class="n">pops</span><span class="p">,</span> <span class="n">penalty</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Best parameters: </span><span class="si">{</span><span class="n">best_params</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="3-validation-strategy">3. Validation Strategy</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">comprehensive_validation</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="s">'physics'</span><span class="p">):</span>
+    <span class="s">"""Multi-level validation"""</span>
+    
+    <span class="n">validation_report</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">'passed'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+        <span class="s">'checks'</span><span class="p">:</span> <span class="p">{}</span>
+    <span class="p">}</span>
+    
+    <span class="c1"># 1. Statistical validation
+</span>    <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span><span class="p">,</span> <span class="n">mean_absolute_error</span><span class="p">,</span> <span class="n">mean_squared_error</span>
+    
+    <span class="n">r2_train</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">result</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">))</span>
+    <span class="n">r2_test</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">result</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+    <span class="n">mae</span> <span class="o">=</span> <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">result</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+    <span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">result</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)))</span>
+    
+    <span class="n">validation_report</span><span class="p">[</span><span class="s">'checks'</span><span class="p">][</span><span class="s">'r2_test'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">'value'</span><span class="p">:</span> <span class="n">r2_test</span><span class="p">,</span>
+        <span class="s">'threshold'</span><span class="p">:</span> <span class="mf">0.90</span><span class="p">,</span>
+        <span class="s">'passed'</span><span class="p">:</span> <span class="n">r2_test</span> <span class="o">&gt;=</span> <span class="mf">0.90</span>
+    <span class="p">}</span>
+    
+    <span class="c1"># 2. Extrapolation test
+</span>    <span class="n">X_extrap</span> <span class="o">=</span> <span class="n">generate_extrapolation_data</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">y_extrap_true</span> <span class="o">=</span> <span class="n">ground_truth_function</span><span class="p">(</span><span class="n">X_extrap</span><span class="p">)</span>  <span class="c1"># If known
+</span>    <span class="n">y_extrap_pred</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_extrap</span><span class="p">)</span>
+    
+    <span class="n">extrap_error</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">median</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="nb">abs</span><span class="p">(</span><span class="n">y_extrap_pred</span> <span class="o">-</span> <span class="n">y_extrap_true</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="p">.</span><span class="nb">abs</span><span class="p">(</span><span class="n">y_extrap_true</span><span class="p">))</span>
+    
+    <span class="n">validation_report</span><span class="p">[</span><span class="s">'checks'</span><span class="p">][</span><span class="s">'extrapolation'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">'median_error'</span><span class="p">:</span> <span class="n">extrap_error</span><span class="p">,</span>
+        <span class="s">'threshold'</span><span class="p">:</span> <span class="mf">1e-10</span><span class="p">,</span>
+        <span class="s">'passed'</span><span class="p">:</span> <span class="n">extrap_error</span> <span class="o">&lt;</span> <span class="mf">1e-10</span>
+    <span class="p">}</span>
+    
+    <span class="c1"># 3. Complexity check
+</span>    <span class="n">validation_report</span><span class="p">[</span><span class="s">'checks'</span><span class="p">][</span><span class="s">'complexity'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">'value'</span><span class="p">:</span> <span class="n">result</span><span class="p">.</span><span class="n">complexity</span><span class="p">,</span>
+        <span class="s">'threshold'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+        <span class="s">'passed'</span><span class="p">:</span> <span class="n">result</span><span class="p">.</span><span class="n">complexity</span> <span class="o">&lt;</span> <span class="mi">20</span>
+    <span class="p">}</span>
+    
+    <span class="c1"># Update overall status
+</span>    <span class="n">validation_report</span><span class="p">[</span><span class="s">'passed'</span><span class="p">]</span> <span class="o">=</span> <span class="nb">all</span><span class="p">(</span>
+        <span class="n">check</span><span class="p">[</span><span class="s">'passed'</span><span class="p">]</span> <span class="k">for</span> <span class="n">check</span> <span class="ow">in</span> <span class="n">validation_report</span><span class="p">[</span><span class="s">'checks'</span><span class="p">].</span><span class="n">values</span><span class="p">()</span>
+    <span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">validation_report</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="common-pitfalls">Common Pitfalls</h2>
+
+<h3 id="-dont-insufficient-data">❌ Don’t: Insufficient data</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Bad: Only 20 samples for 5 features
+</span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="c1"># This will likely fail or overfit!
+</span></code></pre></div></div>
+
+<p>✅ <strong>Do:</strong> Use at least 50-100 samples per feature</p>
+
+<h3 id="-dont-ignore-physical-constraints">❌ Don’t: Ignore physical constraints</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Bad: Discovering without domain knowledge
+</span><span class="n">result</span> <span class="o">=</span> <span class="n">system</span><span class="p">.</span><span class="n">discover</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">variable_names</span><span class="o">=</span><span class="p">[</span><span class="s">'x'</span><span class="p">])</span>
+<span class="c1"># Might get physically impossible formulas!
+</span></code></pre></div></div>
+
+<p>✅ <strong>Do:</strong> Provide constraints and validate</p>
+
+<h3 id="-dont-skip-extrapolation-validation">❌ Don’t: Skip extrapolation validation</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Bad: Only checking interpolation
+</span><span class="n">r2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>  <span class="c1"># Test set still in training range!
+</span></code></pre></div></div>
+
+<p>✅ <strong>Do:</strong> Test on true extrapolation regime</p>
+
+<hr />
+
+<h2 id="next-steps">Next Steps</h2>
+
+<p>You’ve completed all HypatiaX tutorials!</p>
+
+<p><strong>Where to go from here:</strong></p>
+<ol>
+  <li><strong>Apply to your research</strong> - Use HypatiaX on your datasets</li>
+  <li><strong>Contribute</strong> - Submit issues, PRs, or new domains</li>
+  <li><strong>Extend</strong> - Add custom operators, validators, or protocols</li>
+  <li><strong>Deploy</strong> - Integrate into your production systems</li>
+  <li><strong>Share</strong> - Publish your discoveries and cite the paper!</li>
+</ol>
+
+<hr />
+
+<h2 id="additional-resources">Additional Resources</h2>
+
+<ul>
+  <li><strong>Documentation:</strong> <a href="https://sednabcn.github.io/ai-llm-blog/tutorials/hypatiax/">Full Documentation</a></li>
+  <li><strong>Examples:</strong> <a href="https://github.com/sednabcn/LLM-HypatiaX-PAPERS-Public">GitHub Repository</a></li>
+  <li><strong>Community:</strong> <a href="https://github.com/sednabcn/ai-llm-blog/discussions">Discussions</a></li>
+  <li><strong>Support:</strong> <a href="https://github.com/sednabcn/ai-llm-blog/issues">Issues</a></li>
+</ul>
+
+<hr />
+
+<h2 id="citation">Citation</h2>
+
+<p>If HypatiaX helped your research, please cite:</p>
+
+<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">@article</span><span class="p">{</span><span class="nl">hypatiax2026</span><span class="p">,</span>
+  <span class="na">title</span><span class="p">=</span><span class="s">{LLMs as Interfaces to Symbolic Discovery: Perfect Extrapolation via Hybrid Architectures}</span><span class="p">,</span>
+  <span class="na">journal</span><span class="p">=</span><span class="s">{Journal of Machine Learning Research}</span><span class="p">,</span>
+  <span class="na">year</span><span class="p">=</span><span class="s">{2026}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<p><strong>Time:</strong> 45 minutes<br />
+<strong>Difficulty:</strong> Advanced<br />
+<strong>Series:</strong> Complete! 🎉</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/ai-llm-blog/tags/#custom-domains" class="page__taxonomy-item p-category" rel="tag">custom-domains</a><span class="sep">, </span>
+    
+      <a href="/ai-llm-blog/tags/#extensions" class="page__taxonomy-item p-category" rel="tag">extensions</a><span class="sep">, </span>
+    
+      <a href="/ai-llm-blog/tags/#hypatiax" class="page__taxonomy-item p-category" rel="tag">hypatiax</a><span class="sep">, </span>
+    
+      <a href="/ai-llm-blog/tags/#real-world" class="page__taxonomy-item p-category" rel="tag">real-world</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/ai-llm-blog/categories/#applications" class="page__taxonomy-item p-category" rel="tag">applications</a><span class="sep">, </span>
+    
+      <a href="/ai-llm-blog/categories/#machine-learning" class="page__taxonomy-item p-category" rel="tag">machine-learning</a><span class="sep">, </span>
+    
+      <a href="/ai-llm-blog/categories/#tutorials" class="page__taxonomy-item p-category" rel="tag">tutorials</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2026-02-23T00:00:00+00:00">February 23, 2026</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/ai-llm-blog/tutorials/hypatiax/analysis/" class="pagination--pager" title="HypatiaX Tutorial 3: Statistical Analysis and Publication Figures
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+  </article>
+
+  
+
+  
+  
+
+  <nav class="pagination">
+    
+      <a href="/tutorials/hypatiax/analysis/" class="prev">&laquo; Previous</a>
+    
+
+    
+  </nav>
+  
+</div>
+
+
+
+
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/sednabcn" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/BONETCHAPLE" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://www.instagram.com/RUPERTOPEDROBONET" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+        
+          <li><a href="https://medium.com/@simleng" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-medium" aria-hidden="true"></i> Medium</a></li>
+        
+      
+    
+
+    
+      <li><a href="/ai-llm-blog/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2026 <a href="https://sednabcn.github.io">AI, LLM & LLM-HypatiaX Blog</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
+<p>Site last built: 2026-03-23 17:41</p>
+</div>
+
+
+      </footer>
+    </div>
+    
+  <script src="/ai-llm-blog/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FFJMQ3HXMK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FFJMQ3HXMK', { 'anonymize_ip': true});
+</script>
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>

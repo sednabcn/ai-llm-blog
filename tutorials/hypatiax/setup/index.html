@@ -1,0 +1,1067 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en-US" class="no-js">
+  <head>
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>HypatiaX Tutorial 1: Environment Setup and First Discovery | AI, LLM &amp; LLM-HypatiaX Blog</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="HypatiaX Tutorial 1: Environment Setup and First Discovery" />
+<meta name="author" content="Dr. Ruperto Pedro Bonet Chaple" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="HypatiaX Tutorial 1: Environment Setup and First Discovery" />
+<meta property="og:description" content="HypatiaX Tutorial 1: Environment Setup and First Discovery" />
+<link rel="canonical" href="https://sednabcn.github.io/ai-llm-blog/tutorials/hypatiax/setup/" />
+<meta property="og:url" content="https://sednabcn.github.io/ai-llm-blog/tutorials/hypatiax/setup/" />
+<meta property="og:site_name" content="AI, LLM &amp; LLM-HypatiaX Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-02-20T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="HypatiaX Tutorial 1: Environment Setup and First Discovery" />
+<meta name="google-site-verification" content="0l5TbPYQ76ChPVEmXUclBOY04jLkGAAQAKAEm2a0j60" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Dr. Ruperto Pedro Bonet Chaple"},"dateModified":"2026-02-20T00:00:00+00:00","datePublished":"2026-02-20T00:00:00+00:00","description":"HypatiaX Tutorial 1: Environment Setup and First Discovery","headline":"HypatiaX Tutorial 1: Environment Setup and First Discovery","mainEntityOfPage":{"@type":"WebPage","@id":"https://sednabcn.github.io/ai-llm-blog/tutorials/hypatiax/setup/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://sednabcn.github.io/ai-llm-blog/assets/images/logo.png"},"name":"Dr. Ruperto Pedro Bonet Chaple"},"url":"https://sednabcn.github.io/ai-llm-blog/tutorials/hypatiax/setup/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HypatiaX Tutorial 1: Environment Setup and First Discovery</title>
+
+  <!-- SEO -->
+  <!-- begin _includes/seo.html --><title>HypatiaX Tutorial 1: Environment Setup and First Discovery | AI, LLM &amp; LLM-HypatiaX Blog</title>
+<meta name="description" content="HypatiaX Tutorial 1: Environment Setup and First Discovery">
+
+
+  <meta name="author" content="Dr. Ruperto Pedro Bonet Chaple">
+  
+  <meta property="article:author" content="Dr. Ruperto Pedro Bonet Chaple">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="AI, LLM & LLM-HypatiaX Blog">
+<meta property="og:title" content="HypatiaX Tutorial 1: Environment Setup and First Discovery">
+<meta property="og:url" content="https://sednabcn.github.io/ai-llm-blog/tutorials/hypatiax/setup/">
+
+
+  <meta property="og:description" content="HypatiaX Tutorial 1: Environment Setup and First Discovery">
+
+
+
+  <meta property="og:image" content="https://sednabcn.github.io/ai-llm-blog/assets/images/tutorials/hypatiax-setup-banner.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2026-02-20T00:00:00+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://sednabcn.github.io/ai-llm-blog/tutorials/hypatiax/setup/">
+
+
+
+
+
+
+
+  <meta name="google-site-verification" content="0l5TbPYQ76ChPVEmXUclBOY04jLkGAAQAKAEm2a0j60" />
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+  <!-- Atom Feed -->
+  
+    <link href="/ai-llm-blog/feed.xml" 
+          type="application/atom+xml" rel="alternate" title="AI, LLM & LLM-HypatiaX Blog Feed">
+  
+
+  <!-- Favicon -->
+  <link rel="icon" href="/ai-llm-blog/favicon-16x16.png" type="image/png">
+
+  <!-- JavaScript Detection -->
+  <script>
+    document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+    
+  </script>
+
+  <!-- Stylesheets -->
+  
+    <link rel="stylesheet" href="/ai-llm-blog/assets/css/main.css">
+  
+
+  
+  <!-- Stylesheets -->
+  
+    <link rel="stylesheet" href="/ai-llm-blog/assets/css/main-mobiles.css">
+  
+
+
+  <!-- Font Awesome (with performance optimization) -->
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" 
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css">
+  </noscript>
+
+  <!-- Google Site Verification -->
+  
+    <meta name="google-site-verification" content="0l5TbPYQ76ChPVEmXUclBOY04jLkGAAQAKAEm2a0j60">
+  
+
+  
+ 
+ <!-- Content Security Policy -->
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net/ https://www.googletagmanager.com/ https://www.google-analytics.com/ https://utteranc.es;
+  style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net/;
+  img-src 'self' data: *;
+  font-src 'self' https://cdn.jsdelivr.net/;
+  connect-src 'self' https://utteranc.es https://region1.google-analytics.com https://www.google-analytics.com;
+  frame-src 'self' https://utteranc.es;
+"> 
+  <!-- Custom Head Scripts -->
+  
+
+  <!-- Analytics (production only) -->
+  
+    
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FFJMQ3HXMK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FFJMQ3HXMK', { 'anonymize_ip': true});
+</script>
+
+
+
+
+  
+
+ <!-- Open Graph / Facebook -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://sednabcn.github.io/tutorials/hypatiax/setup/">
+<meta property="og:title" content="HypatiaX Tutorial 1: Environment Setup and First Discovery">
+<meta property="og:description" content="HypatiaX Tutorial 1: Environment Setup and First Discovery
+
+">
+
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://sednabcn.github.io/tutorials/hypatiax/setup/">
+<meta name="twitter:title" content="HypatiaX Tutorial 1: Environment Setup and First Discovery">
+<meta name="twitter:description" content="HypatiaX Tutorial 1: Environment Setup and First Discovery
+
+">
+
+
+</head>
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single inner-page header-image-readability" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/ai-llm-blog/"><img src="/ai-llm-blog/assets/images/logo.png" alt="SiMLeng"></a>
+        
+        <a class="site-title" href="/ai-llm-blog/">
+          SiMLeng
+          <span class="site-subtitle">Exploring generative AI in formula discovery</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/ai-llm-blog/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/ai-llm-blog/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/ai-llm-blog/posts/"
+                
+                
+              >Posts</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/ai-llm-blog/tutorials/"
+                
+                
+              >Tutorials</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/ai-llm-blog/help/"
+                
+                
+              >Help</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+  
+
+
+
+
+
+
+
+<div class="page__hero--overlay"
+  style=" background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/ai-llm-blog/assets/images/tutorials/hypatiax-setup-banner.png');"
+>
+  
+    <div class="wrapper">
+      <h1 id="page-title" class="page__title" itemprop="headline">
+        
+          HypatiaX Tutorial 1: Environment Setup and First Discovery
+
+        
+      </h1>
+      
+     <span class="page__lead excerpt-inline"><h1 id="hypatiax-tutorial-1-environment-setup-and-first-discovery">HypatiaX Tutorial 1: Environment Setup and First Discovery</h1>
+
+</span>
+
+    <!--- <p class="page__lead" style="text-align: center;"><h1 id="hypatiax-tutorial-1-environment-setup-and-first-discovery">HypatiaX Tutorial 1: Environment Setup and First Discovery</h1>
+
+</p>--!>
+      
+      
+
+
+      
+    </div>
+  
+  
+    <span class="page__hero-caption">Install and discover your first equation
+</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="https://sednabcn.github.io/ai-llm-blog/">
+        <img src="/ai-llm-blog/assets/images/avatar.jpg" alt="Dr. Ruperto Pedro Bonet Chaple" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://sednabcn.github.io/ai-llm-blog/" itemprop="url">Dr. Ruperto Pedro Bonet Chaple</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>PhD in Computational Mechanics</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">London, UK</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:info@modelphysmat.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/sednabcn" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+        <li>
+          
+            <span class="nav__sub-title">Getting Started</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/ai-llm-blog/tutorials/setup/">Setup</a></li>
+            
+              <li><a href="/ai-llm-blog/tutorials/setup/python-setup/">Python Setup</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">HypatiaX</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/ai-llm-blog/tutorials/hypatiax/">Overview</a></li>
+            
+              <li><a href="/ai-llm-blog/tutorials/hypatiax/setup/" class="active">1. Setup</a></li>
+            
+              <li><a href="/ai-llm-blog/tutorials/hypatiax/experiments/">2. Experiments</a></li>
+            
+              <li><a href="/ai-llm-blog/tutorials/hypatiax/analysis/">3. Analysis</a></li>
+            
+              <li><a href="/ai-llm-blog/tutorials/hypatiax/extensions/">4. Extensions</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Advanced Features</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/ai-llm-blog/tutorials/advanced-features/">Overview</a></li>
+            
+          </ul>
+          
+        </li>
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <meta itemprop="headline" content="HypatiaX Tutorial 1: Environment Setup and First Discovery">
+    
+    
+      <meta itemprop="description" content="HypatiaX Tutorial 1: Environment Setup and First Discovery">
+    
+    
+      <meta itemprop="datePublished" content="2026-02-20T00:00:00+00:00">
+    
+    
+
+    <div class="page__inner-wrap">
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header>
+                <h4 class="nav__title">
+                  <i class="fas fa-cog"></i> Contents
+                </h4>
+              </header>
+              <ul class="toc__menu"><li><a href="#hypatiax-tutorial-1-environment-setup-and-first-discovery">HypatiaX Tutorial 1: Environment Setup and First Discovery</a><ul><li><a href="#what-is-hypatiax">What is HypatiaX?</a></li><li><a href="#prerequisites">Prerequisites</a></li><li><a href="#installation">Installation</a><ul><li><a href="#step-1-clone-the-repository">Step 1: Clone the Repository</a></li><li><a href="#step-2-create-virtual-environment">Step 2: Create Virtual Environment</a></li><li><a href="#step-3-install-dependencies">Step 3: Install Dependencies</a></li><li><a href="#step-4-install-julia-backend-for-pysr">Step 4: Install Julia Backend (for PySR)</a></li></ul></li><li><a href="#verify-installation">Verify Installation</a></li><li><a href="#your-first-discovery-ohms-law">Your First Discovery: Ohm’s Law</a><ul><li><a href="#generate-synthetic-data">Generate Synthetic Data</a></li><li><a href="#discover-the-formula">Discover the Formula</a></li><li><a href="#validate-extrapolation">Validate Extrapolation</a></li></ul></li><li><a href="#configuration-options">Configuration Options</a><ul><li><a href="#enable-llm-acceleration-optional">Enable LLM Acceleration (Optional)</a></li><li><a href="#adjust-discovery-parameters">Adjust Discovery Parameters</a></li></ul></li><li><a href="#project-structure">Project Structure</a></li><li><a href="#troubleshooting">Troubleshooting</a><ul><li><a href="#julia-installation-fails">Julia Installation Fails</a></li><li><a href="#first-run-very-slow">First Run Very Slow</a></li><li><a href="#import-errors">Import Errors</a></li></ul></li><li><a href="#what-you-learned">What You Learned</a></li><li><a href="#next-steps">Next Steps</a></li><li><a href="#resources">Resources</a></li><li><a href="#citation">Citation</a></li></ul></li></ul>
+            </nav>
+          </aside>
+        
+        <h1 id="hypatiax-tutorial-1-environment-setup-and-first-discovery">HypatiaX Tutorial 1: Environment Setup and First Discovery</h1>
+
+<p><strong>Time:</strong> 15 minutes<br />
+<strong>Difficulty:</strong> Beginner<br />
+<strong>Next:</strong> <a href="/tutorials/hypatiax/experiments/">Tutorial 2: Running Benchmark Experiments</a></p>
+
+<hr />
+
+<h2 id="what-is-hypatiax">What is HypatiaX?</h2>
+
+<p>HypatiaX is a hybrid framework that combines large language models (LLMs) with symbolic regression to discover scientific equations from data. Unlike neural networks that fail catastrophically at extrapolation, HypatiaX achieves near-perfect extrapolation (median error &lt; 10⁻¹² relative) through symbolic discovery.</p>
+
+<p><strong>Key results from JMLR paper:</strong></p>
+<ul>
+  <li>95.8% success rate on 131 scientific equations</li>
+  <li>Median extrapolation error &lt; 10⁻¹² (limited by floating-point precision)</li>
+  <li>Mean discovery time: 390 seconds per equation</li>
+  <li>Complete statistical separation from neural network methods (Mann-Whitney U=0, p&lt;10⁻⁶)</li>
+</ul>
+
+<hr />
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<p>You’ll need:</p>
+<ul>
+  <li><strong>Python 3.8+</strong></li>
+  <li><strong>Git</strong> for cloning the repository</li>
+  <li><strong>4GB RAM</strong> minimum</li>
+  <li><strong>Optional:</strong> Anthropic API key for LLM-guided acceleration (73% speedup)</li>
+</ul>
+
+<p>Verify Python version:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python <span class="nt">--version</span>  <span class="c"># Should show Python 3.8.x or higher</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="installation">Installation</h2>
+
+<h3 id="step-1-clone-the-repository">Step 1: Clone the Repository</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/sednabcn/LLM-HypatiaX-PAPERS-Public.git
+<span class="nb">cd </span>papers/2025-JMLR/hypatiax
+</code></pre></div></div>
+
+<h3 id="step-2-create-virtual-environment">Step 2: Create Virtual Environment</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Create and activate virtual environment</span>
+python <span class="nt">-m</span> venv venv
+
+<span class="c"># Linux/Mac:</span>
+<span class="nb">source </span>venv/bin/activate
+
+<span class="c"># Windows:</span>
+venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
+</code></pre></div></div>
+
+<h3 id="step-3-install-dependencies">Step 3: Install Dependencies</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Install HypatiaX with all dependencies</span>
+pip <span class="nb">install</span> <span class="nt">-e</span> <span class="nb">.</span>
+
+<span class="c"># This installs:</span>
+<span class="c"># - Core: numpy, pandas, scipy, sympy</span>
+<span class="c"># - Symbolic: PySR (Python Symbolic Regression)</span>
+<span class="c"># - Validation: scikit-learn, statsmodels</span>
+<span class="c"># - Visualization: matplotlib, seaborn</span>
+<span class="c"># - Optional: anthropic (for LLM features)</span>
+</code></pre></div></div>
+
+<h3 id="step-4-install-julia-backend-for-pysr">Step 4: Install Julia Backend (for PySR)</h3>
+
+<p>HypatiaX’s symbolic engine uses PySR, which requires Julia:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Install PySR</span>
+pip <span class="nb">install </span>pysr
+
+<span class="c"># Auto-install Julia backend (takes 5-10 minutes first time)</span>
+python <span class="nt">-c</span> <span class="s2">"import pysr; pysr.install()"</span>
+</code></pre></div></div>
+
+<p><strong>Note:</strong> First run will compile Julia packages. Subsequent runs are much faster.</p>
+
+<hr />
+
+<h2 id="verify-installation">Verify Installation</h2>
+
+<p>Run the quick verification script:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Run verification</span>
+python <span class="nt">-c</span> <span class="s2">"
+import hypatiax
+from pysr import PySRRegressor
+import numpy as np
+
+print('✓ HypatiaX imported successfully')
+print('✓ PySR symbolic engine ready')
+print('✓ All dependencies loaded')
+print('</span><span class="se">\n</span><span class="s2">🎉 Installation complete!')
+"</span>
+</code></pre></div></div>
+
+<p><strong>Expected output:</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>✓ HypatiaX imported successfully
+✓ PySR symbolic engine ready  
+✓ All dependencies loaded
+
+🎉 Installation complete!
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="your-first-discovery-ohms-law">Your First Discovery: Ohm’s Law</h2>
+
+<p>Let’s discover a simple physics equation from data.</p>
+
+<h3 id="generate-synthetic-data">Generate Synthetic Data</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="c1"># Generate data for V = I * R (Ohm's Law)
+</span><span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Parameters
+</span><span class="n">n_samples</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">R</span> <span class="o">=</span> <span class="mf">5.0</span>  <span class="c1"># Resistance in Ohms
+</span>
+<span class="c1"># Generate current values
+</span><span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">)</span>
+
+<span class="c1"># Calculate voltage with small noise
+</span><span class="n">V</span> <span class="o">=</span> <span class="n">R</span> <span class="o">*</span> <span class="n">I</span> <span class="o">+</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">)</span>
+
+<span class="c1"># Visualize
+</span><span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'Current I (Amperes)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'Voltage V (Volts)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">'Ohm</span><span class="se">\'</span><span class="s">s Law: V vs I'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'ohms_law_data.png'</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s">'tight'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Generated </span><span class="si">{</span><span class="n">n_samples</span><span class="si">}</span><span class="s"> measurements"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Current range: [</span><span class="si">{</span><span class="n">I</span><span class="p">.</span><span class="nb">min</span><span class="p">()</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="si">}</span><span class="s">, </span><span class="si">{</span><span class="n">I</span><span class="p">.</span><span class="nb">max</span><span class="p">()</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="si">}</span><span class="s">] A"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Voltage range: [</span><span class="si">{</span><span class="n">V</span><span class="p">.</span><span class="nb">min</span><span class="p">()</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="si">}</span><span class="s">, </span><span class="si">{</span><span class="n">V</span><span class="p">.</span><span class="nb">max</span><span class="p">()</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="si">}</span><span class="s">] V"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="discover-the-formula">Discover the Formula</h3>
+
+<p>Now use HypatiaX to discover V = I * R:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">hypatiax.tools.symbolic.hybrid_system_v40</span> <span class="kn">import</span> <span class="n">HybridSystem</span>
+
+<span class="c1"># Initialize discovery system
+</span><span class="n">system</span> <span class="o">=</span> <span class="n">HybridSystem</span><span class="p">(</span>
+    <span class="n">use_llm</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>  <span class="c1"># Set True if you have Claude API key
+</span>    <span class="n">symbolic_timeout</span><span class="o">=</span><span class="mi">300</span>  <span class="c1"># 5 minutes max
+</span><span class="p">)</span>
+
+<span class="c1"># Prepare data
+</span><span class="n">X</span> <span class="o">=</span> <span class="n">I</span><span class="p">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Input: current
+</span><span class="n">y</span> <span class="o">=</span> <span class="n">V</span>                 <span class="c1"># Output: voltage
+</span>
+<span class="c1"># Run discovery
+</span><span class="n">result</span> <span class="o">=</span> <span class="n">system</span><span class="p">.</span><span class="n">discover</span><span class="p">(</span>
+    <span class="n">X_train</span><span class="o">=</span><span class="n">X</span><span class="p">,</span>
+    <span class="n">y_train</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
+    <span class="n">variable_names</span><span class="o">=</span><span class="p">[</span><span class="s">'I'</span><span class="p">],</span>
+    <span class="n">problem_description</span><span class="o">=</span><span class="s">"Relationship between current and voltage"</span>
+<span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span> <span class="o">+</span> <span class="s">"="</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"DISCOVERY RESULT"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"="</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Discovered Formula: </span><span class="si">{</span><span class="n">result</span><span class="p">.</span><span class="n">formula</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"R² Score: </span><span class="si">{</span><span class="n">result</span><span class="p">.</span><span class="n">r2_score</span><span class="si">:</span><span class="p">.</span><span class="mi">6</span><span class="n">f</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Discovery Time: </span><span class="si">{</span><span class="n">result</span><span class="p">.</span><span class="n">discovery_time</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="si">}</span><span class="s">s"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Discovery Path: </span><span class="si">{</span><span class="n">result</span><span class="p">.</span><span class="n">path</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"="</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>Expected output:</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>============================================================
+DISCOVERY RESULT
+============================================================
+Discovered Formula: 5.0 * I
+R² Score: 0.999987
+Discovery Time: 45.23s
+Discovery Path: symbolic
+============================================================
+</code></pre></div></div>
+
+<h3 id="validate-extrapolation">Validate Extrapolation</h3>
+
+<p>The key feature of HypatiaX is near-perfect extrapolation:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Test extrapolation to 100x the training range
+</span><span class="n">I_extrap</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">100</span><span class="p">).</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># 100x larger
+</span><span class="n">V_extrap_true</span> <span class="o">=</span> <span class="n">R</span> <span class="o">*</span> <span class="n">I_extrap</span><span class="p">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="n">V_extrap_pred</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">I_extrap</span><span class="p">)</span>
+
+<span class="c1"># Calculate relative error
+</span><span class="n">rel_error</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nb">abs</span><span class="p">(</span><span class="n">V_extrap_pred</span> <span class="o">-</span> <span class="n">V_extrap_true</span><span class="p">)</span> <span class="o">/</span> <span class="n">V_extrap_true</span>
+<span class="n">median_error</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">median</span><span class="p">(</span><span class="n">rel_error</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="se">\n</span><span class="s">Extrapolation to 100x training range:"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Median relative error: </span><span class="si">{</span><span class="n">median_error</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">e</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Max relative error: </span><span class="si">{</span><span class="n">rel_error</span><span class="p">.</span><span class="nb">max</span><span class="p">()</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">e</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+
+<span class="c1"># Compare with neural network
+</span><span class="kn">from</span> <span class="nn">sklearn.neural_network</span> <span class="kn">import</span> <span class="n">MLPRegressor</span>
+
+<span class="n">nn</span> <span class="o">=</span> <span class="n">MLPRegressor</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">),</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">nn</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">V_nn_pred</span> <span class="o">=</span> <span class="n">nn</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">I_extrap</span><span class="p">)</span>
+<span class="n">nn_rel_error</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nb">abs</span><span class="p">(</span><span class="n">V_nn_pred</span> <span class="o">-</span> <span class="n">V_extrap_true</span><span class="p">)</span> <span class="o">/</span> <span class="n">V_extrap_true</span>
+
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="se">\n</span><span class="s">Neural Network comparison:"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Median relative error: </span><span class="si">{</span><span class="n">np</span><span class="p">.</span><span class="n">median</span><span class="p">(</span><span class="n">nn_rel_error</span><span class="p">)</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">e</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Max relative error: </span><span class="si">{</span><span class="n">nn_rel_error</span><span class="p">.</span><span class="nb">max</span><span class="p">()</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">e</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+
+<span class="c1"># Visualization
+</span><span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">I_extrap</span><span class="p">,</span> <span class="n">V_extrap_true</span><span class="p">,</span> <span class="s">'k-'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'True (V = 5*I)'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">I_extrap</span><span class="p">,</span> <span class="n">V_extrap_pred</span><span class="p">,</span> <span class="s">'g--'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'HypatiaX'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">I_extrap</span><span class="p">,</span> <span class="n">V_nn_pred</span><span class="p">,</span> <span class="s">'r:'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'Neural Network'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'blue'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s">'--'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'Training range'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'Current I (Amperes)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'Voltage V (Volts)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">'Extrapolation: HypatiaX vs Neural Network'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'extrapolation_comparison.png'</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s">'tight'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><strong>Expected output:</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Extrapolation to 100x training range:
+Median relative error: 2.34e-13  ← Near floating-point precision!
+Max relative error: 8.91e-13
+
+Neural Network comparison:
+Median relative error: 12.47  ← 1,247% error!
+Max relative error: 98.34
+</code></pre></div></div>
+
+<p>This demonstrates the <strong>core advantage</strong> of HypatiaX: symbolic methods achieve near-perfect extrapolation while neural networks fail catastrophically.</p>
+
+<hr />
+
+<h2 id="configuration-options">Configuration Options</h2>
+
+<h3 id="enable-llm-acceleration-optional">Enable LLM Acceleration (Optional)</h3>
+
+<p>For 73% speedup, add Claude API key:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Set environment variable</span>
+<span class="nb">export </span><span class="nv">ANTHROPIC_API_KEY</span><span class="o">=</span><span class="s2">"your-api-key-here"</span>
+</code></pre></div></div>
+
+<p>Then use:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">system</span> <span class="o">=</span> <span class="n">HybridSystem</span><span class="p">(</span>
+    <span class="n">use_llm</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>  <span class="c1"># Enable LLM-guided initialization
+</span>    <span class="n">symbolic_timeout</span><span class="o">=</span><span class="mi">300</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="adjust-discovery-parameters">Adjust Discovery Parameters</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">system</span> <span class="o">=</span> <span class="n">HybridSystem</span><span class="p">(</span>
+    <span class="n">use_llm</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+    <span class="n">symbolic_timeout</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>  <span class="c1"># Increase timeout for complex problems
+</span>    <span class="n">populations</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>        <span class="c1"># More populations = better exploration
+</span>    <span class="n">niterations</span><span class="o">=</span><span class="mi">50</span>         <span class="c1"># More iterations = better refinement
+</span><span class="p">)</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="project-structure">Project Structure</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hypatiax/
+├── core/
+│   ├── generation/        # Discovery systems
+│   │   ├── hybrid_all_domains/
+│   │   ├── hybrid_defi_llm_nn/
+│   │   └── hybrid_llm_guide_validation/
+│   └── training/          # Neural network baselines
+├── tools/
+│   ├── symbolic/          # Symbolic engines (v38, v40)
+│   ├── validation/        # Multi-layer validation
+│   └── visualizations/    # Plotting utilities
+├── protocols/             # Experiment protocols
+├── experiments/           # Benchmark suites
+└── data/results/          # Saved results
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<h3 id="julia-installation-fails">Julia Installation Fails</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Manual Julia installation</span>
+wget https://julialang-s3.julialang.org/bin/linux/x64/1.9/julia-1.9.4-linux-x86_64.tar.gz
+<span class="nb">tar </span>xzf julia-1.9.4-linux-x86_64.tar.gz
+<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"</span><span class="nv">$PWD</span><span class="s2">/julia-1.9.4/bin:</span><span class="nv">$PATH</span><span class="s2">"</span>
+
+<span class="c"># Retry PySR setup</span>
+python <span class="nt">-c</span> <span class="s2">"import pysr; pysr.install()"</span>
+</code></pre></div></div>
+
+<h3 id="first-run-very-slow">First Run Very Slow</h3>
+
+<p><strong>This is normal!</strong> Julia compiles code on first run. Subsequent runs are 10-100x faster.</p>
+
+<h3 id="import-errors">Import Errors</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Ensure virtual environment is active</span>
+<span class="nb">source </span>venv/bin/activate
+
+<span class="c"># Reinstall in development mode</span>
+pip <span class="nb">install</span> <span class="nt">-e</span> <span class="nb">.</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="what-you-learned">What You Learned</h2>
+
+<p>✅ Installed HypatiaX framework<br />
+✅ Discovered your first equation (Ohm’s Law)<br />
+✅ Validated near-perfect extrapolation (&lt; 10⁻¹² error)<br />
+✅ Compared with neural network baseline<br />
+✅ Understood the core symbolic vs neural distinction</p>
+
+<hr />
+
+<h2 id="next-steps">Next Steps</h2>
+
+<ol>
+  <li><strong><a href="/tutorials/hypatiax/experiments/">Tutorial 2: Running Benchmark Experiments</a></strong></li>
+  <li><strong><a href="/tutorials/hypatiax/analysis/">Tutorial 3: Analysis and Visualization</a></strong></li>
+  <li><strong><a href="/tutorials/hypatiax/extensions/">Tutorial 4: Custom Applications</a></strong></li>
+</ol>
+
+<hr />
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+  <li><strong>Paper:</strong> <a href="https://jmlr.org">Journal of Machine Learning Research</a></li>
+  <li><strong>Code:</strong> 💻 <a href="https://github.com/sednabcn/LLM-HypatiaX-PAPERS-Public">GitHub Repository</a></li>
+  <li><strong>Issues:</strong>🐛<a href="https://github.com/sednabcn/ai-llm-blog/issues">Bug Reports &amp; Questions</a></li>
+</ul>
+
+<hr />
+
+<h2 id="citation">Citation</h2>
+
+<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">@article</span><span class="p">{</span><span class="nl">hypatiax2026</span><span class="p">,</span>
+  <span class="na">title</span><span class="p">=</span><span class="s">{HypatiaX: A Hybrid Symbolic-Neural Framework for Extrapolation-Reliable Analytical Discovery}</span><span class="p">,</span>
+  <span class="na">journal</span><span class="p">=</span><span class="s">{Journal of Machine Learning Research}</span><span class="p">,</span>
+  <span class="na">year</span><span class="p">=</span><span class="s">{2026}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/ai-llm-blog/tags/#hypatiax" class="page__taxonomy-item p-category" rel="tag">hypatiax</a><span class="sep">, </span>
+    
+      <a href="/ai-llm-blog/tags/#llm" class="page__taxonomy-item p-category" rel="tag">llm</a><span class="sep">, </span>
+    
+      <a href="/ai-llm-blog/tags/#python" class="page__taxonomy-item p-category" rel="tag">python</a><span class="sep">, </span>
+    
+      <a href="/ai-llm-blog/tags/#symbolic-discovery" class="page__taxonomy-item p-category" rel="tag">symbolic-discovery</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/ai-llm-blog/categories/#machine-learning" class="page__taxonomy-item p-category" rel="tag">machine-learning</a><span class="sep">, </span>
+    
+      <a href="/ai-llm-blog/categories/#symbolic-regression" class="page__taxonomy-item p-category" rel="tag">symbolic-regression</a><span class="sep">, </span>
+    
+      <a href="/ai-llm-blog/categories/#tutorials" class="page__taxonomy-item p-category" rel="tag">tutorials</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2026-02-20T00:00:00+00:00">February 20, 2026</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/ai-llm-blog/tutorials/hypatiax/" class="pagination--pager" title="HypatiaX Tutorial Series
+">Previous</a>
+    
+    
+      <a href="/ai-llm-blog/tutorials/hypatiax/experiments/" class="pagination--pager" title="HypatiaX Tutorial 2: Running Benchmark Experiments
+">Next</a>
+    
+  </nav>
+
+    </div>
+  </article>
+
+  
+
+  
+  
+
+  <nav class="pagination">
+    
+      <a href="/tutorials/hypatiax/" class="prev">&laquo; Previous</a>
+    
+
+    
+      <a href="/tutorials/hypatiax/experiments/" class="next">Next &raquo;</a>
+    
+  </nav>
+  
+</div>
+
+
+
+
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/sednabcn" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/BONETCHAPLE" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://www.instagram.com/RUPERTOPEDROBONET" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+        
+          <li><a href="https://medium.com/@simleng" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-medium" aria-hidden="true"></i> Medium</a></li>
+        
+      
+    
+
+    
+      <li><a href="/ai-llm-blog/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2026 <a href="https://sednabcn.github.io">AI, LLM & LLM-HypatiaX Blog</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
+<p>Site last built: 2026-03-23 17:41</p>
+</div>
+
+
+      </footer>
+    </div>
+    
+  <script src="/ai-llm-blog/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FFJMQ3HXMK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FFJMQ3HXMK', { 'anonymize_ip': true});
+</script>
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>

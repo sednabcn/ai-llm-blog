@@ -82,4 +82,34 @@ var store = [{
         "tags": ["optimization","deployment","performance","efficiency"],
         "url": "/ai-llm-blog/tutorials/advanced-features/performance-optimization/",
         "teaser": null
+      },{
+        "title": "HypatiaX Tutorial Series",
+        "excerpt":"HypatiaX: LLM-Guided Symbolic Discovery Welcome to the complete HypatiaX tutorial series! Learn how to use hybrid LLM + symbolic regression to discover scientific equations from data with near-perfect extrapolation. 🎯 What is HypatiaX? HypatiaX is a groundbreaking framework that combines: Large Language Models (LLMs) for intelligent initialization Symbolic Regression for...","categories": [],
+        "tags": [],
+        "url": "/ai-llm-blog/tutorials/hypatiax/",
+        "teaser": null
+      },{
+        "title": "HypatiaX Tutorial 1: Environment Setup and First Discovery",
+        "excerpt":"HypatiaX Tutorial 1: Environment Setup and First Discovery Time: 15 minutes Difficulty: Beginner Next: Tutorial 2: Running Benchmark Experiments What is HypatiaX? HypatiaX is a hybrid framework that combines large language models (LLMs) with symbolic regression to discover scientific equations from data. Unlike neural networks that fail catastrophically at extrapolation,...","categories": ["machine-learning","tutorials","symbolic-regression"],
+        "tags": ["hypatiax","llm","symbolic-discovery","python"],
+        "url": "/ai-llm-blog/tutorials/hypatiax/setup/",
+        "teaser": null
+      },{
+        "title": "HypatiaX Tutorial 2: Running Benchmark Experiments",
+        "excerpt":"HypatiaX Tutorial 2: Running Benchmark Experiments Time: 45 minutes (active) + 3–8 hours (compute) Difficulty: Intermediate Previous: Tutorial 1: Environment Setup Next: Tutorial 3: Analysis and Visualization v2 Note (March 2026): A measurement bug in evaluate_llm_formula was corrected before paper submission (see sec:r2_bugfix in the paper). Use the --v2 flag...","categories": ["machine-learning","tutorials","symbolic-regression"],
+        "tags": ["hypatiax","benchmarks","reproducibility","experiments"],
+        "url": "/ai-llm-blog/tutorials/hypatiax/experiments/",
+        "teaser": null
+      },{
+        "title": "HypatiaX Tutorial 3: Statistical Analysis and Publication Figures",
+        "excerpt":"HypatiaX Tutorial 3: Statistical Analysis and Publication Figures Time: 45 minutes Difficulty: Intermediate Previous: Tutorial 2: Running Experiments Next: Tutorial 4: Custom Applications v2 Note (March 2026): A measurement bug in evaluate_llm_formula was corrected before final paper submission. The fix replaces a hardcoded absolute sum-of-squares threshold with a relative one...","categories": ["machine-learning","tutorials","visualization"],
+        "tags": ["hypatiax","analysis","statistics","figures"],
+        "url": "/ai-llm-blog/tutorials/hypatiax/analysis/",
+        "teaser": null
+      },{
+        "title": "HypatiaX Tutorial 4: Custom Applications and Extensions",
+        "excerpt":"HypatiaX Tutorial 4: Custom Applications and Extensions Time: 45 minutes Difficulty: Advanced Previous: Tutorial 3: Analysis and Visualization Overview This tutorial shows how to apply HypatiaX to your own scientific problems beyond the benchmark domains. What you’ll learn: ✅ Apply HypatiaX to custom datasets ✅ Discover equations in new domains...","categories": ["machine-learning","tutorials","applications"],
+        "tags": ["hypatiax","custom-domains","extensions","real-world"],
+        "url": "/ai-llm-blog/tutorials/hypatiax/extensions/",
+        "teaser": null
       }]

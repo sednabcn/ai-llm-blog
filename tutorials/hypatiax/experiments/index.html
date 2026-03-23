@@ -1,0 +1,1250 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en-US" class="no-js">
+  <head>
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>HypatiaX Tutorial 2: Running Benchmark Experiments | AI, LLM &amp; LLM-HypatiaX Blog</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="HypatiaX Tutorial 2: Running Benchmark Experiments" />
+<meta name="author" content="HypatiaX Team" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="HypatiaX Tutorial 2: Running Benchmark Experiments" />
+<meta property="og:description" content="HypatiaX Tutorial 2: Running Benchmark Experiments" />
+<link rel="canonical" href="https://sednabcn.github.io/ai-llm-blog/tutorials/hypatiax/experiments/" />
+<meta property="og:url" content="https://sednabcn.github.io/ai-llm-blog/tutorials/hypatiax/experiments/" />
+<meta property="og:site_name" content="AI, LLM &amp; LLM-HypatiaX Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-02-21T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="HypatiaX Tutorial 2: Running Benchmark Experiments" />
+<meta name="google-site-verification" content="0l5TbPYQ76ChPVEmXUclBOY04jLkGAAQAKAEm2a0j60" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"HypatiaX Team"},"dateModified":"2026-02-21T00:00:00+00:00","datePublished":"2026-02-21T00:00:00+00:00","description":"HypatiaX Tutorial 2: Running Benchmark Experiments","headline":"HypatiaX Tutorial 2: Running Benchmark Experiments","mainEntityOfPage":{"@type":"WebPage","@id":"https://sednabcn.github.io/ai-llm-blog/tutorials/hypatiax/experiments/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://sednabcn.github.io/ai-llm-blog/assets/images/logo.png"},"name":"HypatiaX Team"},"url":"https://sednabcn.github.io/ai-llm-blog/tutorials/hypatiax/experiments/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HypatiaX Tutorial 2: Running Benchmark Experiments</title>
+
+  <!-- SEO -->
+  <!-- begin _includes/seo.html --><title>HypatiaX Tutorial 2: Running Benchmark Experiments | AI, LLM &amp; LLM-HypatiaX Blog</title>
+<meta name="description" content="HypatiaX Tutorial 2: Running Benchmark Experiments">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="AI, LLM & LLM-HypatiaX Blog">
+<meta property="og:title" content="HypatiaX Tutorial 2: Running Benchmark Experiments">
+<meta property="og:url" content="https://sednabcn.github.io/ai-llm-blog/tutorials/hypatiax/experiments/">
+
+
+  <meta property="og:description" content="HypatiaX Tutorial 2: Running Benchmark Experiments">
+
+
+
+  <meta property="og:image" content="https://sednabcn.github.io/ai-llm-blog/assets/images/tutorials/hypatiax-experiments-banner.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2026-02-21T00:00:00+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://sednabcn.github.io/ai-llm-blog/tutorials/hypatiax/experiments/">
+
+
+
+
+
+
+
+  <meta name="google-site-verification" content="0l5TbPYQ76ChPVEmXUclBOY04jLkGAAQAKAEm2a0j60" />
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+  <!-- Atom Feed -->
+  
+    <link href="/ai-llm-blog/feed.xml" 
+          type="application/atom+xml" rel="alternate" title="AI, LLM & LLM-HypatiaX Blog Feed">
+  
+
+  <!-- Favicon -->
+  <link rel="icon" href="/ai-llm-blog/favicon-16x16.png" type="image/png">
+
+  <!-- JavaScript Detection -->
+  <script>
+    document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+    
+  </script>
+
+  <!-- Stylesheets -->
+  
+    <link rel="stylesheet" href="/ai-llm-blog/assets/css/main.css">
+  
+
+  
+  <!-- Stylesheets -->
+  
+    <link rel="stylesheet" href="/ai-llm-blog/assets/css/main-mobiles.css">
+  
+
+
+  <!-- Font Awesome (with performance optimization) -->
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" 
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css">
+  </noscript>
+
+  <!-- Google Site Verification -->
+  
+    <meta name="google-site-verification" content="0l5TbPYQ76ChPVEmXUclBOY04jLkGAAQAKAEm2a0j60">
+  
+
+  
+ 
+ <!-- Content Security Policy -->
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net/ https://www.googletagmanager.com/ https://www.google-analytics.com/ https://utteranc.es;
+  style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net/;
+  img-src 'self' data: *;
+  font-src 'self' https://cdn.jsdelivr.net/;
+  connect-src 'self' https://utteranc.es https://region1.google-analytics.com https://www.google-analytics.com;
+  frame-src 'self' https://utteranc.es;
+"> 
+  <!-- Custom Head Scripts -->
+  
+
+  <!-- Analytics (production only) -->
+  
+    
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FFJMQ3HXMK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FFJMQ3HXMK', { 'anonymize_ip': true});
+</script>
+
+
+
+
+  
+
+ <!-- Open Graph / Facebook -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://sednabcn.github.io/tutorials/hypatiax/experiments/">
+<meta property="og:title" content="HypatiaX Tutorial 2: Running Benchmark Experiments">
+<meta property="og:description" content="HypatiaX Tutorial 2: Running Benchmark Experiments
+
+">
+
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://sednabcn.github.io/tutorials/hypatiax/experiments/">
+<meta name="twitter:title" content="HypatiaX Tutorial 2: Running Benchmark Experiments">
+<meta name="twitter:description" content="HypatiaX Tutorial 2: Running Benchmark Experiments
+
+">
+
+
+</head>
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single inner-page header-image-readability" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/ai-llm-blog/"><img src="/ai-llm-blog/assets/images/logo.png" alt="SiMLeng"></a>
+        
+        <a class="site-title" href="/ai-llm-blog/">
+          SiMLeng
+          <span class="site-subtitle">Exploring generative AI in formula discovery</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/ai-llm-blog/"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/ai-llm-blog/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/ai-llm-blog/posts/"
+                
+                
+              >Posts</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/ai-llm-blog/tutorials/"
+                
+                
+              >Tutorials</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/ai-llm-blog/help/"
+                
+                
+              >Help</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+  
+
+
+
+
+
+
+
+<div class="page__hero--overlay"
+  style=" background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/ai-llm-blog/assets/images/tutorials/hypatiax-experiments-banner.png');"
+>
+  
+    <div class="wrapper">
+      <h1 id="page-title" class="page__title" itemprop="headline">
+        
+          HypatiaX Tutorial 2: Running Benchmark Experiments
+
+        
+      </h1>
+      
+     <span class="page__lead excerpt-inline"><h1 id="hypatiax-tutorial-2-running-benchmark-experiments">HypatiaX Tutorial 2: Running Benchmark Experiments</h1>
+
+</span>
+
+    <!--- <p class="page__lead" style="text-align: center;"><h1 id="hypatiax-tutorial-2-running-benchmark-experiments">HypatiaX Tutorial 2: Running Benchmark Experiments</h1>
+
+</p>--!>
+      
+      
+
+
+      
+    </div>
+  
+  
+    <span class="page__hero-caption">Reproduce the benchmark test suite from the JMLR paper — Core 15, DeFi 73-case, and Feynman SR
+</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://sednabcn.github.io/ai-llm-blog/" itemprop="url"></a>
+    </h3>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+        <li>
+          
+            <span class="nav__sub-title">Getting Started</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/ai-llm-blog/tutorials/setup/">Setup</a></li>
+            
+              <li><a href="/ai-llm-blog/tutorials/setup/python-setup/">Python Setup</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">HypatiaX</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/ai-llm-blog/tutorials/hypatiax/">Overview</a></li>
+            
+              <li><a href="/ai-llm-blog/tutorials/hypatiax/setup/">1. Setup</a></li>
+            
+              <li><a href="/ai-llm-blog/tutorials/hypatiax/experiments/" class="active">2. Experiments</a></li>
+            
+              <li><a href="/ai-llm-blog/tutorials/hypatiax/analysis/">3. Analysis</a></li>
+            
+              <li><a href="/ai-llm-blog/tutorials/hypatiax/extensions/">4. Extensions</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Advanced Features</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/ai-llm-blog/tutorials/advanced-features/">Overview</a></li>
+            
+          </ul>
+          
+        </li>
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <meta itemprop="headline" content="HypatiaX Tutorial 2: Running Benchmark Experiments">
+    
+    
+      <meta itemprop="description" content="HypatiaX Tutorial 2: Running Benchmark Experiments">
+    
+    
+      <meta itemprop="datePublished" content="2026-02-21T00:00:00+00:00">
+    
+    
+
+    <div class="page__inner-wrap">
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header>
+                <h4 class="nav__title">
+                  <i class="fas fa-cog"></i> Contents
+                </h4>
+              </header>
+              <ul class="toc__menu"><li><a href="#hypatiax-tutorial-2-running-benchmark-experiments">HypatiaX Tutorial 2: Running Benchmark Experiments</a><ul><li><a href="#overview">Overview</a></li><li><a href="#understanding-the-test-suite">Understanding the Test Suite</a><ul><li><a href="#five-experimental-campaigns-131-unique-tests">Five Experimental Campaigns (131 unique tests)</a></li><li><a href="#core-15-benchmark-domains">Core 15 Benchmark Domains</a></li></ul></li><li><a href="#campaign-a-core-15-benchmark">Campaign A: Core 15 Benchmark</a><ul><li><a href="#run-all-three-systems">Run All Three Systems</a></li><li><a href="#step-by-step-physics-domain">Step-by-Step: Physics Domain</a></li><li><a href="#sample-result-json">Sample Result JSON</a></li></ul></li><li><a href="#campaign-b-defi-extrapolation-benchmark-73-cases">Campaign B: DeFi Extrapolation Benchmark (73 Cases)</a><ul><li><a href="#key-design-decisions">Key design decisions</a></li><li><a href="#run-the-defi-extrapolation-benchmark">Run the DeFi extrapolation benchmark</a></li><li><a href="#python-run-a-single-defi-case">Python: run a single DeFi case</a></li><li><a href="#routing-improvements-summary">Routing improvements summary</a></li></ul></li><li><a href="#campaign-c-feynman-sr-benchmark">Campaign C: Feynman SR Benchmark</a><ul><li><a href="#run-phase-2-noisy-practical-threshold">Run Phase 2 (noisy, practical threshold)</a></li><li><a href="#run-phase-3-noiseless-literature-comparable-threshold">Run Phase 3 (noiseless, literature-comparable threshold)</a></li><li><a href="#python-load-and-display-feynman-results">Python: load and display Feynman results</a></li></ul></li><li><a href="#compare-all-three-benchmarks">Compare All Three Benchmarks</a></li><li><a href="#parallel-execution">Parallel Execution</a></li><li><a href="#checkpointing">Checkpointing</a></li><li><a href="#output-files">Output Files</a></li><li><a href="#reproducing-paper-statistics-exactly">Reproducing Paper Statistics Exactly</a></li><li><a href="#troubleshooting">Troubleshooting</a><ul><li><a href="#wrong-defi-numbers">Wrong DeFi numbers</a></li><li><a href="#feynman-run-very-slow-arrhenius-hanging">Feynman run very slow (Arrhenius hanging)</a></li><li><a href="#some-problems-fail">Some problems fail</a></li><li><a href="#discovery-times-too-slow">Discovery times too slow</a></li><li><a href="#out-of-memory">Out of memory</a></li></ul></li><li><a href="#quick-reference">Quick Reference</a></li><li><a href="#next-steps">Next Steps</a></li></ul></li></ul>
+            </nav>
+          </aside>
+        
+        <h1 id="hypatiax-tutorial-2-running-benchmark-experiments">HypatiaX Tutorial 2: Running Benchmark Experiments</h1>
+
+<p><strong>Time:</strong> 45 minutes (active) + 3–8 hours (compute)<br />
+<strong>Difficulty:</strong> Intermediate<br />
+<strong>Previous:</strong> <a href="/tutorials/hypatiax/setup/">Tutorial 1: Environment Setup</a><br />
+<strong>Next:</strong> <a href="/tutorials/hypatiax/analysis/">Tutorial 3: Analysis and Visualization</a></p>
+
+<blockquote>
+  <p><strong>v2 Note (March 2026):</strong> A measurement bug in <code class="language-plaintext highlighter-rouge">evaluate_llm_formula</code> was
+corrected before paper submission (see <code class="language-plaintext highlighter-rouge">sec:r2_bugfix</code> in the paper). Use
+the <code class="language-plaintext highlighter-rouge">--v2</code> flag on all benchmark commands below to ensure the corrected
+evaluation harness is used. Results generated before March 2026 should be
+regenerated.</p>
+</blockquote>
+
+<hr />
+
+<h2 id="overview">Overview</h2>
+
+<p>This tutorial reproduces the three benchmark evaluations from the JMLR paper:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Benchmark</th>
+      <th>Equations</th>
+      <th>Primary metric</th>
+      <th>Section</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Core 15</strong></td>
+      <td>15 across 4 domains</td>
+      <td>Extrapolation error (%)</td>
+      <td>§6.4</td>
+    </tr>
+    <tr>
+      <td><strong>DeFi Extrapolation</strong></td>
+      <td>73 test cases (66 standard)</td>
+      <td>R²&gt;0.99 at fixed n=66</td>
+      <td>§6.5</td>
+    </tr>
+    <tr>
+      <td><strong>Feynman SR</strong></td>
+      <td>30-equation subset</td>
+      <td>Recovery rate at R²&gt;0.9999</td>
+      <td>§5.8</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Key results to reproduce:</strong></p>
+<ul>
+  <li>Core 15: Hybrid v40 median extrapolation error &lt; 10⁻¹², Mann-Whitney U=0, p&lt;10⁻⁶</li>
+  <li>DeFi: Hybrid 72.7% vs Pure LLM 69.7% (honest n=66 denominator, post routing fixes)</li>
+  <li>Feynman: Hybrid DeFi 96.7% exact recovery, new state-of-the-art (+17.4 pp over AI Feynman)</li>
+</ul>
+
+<hr />
+
+<h2 id="understanding-the-test-suite">Understanding the Test Suite</h2>
+
+<h3 id="five-experimental-campaigns-131-unique-tests">Five Experimental Campaigns (131 unique tests)</h3>
+
+<p>The paper reports five campaigns totalling 131 unique test instances:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campaign</th>
+      <th>Method</th>
+      <th>Domain</th>
+      <th>n</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Pure LLM baseline</td>
+      <td>Classical science + DeFi</td>
+      <td>40*</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Pure symbolic (PySR)</td>
+      <td>Core 15 benchmark</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>LLM-guided hybrid</td>
+      <td>Core 15 benchmark</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>DeFi suite</td>
+      <td>Decentralized finance</td>
+      <td>23**</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Hybrid LLM+NN (v40)</td>
+      <td>All domains</td>
+      <td>30</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>* Campaign 1 comprises 20 classical science and 20 DeFi tests; 10 DeFi tests overlap with Campaign 4.<br />
+** 23 unique DeFi equations; the full DeFi extrapolation benchmark runs 73 test cases (difficulty variants + extrapolation splits) across them.</p>
+
+<h3 id="core-15-benchmark-domains">Core 15 Benchmark Domains</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Physics        (3 equations): kinetic energy, gravitational force, ideal gas law
+Chemistry      (3 equations): Arrhenius, Henderson-Hasselbalch, Michaelis-Menten
+Biology        (3 equations): logistic growth, allometric scaling, population dynamics
+DeFi AMM       (3 equations): constant product, price impact, liquidity depth
+DeFi Risk      (3 equations): Value-at-Risk, Expected Shortfall, portfolio variance
+</code></pre></div></div>
+
+<blockquote>
+  <p><strong>Note:</strong> Earlier documentation listed an “Economics” domain. The JMLR paper
+does not have a separate Economics campaign. The five domains are as listed above.</p>
+</blockquote>
+
+<hr />
+
+<h2 id="campaign-a-core-15-benchmark">Campaign A: Core 15 Benchmark</h2>
+
+<h3 id="run-all-three-systems">Run All Three Systems</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">source </span>venv/bin/activate
+
+python hypatiax/experiments/comparison/ultimate_comparative_suite_complete_.py <span class="se">\</span>
+    <span class="nt">--output</span> data/results/core15/ <span class="se">\</span>
+    <span class="nt">--domains</span> all <span class="se">\</span>
+    <span class="nt">--parallel</span> 4 <span class="se">\</span>
+    <span class="nt">--v2</span>
+</code></pre></div></div>
+
+<p><strong>Progress output:</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[2026-02-21 10:30:15] HypatiaX Benchmark Suite v2
+[2026-02-21 10:30:15] Total problems: 131 (unique)
+[2026-02-21 10:30:15] Evaluation harness: v2 (relative R² threshold)
+
+Domain: Physics (3 equations)
+  [1/3] mechanics_kinetic_energy .................. ✓ (45.2s, R²=0.9998)
+  ...
+
+FINAL RESULTS (Core 15)
+============================================================
+Hybrid v40 extrapolation: median &lt; 10⁻¹² (n=14)
+Neural Net extrapolation: mean 1231%, median 86.7% (n=13)
+Mann-Whitney U=0, p=1.11×10⁻⁶ (complete rank separation)
+</code></pre></div></div>
+
+<h3 id="step-by-step-physics-domain">Step-by-Step: Physics Domain</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">hypatiax.protocols</span> <span class="kn">import</span> <span class="n">experiment_protocol_all_30_v4</span>
+<span class="kn">from</span> <span class="nn">hypatiax.tools.symbolic.hybrid_system_v40</span> <span class="kn">import</span> <span class="n">HybridSystem</span>
+<span class="kn">import</span> <span class="nn">json</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="n">protocol</span> <span class="o">=</span> <span class="n">experiment_protocol_all_30_v4</span><span class="p">.</span><span class="n">ExperimentProtocol</span><span class="p">()</span>
+<span class="n">problems</span> <span class="o">=</span> <span class="n">protocol</span><span class="p">.</span><span class="n">get_core15_problems</span><span class="p">()</span>
+
+<span class="n">system</span> <span class="o">=</span> <span class="n">HybridSystem</span><span class="p">(</span><span class="n">use_llm</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">symbolic_timeout</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">problem</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">problems</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="se">\n</span><span class="s">[</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s">/</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">problems</span><span class="p">)</span><span class="si">}</span><span class="s">] </span><span class="si">{</span><span class="n">problem</span><span class="p">[</span><span class="s">'name'</span><span class="p">]</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+    <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span>   <span class="o">=</span> <span class="n">problem</span><span class="p">[</span><span class="s">'generate_data'</span><span class="p">](</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">regime</span><span class="o">=</span><span class="s">'train'</span><span class="p">)</span>
+    <span class="n">X_test</span><span class="p">,</span>  <span class="n">y_test</span>    <span class="o">=</span> <span class="n">problem</span><span class="p">[</span><span class="s">'generate_data'</span><span class="p">](</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>  <span class="n">regime</span><span class="o">=</span><span class="s">'test'</span><span class="p">)</span>
+    <span class="n">X_extrap</span><span class="p">,</span> <span class="n">y_extrap</span> <span class="o">=</span> <span class="n">problem</span><span class="p">[</span><span class="s">'generate_data'</span><span class="p">](</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>  <span class="n">regime</span><span class="o">=</span><span class="s">'extrapolation'</span><span class="p">)</span>
+
+    <span class="n">t0</span>     <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">system</span><span class="p">.</span><span class="n">discover</span><span class="p">(</span>
+        <span class="n">X_train</span><span class="o">=</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span>
+        <span class="n">X_test</span><span class="o">=</span><span class="n">X_test</span><span class="p">,</span>   <span class="n">y_test</span><span class="o">=</span><span class="n">y_test</span><span class="p">,</span>
+        <span class="n">variable_names</span><span class="o">=</span><span class="n">problem</span><span class="p">[</span><span class="s">'variables'</span><span class="p">],</span>
+        <span class="n">problem_description</span><span class="o">=</span><span class="n">problem</span><span class="p">[</span><span class="s">'description'</span><span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="n">y_pred</span>  <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_extrap</span><span class="p">)</span>
+    <span class="n">extrap</span>  <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">median</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="nb">abs</span><span class="p">(</span><span class="n">y_pred</span> <span class="o">-</span> <span class="n">y_extrap</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="p">.</span><span class="nb">abs</span><span class="p">(</span><span class="n">y_extrap</span><span class="p">))</span>
+
+    <span class="n">results</span><span class="p">.</span><span class="n">append</span><span class="p">({</span>
+        <span class="s">'problem'</span><span class="p">:</span> <span class="n">problem</span><span class="p">[</span><span class="s">'name'</span><span class="p">],</span> <span class="s">'formula'</span><span class="p">:</span> <span class="n">result</span><span class="p">.</span><span class="n">formula</span><span class="p">,</span>
+        <span class="s">'r2_test'</span><span class="p">:</span> <span class="n">result</span><span class="p">.</span><span class="n">r2_score</span><span class="p">,</span> <span class="s">'extrapolation_error'</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">extrap</span><span class="p">),</span>
+        <span class="s">'time'</span><span class="p">:</span> <span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t0</span><span class="p">,</span> <span class="s">'success'</span><span class="p">:</span> <span class="n">result</span><span class="p">.</span><span class="n">r2_score</span> <span class="o">&gt;=</span> <span class="mf">0.90</span>
+    <span class="p">})</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"  </span><span class="si">{</span><span class="s">'✓'</span> <span class="k">if</span> <span class="n">results</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s">'success'</span><span class="p">]</span> <span class="k">else</span> <span class="s">'✗'</span><span class="si">}</span><span class="s"> "</span>
+          <span class="sa">f</span><span class="s">"R²=</span><span class="si">{</span><span class="n">result</span><span class="p">.</span><span class="n">r2_score</span><span class="si">:</span><span class="p">.</span><span class="mi">4</span><span class="n">f</span><span class="si">}</span><span class="s">  extrap=</span><span class="si">{</span><span class="n">extrap</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">e</span><span class="si">}</span><span class="s">  </span><span class="si">{</span><span class="n">results</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s">'time'</span><span class="p">]</span><span class="si">:</span><span class="p">.</span><span class="mi">1</span><span class="n">f</span><span class="si">}</span><span class="s">s"</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'data/results/core15_results.json'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">json</span><span class="p">.</span><span class="n">dump</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="sample-result-json">Sample Result JSON</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"problem_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chemistry_arrhenius_equation"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"chemistry"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"discovered_formula"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A * exp(-Ea / (R * T))"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"true_formula"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A * exp(-Ea / (R * T))"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"exact_match"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"r2_train"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9999</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"r2_test"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9995</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"extrapolation_error"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.7e-13</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"discovery_time"</span><span class="p">:</span><span class="w"> </span><span class="mf">127.3</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"discovery_path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"symbolic"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"validation_passed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<h2 id="campaign-b-defi-extrapolation-benchmark-73-cases">Campaign B: DeFi Extrapolation Benchmark (73 Cases)</h2>
+
+<p>This campaign is distinct from the Core 15 benchmark. Each test case splits
+data so the <strong>test set lies outside the training feature range</strong>, directly
+probing extrapolation ability. The benchmark includes difficulty variants
+and is run across all three methods.</p>
+
+<h3 id="key-design-decisions">Key design decisions</h3>
+
+<ul>
+  <li><strong>Denominator:</strong> Use fixed n=66 standard cases for all cross-method comparisons.
+7 cases are flagged <code class="language-plaintext highlighter-rouge">extrapolation_intractable</code> (implicit solving, degenerate splits)
+and excluded.</li>
+  <li><strong>NaN policy:</strong> NaN results (formula execution failures) count as failures,
+not missing data.</li>
+  <li><strong>Routing improvements:</strong> Fixes 0–5 are applied before running; they improve
+the Hybrid from 66.2% to 72.7% R²&gt;0.99.</li>
+</ul>
+
+<h3 id="run-the-defi-extrapolation-benchmark">Run the DeFi extrapolation benchmark</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python hypatiax/experiments/benchmarks/run_defi_extrapolation_benchmark.py <span class="se">\</span>
+    <span class="nt">--output</span> data/results/defi_extrap/ <span class="se">\</span>
+    <span class="nt">--v2</span> <span class="se">\</span>
+    <span class="nt">--fixed-denominator</span> 66 <span class="se">\</span>
+    <span class="nt">--nan-penalty</span>      <span class="c"># NaN = failure (honest metric)</span>
+</code></pre></div></div>
+
+<p><strong>Expected output:</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DeFi Extrapolation Benchmark (v2, n=66 fixed denominator)
+==========================================================
+Hybrid  R²&gt;0.99 : 48/66 = 72.7%   ← beats Pure LLM!
+Pure LLM R²&gt;0.99: 46/66 = 69.7%
+Neural Net R²&gt;0.99: 1/66 = 1.5%
+Catastrophic failures (R²&lt;-10): Hybrid=1, LLM=4, NN=6
+</code></pre></div></div>
+
+<h3 id="python-run-a-single-defi-case">Python: run a single DeFi case</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">hypatiax.protocols</span> <span class="kn">import</span> <span class="n">experiment_protocol_defi_20</span>
+<span class="kn">from</span> <span class="nn">hypatiax.experiments.tests.test_enhanced_defi_extrapolation</span> <span class="kn">import</span> <span class="n">EnhancedExtrapolationTest</span>
+
+<span class="n">protocol</span> <span class="o">=</span> <span class="n">experiment_protocol_defi_20</span><span class="p">.</span><span class="n">ExperimentProtocol</span><span class="p">()</span>
+<span class="c1"># Load standard cases only (exclude intractable)
+</span><span class="n">problems</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">protocol</span><span class="p">.</span><span class="n">get_defi_problems</span><span class="p">()</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">p</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'extrapolation_intractable'</span><span class="p">,</span> <span class="bp">False</span><span class="p">)]</span>
+
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Standard cases: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">problems</span><span class="p">)</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>   <span class="c1"># 66
+</span>
+<span class="n">tester</span>  <span class="o">=</span> <span class="n">EnhancedExtrapolationTest</span><span class="p">(</span><span class="n">enable_routing_fixes</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>  <span class="c1"># Fixes 0-5 active
+</span><span class="n">results</span> <span class="o">=</span> <span class="n">tester</span><span class="p">.</span><span class="n">run_all</span><span class="p">(</span><span class="n">problems</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">'llm'</span><span class="p">,</span> <span class="s">'hybrid'</span><span class="p">,</span> <span class="s">'nn'</span><span class="p">])</span>
+
+<span class="c1"># Honest denominator summary
+</span><span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="p">[</span><span class="s">'llm'</span><span class="p">,</span> <span class="s">'hybrid'</span><span class="p">,</span> <span class="s">'nn'</span><span class="p">]:</span>
+    <span class="n">method_results</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span> <span class="k">if</span> <span class="n">r</span><span class="p">[</span><span class="s">'method'</span><span class="p">]</span> <span class="o">==</span> <span class="n">method</span><span class="p">]</span>
+    <span class="n">passes</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">method_results</span>
+                 <span class="k">if</span> <span class="n">r</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'r2_test'</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">r</span><span class="p">[</span><span class="s">'r2_test'</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mf">0.99</span><span class="p">)</span>
+    <span class="n">nans</span>   <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">method_results</span> <span class="k">if</span> <span class="n">r</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'r2_test'</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">method</span><span class="p">.</span><span class="n">upper</span><span class="p">()</span><span class="si">:</span><span class="mi">10</span><span class="n">s</span><span class="si">}</span><span class="s">: </span><span class="si">{</span><span class="n">passes</span><span class="si">}</span><span class="s">/66 = </span><span class="si">{</span><span class="n">passes</span><span class="o">/</span><span class="mi">66</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="p">.</span><span class="mi">1</span><span class="n">f</span><span class="si">}</span><span class="s">%  "</span>
+          <span class="sa">f</span><span class="s">"(NaN failures: </span><span class="si">{</span><span class="n">nans</span><span class="si">}</span><span class="s">)"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="routing-improvements-summary">Routing improvements summary</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fix</th>
+      <th>Change</th>
+      <th>Measured gain</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Reserve Ratio / Spot Price: independent log-uniform sampling</td>
+      <td>+2 pp</td>
+    </tr>
+    <tr>
+      <td>0b</td>
+      <td>IL Breakeven flagged structurally intractable</td>
+      <td>+1 pp</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Extrapolation probe: ΔR²≥0.15 → route to LLM</td>
+      <td>+6 pp</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Transcendental token detection → route to LLM</td>
+      <td>+5 pp</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>LLM predictions as NN feature (X_aug)</td>
+      <td>+1 pp</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Distance-gated blend weight</td>
+      <td>+1 pp</td>
+    </tr>
+    <tr>
+      <td>5 (proj.)</td>
+      <td>Unified formula evaluator + routing guard</td>
+      <td>+3 pp (projected)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>See <code class="language-plaintext highlighter-rouge">sec:routing</code> in the paper and <a href="/tutorials/hypatiax/extensions/">Tutorial 4</a> for implementation details.</p>
+
+<hr />
+
+<h2 id="campaign-c-feynman-sr-benchmark">Campaign C: Feynman SR Benchmark</h2>
+
+<p>The paper evaluates on a 30-equation subset of the Feynman SR Benchmark
+(Udrescu &amp; Tegmark 2020), spanning Series I/II/III plus domain extensions
+in biology, chemistry, and electrochemistry.</p>
+
+<h3 id="run-phase-2-noisy-practical-threshold">Run Phase 2 (noisy, practical threshold)</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python run_comparative_suite_benchmark_v2.py <span class="se">\</span>
+    <span class="nt">--methods</span> 1 <span class="se">\</span>
+    <span class="nt">--samples</span> 200 <span class="se">\</span>
+    <span class="nt">--no-llm-cache</span> <span class="se">\</span>
+    <span class="nt">--v2</span>
+</code></pre></div></div>
+
+<h3 id="run-phase-3-noiseless-literature-comparable-threshold">Run Phase 3 (noiseless, literature-comparable threshold)</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python run_comparative_suite_benchmark_v2.py <span class="se">\</span>
+    <span class="nt">--noiseless</span> <span class="se">\</span>
+    <span class="nt">--threshold</span> 0.9999 <span class="se">\</span>
+    <span class="nt">--nn-seeds</span> 3 <span class="se">\</span>
+    <span class="nt">--samples</span> 200 <span class="se">\</span>
+    <span class="nt">--method-timeout</span> 900 <span class="se">\</span>
+    <span class="nt">--pysr-timeout</span> 900 <span class="se">\</span>
+    <span class="nt">--v2</span>
+</code></pre></div></div>
+
+<p><strong>Expected output (Phase 3, v2 corrected):</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Feynman SR Benchmark — Phase 3 (noiseless, R²&gt;0.9999)
+======================================================
+Hybrid DeFi   :  29/30 = 96.7%  ← NEW STATE-OF-THE-ART
+Hybrid v40    :  27/30 = 90.0%  (+10.7 pp over AI Feynman)
+Symbolic+LLM  :  26/30 = 86.7%
+Hybrid LLM+NN :  26/30 = 86.7%
+Neural Net    :  17/30 = 56.7%
+
+Published baselines:
+  AI Feynman   : 79.3%
+  NeSymReS     : 59.4%
+  TPSR         : 56.0%
+  DSR          : 32.0%
+</code></pre></div></div>
+
+<h3 id="python-load-and-display-feynman-results">Python: load and display Feynman results</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">hypatiax.protocols.experiment_protocol_benchmark_v2</span> <span class="kn">import</span> <span class="n">BenchmarkProtocol</span>
+
+<span class="n">protocol</span> <span class="o">=</span> <span class="n">BenchmarkProtocol</span><span class="p">(</span>
+    <span class="n">benchmark</span><span class="o">=</span><span class="s">'feynman'</span><span class="p">,</span>
+    <span class="n">num_samples</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">noiseless</span><span class="o">=</span><span class="bp">True</span>   <span class="c1"># Phase 3
+</span><span class="p">)</span>
+
+<span class="n">equations</span> <span class="o">=</span> <span class="n">protocol</span><span class="p">.</span><span class="n">get_feynman_equations</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Feynman subset: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">equations</span><span class="p">)</span><span class="si">}</span><span class="s"> equations"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Series I: </span><span class="si">{</span><span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">equations</span> <span class="k">if</span> <span class="n">e</span><span class="p">.</span><span class="n">series</span> <span class="o">==</span> <span class="s">'I'</span><span class="p">)</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Series II: </span><span class="si">{</span><span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">equations</span> <span class="k">if</span> <span class="n">e</span><span class="p">.</span><span class="n">series</span> <span class="o">==</span> <span class="s">'II'</span><span class="p">)</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Crossover (domain extensions): "</span>
+      <span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">equations</span> <span class="k">if</span> <span class="n">e</span><span class="p">.</span><span class="n">series</span> <span class="o">==</span> <span class="s">'crossover'</span><span class="p">)</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+
+<span class="n">BenchmarkProtocol</span><span class="p">.</span><span class="n">describe</span><span class="p">()</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="compare-all-three-benchmarks">Compare All Three Benchmarks</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+
+<span class="n">summary</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Core 15 — Hybrid v40 extrapolation'</span><span class="p">:</span>
+        <span class="p">{</span><span class="s">'metric'</span><span class="p">:</span> <span class="s">'Median extrap error'</span><span class="p">,</span> <span class="s">'value'</span><span class="p">:</span> <span class="s">'&lt; 10⁻¹²'</span><span class="p">,</span> <span class="s">'vs_baseline'</span><span class="p">:</span> <span class="s">'NN: 1231%'</span><span class="p">},</span>
+    <span class="s">'Core 15 — Mann-Whitney U'</span><span class="p">:</span>
+        <span class="p">{</span><span class="s">'metric'</span><span class="p">:</span> <span class="s">'U statistic'</span><span class="p">,</span> <span class="s">'value'</span><span class="p">:</span> <span class="s">'0 (complete separation)'</span><span class="p">,</span> <span class="s">'vs_baseline'</span><span class="p">:</span> <span class="s">'p &lt; 10⁻⁶'</span><span class="p">},</span>
+    <span class="s">'DeFi 73 — Hybrid R²&gt;0.99 (honest denom)'</span><span class="p">:</span>
+        <span class="p">{</span><span class="s">'metric'</span><span class="p">:</span> <span class="s">'Recovery rate'</span><span class="p">,</span> <span class="s">'value'</span><span class="p">:</span> <span class="s">'72.7%'</span><span class="p">,</span> <span class="s">'vs_baseline'</span><span class="p">:</span> <span class="s">'LLM: 69.7%'</span><span class="p">},</span>
+    <span class="s">'Feynman — Hybrid DeFi recovery'</span><span class="p">:</span>
+        <span class="p">{</span><span class="s">'metric'</span><span class="p">:</span> <span class="s">'R²&gt;0.9999 exact recovery'</span><span class="p">,</span> <span class="s">'value'</span><span class="p">:</span> <span class="s">'96.7%'</span><span class="p">,</span> <span class="s">'vs_baseline'</span><span class="p">:</span> <span class="s">'AI Feynman: 79.3%'</span><span class="p">},</span>
+<span class="p">}</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">summary</span><span class="p">).</span><span class="n">T</span>
+<span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="p">.</span><span class="n">to_string</span><span class="p">())</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="parallel-execution">Parallel Execution</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span><span class="p">,</span> <span class="n">cpu_count</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+
+<span class="k">def</span> <span class="nf">run_single</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">system</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">system</span><span class="p">.</span><span class="n">discover</span><span class="p">(</span>
+        <span class="n">X_train</span><span class="o">=</span><span class="n">problem</span><span class="p">[</span><span class="s">'X_train'</span><span class="p">],</span> <span class="n">y_train</span><span class="o">=</span><span class="n">problem</span><span class="p">[</span><span class="s">'y_train'</span><span class="p">],</span>
+        <span class="n">X_test</span><span class="o">=</span><span class="n">problem</span><span class="p">[</span><span class="s">'X_test'</span><span class="p">],</span>   <span class="n">y_test</span><span class="o">=</span><span class="n">problem</span><span class="p">[</span><span class="s">'y_test'</span><span class="p">],</span>
+        <span class="n">variable_names</span><span class="o">=</span><span class="n">problem</span><span class="p">[</span><span class="s">'variables'</span><span class="p">]</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s">'problem'</span><span class="p">:</span> <span class="n">problem</span><span class="p">[</span><span class="s">'name'</span><span class="p">],</span> <span class="s">'r2'</span><span class="p">:</span> <span class="n">result</span><span class="p">.</span><span class="n">r2_score</span><span class="p">,</span>
+            <span class="s">'time'</span><span class="p">:</span> <span class="n">result</span><span class="p">.</span><span class="n">discovery_time</span><span class="p">}</span>
+
+<span class="n">n_cores</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">cpu_count</span><span class="p">())</span>
+<span class="n">system</span>  <span class="o">=</span> <span class="n">HybridSystem</span><span class="p">(</span><span class="n">use_llm</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">symbolic_timeout</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">Pool</span><span class="p">(</span><span class="n">n_cores</span><span class="p">)</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">pool</span><span class="p">.</span><span class="nb">map</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="n">run_single</span><span class="p">,</span> <span class="n">system</span><span class="o">=</span><span class="n">system</span><span class="p">),</span> <span class="n">all_problems</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Completed </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span><span class="si">}</span><span class="s"> problems on </span><span class="si">{</span><span class="n">n_cores</span><span class="si">}</span><span class="s"> cores"</span><span class="p">)</span>
+<span class="c1"># 1 core: ~8 hours | 4 cores: ~2.5 hours | 8 cores: ~1.5 hours
+</span></code></pre></div></div>
+
+<hr />
+
+<h2 id="checkpointing">Checkpointing</h2>
+
+<p>For long runs, enable checkpointing to resume if interrupted:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">hypatiax.experiments.benchmarks.run_hybrid_system_benchmark</span> <span class="kn">import</span> <span class="n">run_with_checkpoints</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">run_with_checkpoints</span><span class="p">(</span>
+    <span class="n">problems</span><span class="o">=</span><span class="n">all_problems</span><span class="p">,</span>
+    <span class="n">checkpoint_file</span><span class="o">=</span><span class="s">'data/results/checkpoint.json'</span><span class="p">,</span>
+    <span class="n">checkpoint_interval</span><span class="o">=</span><span class="mi">10</span>  <span class="c1"># Save every 10 problems
+</span><span class="p">)</span>
+
+<span class="c1"># Resume from checkpoint
+</span><span class="n">results</span> <span class="o">=</span> <span class="n">run_with_checkpoints</span><span class="p">(</span>
+    <span class="n">problems</span><span class="o">=</span><span class="n">all_problems</span><span class="p">,</span>
+    <span class="n">checkpoint_file</span><span class="o">=</span><span class="s">'data/results/checkpoint.json'</span><span class="p">,</span>
+    <span class="n">resume</span><span class="o">=</span><span class="bp">True</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="output-files">Output Files</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>data/results/
+├── core15/
+│   └── all_domains_extrap_v4_TIMESTAMP.json
+├── defi_extrap/
+│   ├── consolidated_hybrid_TIMESTAMP.json     ← n=66 honest denominator
+│   └── routing_fix_progression.json           ← per-fix gain tracking
+├── feynman/
+│   ├── protocol_core_noiseless_20260304_154510.json  ← Phase 3 results
+│   └── protocol_core_noisy_TIMESTAMP.json            ← Phase 2 results
+└── checkpoint.json
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="reproducing-paper-statistics-exactly">Reproducing Paper Statistics Exactly</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python hypatiax/experiments/comparison/ultimate_comparative_suite_complete_.py <span class="se">\</span>
+    <span class="nt">--seed</span> 42 <span class="se">\</span>
+    <span class="nt">--symbolic-timeout</span> 1800 <span class="se">\</span>
+    <span class="nt">--n-iterations</span> 50 <span class="se">\</span>
+    <span class="nt">--populations</span> 15 <span class="se">\</span>
+    <span class="nt">--output</span> data/results/paper_reproduction/ <span class="se">\</span>
+    <span class="nt">--v2</span>
+</code></pre></div></div>
+
+<p>Expected: success rate 95.8%, median extrapolation error &lt; 10⁻¹², Mann-Whitney U=0.</p>
+
+<hr />
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<h3 id="wrong-defi-numbers">Wrong DeFi numbers</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># WRONG: per-method NaN exclusion gives incomparable rates
+</span><span class="n">rate</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s">'method'</span><span class="p">]</span><span class="o">==</span><span class="s">'llm'</span><span class="p">][</span><span class="s">'r2_test'</span><span class="p">].</span><span class="n">dropna</span><span class="p">().</span><span class="n">gt</span><span class="p">(</span><span class="mf">0.99</span><span class="p">).</span><span class="n">mean</span><span class="p">()</span>  <span class="c1"># inflated!
+</span>
+<span class="c1"># CORRECT: fixed denominator, NaN = failure
+</span><span class="n">n_standard</span> <span class="o">=</span> <span class="mi">66</span>
+<span class="n">passes</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s">'method'</span><span class="p">]</span><span class="o">==</span><span class="s">'llm'</span><span class="p">][</span><span class="s">'r2_test'</span><span class="p">].</span><span class="n">gt</span><span class="p">(</span><span class="mf">0.99</span><span class="p">).</span><span class="nb">sum</span><span class="p">()</span>  <span class="c1"># NaN → False
+</span><span class="n">rate</span> <span class="o">=</span> <span class="n">passes</span> <span class="o">/</span> <span class="n">n_standard</span>
+</code></pre></div></div>
+
+<h3 id="feynman-run-very-slow-arrhenius-hanging">Feynman run very slow (Arrhenius hanging)</h3>
+
+<p>The Arrhenius equation (test 4) can cause Julia to hang if <code class="language-plaintext highlighter-rouge">--method-timeout</code>
+is not set before test 19. Always use <code class="language-plaintext highlighter-rouge">--method-timeout 900</code> for the full
+30-equation run.</p>
+
+<h3 id="some-problems-fail">Some problems fail</h3>
+
+<p>Expected. The Feynman benchmark shows Hybrid DeFi recovering 29/30 (96.7%);
+Snell’s law is a universal near-miss across all methods due to the arcsin∘sin
+composition. Check <code class="language-plaintext highlighter-rouge">data/results/feynman/</code> JSON for per-equation details.</p>
+
+<h3 id="discovery-times-too-slow">Discovery times too slow</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Reduce symbolic search time for testing
+</span><span class="n">system</span> <span class="o">=</span> <span class="n">HybridSystem</span><span class="p">(</span>
+    <span class="n">symbolic_timeout</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>  <span class="c1"># 5 minutes instead of 10
+</span>    <span class="n">niterations</span><span class="o">=</span><span class="mi">30</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="out-of-memory">Out of memory</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Run campaigns sequentially</span>
+python run_single_domain.py <span class="nt">--domain</span> physics
+python run_single_domain.py <span class="nt">--domain</span> biology
+python run_single_domain.py <span class="nt">--domain</span> defi
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="quick-reference">Quick Reference</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Full benchmark (v2)</span>
+python hypatiax/experiments/comparison/ultimate_comparative_suite_complete_.py <span class="nt">--v2</span>
+
+<span class="c"># DeFi benchmark only</span>
+python hypatiax/experiments/benchmarks/run_defi_extrapolation_benchmark.py <span class="nt">--v2</span> <span class="nt">--fixed-denominator</span> 66
+
+<span class="c"># Feynman benchmark (Phase 3)</span>
+python run_comparative_suite_benchmark_v2.py <span class="nt">--noiseless</span> <span class="nt">--threshold</span> 0.9999 <span class="nt">--method-timeout</span> 900 <span class="nt">--v2</span>
+
+<span class="c"># Resume interrupted run</span>
+python run_with_checkpoints.py <span class="nt">--resume</span>
+
+<span class="c"># Parallel execution (4 cores)</span>
+python run_parallel.py <span class="nt">--workers</span> 4
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="next-steps">Next Steps</h2>
+
+<p>✅ You’ve reproduced all three benchmark evaluations!</p>
+
+<ol>
+  <li><strong><a href="/tutorials/hypatiax/analysis/">Tutorial 3: Analysis and Visualization</a></strong> — generate publication figures</li>
+  <li><strong><a href="/tutorials/hypatiax/extensions/">Tutorial 4: Custom Applications</a></strong> — apply to your domain</li>
+</ol>
+
+<hr />
+
+<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">@article</span><span class="p">{</span><span class="nl">bonetchaple2026hypatiax</span><span class="p">,</span>
+  <span class="na">title</span><span class="p">=</span><span class="s">{Why Extrapolation Breaks Na{\"i}ve Analytical Discovery}</span><span class="p">,</span>
+  <span class="na">author</span><span class="p">=</span><span class="s">{Bonet Chaple, Ruperto Pedro}</span><span class="p">,</span>
+  <span class="na">journal</span><span class="p">=</span><span class="s">{Journal of Machine Learning Research}</span><span class="p">,</span>
+  <span class="na">year</span><span class="p">=</span><span class="s">{2026}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>Time:</strong> 45 minutes (active) + 3–8 hours (compute)<br />
+<strong>Difficulty:</strong> Intermediate<br />
+<strong>Next:</strong> <a href="/tutorials/hypatiax/analysis/">Tutorial 3: Analysis and Visualization</a></p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/ai-llm-blog/tags/#benchmarks" class="page__taxonomy-item p-category" rel="tag">benchmarks</a><span class="sep">, </span>
+    
+      <a href="/ai-llm-blog/tags/#experiments" class="page__taxonomy-item p-category" rel="tag">experiments</a><span class="sep">, </span>
+    
+      <a href="/ai-llm-blog/tags/#hypatiax" class="page__taxonomy-item p-category" rel="tag">hypatiax</a><span class="sep">, </span>
+    
+      <a href="/ai-llm-blog/tags/#reproducibility" class="page__taxonomy-item p-category" rel="tag">reproducibility</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/ai-llm-blog/categories/#machine-learning" class="page__taxonomy-item p-category" rel="tag">machine-learning</a><span class="sep">, </span>
+    
+      <a href="/ai-llm-blog/categories/#symbolic-regression" class="page__taxonomy-item p-category" rel="tag">symbolic-regression</a><span class="sep">, </span>
+    
+      <a href="/ai-llm-blog/categories/#tutorials" class="page__taxonomy-item p-category" rel="tag">tutorials</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2026-02-21T00:00:00+00:00">February 21, 2026</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/ai-llm-blog/tutorials/hypatiax/setup/" class="pagination--pager" title="HypatiaX Tutorial 1: Environment Setup and First Discovery
+">Previous</a>
+    
+    
+      <a href="/ai-llm-blog/tutorials/hypatiax/analysis/" class="pagination--pager" title="HypatiaX Tutorial 3: Statistical Analysis and Publication Figures
+">Next</a>
+    
+  </nav>
+
+    </div>
+  </article>
+
+  
+
+  
+  
+
+  <nav class="pagination">
+    
+      <a href="/tutorials/hypatiax/setup/" class="prev">&laquo; Previous</a>
+    
+
+    
+      <a href="/tutorials/hypatiax/analysis/" class="next">Next &raquo;</a>
+    
+  </nav>
+  
+</div>
+
+
+
+
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/sednabcn" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/ruperto-p-bonet-chaple-8a26651b/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+        
+          <li><a href="https://twitter.com/BONETCHAPLE" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://www.instagram.com/RUPERTOPEDROBONET" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+        
+          <li><a href="https://medium.com/@simleng" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-medium" aria-hidden="true"></i> Medium</a></li>
+        
+      
+    
+
+    
+      <li><a href="/ai-llm-blog/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2026 <a href="https://sednabcn.github.io">AI, LLM & LLM-HypatiaX Blog</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
+<p>Site last built: 2026-03-23 17:41</p>
+</div>
+
+
+      </footer>
+    </div>
+    
+  <script src="/ai-llm-blog/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FFJMQ3HXMK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FFJMQ3HXMK', { 'anonymize_ip': true});
+</script>
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
