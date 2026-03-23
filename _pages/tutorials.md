@@ -7,8 +7,8 @@ collection: tutorials
 entries_layout: grid
 classes:
    -wide
-   -inner-page
-   -header-image-readability
+   - inner-page
+   - header-image-readability
 author_profile: true
 sort_by: date
 sort_order: reverse
@@ -33,7 +33,6 @@ Welcome to our comprehensive collection of AI and LLM tutorials. Whether you're 
 Explore in-depth tutorials designed to make complex AI and data science topics approachable. Whether you're a beginner or an advanced user, our guides—written by researchers and practitioners—walk you through real-world applications, best practices, and the latest techniques.
 
 
-
 ## Getting Started
 
 Explore our core tutorials to help you make the most of our resources:
@@ -49,6 +48,22 @@ Explore our core tutorials to help you make the most of our resources:
 
 - [Ethical Considerations]({{ site.baseurl }}/tutorials/ethical-considerations/)  
   Understand the ethical implications of AI and LLM development.
+
+## HypatiaX Tutorial Series
+
+A step-by-step guide to discovering scientific equations from data using hybrid LLM + symbolic regression:
+
+- [Tutorial 1: Environment Setup and First Discovery]({{ site.baseurl }}/tutorials/hypatiax/setup/)  
+  Install HypatiaX and discover your first equation in under 15 minutes.
+
+- [Tutorial 2: Running Benchmark Experiments]({{ site.baseurl }}/tutorials/hypatiax/experiments/)  
+  Reproduce the 131-equation benchmark test suite from the JMLR paper.
+
+- [Tutorial 3: Statistical Analysis and Publication Figures]({{ site.baseurl }}/tutorials/hypatiax/analysis/)  
+  Generate publication-quality figures and reproduce statistical analyses.
+
+- [Tutorial 4: Custom Applications and Extensions]({{ site.baseurl }}/tutorials/hypatiax/extensions/)  
+  Apply HypatiaX to your own scientific problems and extend the framework.
 
 ## Future Tutorial Roadmap
 

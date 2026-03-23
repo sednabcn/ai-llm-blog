@@ -9,3 +9,29 @@ main:
     url: /tutorials/
   - title: "Help"
     url: /help/
+
+tutorials:
+  - title: "Getting Started"
+    children:
+      - title: "Setup"
+        url: /tutorials/setup/
+      - title: "Python Setup"
+        url: /tutorials/setup/python-setup/
+  
+  - title: "HypatiaX" 
+    children:
+      - title: "Overview"
+        url: /tutorials/hypatiax/
+      - title: "1. Setup"
+        url: /tutorials/hypatiax/setup/
+      - title: "2. Experiments"
+        url: /tutorials/hypatiax/experiments/
+      - title: "3. Analysis"
+        url: /tutorials/hypatiax/analysis/
+      - title: "4. Extensions"
+        url: /tutorials/hypatiax/extensions/
+  
+  - title: "Advanced Features"
+    children:
+      - title: "Overview"
+        url: /tutorials/advanced-features/
