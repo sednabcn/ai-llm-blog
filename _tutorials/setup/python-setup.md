@@ -99,7 +99,7 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 ### AMD GPU Setup
 ```bash
 # For ROCm support
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm5.6
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm6.3
 ```
 
 ## IDE Setup

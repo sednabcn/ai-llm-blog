@@ -156,7 +156,7 @@ For AMD GPUs, use ROCm:
 
 2. **Install PyTorch with ROCm support:**
    ```
-   pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm5.4.2
+   pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm6.3
    ```
 
 ## IDE Setup
