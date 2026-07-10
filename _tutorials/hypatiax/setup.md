@@ -33,10 +33,12 @@ tags: [hypatiax, llm, symbolic-discovery, python]
 HypatiaX is a hybrid framework that combines large language models (LLMs) with symbolic regression to discover scientific equations from data. Unlike neural networks that fail catastrophically at extrapolation, HypatiaX achieves near-perfect extrapolation (median error < 10⁻¹² relative) through symbolic discovery.
 
 **Key results from JMLR paper:**
-- 95.8% success rate on 131 scientific equations
-- Median extrapolation error < 10⁻¹² (limited by floating-point precision)
-- Mean discovery time: 390 seconds per equation
+- 89.2% near-perfect success rate (R²>0.99) on 74 DeFi tasks — +27 pp over pure LLM (62.2%)
+- Median extrapolation error < 10⁻¹² (limited by floating-point precision, Core-15 benchmark)
+- 1.73× median speedup on LLM-routed cases (68 of 74 tasks)
 - Complete statistical separation from neural network methods (Mann-Whitney U=0, p<10⁻⁶)
+
+> **v2 Note (March 2026):** A bug in the `evaluate_llm_formula` measurement harness was corrected before final paper submission. When you proceed to Tutorial 2, use the `--v2` flag on all benchmark commands. Results generated before March 2026 must be regenerated. See [Tutorial 2: Running Benchmark Experiments](/tutorials/hypatiax/experiments/) for full details.
 
 ---
 
@@ -46,7 +48,7 @@ You'll need:
 - **Python 3.8+** 
 - **Git** for cloning the repository
 - **4GB RAM** minimum
-- **Optional:** Anthropic API key for LLM-guided acceleration (73% speedup)
+- **Optional:** Anthropic API key for LLM-guided acceleration (1.73× median speedup on LLM-routed cases, 68 of 74 tasks)
 
 Verify Python version:
 ```bash
@@ -60,8 +62,8 @@ python --version  # Should show Python 3.8.x or higher
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/sednabcn/LLM-HypatiaX-PAPERS-Public.git
-cd papers/2025-JMLR/hypatiax
+git clone https://github.com/sednabcn/LLM-HypatiaX-REPRO.git
+cd LLM-HypatiaX-REPRO
 ```
 
 ### Step 2: Create Virtual Environment
@@ -179,7 +181,7 @@ print(f"Voltage range: [{V.min():.2f}, {V.max():.2f}] V")
 Now use HypatiaX to discover V = I * R:
 
 ```python
-from hypatiax.tools.symbolic.hybrid_system_v40 import HybridSystem
+from hypatiax.tools.symbolic.hybrid_system_v50_2 import HybridSystem
 
 # Initialize discovery system
 system = HybridSystem(
@@ -273,9 +275,11 @@ Median relative error: 2.34e-13  ← Near floating-point precision!
 Max relative error: 8.91e-13
 
 Neural Network comparison:
-Median relative error: 12.47  ← 1,247% error!
+Median relative error: 12.47  ← 1,247% error on this single equation!
 Max relative error: 98.34
 ```
+
+> **Note:** The neural network error of 12.47× (1,247%) above is the result for this single Ohm's Law example. The cross-benchmark mean NN error across all 131 equations is 1,231% — consistent, but not the same number. See [Tutorial 2](/tutorials/hypatiax/experiments/) for the full benchmark statistics.
 
 This demonstrates the **core advantage** of HypatiaX: symbolic methods achieve near-perfect extrapolation while neural networks fail catastrophically.
 
@@ -285,7 +289,7 @@ This demonstrates the **core advantage** of HypatiaX: symbolic methods achieve n
 
 ### Enable LLM Acceleration (Optional)
 
-For 73% speedup, add Claude API key:
+For 1.73× median speedup on LLM-routed cases (68 of 74 tasks), add Claude API key:
 
 ```bash
 # Set environment variable
@@ -307,7 +311,8 @@ system = HybridSystem(
     use_llm=False,
     symbolic_timeout=600,  # Increase timeout for complex problems
     populations=15,        # More populations = better exploration
-    niterations=50         # More iterations = better refinement
+    niterations=50,        # More iterations = better refinement
+    complexity_penalty=0.01  # Penalise overly complex equations (default 0.001)
 )
 ```
 
@@ -315,22 +320,42 @@ system = HybridSystem(
 
 ## Project Structure
 
+The reproducibility repository (`LLM-HypatiaX-REPRO`) layout:
+
 ```
-hypatiax/
-├── core/
-│   ├── generation/        # Discovery systems
-│   │   ├── hybrid_all_domains/
-│   │   ├── hybrid_defi_llm_nn/
-│   │   └── hybrid_llm_guide_validation/
-│   └── training/          # Neural network baselines
-├── tools/
-│   ├── symbolic/          # Symbolic engines (v38, v40)
-│   ├── validation/        # Multi-layer validation
-│   └── visualizations/    # Plotting utilities
-├── protocols/             # Experiment protocols
-├── experiments/           # Benchmark suites
-└── data/results/          # Saved results
+LLM-HypatiaX-REPRO/
+├── hypatiax/
+│   ├── core/
+│   │   ├── generation/            # Discovery systems
+│   │   │   ├── hybrid_all_domains/
+│   │   │   ├── hybrid_all_domains_llm_nn/
+│   │   │   ├── hybrid_defi_llm_guided/
+│   │   │   └── hybrid_defi_system/
+│   │   └── training/              # Neural network baselines
+│   ├── experiments/
+│   │   ├── benchmarks/            # Campaign scripts (v2, v3c, Feynman, etc.)
+│   │   └── tests/                 # Enhanced extrapolation tests
+│   ├── protocols/                 # Experiment protocol definitions
+│   ├── reproducibility/           # hash_lock.py — result fingerprinting
+│   └── tools/
+│       ├── symbolic/              # hybrid_system_v50_2.py, symbolic_engine.py
+│       ├── validation/            # domain_validator.py, dimensional_validator.py
+│       └── visualizations/        # plot_results.py
+├── scripts/
+│   ├── generate_figures.py        # Reproduce all paper figures
+│   ├── generate_tables.py         # Reproduce all paper tables
+│   └── patches/                   # Patch management and audit tools
+├── config/
+│   └── repro.yaml                 # Central config (seeds, paths, timeouts)
+├── docs/
+│   └── architecture.md
+├── run_all_checkpoint.py          # Full pipeline with resume/verify support
+├── run_all.sh                     # Bash pipeline runner
+├── requirements.txt
+└── Makefile
 ```
+
+> **Benchmark domains:** The JMLR paper evaluates four benchmark domains — **Physics**, **Biology/Chemistry**, **DeFi AMM**, and **DeFi Risk**. There is no separate Economics domain in the paper. Earlier draft documentation listed one; that has since been corrected.
 
 ---
 
@@ -385,7 +410,7 @@ pip install -e .
 ## Resources
 
 - **Paper:** [Journal of Machine Learning Research](https://jmlr.org)
-- **Code:** 💻 [GitHub Repository](https://github.com/sednabcn/LLM-HypatiaX-PAPERS-Public)
+- **Code:** 💻 [GitHub Repository](https://github.com/sednabcn/LLM-HypatiaX-REPRO)
 - **Issues:**🐛[Bug Reports & Questions](https://github.com/sednabcn/ai-llm-blog/issues)
 
 ---
@@ -393,9 +418,12 @@ pip install -e .
 ## Citation
 
 ```bibtex
-@article{hypatiax2026,
+@article{bonetchaple2026hypatiax,
   title={HypatiaX: A Hybrid Symbolic-Neural Framework for Extrapolation-Reliable Analytical Discovery},
+  author={Bonet Chaple, Ruperto Pedro},
   journal={Journal of Machine Learning Research},
-  year={2026}
+  year={2026},
+  volume={27},
+  pages={1--47}
 }
 ```

@@ -51,8 +51,8 @@ This tutorial reproduces all figures and statistical analyses from the JMLR pape
 - ✅ **Figure 9** (`fig:five_systems_comparison`): Five-system unified comparison
 
 ### DeFi Extrapolation Benchmark (Figures 11–13, new in v2)
-- ✅ **Figure 11** (`fig:train_vs_test_73`): Train R² vs Test R² scatter (73 cases)
-- ✅ **Figure 12** (`fig:radar_73`): Method comparison radar (73 cases)
+- ✅ **Figure 11** (`fig:train_vs_test_74`): Train R² vs Test R² scatter (74 cases)
+- ✅ **Figure 12** (`fig:radar_74`): Method comparison radar (74 cases)
 - ✅ **Figure 13** (`fig:effect_size_forest`): Effect size forest plot
 
 ### Statistical Tests
@@ -67,6 +67,21 @@ This tutorial reproduces all figures and statistical analyses from the JMLR pape
 > This tutorial covers the analytically generated figures;
 > architecture diagrams are in `figures/hybrid_architecture_three_systems.pdf`.
 
+**Output filename → paper figure number mapping:**
+
+| Output filename | Paper figure | Label |
+|---|---|---|
+| `figure1_arrhenius_extrapolation.pdf` | Figure 3 | `fig:arrhenius_extrapolation` |
+| `figure2_domain_comparison.pdf` | Figure 2 | `fig:domain_comparison` |
+| `figure3_validation_breakdown.pdf` | Figure 6 | `fig:validation_breakdown` |
+| `figure5_method_comparison.pdf` | Figure 7 | `fig:method_comparison` |
+| `figure_5systems_comparison.pdf` | Figure 9 | `fig:five_systems_comparison` |
+| `train_vs_test_74cases.png` | Figure 11 | `fig:train_vs_test_74` |
+| `radar_comparison_74cases.png` | Figure 12 | `fig:radar_74` |
+| `effect_size_forest.png` | Figure 13 | `fig:effect_size_forest` |
+
+> The output filenames use sequential numbering for the generated subset; the paper figure numbers include inline TikZ and architecture diagrams that are not regenerated here. When citing figures in a paper, use the paper figure numbers shown above.
+
 ---
 
 ## Prerequisites
@@ -79,7 +94,7 @@ Completed [Tutorial 2](/tutorials/hypatiax/experiments/) with results in `data/r
 
 ```bash
 # Generate all figures and tables (v2 corrected results required)
-python supplementaries/generate_figures/generate_figures.py \
+python scripts/generate_figures.py \
     --input data/results/to_generate_figures/ \
     --output figures/ \
     --v2  # Use v2 corrected evaluation harness
@@ -92,8 +107,8 @@ python supplementaries/generate_figures/generate_figures.py \
 # ✓ figure5_method_comparison.pdf
 # ✓ figure_5systems_comparison.pdf
 # ✓ figure_benchmark_comparison.pdf
-# ✓ train_vs_test_73cases.png        ← DeFi extrapolation
-# ✓ radar_comparison_73cases.png     ← DeFi extrapolation
+# ✓ train_vs_test_74cases.png        ← DeFi extrapolation
+# ✓ radar_comparison_74cases.png     ← DeFi extrapolation
 # ✓ effect_size_forest.png           ← DeFi effect size
 ```
 
@@ -129,15 +144,14 @@ with open(results_path) as f:
 df = pd.DataFrame(results['problems'])
 print(f"Loaded {len(df)} experimental results")
 
-# Load DeFi 73-case results (v2 corrected, honest n=66 denominator)
+# Load DeFi 74-case results (v3.0, fixed n=74 denominator)
 defi_path = Path('data/results/hybrid_llm_nn/defi/consolidated_hybrid_TIMESTAMP.json')
 with open(defi_path) as f:
     defi_results = json.load(f)
 
-# IMPORTANT: filter to standard cases only (exclude 7 intractable)
+# All 74 cases are tractable in v3.0 (0 intractable); no filtering needed.
 defi_df = pd.DataFrame(defi_results)
-defi_df = defi_df[defi_df['extrapolation_intractable'] != True].copy()
-print(f"DeFi standard cases: {len(defi_df)} (n=66 denominator)")
+print(f"DeFi cases: {len(defi_df)} (n=74 fixed denominator)")
 ```
 
 ---
@@ -245,6 +259,13 @@ print("✓ Saved Figure 2")
 
 Shows the multi-layer validation system (dimensional analysis, symbolic checks, extrapolation tests):
 
+> **Generated file note:** `systems_2_3_detailed.csv` is produced by the Campaign A / Core 15 benchmark run (Tutorial 2). It contains per-equation, per-validation-layer pass/fail flags for Campaigns 2 and 3 (pure symbolic and hybrid). Generate it by running:
+> ```bash
+> python hypatiax/experiments/benchmarks/run_comparative_suite_benchmark_v2.py \
+>     --output data/results/to_generate_figures/ --v2
+> ```
+> The file lands at `data/results/to_generate_figures/systems_2_3_detailed.csv` and includes columns: `dimensional_check`, `symbolic_check`, `statistical_check`, `extrapolation_check`, `ensemble_check`.
+
 ```python
 # Load validation data
 with open('data/results/to_generate_figures/systems_2_3_detailed.csv') as f:
@@ -340,7 +361,7 @@ plt.show()
 ## New DeFi Figures (v2)
 
 These three figures are new in the v2 paper and correspond to the DeFi
-extrapolation benchmark (73 standard cases, honest n=66 denominator).
+extrapolation benchmark (74 cases, fixed n=74 denominator, v3.0).
 
 ### Figure 11: Train R² vs Test R²
 
@@ -362,13 +383,13 @@ ax.axhline(0, color='gray', lw=0.8, linestyle=':')
 
 ax.set_xlabel('Train R²'); ax.set_ylabel('Test R² (clipped to [-10, 1])')
 ax.set_title('Train vs Test R² — DeFi Extrapolation Benchmark\n'
-             '(73 standard cases; test set outside training range)')
+             '(74 cases; test set outside training range)')
 ax.legend(); ax.grid(True, alpha=0.3)
 ax.set_xlim([-0.5, 1.05]); ax.set_ylim([-10.5, 1.05])
 
 plt.tight_layout()
-plt.savefig('figures/train_vs_test_73cases.png', dpi=150, bbox_inches='tight')
-print("✓ Saved Figure 11 (train_vs_test_73)")
+plt.savefig('figures/train_vs_test_74cases.png', dpi=150, bbox_inches='tight')
+print("✓ Saved Figure 11 (train_vs_test_74)")
 ```
 
 **What this shows:** Both LLM (blue) and NN (orange) have cases with train R² ≈ 1
@@ -405,11 +426,11 @@ for values, color, label in [(llm_m, '#3498db', 'LLM'),
 
 ax.set_xticks(angles[:-1]); ax.set_xticklabels(labels, fontsize=11)
 ax.set_ylim(0, 1); ax.legend(loc='upper right', bbox_to_anchor=(1.3, 1.1))
-ax.set_title('DeFi Extrapolation — Method Comparison (73 standard cases)', pad=20)
+ax.set_title('DeFi Extrapolation — Method Comparison (74 cases)', pad=20)
 
 plt.tight_layout()
-plt.savefig('figures/radar_comparison_73cases.png', dpi=150, bbox_inches='tight')
-print("✓ Saved Figure 12 (radar_73)")
+plt.savefig('figures/radar_comparison_74cases.png', dpi=150, bbox_inches='tight')
+print("✓ Saved Figure 12 (radar_74)")
 ```
 
 ### Figure 13: Effect Size Forest Plot
@@ -437,7 +458,7 @@ for _ in range(5000):
 ci_lo, ci_hi = np.percentile(d_boot, [2.5, 97.5])
 
 fig, ax = plt.subplots(figsize=(8, 3))
-ax.barh(['LLM vs NN\n(DeFi 73 cases)'], [d_defi],
+ax.barh(['LLM vs NN\n(DeFi 74 cases)'], [d_defi],
         xerr=[[d_defi - ci_lo], [ci_hi - d_defi]],
         color='#3498db', alpha=0.7, capsize=6, height=0.4)
 ax.axvline(0, color='black', lw=1)
@@ -509,33 +530,33 @@ print("   See paper Appendix (app:statistical_tests) for rank-biserial correlati
 > overestimate. The Mann-Whitney U = 0 (complete rank separation) is the
 > primary statistical claim.
 
-### DeFi 73-Case: Hybrid vs Pure LLM (honest denominator)
+### DeFi 74-Case: Hybrid vs Pure LLM (honest denominator)
 
 ```python
-# Honest fixed denominator: n=66 standard cases, NaN = failure
+# Fixed denominator: n=74 (all cases tractable), NaN = failure
 llm_pass   = (defi_df[defi_df['method']=='llm']['r2_test']   >= 0.99).sum()
 hybrid_pass= (defi_df[defi_df['method']=='hybrid']['r2_test'] >= 0.99).sum()
-n_standard = 66   # fixed denominator
+n_standard = 74   # fixed denominator (v3.0, all cases tractable)
 
-print("\nDeFi Extrapolation Benchmark (honest n=66 denominator):")
-print(f"  Hybrid R²>0.99: {hybrid_pass}/{n_standard} = {hybrid_pass/n_standard*100:.1f}%")
-print(f"  LLM    R²>0.99: {llm_pass}/{n_standard}    = {llm_pass/n_standard*100:.1f}%")
-print(f"  Hybrid advantage: +{hybrid_pass - llm_pass} pp")
+print("\nDeFi Extrapolation Benchmark (v3.0, n=74 denominator):")
+print(f"  HypatiaX R²>0.99: {hybrid_pass}/{n_standard} = {hybrid_pass/n_standard*100:.1f}%")
+print(f"  LLM      R²>0.99: {llm_pass}/{n_standard}    = {llm_pass/n_standard*100:.1f}%")
+print(f"  HypatiaX advantage: +{hybrid_pass - llm_pass} pp")
 ```
 
 **Expected output:**
 ```
-DeFi Extrapolation Benchmark (honest n=66 denominator):
-  Hybrid R²>0.99: 48/66 = 72.7%
-  LLM    R²>0.99: 46/66 = 69.7%
-  Hybrid advantage: +3 pp
+DeFi Extrapolation Benchmark (v3.0, n=74 denominator):
+  HypatiaX R²>0.99: 66/74 = 89.2%
+  LLM      R²>0.99: 46/74 = 62.2%
+  HypatiaX advantage: +27 pp
 ```
 
 > **Note on denominators:** Raw benchmark output uses per-method denominators
 > (LLM n=55, Hybrid n=62, with NaN excluded per method). These figures —
 > 83.6% and 77.4% — **are not comparable across methods** because NaN
 > represents a genuine formula failure, not missing data. Always use the
-> fixed n=66 denominator for cross-method comparisons.
+> fixed n=74 denominator for cross-method comparisons.
 
 ### Paper Claims Verification
 
@@ -545,15 +566,15 @@ print("PAPER CLAIMS VERIFICATION (v2 corrected)")
 print("=" * 60)
 
 claims = {
-    "Hybrid extrapolation: median error < 10⁻¹² (Core 15)":
+    "HypatiaX extrapolation: median error < 10⁻¹² (Core 15)":
         np.median(symbolic_errors) < 1e-12,
-    "Mann-Whitney U = 0 (Core 15, Hybrid vs NN)":
+    "Mann-Whitney U = 0 (Core 15, HypatiaX vs NN)":
         u_stat == 0,
     "p-value < 10⁻⁶ (Core 15)":
         p_value < 1e-6,
-    "Hybrid beats LLM on DeFi (72.7% vs 69.7%, honest denom)":
+    "HypatiaX beats LLM on DeFi (89.2% vs 62.2%, n=74)":
         hybrid_pass > llm_pass,
-    "Feynman: Hybrid DeFi 96.7% at R²>0.9999 (noiseless)":
+    "Feynman: HypatiaX 30.0% (9/30, aggressive protocol)":
         True,  # See Feynman benchmark results (Section 5.8)
 }
 
@@ -563,51 +584,51 @@ for claim, verified in claims.items():
 
 **Expected output:**
 ```
-✓  Hybrid extrapolation: median error < 10⁻¹² (Core 15)
-✓  Mann-Whitney U = 0 (Core 15, Hybrid vs NN)
+✓  HypatiaX extrapolation: median error < 10⁻¹² (Core 15)
+✓  Mann-Whitney U = 0 (Core 15, HypatiaX vs NN)
 ✓  p-value < 10⁻⁶ (Core 15)
-✓  Hybrid beats LLM on DeFi (72.7% vs 69.7%, honest denom)
-✓  Feynman: Hybrid DeFi 96.7% at R²>0.9999 (noiseless)
+✓  HypatiaX beats LLM on DeFi (89.2% vs 62.2%, n=74)
+✓  Feynman: HypatiaX 30.0% (9/30, aggressive protocol)
 ```
 
 ---
 
 ## Feynman Benchmark Figures
 
-The paper's Section 5.8 reports a separate 30-equation Feynman SR evaluation.
-Key aggregate figure (Table `tab:feynman_noiseless` in the paper):
+The paper's Section 5.8 reports a separate 30-equation Feynman SR evaluation
+under an aggressive PCA-directed extrapolation protocol (5× training range).
 
 ```python
-# Feynman noiseless benchmark results (v2 corrected, R²>0.9999)
+# Feynman benchmark results (v3.0, aggressive PCA-directed extrapolation protocol)
 feynman_results = {
-    'Hybrid DeFi':   {'recovery_pct': 96.7, 'median_r2': 1.0000},
-    'Hybrid v40':    {'recovery_pct': 90.0, 'median_r2': 1.0000},
-    'Symbolic+LLM':  {'recovery_pct': 86.7, 'median_r2': 1.0000},
-    'Hybrid LLM+NN': {'recovery_pct': 86.7, 'median_r2': 1.0000},
-    'AI Feynman':    {'recovery_pct': 79.3, 'median_r2': None},     # published baseline
-    'NeSymReS':      {'recovery_pct': 59.4, 'median_r2': None},
-    'TPSR':          {'recovery_pct': 56.0, 'median_r2': None},
-    'Neural Net':    {'recovery_pct': 56.7, 'median_r2': 0.9993},
-    'DSR':           {'recovery_pct': 32.0, 'median_r2': None},
+    'HypatiaX':      {'recovery_pct': 30.0, 'median_r2': 1.0000},   # 9/30
+    'Symbolic only': {'recovery_pct': 26.7, 'median_r2': 1.0000},   # 8/30
+    'Neural Net':    {'recovery_pct': 16.7, 'median_r2': 0.9993},   # 5/30
+    'AI Feynman 2.0':{'recovery_pct': 30.0, 'median_r2': None},     # published baseline (equiv. conditions)
 }
 
-fig, ax = plt.subplots(figsize=(10, 5))
+fig, ax = plt.subplots(figsize=(10, 4))
 names   = list(feynman_results.keys())
 rates   = [feynman_results[n]['recovery_pct'] for n in names]
 colors  = ['#2ecc71' if feynman_results[n]['median_r2'] is not None
            else '#95a5a6' for n in names]
 
 bars = ax.barh(names[::-1], rates[::-1], color=colors[::-1], alpha=0.8)
-ax.axvline(79.3, color='red', ls='--', lw=1.5, label='AI Feynman (prior SotA)')
-ax.set_xlabel('Recovery Rate (%, R²>0.9999, noiseless)')
+ax.axvline(30.0, color='red', ls='--', lw=1.5, label='AI Feynman 2.0 (equivalent conditions)')
+ax.set_xlabel('Recovery Rate (%, R²>0.9999, aggressive PCA-directed protocol)')
 ax.set_title('Feynman SR Benchmark — Recovery Rates\n'
              '(green = HypatiaX / neural net; grey = published baselines)')
 ax.legend(); ax.grid(True, alpha=0.3, axis='x')
 plt.tight_layout()
 plt.savefig('figures/feynman_recovery_rates.png', dpi=150, bbox_inches='tight')
 print("✓ Saved Feynman recovery rate figure")
-print(f"  HypatiaX Hybrid DeFi: 96.7% (+17.4 pp over AI Feynman)")
+print(f"  HypatiaX: 9/30 = 30.0% (comparable to AI Feynman 2.0 under equivalent conditions)")
 ```
+
+> **Note on protocol:** The 30.0% rate reflects the aggressive PCA-directed extrapolation
+> protocol used in the paper. Results are hardware-sensitive (see paper Appendix B).
+> The prior tutorials' 96.7% figure was based on a different (relaxed) evaluation
+> protocol and has been superseded by the v3.0 paper results.
 
 ---
 
@@ -652,7 +673,7 @@ print(latex_table)
 
 ```bibtex
 @article{bonetchaple2026hypatiax,
-  title={Why Extrapolation Breaks Na{\"i}ve Analytical Discovery},
+  title={HypatiaX: A Hybrid Symbolic-Neural Framework for Extrapolation-Reliable Analytical Discovery},
   author={Bonet Chaple, Ruperto Pedro},
   journal={Journal of Machine Learning Research},
   year={2026}

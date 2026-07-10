@@ -11,7 +11,7 @@ author: HypatiaX Team
 header:
   overlay_image: /assets/images/tutorials/hypatiax-experiments-banner.png
   overlay_filter: 0.5
-  caption: "Reproduce the benchmark test suite from the JMLR paper — Core 15, DeFi 73-case, and Feynman SR"
+  caption: "Reproduce the benchmark test suite from the JMLR paper — Core 15, DeFi 74-case, and Feynman SR"
 sidebar:
   nav: "tutorials"
 toc: true
@@ -43,13 +43,70 @@ This tutorial reproduces the three benchmark evaluations from the JMLR paper:
 | Benchmark | Equations | Primary metric | Section |
 |---|---|---|---|
 | **Core 15** | 15 across 4 domains | Extrapolation error (%) | §6.4 |
-| **DeFi Extrapolation** | 73 test cases (66 standard) | R²>0.99 at fixed n=66 | §6.5 |
+| **DeFi Extrapolation** | 74 test cases | R²>0.99 at fixed n=74 | §6.5 |
 | **Feynman SR** | 30-equation subset | Recovery rate at R²>0.9999 | §5.8 |
 
 **Key results to reproduce:**
-- Core 15: Hybrid v40 median extrapolation error < 10⁻¹², Mann-Whitney U=0, p<10⁻⁶
-- DeFi: Hybrid 72.7% vs Pure LLM 69.7% (honest n=66 denominator, post routing fixes)
-- Feynman: Hybrid DeFi 96.7% exact recovery, new state-of-the-art (+17.4 pp over AI Feynman)
+- Core 15: HypatiaX median extrapolation error < 10⁻¹², Mann-Whitney U=0, p<10⁻⁶
+- DeFi: HypatiaX 89.2% R²>0.99 vs Pure LLM 62.2% (fixed n=74 denominator, post routing fixes)
+- Feynman: HypatiaX 9/30 (30.0%) under aggressive PCA-directed extrapolation protocol, comparable to AI Feynman 2.0
+
+---
+
+## Reproducibility Repository
+
+All experiments run from the dedicated reproducibility repo:
+
+```bash
+git clone https://github.com/sednabcn/LLM-HypatiaX-REPRO.git
+cd LLM-HypatiaX-REPRO
+pip install -r requirements.txt
+```
+
+### Full pipeline (recommended)
+
+The full pipeline is driven by `run_all.sh`, a single bash script that runs
+every step end-to-end (environment check → benchmarks → tables/figures →
+validation → audit). There is no separate `run_all_checkpoint.py` — that
+script does not exist in this repo. Steps are selected with `--step` /
+`--from`, or a bare step name:
+
+```bash
+# Full pipeline — every step, in order
+bash run_all.sh
+
+# Resume from a given step onward (e.g. after an interruption during exp2)
+bash run_all.sh --from exp2
+
+# Run a single step only (e.g. DeFi benchmark)
+bash run_all.sh --step exp1b
+# equivalently, as a bare argument:
+bash run_all.sh exp1b
+
+# Preview what a run would execute, without running anything
+bash run_all.sh --dry-run
+```
+
+**Pipeline step IDs** (use with `--step` or `--from`):
+
+```
+env_check  exp1  exp1b  exp1_ablation  exp1_pca  exp1b_pca  extrap
+hybrid_all_domains  instability  exp2_feynman  exp2_feynman_pca_4060
+exp2_feynman_extrap  exp2  exp3  exp3b  suppA  suppB  suppB_sc
+tables  figures  validate  qualify  audit_paper  audit_setup
+audit_nb01  audit_nb02  audit_nb03  audit_nb04  audit_nb05
+audit_nb06_fixc3_disclosure  audit_nb06_fixc3_rerun  audit_guard
+audit_print_verify  audit_print_findings  audit_figures_tables
+audit_final_gate
+```
+
+Note: `run_all.sh` has no `--one-equation` smoke-test flag or `--verify-only`
+flag. For a quick sanity check, use `--dry-run` to preview a run without
+executing it; to check existing results without re-running benchmarks, use
+`--step validate` or `--step qualify`.
+| Phase 5 | `qualify` `audit_paper` |
+
+Central configuration (seeds, paths, timeouts) lives in `config/repro.yaml`.
 
 ---
 
@@ -68,7 +125,7 @@ The paper reports five campaigns totalling 131 unique test instances:
 | 5 | Hybrid LLM+NN (v40) | All domains | 30 |
 
 \* Campaign 1 comprises 20 classical science and 20 DeFi tests; 10 DeFi tests overlap with Campaign 4.  
-\*\* 23 unique DeFi equations; the full DeFi extrapolation benchmark runs 73 test cases (difficulty variants + extrapolation splits) across them.
+\*\* 23 unique DeFi equations; the full DeFi extrapolation benchmark runs **74 test cases** (difficulty variants + extrapolation splits) across them.
 
 ### Core 15 Benchmark Domains
 
@@ -92,7 +149,7 @@ DeFi Risk      (3 equations): Value-at-Risk, Expected Shortfall, portfolio varia
 ```bash
 source venv/bin/activate
 
-python hypatiax/experiments/comparison/ultimate_comparative_suite_complete_.py \
+python hypatiax/experiments/benchmarks/run_comparative_suite_benchmark_v2.py \
     --output data/results/core15/ \
     --domains all \
     --parallel 4 \
@@ -119,11 +176,11 @@ Mann-Whitney U=0, p=1.11×10⁻⁶ (complete rank separation)
 ### Step-by-Step: Physics Domain
 
 ```python
-from hypatiax.protocols import experiment_protocol_all_30_v4
-from hypatiax.tools.symbolic.hybrid_system_v40 import HybridSystem
+from hypatiax.protocols import experiment_protocol_all_30
+from hypatiax.tools.symbolic.hybrid_system_v50_2 import HybridSystem
 import json, time, numpy as np
 
-protocol = experiment_protocol_all_30_v4.ExperimentProtocol()
+protocol = experiment_protocol_all_30.ExperimentProtocol()
 problems = protocol.get_core15_problems()
 
 system = HybridSystem(use_llm=False, symbolic_timeout=600)
@@ -179,7 +236,7 @@ with open('data/results/core15_results.json', 'w') as f:
 
 ---
 
-## Campaign B: DeFi Extrapolation Benchmark (73 Cases)
+## Campaign B: DeFi Extrapolation Benchmark (74 Cases)
 
 This campaign is distinct from the Core 15 benchmark. Each test case splits
 data so the **test set lies outside the training feature range**, directly
@@ -188,41 +245,40 @@ and is run across all three methods.
 
 ### Key design decisions
 
-- **Denominator:** Use fixed n=66 standard cases for all cross-method comparisons.
-  7 cases are flagged `extrapolation_intractable` (implicit solving, degenerate splits)
-  and excluded.
+- **Denominator:** Use fixed n=74 for all cross-method comparisons (v3.0 benchmark).
+  All 74 cases are tractable; 0 cases flagged `extrapolation_intractable`.
 - **NaN policy:** NaN results (formula execution failures) count as failures,
   not missing data.
 - **Routing improvements:** Fixes 0–5 are applied before running; they improve
-  the Hybrid from 66.2% to 72.7% R²>0.99.
+  the HypatiaX rate from ~62% to 89.2% R²>0.99.
 
 ### Run the DeFi extrapolation benchmark
 
 ```bash
-python hypatiax/experiments/benchmarks/run_defi_extrapolation_benchmark.py \
+python hypatiax/experiments/benchmarks/hypatiax_defi_benchmark_v3c.py \
     --output data/results/defi_extrap/ \
     --v2 \
-    --fixed-denominator 66 \
+    --fixed-denominator 74 \
     --nan-penalty      # NaN = failure (honest metric)
 ```
 
 **Expected output:**
 ```
-DeFi Extrapolation Benchmark (v2, n=66 fixed denominator)
-==========================================================
-Hybrid  R²>0.99 : 48/66 = 72.7%   ← beats Pure LLM!
-Pure LLM R²>0.99: 46/66 = 69.7%
-Neural Net R²>0.99: 1/66 = 1.5%
-Catastrophic failures (R²<-10): Hybrid=1, LLM=4, NN=6
+DeFi Extrapolation Benchmark (v3.0, n=74 fixed denominator)
+=============================================================
+HypatiaX  R²>0.99 : 66/74 = 89.2%   ← beats Pure LLM by 27 pp!
+Pure LLM  R²>0.99 : 46/74 = 62.2%
+Neural Net R²>0.99 :  0/74 =  0.0%
+Catastrophic failures (R²<-10): HypatiaX=0, LLM=6, NN=N/A
 ```
 
 ### Python: run a single DeFi case
 
 ```python
-from hypatiax.protocols import experiment_protocol_defi_20
+from hypatiax.protocols import experiment_protocol_defi
 from hypatiax.experiments.tests.test_enhanced_defi_extrapolation import EnhancedExtrapolationTest
 
-protocol = experiment_protocol_defi_20.ExperimentProtocol()
+protocol = experiment_protocol_defi.ExperimentProtocol()
 # Load standard cases only (exclude intractable)
 problems = [p for p in protocol.get_defi_problems()
             if not p.get('extrapolation_intractable', False)]
@@ -267,17 +323,17 @@ in biology, chemistry, and electrochemistry.
 ### Run Phase 2 (noisy, practical threshold)
 
 ```bash
-python run_comparative_suite_benchmark_v2.py \
+python hypatiax/experiments/benchmarks/run_comparative_suite_benchmark_v2.py \
     --methods 1 \
     --samples 200 \
-    --no-llm-cache \
+    --no-llm-cache \   # Disable LLM prompt cache; use this for fresh reproducibility runs
     --v2
 ```
 
 ### Run Phase 3 (noiseless, literature-comparable threshold)
 
 ```bash
-python run_comparative_suite_benchmark_v2.py \
+python hypatiax/experiments/benchmarks/run_comparative_suite_benchmark_v2.py \
     --noiseless \
     --threshold 0.9999 \
     --nn-seeds 3 \
@@ -289,20 +345,21 @@ python run_comparative_suite_benchmark_v2.py \
 
 **Expected output (Phase 3, v2 corrected):**
 ```
-Feynman SR Benchmark — Phase 3 (noiseless, R²>0.9999)
-======================================================
-Hybrid DeFi   :  29/30 = 96.7%  ← NEW STATE-OF-THE-ART
-Hybrid v40    :  27/30 = 90.0%  (+10.7 pp over AI Feynman)
-Symbolic+LLM  :  26/30 = 86.7%
-Hybrid LLM+NN :  26/30 = 86.7%
-Neural Net    :  17/30 = 56.7%
+Feynman SR Benchmark — Phase 3 (noiseless, aggressive PCA-directed extrapolation)
+==================================================================================
+HypatiaX      :   9/30 = 30.0%  (comparable to AI Feynman 2.0)
+Symbolic only :   8/30 = 26.7%
+Neural Net    :   5/30 = 16.7%
 
-Published baselines:
-  AI Feynman   : 79.3%
-  NeSymReS     : 59.4%
-  TPSR         : 56.0%
-  DSR          : 32.0%
+Published baselines (under equivalent conditions):
+  AI Feynman 2.0 : ~30%
+  NeSymReS       : comparable
 ```
+
+> **Note:** The 30.0% rate reflects HypatiaX's aggressive PCA-directed extrapolation
+> protocol (5× training range). Performance under relaxed interpolation thresholds is
+> significantly higher. See paper §5.8 for protocol details and the hardware-sensitivity
+> note in Appendix B.
 
 ### Python: load and display Feynman results
 
@@ -333,14 +390,14 @@ BenchmarkProtocol.describe()
 import pandas as pd
 
 summary = {
-    'Core 15 — Hybrid v40 extrapolation':
-        {'metric': 'Median extrap error', 'value': '< 10⁻¹²', 'vs_baseline': 'NN: 1231%'},
+    'Core 15 — HypatiaX extrapolation':
+        {'metric': 'Median extrap error', 'value': '< 10⁻¹²', 'vs_baseline': 'NN mean: 1231%'},
     'Core 15 — Mann-Whitney U':
         {'metric': 'U statistic', 'value': '0 (complete separation)', 'vs_baseline': 'p < 10⁻⁶'},
-    'DeFi 73 — Hybrid R²>0.99 (honest denom)':
-        {'metric': 'Recovery rate', 'value': '72.7%', 'vs_baseline': 'LLM: 69.7%'},
-    'Feynman — Hybrid DeFi recovery':
-        {'metric': 'R²>0.9999 exact recovery', 'value': '96.7%', 'vs_baseline': 'AI Feynman: 79.3%'},
+    'DeFi 74 — HypatiaX R²>0.99 (n=74)':
+        {'metric': 'Recovery rate', 'value': '89.2%', 'vs_baseline': 'LLM: 62.2%'},
+    'Feynman — HypatiaX recovery (aggressive protocol)':
+        {'metric': 'R²>0.9999 exact recovery', 'value': '30.0%', 'vs_baseline': 'AI Feynman 2.0: ~30%'},
 }
 
 df = pd.DataFrame(summary).T
@@ -406,7 +463,7 @@ data/results/
 ├── core15/
 │   └── all_domains_extrap_v4_TIMESTAMP.json
 ├── defi_extrap/
-│   ├── consolidated_hybrid_TIMESTAMP.json     ← n=66 honest denominator
+│   ├── consolidated_hybrid_TIMESTAMP.json     ← n=74 fixed denominator (v3.0)
 │   └── routing_fix_progression.json           ← per-fix gain tracking
 ├── feynman/
 │   ├── protocol_core_noiseless_20260304_154510.json  ← Phase 3 results
@@ -419,7 +476,7 @@ data/results/
 ## Reproducing Paper Statistics Exactly
 
 ```bash
-python hypatiax/experiments/comparison/ultimate_comparative_suite_complete_.py \
+python hypatiax/experiments/benchmarks/run_comparative_suite_benchmark_v2.py \
     --seed 42 \
     --symbolic-timeout 1800 \
     --n-iterations 50 \
@@ -441,7 +498,7 @@ Expected: success rate 95.8%, median extrapolation error < 10⁻¹², Mann-Whitn
 rate = df[df['method']=='llm']['r2_test'].dropna().gt(0.99).mean()  # inflated!
 
 # CORRECT: fixed denominator, NaN = failure
-n_standard = 66
+n_standard = 74
 passes = df[df['method']=='llm']['r2_test'].gt(0.99).sum()  # NaN → False
 rate = passes / n_standard
 ```
@@ -454,9 +511,10 @@ is not set before test 19. Always use `--method-timeout 900` for the full
 
 ### Some problems fail
 
-Expected. The Feynman benchmark shows Hybrid DeFi recovering 29/30 (96.7%);
-Snell's law is a universal near-miss across all methods due to the arcsin∘sin
-composition. Check `data/results/feynman/` JSON for per-equation details.
+Expected. Under the aggressive PCA-directed extrapolation protocol, HypatiaX
+recovers 9/30 Feynman equations (30.0%), comparable to AI Feynman 2.0 under
+equivalent conditions. Performance is hardware-sensitive; see Appendix B of the
+paper. Check `data/results/feynman/` JSON for per-equation details.
 
 ### Discovery times too slow
 
@@ -483,16 +541,16 @@ python run_single_domain.py --domain defi
 
 ```bash
 # Full benchmark (v2)
-python hypatiax/experiments/comparison/ultimate_comparative_suite_complete_.py --v2
+python hypatiax/experiments/benchmarks/run_comparative_suite_benchmark_v2.py --v2
 
 # DeFi benchmark only
-python hypatiax/experiments/benchmarks/run_defi_extrapolation_benchmark.py --v2 --fixed-denominator 66
+python hypatiax/experiments/benchmarks/hypatiax_defi_benchmark_v3c.py --v2 --fixed-denominator 74
 
 # Feynman benchmark (Phase 3)
-python run_comparative_suite_benchmark_v2.py --noiseless --threshold 0.9999 --method-timeout 900 --v2
+python hypatiax/experiments/benchmarks/run_comparative_suite_benchmark_v2.py --noiseless --threshold 0.9999 --method-timeout 900 --v2
 
 # Resume interrupted run
-python run_with_checkpoints.py --resume
+bash run_all.sh --from <step>   # e.g. bash run_all.sh --from exp2
 
 # Parallel execution (4 cores)
 python run_parallel.py --workers 4
@@ -511,13 +569,9 @@ python run_parallel.py --workers 4
 
 ```bibtex
 @article{bonetchaple2026hypatiax,
-  title={Why Extrapolation Breaks Na{\"i}ve Analytical Discovery},
+  title={HypatiaX: A Hybrid Symbolic-Neural Framework for Extrapolation-Reliable Analytical Discovery},
   author={Bonet Chaple, Ruperto Pedro},
   journal={Journal of Machine Learning Research},
   year={2026}
 }
 ```
-
-**Time:** 45 minutes (active) + 3–8 hours (compute)  
-**Difficulty:** Intermediate  
-**Next:** [Tutorial 3: Analysis and Visualization](/tutorials/hypatiax/analysis/)

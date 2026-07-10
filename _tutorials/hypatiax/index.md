@@ -31,12 +31,14 @@ HypatiaX is a groundbreaking framework that combines:
 - **Symbolic Regression** for mathematically rigorous discovery
 - **Multi-layer Validation** for ensuring correctness
 
+> **v2 Note (March 2026):** A bug in the `evaluate_llm_formula` measurement harness was corrected before final paper submission. All benchmark commands require the `--v2` flag. Results generated before March 2026 must be regenerated. See [Tutorial 2](/tutorials/hypatiax/experiments/) for full details.
+
 **Key Results from JMLR Paper:**
-- ✅ **95.8% success rate** on 131 scientific equations
-- ✅ **Median extrapolation error < 10⁻¹²** (floating-point precision limit)
+- ✅ **89.2% near-perfect success rate** (R²>0.99) on 74 DeFi tasks — +27 pp over pure LLM (62.2%)
+- ✅ **Median extrapolation error < 10⁻¹²** (floating-point precision limit, Core-15 benchmark)
 - ✅ **Complete statistical separation** from neural networks (Mann-Whitney U=0, p<10⁻⁶)
-- ✅ **New state-of-the-art on Feynman SR Benchmark**: 96.7% exact recovery at R²>0.9999 (Hybrid DeFi, +17.4 pp over AI Feynman 2.0)
-- ✅ **Mean discovery time: 390 seconds** per equation
+- ✅ **Feynman SR Benchmark**: 9/30 (30.0%) under aggressive PCA-directed extrapolation protocol, comparable to AI Feynman 2.0 under equivalent conditions
+- ✅ **1.73× median speedup** over neural-network inference (LLM-routed cases, 68 of 74 tasks)
 
 ---
 
@@ -67,7 +69,7 @@ Reproduce the three benchmark evaluations from the JMLR paper:
 | Benchmark | Equations | Primary metric | Section |
 |---|---|---|---|
 | **Core 15** | 15 across 4 domains | Extrapolation error (%) | §6.4 |
-| **DeFi Extrapolation** | 73 test cases (66 standard) | R²>0.99 at fixed n=66 | §6.5 |
+| **DeFi Extrapolation** | 74 test cases | R²>0.99 at fixed n=74 | §6.5 |
 | **Feynman SR** | 30-equation subset | Recovery rate at R²>0.9999 | §5.8 |
 
 **Key experiments:**
@@ -110,7 +112,7 @@ Apply HypatiaX to your own scientific problems:
 5. **Production Deployment:** REST API + Docker
 6. **Custom Operators:** Add domain-specific mathematical functions
 
-**Production-ready code included!**
+**Advanced extensibility:** Subclass `DomainValidator` to add custom physical constraints for any scientific domain.
 
 ---
 
@@ -173,7 +175,7 @@ Week 4: Tutorial 4 (varies)
 - Understanding of mathematical formulas
 
 **Optional (for LLM features):**
-- Anthropic API key (for 73% speedup)
+- Anthropic API key (for 1.73× median speedup on LLM-routed cases, 68 of 74 tasks)
 - 8GB+ RAM for parallel execution
 
 ---
@@ -196,7 +198,7 @@ Each tutorial provides:
 **1. Near-Perfect Extrapolation**
 ```
 Symbolic (HypatiaX): Median error < 10⁻¹²
-Neural Networks:     Median error 1,231%
+Neural Networks:     Mean error 1,231% (95% CI: [1,087%, 1,456%], n=13)
 Complete statistical separation: U=0, p<10⁻⁶
 ```
 
@@ -207,7 +209,7 @@ Complete statistical separation: U=0, p<10⁻⁶
 
 **3. Domain Agnostic**
 - Physics, chemistry, biology
-- Economics, finance
+- DeFi AMM, DeFi Risk (finance)
 - Any domain with mathematical relationships
 
 **4. Production Ready**
@@ -221,7 +223,7 @@ Complete statistical separation: U=0, p<10⁻⁶
 
 ### **Paper & Code:**
 - 📄 [JMLR Paper](https://jmlr.org) (2026)
-- 💻 [GitHub Repository](https://github.com/sednabcn/LLM-HypatiaX-PAPERS-Public)
+- 💻 [GitHub Repository](https://github.com/sednabcn/LLM-HypatiaX-REPRO)
 - 📚 [Full Documentation](https://sednabcn.github.io/ai-llm-blog/tutorials/hypatiax/)
 
 ### **Community:**
@@ -242,7 +244,7 @@ If you use HypatiaX in your research:
 
 ```bibtex
 @article{bonetchaple2026hypatiax,
-  title={Why Extrapolation Breaks Na{\"i}ve Analytical Discovery},
+  title={HypatiaX: A Hybrid Symbolic-Neural Framework for Extrapolation-Reliable Analytical Discovery},
   author={Bonet Chaple, Ruperto Pedro},
   journal={Journal of Machine Learning Research},
   year={2026},
@@ -250,10 +252,6 @@ If you use HypatiaX in your research:
   pages={1--47}
 }
 ```
-
----
-
-## 🚦 Getting Started
 
 Ready to begin? Start with [Tutorial 1: Environment Setup](/tutorials/hypatiax/setup/)!
 

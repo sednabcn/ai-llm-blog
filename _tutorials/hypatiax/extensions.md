@@ -69,7 +69,7 @@ where σ₀ is the friction stress and k is the strengthening coefficient.
 ```python
 import pandas as pd
 import numpy as np
-from hypatiax.tools.symbolic.hybrid_system_v40 import HybridSystem
+from hypatiax.tools.symbolic.hybrid_system_v50_2 import HybridSystem
 
 # Load experimental data
 data = pd.read_csv('materials_data.csv')
@@ -277,7 +277,7 @@ print(f"\nDiscovered: {result.formula}")
 ```python
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
-from hypatiax.tools.symbolic.hybrid_system_v40 import HybridSystem
+from hypatiax.tools.symbolic.hybrid_system_v50_2 import HybridSystem
 
 class HypatiaXRegressor:
     """Scikit-learn compatible wrapper for HypatiaX"""
@@ -393,7 +393,7 @@ display_discovery_results(result)
 Discover coupled equations (e.g., predator-prey dynamics):
 
 ```python
-from hypatiax.tools.symbolic.hybrid_system_v40 import HybridSystem
+from hypatiax.tools.symbolic.hybrid_system_v50_2 import HybridSystem
 
 class SystemDiscovery:
     """Discover systems of differential equations"""
@@ -472,7 +472,7 @@ equations = discoverer.discover_coupled_system(
 
 ```python
 from flask import Flask, request, jsonify
-from hypatiax.tools.symbolic.hybrid_system_v40 import HybridSystem
+from hypatiax.tools.symbolic.hybrid_system_v50_2 import HybridSystem
 import numpy as np
 
 app = Flask(__name__)
@@ -597,7 +597,7 @@ curl -X POST http://localhost:5000/discover \
 Add domain-specific mathematical operators:
 
 ```python
-from hypatiax.tools.symbolic.hybrid_system_v40 import HybridSystem
+from hypatiax.tools.symbolic.hybrid_system_v50_2 import HybridSystem
 from pysr import PySRRegressor
 
 # Define custom operators
@@ -809,7 +809,7 @@ You've completed all HypatiaX tutorials!
 ## Additional Resources
 
 - **Documentation:** [Full Documentation](https://sednabcn.github.io/ai-llm-blog/tutorials/hypatiax/)
-- **Examples:** [GitHub Repository](https://github.com/sednabcn/LLM-HypatiaX-PAPERS-Public)
+- **Examples:** [GitHub Repository](https://github.com/sednabcn/LLM-HypatiaX-REPRO)
 - **Community:** [Discussions](https://github.com/sednabcn/ai-llm-blog/discussions)
 - **Support:** [Issues](https://github.com/sednabcn/ai-llm-blog/issues)
 
@@ -820,10 +820,13 @@ You've completed all HypatiaX tutorials!
 If HypatiaX helped your research, please cite:
 
 ```bibtex
-@article{hypatiax2026,
-  title={LLMs as Interfaces to Symbolic Discovery: Perfect Extrapolation via Hybrid Architectures},
+@article{bonetchaple2026hypatiax,
+  title={HypatiaX: A Hybrid Symbolic-Neural Framework for Extrapolation-Reliable Analytical Discovery},
+  author={Bonet Chaple, Ruperto Pedro},
   journal={Journal of Machine Learning Research},
-  year={2026}
+  year={2026},
+  volume={27},
+  pages={1--47}
 }
 ```
 
