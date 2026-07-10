@@ -537,11 +537,15 @@
 
 <p><strong>Key results from JMLR paper:</strong></p>
 <ul>
-  <li>95.8% success rate on 131 scientific equations</li>
-  <li>Median extrapolation error &lt; 10⁻¹² (limited by floating-point precision)</li>
-  <li>Mean discovery time: 390 seconds per equation</li>
+  <li>89.2% near-perfect success rate (R²&gt;0.99) on 74 DeFi tasks — +27 pp over pure LLM (62.2%)</li>
+  <li>Median extrapolation error &lt; 10⁻¹² (limited by floating-point precision, Core-15 benchmark)</li>
+  <li>1.73× median speedup on LLM-routed cases (68 of 74 tasks)</li>
   <li>Complete statistical separation from neural network methods (Mann-Whitney U=0, p&lt;10⁻⁶)</li>
 </ul>
+
+<blockquote>
+  <p><strong>v2 Note (March 2026):</strong> A bug in the <code class="language-plaintext highlighter-rouge">evaluate_llm_formula</code> measurement harness was corrected before final paper submission. When you proceed to Tutorial 2, use the <code class="language-plaintext highlighter-rouge">--v2</code> flag on all benchmark commands. Results generated before March 2026 must be regenerated. See <a href="/tutorials/hypatiax/experiments/">Tutorial 2: Running Benchmark Experiments</a> for full details.</p>
+</blockquote>
 
 <hr />
 
@@ -552,7 +556,7 @@
   <li><strong>Python 3.8+</strong></li>
   <li><strong>Git</strong> for cloning the repository</li>
   <li><strong>4GB RAM</strong> minimum</li>
-  <li><strong>Optional:</strong> Anthropic API key for LLM-guided acceleration (73% speedup)</li>
+  <li><strong>Optional:</strong> Anthropic API key for LLM-guided acceleration (1.73× median speedup on LLM-routed cases, 68 of 74 tasks)</li>
 </ul>
 
 <p>Verify Python version:</p>
@@ -565,8 +569,8 @@
 
 <h3 id="step-1-clone-the-repository">Step 1: Clone the Repository</h3>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/sednabcn/LLM-HypatiaX-PAPERS-Public.git
-<span class="nb">cd </span>papers/2025-JMLR/hypatiax
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/sednabcn/LLM-HypatiaX-REPRO.git
+<span class="nb">cd </span>LLM-HypatiaX-REPRO
 </code></pre></div></div>
 
 <h3 id="step-2-create-virtual-environment">Step 2: Create Virtual Environment</h3>
@@ -677,7 +681,7 @@ print('</span><span class="se">\n</span><span class="s2">🎉 Installation compl
 
 <p>Now use HypatiaX to discover V = I * R:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">hypatiax.tools.symbolic.hybrid_system_v40</span> <span class="kn">import</span> <span class="n">HybridSystem</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">hypatiax.tools.symbolic.hybrid_system_v50_2</span> <span class="kn">import</span> <span class="n">HybridSystem</span>
 
 <span class="c1"># Initialize discovery system
 </span><span class="n">system</span> <span class="o">=</span> <span class="n">HybridSystem</span><span class="p">(</span>
@@ -768,9 +772,13 @@ Median relative error: 2.34e-13  ← Near floating-point precision!
 Max relative error: 8.91e-13
 
 Neural Network comparison:
-Median relative error: 12.47  ← 1,247% error!
+Median relative error: 12.47  ← 1,247% error on this single equation!
 Max relative error: 98.34
 </code></pre></div></div>
+
+<blockquote>
+  <p><strong>Note:</strong> The neural network error of 12.47× (1,247%) above is the result for this single Ohm’s Law example. The cross-benchmark mean NN error across all 131 equations is 1,231% — consistent, but not the same number. See <a href="/tutorials/hypatiax/experiments/">Tutorial 2</a> for the full benchmark statistics.</p>
+</blockquote>
 
 <p>This demonstrates the <strong>core advantage</strong> of HypatiaX: symbolic methods achieve near-perfect extrapolation while neural networks fail catastrophically.</p>
 
@@ -780,7 +788,7 @@ Max relative error: 98.34
 
 <h3 id="enable-llm-acceleration-optional">Enable LLM Acceleration (Optional)</h3>
 
-<p>For 73% speedup, add Claude API key:</p>
+<p>For 1.73× median speedup on LLM-routed cases (68 of 74 tasks), add Claude API key:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Set environment variable</span>
 <span class="nb">export </span><span class="nv">ANTHROPIC_API_KEY</span><span class="o">=</span><span class="s2">"your-api-key-here"</span>
@@ -799,7 +807,8 @@ Max relative error: 98.34
     <span class="n">use_llm</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
     <span class="n">symbolic_timeout</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>  <span class="c1"># Increase timeout for complex problems
 </span>    <span class="n">populations</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>        <span class="c1"># More populations = better exploration
-</span>    <span class="n">niterations</span><span class="o">=</span><span class="mi">50</span>         <span class="c1"># More iterations = better refinement
+</span>    <span class="n">niterations</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>        <span class="c1"># More iterations = better refinement
+</span>    <span class="n">complexity_penalty</span><span class="o">=</span><span class="mf">0.01</span>  <span class="c1"># Penalise overly complex equations (default 0.001)
 </span><span class="p">)</span>
 </code></pre></div></div>
 
@@ -807,21 +816,43 @@ Max relative error: 98.34
 
 <h2 id="project-structure">Project Structure</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hypatiax/
-├── core/
-│   ├── generation/        # Discovery systems
-│   │   ├── hybrid_all_domains/
-│   │   ├── hybrid_defi_llm_nn/
-│   │   └── hybrid_llm_guide_validation/
-│   └── training/          # Neural network baselines
-├── tools/
-│   ├── symbolic/          # Symbolic engines (v38, v40)
-│   ├── validation/        # Multi-layer validation
-│   └── visualizations/    # Plotting utilities
-├── protocols/             # Experiment protocols
-├── experiments/           # Benchmark suites
-└── data/results/          # Saved results
+<p>The reproducibility repository (<code class="language-plaintext highlighter-rouge">LLM-HypatiaX-REPRO</code>) layout:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>LLM-HypatiaX-REPRO/
+├── hypatiax/
+│   ├── core/
+│   │   ├── generation/            # Discovery systems
+│   │   │   ├── hybrid_all_domains/
+│   │   │   ├── hybrid_all_domains_llm_nn/
+│   │   │   ├── hybrid_defi_llm_guided/
+│   │   │   └── hybrid_defi_system/
+│   │   └── training/              # Neural network baselines
+│   ├── experiments/
+│   │   ├── benchmarks/            # Campaign scripts (v2, v3c, Feynman, etc.)
+│   │   └── tests/                 # Enhanced extrapolation tests
+│   ├── protocols/                 # Experiment protocol definitions
+│   ├── reproducibility/           # hash_lock.py — result fingerprinting
+│   └── tools/
+│       ├── symbolic/              # hybrid_system_v50_2.py, symbolic_engine.py
+│       ├── validation/            # domain_validator.py, dimensional_validator.py
+│       └── visualizations/        # plot_results.py
+├── scripts/
+│   ├── generate_figures.py        # Reproduce all paper figures
+│   ├── generate_tables.py         # Reproduce all paper tables
+│   └── patches/                   # Patch management and audit tools
+├── config/
+│   └── repro.yaml                 # Central config (seeds, paths, timeouts)
+├── docs/
+│   └── architecture.md
+├── run_all_checkpoint.py          # Full pipeline with resume/verify support
+├── run_all.sh                     # Bash pipeline runner
+├── requirements.txt
+└── Makefile
 </code></pre></div></div>
+
+<blockquote>
+  <p><strong>Benchmark domains:</strong> The JMLR paper evaluates four benchmark domains — <strong>Physics</strong>, <strong>Biology/Chemistry</strong>, <strong>DeFi AMM</strong>, and <strong>DeFi Risk</strong>. There is no separate Economics domain in the paper. Earlier draft documentation listed one; that has since been corrected.</p>
+</blockquote>
 
 <hr />
 
@@ -877,7 +908,7 @@ pip <span class="nb">install</span> <span class="nt">-e</span> <span class="nb">
 
 <ul>
   <li><strong>Paper:</strong> <a href="https://jmlr.org">Journal of Machine Learning Research</a></li>
-  <li><strong>Code:</strong> 💻 <a href="https://github.com/sednabcn/LLM-HypatiaX-PAPERS-Public">GitHub Repository</a></li>
+  <li><strong>Code:</strong> 💻 <a href="https://github.com/sednabcn/LLM-HypatiaX-REPRO">GitHub Repository</a></li>
   <li><strong>Issues:</strong>🐛<a href="https://github.com/sednabcn/ai-llm-blog/issues">Bug Reports &amp; Questions</a></li>
 </ul>
 
@@ -885,10 +916,13 @@ pip <span class="nb">install</span> <span class="nt">-e</span> <span class="nb">
 
 <h2 id="citation">Citation</h2>
 
-<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">@article</span><span class="p">{</span><span class="nl">hypatiax2026</span><span class="p">,</span>
+<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">@article</span><span class="p">{</span><span class="nl">bonetchaple2026hypatiax</span><span class="p">,</span>
   <span class="na">title</span><span class="p">=</span><span class="s">{HypatiaX: A Hybrid Symbolic-Neural Framework for Extrapolation-Reliable Analytical Discovery}</span><span class="p">,</span>
+  <span class="na">author</span><span class="p">=</span><span class="s">{Bonet Chaple, Ruperto Pedro}</span><span class="p">,</span>
   <span class="na">journal</span><span class="p">=</span><span class="s">{Journal of Machine Learning Research}</span><span class="p">,</span>
-  <span class="na">year</span><span class="p">=</span><span class="s">{2026}</span>
+  <span class="na">year</span><span class="p">=</span><span class="s">{2026}</span><span class="p">,</span>
+  <span class="na">volume</span><span class="p">=</span><span class="s">{27}</span><span class="p">,</span>
+  <span class="na">pages</span><span class="p">=</span><span class="s">{1--47}</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
@@ -1030,7 +1064,7 @@ pip <span class="nb">install</span> <span class="nt">-e</span> <span class="nb">
 </div>
 
 <div class="page__footer-copyright">&copy; 2026 <a href="https://sednabcn.github.io">AI, LLM & LLM-HypatiaX Blog</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
-<p>Site last built: 2026-03-23 17:57</p>
+<p>Site last built: 2026-07-10 08:02</p>
 </div>
 
 

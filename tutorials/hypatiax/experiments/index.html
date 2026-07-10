@@ -286,7 +286,7 @@
     </div>
   
   
-    <span class="page__hero-caption">Reproduce the benchmark test suite from the JMLR paper — Core 15, DeFi 73-case, and Feynman SR
+    <span class="page__hero-caption">Reproduce the benchmark test suite from the JMLR paper — Core 15, DeFi 74-case, and Feynman SR
 </span>
   
 </div>
@@ -485,7 +485,7 @@
                   <i class="fas fa-cog"></i> Contents
                 </h4>
               </header>
-              <ul class="toc__menu"><li><a href="#hypatiax-tutorial-2-running-benchmark-experiments">HypatiaX Tutorial 2: Running Benchmark Experiments</a><ul><li><a href="#overview">Overview</a></li><li><a href="#understanding-the-test-suite">Understanding the Test Suite</a><ul><li><a href="#five-experimental-campaigns-131-unique-tests">Five Experimental Campaigns (131 unique tests)</a></li><li><a href="#core-15-benchmark-domains">Core 15 Benchmark Domains</a></li></ul></li><li><a href="#campaign-a-core-15-benchmark">Campaign A: Core 15 Benchmark</a><ul><li><a href="#run-all-three-systems">Run All Three Systems</a></li><li><a href="#step-by-step-physics-domain">Step-by-Step: Physics Domain</a></li><li><a href="#sample-result-json">Sample Result JSON</a></li></ul></li><li><a href="#campaign-b-defi-extrapolation-benchmark-73-cases">Campaign B: DeFi Extrapolation Benchmark (73 Cases)</a><ul><li><a href="#key-design-decisions">Key design decisions</a></li><li><a href="#run-the-defi-extrapolation-benchmark">Run the DeFi extrapolation benchmark</a></li><li><a href="#python-run-a-single-defi-case">Python: run a single DeFi case</a></li><li><a href="#routing-improvements-summary">Routing improvements summary</a></li></ul></li><li><a href="#campaign-c-feynman-sr-benchmark">Campaign C: Feynman SR Benchmark</a><ul><li><a href="#run-phase-2-noisy-practical-threshold">Run Phase 2 (noisy, practical threshold)</a></li><li><a href="#run-phase-3-noiseless-literature-comparable-threshold">Run Phase 3 (noiseless, literature-comparable threshold)</a></li><li><a href="#python-load-and-display-feynman-results">Python: load and display Feynman results</a></li></ul></li><li><a href="#compare-all-three-benchmarks">Compare All Three Benchmarks</a></li><li><a href="#parallel-execution">Parallel Execution</a></li><li><a href="#checkpointing">Checkpointing</a></li><li><a href="#output-files">Output Files</a></li><li><a href="#reproducing-paper-statistics-exactly">Reproducing Paper Statistics Exactly</a></li><li><a href="#troubleshooting">Troubleshooting</a><ul><li><a href="#wrong-defi-numbers">Wrong DeFi numbers</a></li><li><a href="#feynman-run-very-slow-arrhenius-hanging">Feynman run very slow (Arrhenius hanging)</a></li><li><a href="#some-problems-fail">Some problems fail</a></li><li><a href="#discovery-times-too-slow">Discovery times too slow</a></li><li><a href="#out-of-memory">Out of memory</a></li></ul></li><li><a href="#quick-reference">Quick Reference</a></li><li><a href="#next-steps">Next Steps</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#hypatiax-tutorial-2-running-benchmark-experiments">HypatiaX Tutorial 2: Running Benchmark Experiments</a><ul><li><a href="#overview">Overview</a></li><li><a href="#reproducibility-repository">Reproducibility Repository</a><ul><li><a href="#full-pipeline-recommended">Full pipeline (recommended)</a></li></ul></li><li><a href="#understanding-the-test-suite">Understanding the Test Suite</a><ul><li><a href="#five-experimental-campaigns-131-unique-tests">Five Experimental Campaigns (131 unique tests)</a></li><li><a href="#core-15-benchmark-domains">Core 15 Benchmark Domains</a></li></ul></li><li><a href="#campaign-a-core-15-benchmark">Campaign A: Core 15 Benchmark</a><ul><li><a href="#run-all-three-systems">Run All Three Systems</a></li><li><a href="#step-by-step-physics-domain">Step-by-Step: Physics Domain</a></li><li><a href="#sample-result-json">Sample Result JSON</a></li></ul></li><li><a href="#campaign-b-defi-extrapolation-benchmark-74-cases">Campaign B: DeFi Extrapolation Benchmark (74 Cases)</a><ul><li><a href="#key-design-decisions">Key design decisions</a></li><li><a href="#run-the-defi-extrapolation-benchmark">Run the DeFi extrapolation benchmark</a></li><li><a href="#python-run-a-single-defi-case">Python: run a single DeFi case</a></li><li><a href="#routing-improvements-summary">Routing improvements summary</a></li></ul></li><li><a href="#campaign-c-feynman-sr-benchmark">Campaign C: Feynman SR Benchmark</a><ul><li><a href="#run-phase-2-noisy-practical-threshold">Run Phase 2 (noisy, practical threshold)</a></li><li><a href="#run-phase-3-noiseless-literature-comparable-threshold">Run Phase 3 (noiseless, literature-comparable threshold)</a></li><li><a href="#python-load-and-display-feynman-results">Python: load and display Feynman results</a></li></ul></li><li><a href="#compare-all-three-benchmarks">Compare All Three Benchmarks</a></li><li><a href="#parallel-execution">Parallel Execution</a></li><li><a href="#checkpointing">Checkpointing</a></li><li><a href="#output-files">Output Files</a></li><li><a href="#reproducing-paper-statistics-exactly">Reproducing Paper Statistics Exactly</a></li><li><a href="#troubleshooting">Troubleshooting</a><ul><li><a href="#wrong-defi-numbers">Wrong DeFi numbers</a></li><li><a href="#feynman-run-very-slow-arrhenius-hanging">Feynman run very slow (Arrhenius hanging)</a></li><li><a href="#some-problems-fail">Some problems fail</a></li><li><a href="#discovery-times-too-slow">Discovery times too slow</a></li><li><a href="#out-of-memory">Out of memory</a></li></ul></li><li><a href="#quick-reference">Quick Reference</a></li><li><a href="#next-steps">Next Steps</a></li></ul></li></ul>
             </nav>
           </aside>
         
@@ -528,8 +528,8 @@ regenerated.</p>
     </tr>
     <tr>
       <td><strong>DeFi Extrapolation</strong></td>
-      <td>73 test cases (66 standard)</td>
-      <td>R²&gt;0.99 at fixed n=66</td>
+      <td>74 test cases</td>
+      <td>R²&gt;0.99 at fixed n=74</td>
       <td>§6.5</td>
     </tr>
     <tr>
@@ -543,10 +543,64 @@ regenerated.</p>
 
 <p><strong>Key results to reproduce:</strong></p>
 <ul>
-  <li>Core 15: Hybrid v40 median extrapolation error &lt; 10⁻¹², Mann-Whitney U=0, p&lt;10⁻⁶</li>
-  <li>DeFi: Hybrid 72.7% vs Pure LLM 69.7% (honest n=66 denominator, post routing fixes)</li>
-  <li>Feynman: Hybrid DeFi 96.7% exact recovery, new state-of-the-art (+17.4 pp over AI Feynman)</li>
+  <li>Core 15: HypatiaX median extrapolation error &lt; 10⁻¹², Mann-Whitney U=0, p&lt;10⁻⁶</li>
+  <li>DeFi: HypatiaX 89.2% R²&gt;0.99 vs Pure LLM 62.2% (fixed n=74 denominator, post routing fixes)</li>
+  <li>Feynman: HypatiaX 9/30 (30.0%) under aggressive PCA-directed extrapolation protocol, comparable to AI Feynman 2.0</li>
 </ul>
+
+<hr />
+
+<h2 id="reproducibility-repository">Reproducibility Repository</h2>
+
+<p>All experiments run from the dedicated reproducibility repo:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/sednabcn/LLM-HypatiaX-REPRO.git
+<span class="nb">cd </span>LLM-HypatiaX-REPRO
+pip <span class="nb">install</span> <span class="nt">-r</span> requirements.txt
+</code></pre></div></div>
+
+<h3 id="full-pipeline-recommended">Full pipeline (recommended)</h3>
+
+<p>The full pipeline is driven by <code class="language-plaintext highlighter-rouge">run_all.sh</code>, a single bash script that runs
+every step end-to-end (environment check → benchmarks → tables/figures →
+validation → audit). There is no separate <code class="language-plaintext highlighter-rouge">run_all_checkpoint.py</code> — that
+script does not exist in this repo. Steps are selected with <code class="language-plaintext highlighter-rouge">--step</code> /
+<code class="language-plaintext highlighter-rouge">--from</code>, or a bare step name:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Full pipeline — every step, in order</span>
+bash run_all.sh
+
+<span class="c"># Resume from a given step onward (e.g. after an interruption during exp2)</span>
+bash run_all.sh <span class="nt">--from</span> exp2
+
+<span class="c"># Run a single step only (e.g. DeFi benchmark)</span>
+bash run_all.sh <span class="nt">--step</span> exp1b
+<span class="c"># equivalently, as a bare argument:</span>
+bash run_all.sh exp1b
+
+<span class="c"># Preview what a run would execute, without running anything</span>
+bash run_all.sh <span class="nt">--dry-run</span>
+</code></pre></div></div>
+
+<p><strong>Pipeline step IDs</strong> (use with <code class="language-plaintext highlighter-rouge">--step</code> or <code class="language-plaintext highlighter-rouge">--from</code>):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>env_check  exp1  exp1b  exp1_ablation  exp1_pca  exp1b_pca  extrap
+hybrid_all_domains  instability  exp2_feynman  exp2_feynman_pca_4060
+exp2_feynman_extrap  exp2  exp3  exp3b  suppA  suppB  suppB_sc
+tables  figures  validate  qualify  audit_paper  audit_setup
+audit_nb01  audit_nb02  audit_nb03  audit_nb04  audit_nb05
+audit_nb06_fixc3_disclosure  audit_nb06_fixc3_rerun  audit_guard
+audit_print_verify  audit_print_findings  audit_figures_tables
+audit_final_gate
+</code></pre></div></div>
+
+<p>Note: <code class="language-plaintext highlighter-rouge">run_all.sh</code> has no <code class="language-plaintext highlighter-rouge">--one-equation</code> smoke-test flag or <code class="language-plaintext highlighter-rouge">--verify-only</code>
+flag. For a quick sanity check, use <code class="language-plaintext highlighter-rouge">--dry-run</code> to preview a run without
+executing it; to check existing results without re-running benchmarks, use
+<code class="language-plaintext highlighter-rouge">--step validate</code> or <code class="language-plaintext highlighter-rouge">--step qualify</code>.
+| Phase 5 | <code class="language-plaintext highlighter-rouge">qualify</code> <code class="language-plaintext highlighter-rouge">audit_paper</code> |</p>
+
+<p>Central configuration (seeds, paths, timeouts) lives in <code class="language-plaintext highlighter-rouge">config/repro.yaml</code>.</p>
 
 <hr />
 
@@ -600,7 +654,7 @@ regenerated.</p>
 </table>
 
 <p>* Campaign 1 comprises 20 classical science and 20 DeFi tests; 10 DeFi tests overlap with Campaign 4.<br />
-** 23 unique DeFi equations; the full DeFi extrapolation benchmark runs 73 test cases (difficulty variants + extrapolation splits) across them.</p>
+** 23 unique DeFi equations; the full DeFi extrapolation benchmark runs <strong>74 test cases</strong> (difficulty variants + extrapolation splits) across them.</p>
 
 <h3 id="core-15-benchmark-domains">Core 15 Benchmark Domains</h3>
 
@@ -624,7 +678,7 @@ does not have a separate Economics campaign. The five domains are as listed abov
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">source </span>venv/bin/activate
 
-python hypatiax/experiments/comparison/ultimate_comparative_suite_complete_.py <span class="se">\</span>
+python hypatiax/experiments/benchmarks/run_comparative_suite_benchmark_v2.py <span class="se">\</span>
     <span class="nt">--output</span> data/results/core15/ <span class="se">\</span>
     <span class="nt">--domains</span> all <span class="se">\</span>
     <span class="nt">--parallel</span> 4 <span class="se">\</span>
@@ -649,11 +703,11 @@ Mann-Whitney U=0, p=1.11×10⁻⁶ (complete rank separation)
 
 <h3 id="step-by-step-physics-domain">Step-by-Step: Physics Domain</h3>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">hypatiax.protocols</span> <span class="kn">import</span> <span class="n">experiment_protocol_all_30_v4</span>
-<span class="kn">from</span> <span class="nn">hypatiax.tools.symbolic.hybrid_system_v40</span> <span class="kn">import</span> <span class="n">HybridSystem</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">hypatiax.protocols</span> <span class="kn">import</span> <span class="n">experiment_protocol_all_30</span>
+<span class="kn">from</span> <span class="nn">hypatiax.tools.symbolic.hybrid_system_v50_2</span> <span class="kn">import</span> <span class="n">HybridSystem</span>
 <span class="kn">import</span> <span class="nn">json</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span>
 
-<span class="n">protocol</span> <span class="o">=</span> <span class="n">experiment_protocol_all_30_v4</span><span class="p">.</span><span class="n">ExperimentProtocol</span><span class="p">()</span>
+<span class="n">protocol</span> <span class="o">=</span> <span class="n">experiment_protocol_all_30</span><span class="p">.</span><span class="n">ExperimentProtocol</span><span class="p">()</span>
 <span class="n">problems</span> <span class="o">=</span> <span class="n">protocol</span><span class="p">.</span><span class="n">get_core15_problems</span><span class="p">()</span>
 
 <span class="n">system</span> <span class="o">=</span> <span class="n">HybridSystem</span><span class="p">(</span><span class="n">use_llm</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">symbolic_timeout</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
@@ -708,7 +762,7 @@ Mann-Whitney U=0, p=1.11×10⁻⁶ (complete rank separation)
 
 <hr />
 
-<h2 id="campaign-b-defi-extrapolation-benchmark-73-cases">Campaign B: DeFi Extrapolation Benchmark (73 Cases)</h2>
+<h2 id="campaign-b-defi-extrapolation-benchmark-74-cases">Campaign B: DeFi Extrapolation Benchmark (74 Cases)</h2>
 
 <p>This campaign is distinct from the Core 15 benchmark. Each test case splits
 data so the <strong>test set lies outside the training feature range</strong>, directly
@@ -718,39 +772,38 @@ and is run across all three methods.</p>
 <h3 id="key-design-decisions">Key design decisions</h3>
 
 <ul>
-  <li><strong>Denominator:</strong> Use fixed n=66 standard cases for all cross-method comparisons.
-7 cases are flagged <code class="language-plaintext highlighter-rouge">extrapolation_intractable</code> (implicit solving, degenerate splits)
-and excluded.</li>
+  <li><strong>Denominator:</strong> Use fixed n=74 for all cross-method comparisons (v3.0 benchmark).
+All 74 cases are tractable; 0 cases flagged <code class="language-plaintext highlighter-rouge">extrapolation_intractable</code>.</li>
   <li><strong>NaN policy:</strong> NaN results (formula execution failures) count as failures,
 not missing data.</li>
   <li><strong>Routing improvements:</strong> Fixes 0–5 are applied before running; they improve
-the Hybrid from 66.2% to 72.7% R²&gt;0.99.</li>
+the HypatiaX rate from ~62% to 89.2% R²&gt;0.99.</li>
 </ul>
 
 <h3 id="run-the-defi-extrapolation-benchmark">Run the DeFi extrapolation benchmark</h3>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python hypatiax/experiments/benchmarks/run_defi_extrapolation_benchmark.py <span class="se">\</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python hypatiax/experiments/benchmarks/hypatiax_defi_benchmark_v3c.py <span class="se">\</span>
     <span class="nt">--output</span> data/results/defi_extrap/ <span class="se">\</span>
     <span class="nt">--v2</span> <span class="se">\</span>
-    <span class="nt">--fixed-denominator</span> 66 <span class="se">\</span>
+    <span class="nt">--fixed-denominator</span> 74 <span class="se">\</span>
     <span class="nt">--nan-penalty</span>      <span class="c"># NaN = failure (honest metric)</span>
 </code></pre></div></div>
 
 <p><strong>Expected output:</strong></p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DeFi Extrapolation Benchmark (v2, n=66 fixed denominator)
-==========================================================
-Hybrid  R²&gt;0.99 : 48/66 = 72.7%   ← beats Pure LLM!
-Pure LLM R²&gt;0.99: 46/66 = 69.7%
-Neural Net R²&gt;0.99: 1/66 = 1.5%
-Catastrophic failures (R²&lt;-10): Hybrid=1, LLM=4, NN=6
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DeFi Extrapolation Benchmark (v3.0, n=74 fixed denominator)
+=============================================================
+HypatiaX  R²&gt;0.99 : 66/74 = 89.2%   ← beats Pure LLM by 27 pp!
+Pure LLM  R²&gt;0.99 : 46/74 = 62.2%
+Neural Net R²&gt;0.99 :  0/74 =  0.0%
+Catastrophic failures (R²&lt;-10): HypatiaX=0, LLM=6, NN=N/A
 </code></pre></div></div>
 
 <h3 id="python-run-a-single-defi-case">Python: run a single DeFi case</h3>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">hypatiax.protocols</span> <span class="kn">import</span> <span class="n">experiment_protocol_defi_20</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">hypatiax.protocols</span> <span class="kn">import</span> <span class="n">experiment_protocol_defi</span>
 <span class="kn">from</span> <span class="nn">hypatiax.experiments.tests.test_enhanced_defi_extrapolation</span> <span class="kn">import</span> <span class="n">EnhancedExtrapolationTest</span>
 
-<span class="n">protocol</span> <span class="o">=</span> <span class="n">experiment_protocol_defi_20</span><span class="p">.</span><span class="n">ExperimentProtocol</span><span class="p">()</span>
+<span class="n">protocol</span> <span class="o">=</span> <span class="n">experiment_protocol_defi</span><span class="p">.</span><span class="n">ExperimentProtocol</span><span class="p">()</span>
 <span class="c1"># Load standard cases only (exclude intractable)
 </span><span class="n">problems</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">protocol</span><span class="p">.</span><span class="n">get_defi_problems</span><span class="p">()</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">p</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'extrapolation_intractable'</span><span class="p">,</span> <span class="bp">False</span><span class="p">)]</span>
@@ -831,16 +884,16 @@ in biology, chemistry, and electrochemistry.</p>
 
 <h3 id="run-phase-2-noisy-practical-threshold">Run Phase 2 (noisy, practical threshold)</h3>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python run_comparative_suite_benchmark_v2.py <span class="se">\</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python hypatiax/experiments/benchmarks/run_comparative_suite_benchmark_v2.py <span class="se">\</span>
     <span class="nt">--methods</span> 1 <span class="se">\</span>
     <span class="nt">--samples</span> 200 <span class="se">\</span>
-    <span class="nt">--no-llm-cache</span> <span class="se">\</span>
+    <span class="nt">--no-llm-cache</span> <span class="se">\ </span>  <span class="c"># Disable LLM prompt cache; use this for fresh reproducibility runs</span>
     <span class="nt">--v2</span>
 </code></pre></div></div>
 
 <h3 id="run-phase-3-noiseless-literature-comparable-threshold">Run Phase 3 (noiseless, literature-comparable threshold)</h3>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python run_comparative_suite_benchmark_v2.py <span class="se">\</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python hypatiax/experiments/benchmarks/run_comparative_suite_benchmark_v2.py <span class="se">\</span>
     <span class="nt">--noiseless</span> <span class="se">\</span>
     <span class="nt">--threshold</span> 0.9999 <span class="se">\</span>
     <span class="nt">--nn-seeds</span> 3 <span class="se">\</span>
@@ -851,20 +904,23 @@ in biology, chemistry, and electrochemistry.</p>
 </code></pre></div></div>
 
 <p><strong>Expected output (Phase 3, v2 corrected):</strong></p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Feynman SR Benchmark — Phase 3 (noiseless, R²&gt;0.9999)
-======================================================
-Hybrid DeFi   :  29/30 = 96.7%  ← NEW STATE-OF-THE-ART
-Hybrid v40    :  27/30 = 90.0%  (+10.7 pp over AI Feynman)
-Symbolic+LLM  :  26/30 = 86.7%
-Hybrid LLM+NN :  26/30 = 86.7%
-Neural Net    :  17/30 = 56.7%
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Feynman SR Benchmark — Phase 3 (noiseless, aggressive PCA-directed extrapolation)
+==================================================================================
+HypatiaX      :   9/30 = 30.0%  (comparable to AI Feynman 2.0)
+Symbolic only :   8/30 = 26.7%
+Neural Net    :   5/30 = 16.7%
 
-Published baselines:
-  AI Feynman   : 79.3%
-  NeSymReS     : 59.4%
-  TPSR         : 56.0%
-  DSR          : 32.0%
+Published baselines (under equivalent conditions):
+  AI Feynman 2.0 : ~30%
+  NeSymReS       : comparable
 </code></pre></div></div>
+
+<blockquote>
+  <p><strong>Note:</strong> The 30.0% rate reflects HypatiaX’s aggressive PCA-directed extrapolation
+protocol (5× training range). Performance under relaxed interpolation thresholds is
+significantly higher. See paper §5.8 for protocol details and the hardware-sensitivity
+note in Appendix B.</p>
+</blockquote>
 
 <h3 id="python-load-and-display-feynman-results">Python: load and display Feynman results</h3>
 
@@ -893,14 +949,14 @@ Published baselines:
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
 
 <span class="n">summary</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">'Core 15 — Hybrid v40 extrapolation'</span><span class="p">:</span>
-        <span class="p">{</span><span class="s">'metric'</span><span class="p">:</span> <span class="s">'Median extrap error'</span><span class="p">,</span> <span class="s">'value'</span><span class="p">:</span> <span class="s">'&lt; 10⁻¹²'</span><span class="p">,</span> <span class="s">'vs_baseline'</span><span class="p">:</span> <span class="s">'NN: 1231%'</span><span class="p">},</span>
+    <span class="s">'Core 15 — HypatiaX extrapolation'</span><span class="p">:</span>
+        <span class="p">{</span><span class="s">'metric'</span><span class="p">:</span> <span class="s">'Median extrap error'</span><span class="p">,</span> <span class="s">'value'</span><span class="p">:</span> <span class="s">'&lt; 10⁻¹²'</span><span class="p">,</span> <span class="s">'vs_baseline'</span><span class="p">:</span> <span class="s">'NN mean: 1231%'</span><span class="p">},</span>
     <span class="s">'Core 15 — Mann-Whitney U'</span><span class="p">:</span>
         <span class="p">{</span><span class="s">'metric'</span><span class="p">:</span> <span class="s">'U statistic'</span><span class="p">,</span> <span class="s">'value'</span><span class="p">:</span> <span class="s">'0 (complete separation)'</span><span class="p">,</span> <span class="s">'vs_baseline'</span><span class="p">:</span> <span class="s">'p &lt; 10⁻⁶'</span><span class="p">},</span>
-    <span class="s">'DeFi 73 — Hybrid R²&gt;0.99 (honest denom)'</span><span class="p">:</span>
-        <span class="p">{</span><span class="s">'metric'</span><span class="p">:</span> <span class="s">'Recovery rate'</span><span class="p">,</span> <span class="s">'value'</span><span class="p">:</span> <span class="s">'72.7%'</span><span class="p">,</span> <span class="s">'vs_baseline'</span><span class="p">:</span> <span class="s">'LLM: 69.7%'</span><span class="p">},</span>
-    <span class="s">'Feynman — Hybrid DeFi recovery'</span><span class="p">:</span>
-        <span class="p">{</span><span class="s">'metric'</span><span class="p">:</span> <span class="s">'R²&gt;0.9999 exact recovery'</span><span class="p">,</span> <span class="s">'value'</span><span class="p">:</span> <span class="s">'96.7%'</span><span class="p">,</span> <span class="s">'vs_baseline'</span><span class="p">:</span> <span class="s">'AI Feynman: 79.3%'</span><span class="p">},</span>
+    <span class="s">'DeFi 74 — HypatiaX R²&gt;0.99 (n=74)'</span><span class="p">:</span>
+        <span class="p">{</span><span class="s">'metric'</span><span class="p">:</span> <span class="s">'Recovery rate'</span><span class="p">,</span> <span class="s">'value'</span><span class="p">:</span> <span class="s">'89.2%'</span><span class="p">,</span> <span class="s">'vs_baseline'</span><span class="p">:</span> <span class="s">'LLM: 62.2%'</span><span class="p">},</span>
+    <span class="s">'Feynman — HypatiaX recovery (aggressive protocol)'</span><span class="p">:</span>
+        <span class="p">{</span><span class="s">'metric'</span><span class="p">:</span> <span class="s">'R²&gt;0.9999 exact recovery'</span><span class="p">,</span> <span class="s">'value'</span><span class="p">:</span> <span class="s">'30.0%'</span><span class="p">,</span> <span class="s">'vs_baseline'</span><span class="p">:</span> <span class="s">'AI Feynman 2.0: ~30%'</span><span class="p">},</span>
 <span class="p">}</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">summary</span><span class="p">).</span><span class="n">T</span>
@@ -963,7 +1019,7 @@ Published baselines:
 ├── core15/
 │   └── all_domains_extrap_v4_TIMESTAMP.json
 ├── defi_extrap/
-│   ├── consolidated_hybrid_TIMESTAMP.json     ← n=66 honest denominator
+│   ├── consolidated_hybrid_TIMESTAMP.json     ← n=74 fixed denominator (v3.0)
 │   └── routing_fix_progression.json           ← per-fix gain tracking
 ├── feynman/
 │   ├── protocol_core_noiseless_20260304_154510.json  ← Phase 3 results
@@ -975,7 +1031,7 @@ Published baselines:
 
 <h2 id="reproducing-paper-statistics-exactly">Reproducing Paper Statistics Exactly</h2>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python hypatiax/experiments/comparison/ultimate_comparative_suite_complete_.py <span class="se">\</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python hypatiax/experiments/benchmarks/run_comparative_suite_benchmark_v2.py <span class="se">\</span>
     <span class="nt">--seed</span> 42 <span class="se">\</span>
     <span class="nt">--symbolic-timeout</span> 1800 <span class="se">\</span>
     <span class="nt">--n-iterations</span> 50 <span class="se">\</span>
@@ -996,7 +1052,7 @@ Published baselines:
 </span><span class="n">rate</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s">'method'</span><span class="p">]</span><span class="o">==</span><span class="s">'llm'</span><span class="p">][</span><span class="s">'r2_test'</span><span class="p">].</span><span class="n">dropna</span><span class="p">().</span><span class="n">gt</span><span class="p">(</span><span class="mf">0.99</span><span class="p">).</span><span class="n">mean</span><span class="p">()</span>  <span class="c1"># inflated!
 </span>
 <span class="c1"># CORRECT: fixed denominator, NaN = failure
-</span><span class="n">n_standard</span> <span class="o">=</span> <span class="mi">66</span>
+</span><span class="n">n_standard</span> <span class="o">=</span> <span class="mi">74</span>
 <span class="n">passes</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s">'method'</span><span class="p">]</span><span class="o">==</span><span class="s">'llm'</span><span class="p">][</span><span class="s">'r2_test'</span><span class="p">].</span><span class="n">gt</span><span class="p">(</span><span class="mf">0.99</span><span class="p">).</span><span class="nb">sum</span><span class="p">()</span>  <span class="c1"># NaN → False
 </span><span class="n">rate</span> <span class="o">=</span> <span class="n">passes</span> <span class="o">/</span> <span class="n">n_standard</span>
 </code></pre></div></div>
@@ -1009,9 +1065,10 @@ is not set before test 19. Always use <code class="language-plaintext highlighte
 
 <h3 id="some-problems-fail">Some problems fail</h3>
 
-<p>Expected. The Feynman benchmark shows Hybrid DeFi recovering 29/30 (96.7%);
-Snell’s law is a universal near-miss across all methods due to the arcsin∘sin
-composition. Check <code class="language-plaintext highlighter-rouge">data/results/feynman/</code> JSON for per-equation details.</p>
+<p>Expected. Under the aggressive PCA-directed extrapolation protocol, HypatiaX
+recovers 9/30 Feynman equations (30.0%), comparable to AI Feynman 2.0 under
+equivalent conditions. Performance is hardware-sensitive; see Appendix B of the
+paper. Check <code class="language-plaintext highlighter-rouge">data/results/feynman/</code> JSON for per-equation details.</p>
 
 <h3 id="discovery-times-too-slow">Discovery times too slow</h3>
 
@@ -1035,16 +1092,16 @@ python run_single_domain.py <span class="nt">--domain</span> defi
 <h2 id="quick-reference">Quick Reference</h2>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Full benchmark (v2)</span>
-python hypatiax/experiments/comparison/ultimate_comparative_suite_complete_.py <span class="nt">--v2</span>
+python hypatiax/experiments/benchmarks/run_comparative_suite_benchmark_v2.py <span class="nt">--v2</span>
 
 <span class="c"># DeFi benchmark only</span>
-python hypatiax/experiments/benchmarks/run_defi_extrapolation_benchmark.py <span class="nt">--v2</span> <span class="nt">--fixed-denominator</span> 66
+python hypatiax/experiments/benchmarks/hypatiax_defi_benchmark_v3c.py <span class="nt">--v2</span> <span class="nt">--fixed-denominator</span> 74
 
 <span class="c"># Feynman benchmark (Phase 3)</span>
-python run_comparative_suite_benchmark_v2.py <span class="nt">--noiseless</span> <span class="nt">--threshold</span> 0.9999 <span class="nt">--method-timeout</span> 900 <span class="nt">--v2</span>
+python hypatiax/experiments/benchmarks/run_comparative_suite_benchmark_v2.py <span class="nt">--noiseless</span> <span class="nt">--threshold</span> 0.9999 <span class="nt">--method-timeout</span> 900 <span class="nt">--v2</span>
 
 <span class="c"># Resume interrupted run</span>
-python run_with_checkpoints.py <span class="nt">--resume</span>
+bash run_all.sh <span class="nt">--from</span> &lt;step&gt;   <span class="c"># e.g. bash run_all.sh --from exp2</span>
 
 <span class="c"># Parallel execution (4 cores)</span>
 python run_parallel.py <span class="nt">--workers</span> 4
@@ -1064,16 +1121,12 @@ python run_parallel.py <span class="nt">--workers</span> 4
 <hr />
 
 <div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">@article</span><span class="p">{</span><span class="nl">bonetchaple2026hypatiax</span><span class="p">,</span>
-  <span class="na">title</span><span class="p">=</span><span class="s">{Why Extrapolation Breaks Na{\"i}ve Analytical Discovery}</span><span class="p">,</span>
+  <span class="na">title</span><span class="p">=</span><span class="s">{HypatiaX: A Hybrid Symbolic-Neural Framework for Extrapolation-Reliable Analytical Discovery}</span><span class="p">,</span>
   <span class="na">author</span><span class="p">=</span><span class="s">{Bonet Chaple, Ruperto Pedro}</span><span class="p">,</span>
   <span class="na">journal</span><span class="p">=</span><span class="s">{Journal of Machine Learning Research}</span><span class="p">,</span>
   <span class="na">year</span><span class="p">=</span><span class="s">{2026}</span>
 <span class="p">}</span>
 </code></pre></div></div>
-
-<p><strong>Time:</strong> 45 minutes (active) + 3–8 hours (compute)<br />
-<strong>Difficulty:</strong> Intermediate<br />
-<strong>Next:</strong> <a href="/tutorials/hypatiax/analysis/">Tutorial 3: Analysis and Visualization</a></p>
 
 
         
@@ -1213,7 +1266,7 @@ python run_parallel.py <span class="nt">--workers</span> 4
 </div>
 
 <div class="page__footer-copyright">&copy; 2026 <a href="https://sednabcn.github.io">AI, LLM & LLM-HypatiaX Blog</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
-<p>Site last built: 2026-03-23 17:57</p>
+<p>Site last built: 2026-07-10 08:02</p>
 </div>
 
 

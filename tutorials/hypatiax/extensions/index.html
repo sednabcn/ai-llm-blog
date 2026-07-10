@@ -574,7 +574,7 @@
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
-<span class="kn">from</span> <span class="nn">hypatiax.tools.symbolic.hybrid_system_v40</span> <span class="kn">import</span> <span class="n">HybridSystem</span>
+<span class="kn">from</span> <span class="nn">hypatiax.tools.symbolic.hybrid_system_v50_2</span> <span class="kn">import</span> <span class="n">HybridSystem</span>
 
 <span class="c1"># Load experimental data
 </span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'materials_data.csv'</span><span class="p">)</span>
@@ -778,7 +778,7 @@ polycrystalline materials. Physical constraints:
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
-<span class="kn">from</span> <span class="nn">hypatiax.tools.symbolic.hybrid_system_v40</span> <span class="kn">import</span> <span class="n">HybridSystem</span>
+<span class="kn">from</span> <span class="nn">hypatiax.tools.symbolic.hybrid_system_v50_2</span> <span class="kn">import</span> <span class="n">HybridSystem</span>
 
 <span class="k">class</span> <span class="nc">HypatiaXRegressor</span><span class="p">:</span>
     <span class="s">"""Scikit-learn compatible wrapper for HypatiaX"""</span>
@@ -892,7 +892,7 @@ polycrystalline materials. Physical constraints:
 
 <p>Discover coupled equations (e.g., predator-prey dynamics):</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">hypatiax.tools.symbolic.hybrid_system_v40</span> <span class="kn">import</span> <span class="n">HybridSystem</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">hypatiax.tools.symbolic.hybrid_system_v50_2</span> <span class="kn">import</span> <span class="n">HybridSystem</span>
 
 <span class="k">class</span> <span class="nc">SystemDiscovery</span><span class="p">:</span>
     <span class="s">"""Discover systems of differential equations"""</span>
@@ -970,7 +970,7 @@ polycrystalline materials. Physical constraints:
 <h3 id="rest-api-wrapper">REST API Wrapper</h3>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">jsonify</span>
-<span class="kn">from</span> <span class="nn">hypatiax.tools.symbolic.hybrid_system_v40</span> <span class="kn">import</span> <span class="n">HybridSystem</span>
+<span class="kn">from</span> <span class="nn">hypatiax.tools.symbolic.hybrid_system_v50_2</span> <span class="kn">import</span> <span class="n">HybridSystem</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
@@ -1092,7 +1092,7 @@ curl <span class="nt">-X</span> POST http://localhost:5000/discover <span class=
 
 <p>Add domain-specific mathematical operators:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">hypatiax.tools.symbolic.hybrid_system_v40</span> <span class="kn">import</span> <span class="n">HybridSystem</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">hypatiax.tools.symbolic.hybrid_system_v50_2</span> <span class="kn">import</span> <span class="n">HybridSystem</span>
 <span class="kn">from</span> <span class="nn">pysr</span> <span class="kn">import</span> <span class="n">PySRRegressor</span>
 
 <span class="c1"># Define custom operators
@@ -1301,7 +1301,7 @@ curl <span class="nt">-X</span> POST http://localhost:5000/discover <span class=
 
 <ul>
   <li><strong>Documentation:</strong> <a href="https://sednabcn.github.io/ai-llm-blog/tutorials/hypatiax/">Full Documentation</a></li>
-  <li><strong>Examples:</strong> <a href="https://github.com/sednabcn/LLM-HypatiaX-PAPERS-Public">GitHub Repository</a></li>
+  <li><strong>Examples:</strong> <a href="https://github.com/sednabcn/LLM-HypatiaX-REPRO">GitHub Repository</a></li>
   <li><strong>Community:</strong> <a href="https://github.com/sednabcn/ai-llm-blog/discussions">Discussions</a></li>
   <li><strong>Support:</strong> <a href="https://github.com/sednabcn/ai-llm-blog/issues">Issues</a></li>
 </ul>
@@ -1312,10 +1312,13 @@ curl <span class="nt">-X</span> POST http://localhost:5000/discover <span class=
 
 <p>If HypatiaX helped your research, please cite:</p>
 
-<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">@article</span><span class="p">{</span><span class="nl">hypatiax2026</span><span class="p">,</span>
-  <span class="na">title</span><span class="p">=</span><span class="s">{LLMs as Interfaces to Symbolic Discovery: Perfect Extrapolation via Hybrid Architectures}</span><span class="p">,</span>
+<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">@article</span><span class="p">{</span><span class="nl">bonetchaple2026hypatiax</span><span class="p">,</span>
+  <span class="na">title</span><span class="p">=</span><span class="s">{HypatiaX: A Hybrid Symbolic-Neural Framework for Extrapolation-Reliable Analytical Discovery}</span><span class="p">,</span>
+  <span class="na">author</span><span class="p">=</span><span class="s">{Bonet Chaple, Ruperto Pedro}</span><span class="p">,</span>
   <span class="na">journal</span><span class="p">=</span><span class="s">{Journal of Machine Learning Research}</span><span class="p">,</span>
-  <span class="na">year</span><span class="p">=</span><span class="s">{2026}</span>
+  <span class="na">year</span><span class="p">=</span><span class="s">{2026}</span><span class="p">,</span>
+  <span class="na">volume</span><span class="p">=</span><span class="s">{27}</span><span class="p">,</span>
+  <span class="na">pages</span><span class="p">=</span><span class="s">{1--47}</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
@@ -1460,7 +1463,7 @@ curl <span class="nt">-X</span> POST http://localhost:5000/discover <span class=
 </div>
 
 <div class="page__footer-copyright">&copy; 2026 <a href="https://sednabcn.github.io">AI, LLM & LLM-HypatiaX Blog</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
-<p>Site last built: 2026-03-23 17:57</p>
+<p>Site last built: 2026-07-10 08:02</p>
 </div>
 
 

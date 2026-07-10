@@ -519,7 +519,7 @@
                   <i class="fas fa-flask"></i> Tutorial Series
                 </h4>
               </header>
-              <ul class="toc__menu"><li><a href="#hypatiax-llm-guided-symbolic-discovery">HypatiaX: LLM-Guided Symbolic Discovery</a><ul><li><a href="#-what-is-hypatiax">🎯 What is HypatiaX?</a></li><li><a href="#-tutorial-series">📚 Tutorial Series</a><ul><li><a href="#tutorial-1-environment-setup-and-first-discovery">Tutorial 1: Environment Setup and First Discovery</a></li><li><a href="#tutorial-2-running-benchmark-experiments">Tutorial 2: Running Benchmark Experiments</a></li><li><a href="#tutorial-3-statistical-analysis-and-publication-figures">Tutorial 3: Statistical Analysis and Publication Figures</a></li><li><a href="#tutorial-4-custom-applications-and-extensions">Tutorial 4: Custom Applications and Extensions</a></li></ul></li><li><a href="#-quick-start-path">🚀 Quick Start Path</a></li><li><a href="#-what-youll-learn">📊 What You’ll Learn</a><ul><li><a href="#core-concepts">Core Concepts:</a></li><li><a href="#technical-skills">Technical Skills:</a></li><li><a href="#research-methods">Research Methods:</a></li></ul></li><li><a href="#-prerequisites">🎯 Prerequisites</a></li><li><a href="#-whats-included">📦 What’s Included</a></li><li><a href="#-key-advantages">🌟 Key Advantages</a><ul><li><a href="#why-hypatiax">Why HypatiaX?</a></li></ul></li><li><a href="#-additional-resources">📖 Additional Resources</a><ul><li><a href="#paper--code">Paper &amp; Code:</a></li><li><a href="#community">Community:</a></li><li><a href="#related-work">Related Work:</a></li></ul></li><li><a href="#-citation">🎓 Citation</a></li><li><a href="#-getting-started">🚦 Getting Started</a></li><li><a href="#-support">💡 Support</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#hypatiax-llm-guided-symbolic-discovery">HypatiaX: LLM-Guided Symbolic Discovery</a><ul><li><a href="#-what-is-hypatiax">🎯 What is HypatiaX?</a></li><li><a href="#-tutorial-series">📚 Tutorial Series</a><ul><li><a href="#tutorial-1-environment-setup-and-first-discovery">Tutorial 1: Environment Setup and First Discovery</a></li><li><a href="#tutorial-2-running-benchmark-experiments">Tutorial 2: Running Benchmark Experiments</a></li><li><a href="#tutorial-3-statistical-analysis-and-publication-figures">Tutorial 3: Statistical Analysis and Publication Figures</a></li><li><a href="#tutorial-4-custom-applications-and-extensions">Tutorial 4: Custom Applications and Extensions</a></li></ul></li><li><a href="#-quick-start-path">🚀 Quick Start Path</a></li><li><a href="#-what-youll-learn">📊 What You’ll Learn</a><ul><li><a href="#core-concepts">Core Concepts:</a></li><li><a href="#technical-skills">Technical Skills:</a></li><li><a href="#research-methods">Research Methods:</a></li></ul></li><li><a href="#-prerequisites">🎯 Prerequisites</a></li><li><a href="#-whats-included">📦 What’s Included</a></li><li><a href="#-key-advantages">🌟 Key Advantages</a><ul><li><a href="#why-hypatiax">Why HypatiaX?</a></li></ul></li><li><a href="#-additional-resources">📖 Additional Resources</a><ul><li><a href="#paper--code">Paper &amp; Code:</a></li><li><a href="#community">Community:</a></li><li><a href="#related-work">Related Work:</a></li></ul></li><li><a href="#-citation">🎓 Citation</a></li><li><a href="#-support">💡 Support</a></li></ul></li></ul>
             </nav>
           </aside>
         
@@ -538,13 +538,17 @@
   <li><strong>Multi-layer Validation</strong> for ensuring correctness</li>
 </ul>
 
+<blockquote>
+  <p><strong>v2 Note (March 2026):</strong> A bug in the <code class="language-plaintext highlighter-rouge">evaluate_llm_formula</code> measurement harness was corrected before final paper submission. All benchmark commands require the <code class="language-plaintext highlighter-rouge">--v2</code> flag. Results generated before March 2026 must be regenerated. See <a href="/tutorials/hypatiax/experiments/">Tutorial 2</a> for full details.</p>
+</blockquote>
+
 <p><strong>Key Results from JMLR Paper:</strong></p>
 <ul>
-  <li>✅ <strong>95.8% success rate</strong> on 131 scientific equations</li>
-  <li>✅ <strong>Median extrapolation error &lt; 10⁻¹²</strong> (floating-point precision limit)</li>
+  <li>✅ <strong>89.2% near-perfect success rate</strong> (R²&gt;0.99) on 74 DeFi tasks — +27 pp over pure LLM (62.2%)</li>
+  <li>✅ <strong>Median extrapolation error &lt; 10⁻¹²</strong> (floating-point precision limit, Core-15 benchmark)</li>
   <li>✅ <strong>Complete statistical separation</strong> from neural networks (Mann-Whitney U=0, p&lt;10⁻⁶)</li>
-  <li>✅ <strong>New state-of-the-art on Feynman SR Benchmark</strong>: 96.7% exact recovery at R²&gt;0.9999 (Hybrid DeFi, +17.4 pp over AI Feynman 2.0)</li>
-  <li>✅ <strong>Mean discovery time: 390 seconds</strong> per equation</li>
+  <li>✅ <strong>Feynman SR Benchmark</strong>: 9/30 (30.0%) under aggressive PCA-directed extrapolation protocol, comparable to AI Feynman 2.0 under equivalent conditions</li>
+  <li>✅ <strong>1.73× median speedup</strong> over neural-network inference (LLM-routed cases, 68 of 74 tasks)</li>
 </ul>
 
 <hr />
@@ -592,8 +596,8 @@
     </tr>
     <tr>
       <td><strong>DeFi Extrapolation</strong></td>
-      <td>73 test cases (66 standard)</td>
-      <td>R²&gt;0.99 at fixed n=66</td>
+      <td>74 test cases</td>
+      <td>R²&gt;0.99 at fixed n=74</td>
       <td>§6.5</td>
     </tr>
     <tr>
@@ -650,7 +654,7 @@
   <li><strong>Custom Operators:</strong> Add domain-specific mathematical functions</li>
 </ol>
 
-<p><strong>Production-ready code included!</strong></p>
+<p><strong>Advanced extensibility:</strong> Subclass <code class="language-plaintext highlighter-rouge">DomainValidator</code> to add custom physical constraints for any scientific domain.</p>
 
 <hr />
 
@@ -721,7 +725,7 @@ Week 4: Tutorial 4 (varies)
 
 <p><strong>Optional (for LLM features):</strong></p>
 <ul>
-  <li>Anthropic API key (for 73% speedup)</li>
+  <li>Anthropic API key (for 1.73× median speedup on LLM-routed cases, 68 of 74 tasks)</li>
   <li>8GB+ RAM for parallel execution</li>
 </ul>
 
@@ -746,7 +750,7 @@ Week 4: Tutorial 4 (varies)
 
 <p><strong>1. Near-Perfect Extrapolation</strong></p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Symbolic (HypatiaX): Median error &lt; 10⁻¹²
-Neural Networks:     Median error 1,231%
+Neural Networks:     Mean error 1,231% (95% CI: [1,087%, 1,456%], n=13)
 Complete statistical separation: U=0, p&lt;10⁻⁶
 </code></pre></div></div>
 
@@ -760,7 +764,7 @@ Complete statistical separation: U=0, p&lt;10⁻⁶
 <p><strong>3. Domain Agnostic</strong></p>
 <ul>
   <li>Physics, chemistry, biology</li>
-  <li>Economics, finance</li>
+  <li>DeFi AMM, DeFi Risk (finance)</li>
   <li>Any domain with mathematical relationships</li>
 </ul>
 
@@ -778,7 +782,7 @@ Complete statistical separation: U=0, p&lt;10⁻⁶
 <h3 id="paper--code"><strong>Paper &amp; Code:</strong></h3>
 <ul>
   <li>📄 <a href="https://jmlr.org">JMLR Paper</a> (2026)</li>
-  <li>💻 <a href="https://github.com/sednabcn/LLM-HypatiaX-PAPERS-Public">GitHub Repository</a></li>
+  <li>💻 <a href="https://github.com/sednabcn/LLM-HypatiaX-REPRO">GitHub Repository</a></li>
   <li>📚 <a href="https://sednabcn.github.io/ai-llm-blog/tutorials/hypatiax/">Full Documentation</a></li>
 </ul>
 
@@ -803,7 +807,7 @@ Complete statistical separation: U=0, p&lt;10⁻⁶
 <p>If you use HypatiaX in your research:</p>
 
 <div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">@article</span><span class="p">{</span><span class="nl">bonetchaple2026hypatiax</span><span class="p">,</span>
-  <span class="na">title</span><span class="p">=</span><span class="s">{Why Extrapolation Breaks Na{\"i}ve Analytical Discovery}</span><span class="p">,</span>
+  <span class="na">title</span><span class="p">=</span><span class="s">{HypatiaX: A Hybrid Symbolic-Neural Framework for Extrapolation-Reliable Analytical Discovery}</span><span class="p">,</span>
   <span class="na">author</span><span class="p">=</span><span class="s">{Bonet Chaple, Ruperto Pedro}</span><span class="p">,</span>
   <span class="na">journal</span><span class="p">=</span><span class="s">{Journal of Machine Learning Research}</span><span class="p">,</span>
   <span class="na">year</span><span class="p">=</span><span class="s">{2026}</span><span class="p">,</span>
@@ -811,10 +815,6 @@ Complete statistical separation: U=0, p&lt;10⁻⁶
   <span class="na">pages</span><span class="p">=</span><span class="s">{1--47}</span>
 <span class="p">}</span>
 </code></pre></div></div>
-
-<hr />
-
-<h2 id="-getting-started">🚦 Getting Started</h2>
 
 <p>Ready to begin? Start with <a href="/tutorials/hypatiax/setup/">Tutorial 1: Environment Setup</a>!</p>
 
@@ -938,7 +938,7 @@ Complete statistical separation: U=0, p&lt;10⁻⁶
 </div>
 
 <div class="page__footer-copyright">&copy; 2026 <a href="https://sednabcn.github.io">AI, LLM & LLM-HypatiaX Blog</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
-<p>Site last built: 2026-03-23 17:57</p>
+<p>Site last built: 2026-07-10 08:02</p>
 </div>
 
 
