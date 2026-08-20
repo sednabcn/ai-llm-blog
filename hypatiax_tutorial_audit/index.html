@@ -1,0 +1,716 @@
+<article class="page">
+  <h1>HypatiaX Tutorial Series — Cross-Reference &amp; New Features Audit</h1>
+
+  <div class="page-content">
+    <h1 id="hypatiax-tutorial-series--cross-reference--new-features-audit">HypatiaX Tutorial Series — Cross-Reference &amp; New Features Audit</h1>
+
+<p><strong>Scope:</strong> index.md, setup.md, experiments.md, analysis.md, extensions.md<br />
+<strong>Audited:</strong> June 2026</p>
+
+<hr />
+
+<h2 id="1-internal-link-consistency">1. Internal Link Consistency</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Source file</th>
+      <th>Link text</th>
+      <th>Target permalink</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>index.md</td>
+      <td>Tutorial 1</td>
+      <td><code class="language-plaintext highlighter-rouge">/tutorials/hypatiax/setup/</code></td>
+      <td>✅ matches setup.md</td>
+    </tr>
+    <tr>
+      <td>index.md</td>
+      <td>Tutorial 2</td>
+      <td><code class="language-plaintext highlighter-rouge">/tutorials/hypatiax/experiments/</code></td>
+      <td>✅ matches experiments.md</td>
+    </tr>
+    <tr>
+      <td>index.md</td>
+      <td>Tutorial 3</td>
+      <td><code class="language-plaintext highlighter-rouge">/tutorials/hypatiax/analysis/</code></td>
+      <td>✅ matches analysis.md</td>
+    </tr>
+    <tr>
+      <td>index.md</td>
+      <td>Tutorial 4</td>
+      <td><code class="language-plaintext highlighter-rouge">/tutorials/hypatiax/extensions/</code></td>
+      <td>✅ matches extensions.md</td>
+    </tr>
+    <tr>
+      <td>setup.md → Next</td>
+      <td>Tutorial 2</td>
+      <td><code class="language-plaintext highlighter-rouge">/tutorials/hypatiax/experiments/</code></td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td>experiments.md → Prev</td>
+      <td>Tutorial 1</td>
+      <td><code class="language-plaintext highlighter-rouge">/tutorials/hypatiax/setup/</code></td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td>experiments.md → Next</td>
+      <td>Tutorial 3</td>
+      <td><code class="language-plaintext highlighter-rouge">/tutorials/hypatiax/analysis/</code></td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td>analysis.md → Prev</td>
+      <td>Tutorial 2</td>
+      <td><code class="language-plaintext highlighter-rouge">/tutorials/hypatiax/experiments/</code></td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td>analysis.md → Next</td>
+      <td>Tutorial 4</td>
+      <td><code class="language-plaintext highlighter-rouge">/tutorials/hypatiax/extensions/</code></td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td>extensions.md → Prev</td>
+      <td>Tutorial 3</td>
+      <td><code class="language-plaintext highlighter-rouge">/tutorials/hypatiax/analysis/</code></td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td>extensions.md (Tutorial 4 back-refs)</td>
+      <td>Tutorials 1 &amp; 3</td>
+      <td>correct permalinks</td>
+      <td>✅</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>All navigation links are internally consistent.</strong></p>
+
+<hr />
+
+<h2 id="2-key-numerical-claims--cross-reference-check">2. Key Numerical Claims — Cross-Reference Check</h2>
+
+<h3 id="2a-success-rate-131-equations">2a. Success rate (131 equations)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>File</th>
+      <th>Claim</th>
+      <th>Match?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>index.md</td>
+      <td>95.8% success on 131 equations</td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td>setup.md</td>
+      <td>“95.8% success rate on 131 scientific equations”</td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td>experiments.md</td>
+      <td><code class="language-plaintext highlighter-rouge">--output ... --v2</code> → “success rate 95.8%”</td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td>analysis.md</td>
+      <td><code class="language-plaintext highlighter-rouge">claims["Hybrid extrapolation: median error &lt; 10⁻¹²"]</code></td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td>extensions.md</td>
+      <td>Does not repeat global rate</td>
+      <td>✅ (not required)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="2b-extrapolation-error">2b. Extrapolation error</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>File</th>
+      <th>Claim</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>index.md</td>
+      <td>Median extrap error &lt; 10⁻¹²</td>
+    </tr>
+    <tr>
+      <td>setup.md</td>
+      <td>Median relative error 2.34e-13; NN 12.47 (1,247%)</td>
+    </tr>
+    <tr>
+      <td>experiments.md</td>
+      <td>Hybrid v40 median &lt; 10⁻¹², NN mean 1,231% / median 86.7%</td>
+    </tr>
+    <tr>
+      <td>analysis.md</td>
+      <td>Code reproduces &lt; 10⁻¹² for Hybrid, &gt; 1,200% for NN</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>⚠️ <strong>Minor inconsistency:</strong> index.md says NN “median error 1,231%” in the “Why HypatiaX?” bullet, but experiments.md says “mean 1,231%, median 86.7%”. The setup.md introductory example quotes 12.47 (1,247%), which is the single-equation Ohm’s Law result — not the global benchmark figure. These are consistent with the underlying data (Ohm’s Law is a simple equation; the 1,231% is the cross-benchmark mean) but could confuse readers comparing numbers across pages.<br />
+<strong>Recommendation:</strong> Add a brief note in setup.md that the Ohm’s Law NN error (1,247%) is an illustrative single-equation example; the benchmark mean is 1,231%.</p>
+</blockquote>
+
+<h3 id="2c-mean-discovery-time">2c. Mean discovery time</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>File</th>
+      <th>Claim</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>index.md</td>
+      <td>390 seconds</td>
+    </tr>
+    <tr>
+      <td>setup.md</td>
+      <td>390 seconds</td>
+    </tr>
+    <tr>
+      <td>experiments.md</td>
+      <td>(not repeated; implied by benchmark runs)</td>
+    </tr>
+    <tr>
+      <td>analysis.md</td>
+      <td>(not repeated)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>✅ Consistent.</p>
+
+<h3 id="2d-defi-extrapolation-benchmark">2d. DeFi extrapolation benchmark</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>File</th>
+      <th>Hybrid R²&gt;0.99</th>
+      <th>Pure LLM R²&gt;0.99</th>
+      <th>Denominator</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>index.md</td>
+      <td>Not stated numerically</td>
+      <td>Not stated</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>experiments.md</td>
+      <td>72.7% (48/66)</td>
+      <td>69.7% (46/66)</td>
+      <td>n=66 fixed ✅</td>
+    </tr>
+    <tr>
+      <td>analysis.md</td>
+      <td>72.7%</td>
+      <td>69.7%</td>
+      <td>n=66 fixed ✅</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>✅ Consistent. Both correctly use honest n=66 denominator and flag that per-method denominators (83.6%, 77.4%) are incomparable.</p>
+
+<h3 id="2e-feynman-sr-benchmark">2e. Feynman SR benchmark</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>File</th>
+      <th>Hybrid DeFi</th>
+      <th>AI Feynman baseline</th>
+      <th>Gain</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>index.md</td>
+      <td>96.7% (+17.4 pp over AI Feynman 2.0)</td>
+      <td>implied 79.3%</td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td>experiments.md</td>
+      <td>96.7% (29/30)</td>
+      <td>79.3%</td>
+      <td>+17.4 pp ✅</td>
+    </tr>
+    <tr>
+      <td>analysis.md</td>
+      <td>96.7% recovery, table shows AI Feynman 79.3%</td>
+      <td>79.3%</td>
+      <td>✅</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>✅ Consistent.</p>
+
+<h3 id="2f-llm-speedup">2f. LLM speedup</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>File</th>
+      <th>Claim</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>index.md</td>
+      <td>73% speedup</td>
+    </tr>
+    <tr>
+      <td>setup.md</td>
+      <td>73% speedup</td>
+    </tr>
+    <tr>
+      <td>experiments.md</td>
+      <td>Not mentioned</td>
+    </tr>
+    <tr>
+      <td>analysis.md</td>
+      <td>Not mentioned</td>
+    </tr>
+    <tr>
+      <td>extensions.md</td>
+      <td>Not mentioned</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>✅ Consistent where cited.</p>
+
+<h3 id="2g-mann-whitney-u-statistic">2g. Mann-Whitney U statistic</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>File</th>
+      <th>U</th>
+      <th>p-value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>index.md</td>
+      <td>U=0, p&lt;10⁻⁶</td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td>setup.md</td>
+      <td>U=0, p&lt;10⁻⁶</td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td>experiments.md</td>
+      <td>U=0, p=1.11×10⁻⁶</td>
+      <td>✅ (more precise)</td>
+    </tr>
+    <tr>
+      <td>analysis.md</td>
+      <td>U=0, p=1.11×10⁻⁶</td>
+      <td>✅</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>✅ Consistent.</p>
+
+<hr />
+
+<h2 id="3-domain-labels--inconsistency-found">3. Domain Labels — Inconsistency Found</h2>
+
+<h3 id="-problem-economics-domain-listed-in-setupmd-absent-from-paper">❌ Problem: “Economics” domain listed in setup.md, absent from paper</h3>
+
+<p><strong>setup.md</strong> (Project Structure comment and Core 15 description) does not mention an Economics domain explicitly, but <strong>index.md</strong> “Core Concepts” bullet lists <em>“Health factor calculations in DeFi / Liquidation thresholds”</em> under what appears to be the DeFi domain correctly.</p>
+
+<p>However, <strong>experiments.md</strong> contains an explicit correction note:</p>
+
+<blockquote>
+  <p><em>“Note: Earlier documentation listed an ‘Economics’ domain. The JMLR paper does not have a separate Economics campaign. The five domains are as listed above.”</em></p>
+</blockquote>
+
+<p>The five correct domains are:</p>
+<ul>
+  <li>Physics, Chemistry, Biology, DeFi AMM, DeFi Risk</li>
+</ul>
+
+<p><strong>setup.md does not contain this correction notice.</strong> Readers of Tutorial 1 only may encounter old documentation elsewhere and be confused.</p>
+
+<p><strong>Recommendation:</strong> Add a note to setup.md (Project Structure section) listing the four benchmark domains explicitly: Physics, Biology/Chemistry, DeFi AMM, DeFi Risk.</p>
+
+<hr />
+
+<h2 id="4-v2-bug-fix-notice-coverage">4. v2 Bug Fix Notice Coverage</h2>
+
+<p>The v2 R² evaluation bug fix is documented in:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>File</th>
+      <th>v2 notice present?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>index.md</td>
+      <td>❌ No mention</td>
+    </tr>
+    <tr>
+      <td>setup.md</td>
+      <td>❌ No mention</td>
+    </tr>
+    <tr>
+      <td>experiments.md</td>
+      <td>✅ Prominent callout box at top + <code class="language-plaintext highlighter-rouge">--v2</code> flag on all commands</td>
+    </tr>
+    <tr>
+      <td>analysis.md</td>
+      <td>✅ Prominent callout box at top + <code class="language-plaintext highlighter-rouge">--v2</code> flag on all commands</td>
+    </tr>
+    <tr>
+      <td>extensions.md</td>
+      <td>❌ No mention</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>⚠️ <strong>Gap:</strong> index.md serves as the entry point for the entire series. Users who start there get no indication that a bug fix exists. setup.md is Tutorial 1 — readers who complete Tutorial 1 and stop (or share a link directly to Tutorial 1) will not see the v2 notice.<br />
+<strong>Recommendation:</strong> Add a short v2 note to index.md (perhaps in the “Key Results” section) and a brief mention in setup.md (Environment Setup is fine; users won’t run benchmarks there, but they should know –v2 exists before Tutorial 2).</p>
+</blockquote>
+
+<hr />
+
+<h2 id="5-figure-number-cross-reference">5. Figure Number Cross-Reference</h2>
+
+<p>The paper contains 13 figures. The tutorials reference them as follows:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tutorial ref</th>
+      <th>Paper label</th>
+      <th>Description</th>
+      <th>Consistent?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>analysis.md “Figure 3”</td>
+      <td><code class="language-plaintext highlighter-rouge">fig:arrhenius_extrapolation</code></td>
+      <td>Arrhenius failure</td>
+      <td>⚠️ Tutorial calls it Figure 3 but saves as <code class="language-plaintext highlighter-rouge">figure1_arrhenius_extrapolation.pdf</code> — numbering mismatch</td>
+    </tr>
+    <tr>
+      <td>analysis.md “Figure 2”</td>
+      <td><code class="language-plaintext highlighter-rouge">fig:domain_comparison</code></td>
+      <td>Domain success rates</td>
+      <td>⚠️ Tutorial calls it Figure 2 but saves as <code class="language-plaintext highlighter-rouge">figure2_domain_comparison.pdf</code> — internally consistent but out of paper order</td>
+    </tr>
+    <tr>
+      <td>analysis.md “Figure 6”</td>
+      <td><code class="language-plaintext highlighter-rouge">fig:validation_breakdown</code></td>
+      <td>Validation cascade</td>
+      <td>⚠️ Tutorial says Figure 6, saves as <code class="language-plaintext highlighter-rouge">figure3_validation_breakdown.pdf</code></td>
+    </tr>
+    <tr>
+      <td>analysis.md “Figure 7”</td>
+      <td><code class="language-plaintext highlighter-rouge">fig:method_comparison</code></td>
+      <td>Three-system comparison</td>
+      <td>⚠️ Tutorial says Figure 7, saves as <code class="language-plaintext highlighter-rouge">figure5_method_comparison.pdf</code></td>
+    </tr>
+    <tr>
+      <td>analysis.md “Figure 9”</td>
+      <td><code class="language-plaintext highlighter-rouge">fig:five_systems_comparison</code></td>
+      <td>Five-system comparison</td>
+      <td>✅ Consistent label</td>
+    </tr>
+    <tr>
+      <td>analysis.md “Figures 11–13”</td>
+      <td>DeFi figures</td>
+      <td>New in v2</td>
+      <td>✅ Consistent</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>⚠️ <strong>Systematic mismatch:</strong> The tutorial’s Figure labels (2, 3, 6, 7) do not match the output filenames (figure1<em>, figure2</em>, figure3<em>, figure5</em>). The note in analysis.md says “Figure 1 is an inline TikZ diagram; Figures 4–5 are architecture diagrams” which explains the gap, but the output filenames do not reflect paper figure numbers.<br />
+<strong>Recommendation:</strong> Either (a) rename output files to match paper figure numbers (<code class="language-plaintext highlighter-rouge">figure3_arrhenius.pdf</code>, <code class="language-plaintext highlighter-rouge">figure6_validation.pdf</code>, etc.) or (b) add a mapping table in analysis.md cross-referencing tutorial output filename → paper figure number.</p>
+</blockquote>
+
+<hr />
+
+<h2 id="6-citation-inconsistency">6. Citation Inconsistency</h2>
+
+<p>Two different BibTeX entries appear across tutorials:</p>
+
+<p><strong>Version A</strong> (index.md, experiments.md, analysis.md):</p>
+<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">@article</span><span class="p">{</span><span class="nl">bonetchaple2026hypatiax</span><span class="p">,</span>
+  <span class="na">title</span><span class="p">=</span><span class="s">{Why Extrapolation Breaks Naïve Analytical Discovery}</span><span class="p">,</span>
+  <span class="na">author</span><span class="p">=</span><span class="s">{Bonet Chaple, Ruperto Pedro}</span><span class="p">,</span>
+  <span class="na">journal</span><span class="p">=</span><span class="s">{Journal of Machine Learning Research}</span><span class="p">,</span>
+  <span class="na">year</span><span class="p">=</span><span class="s">{2026}</span><span class="p">,</span>
+  <span class="na">volume</span><span class="p">=</span><span class="s">{27}</span><span class="p">,</span>
+  <span class="na">pages</span><span class="p">=</span><span class="s">{1--47}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>Version B</strong> (setup.md):</p>
+<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">@article</span><span class="p">{</span><span class="nl">hypatiax2026</span><span class="p">,</span>
+  <span class="na">title</span><span class="p">=</span><span class="s">{HypatiaX: A Hybrid Symbolic-Neural Framework for Extrapolation-Reliable Analytical Discovery}</span><span class="p">,</span>
+  <span class="na">author</span><span class="p">=</span><span class="s">{...}</span><span class="p">,</span>  <span class="err">←</span> <span class="err">author</span> <span class="err">field</span> <span class="err">missing!</span>
+  <span class="err">journal={Journal</span> <span class="err">of</span> <span class="err">Machine</span> <span class="err">Learning</span> <span class="err">Research</span><span class="p">}</span><span class="c">,</span>
+  <span class="c">year={2026}</span>
+<span class="c">}</span>
+</code></pre></div></div>
+
+<p><strong>Version C</strong> (extensions.md):</p>
+<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">@article</span><span class="p">{</span><span class="nl">hypatiax2026</span><span class="p">,</span>
+  <span class="na">title</span><span class="p">=</span><span class="s">{LLMs as Interfaces to Symbolic Discovery: Perfect Extrapolation via Hybrid Architectures}</span><span class="p">,</span>
+  <span class="na">journal</span><span class="p">=</span><span class="s">{Journal of Machine Learning Research}</span><span class="p">,</span>
+  <span class="na">year</span><span class="p">=</span><span class="s">{2026}</span>
+<span class="p">}</span>  <span class="c">← author field missing!</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>❌ <strong>Three different titles, two different citation keys, missing author fields in two entries.</strong><br />
+<strong>Recommendation:</strong> Standardise to Version A (bonetchaple2026hypatiax) throughout. Update setup.md and extensions.md to use the full entry including author field.</p>
+</blockquote>
+
+<hr />
+
+<h2 id="7-new-features-in-tutorial-4-extensionsmd--coverage-check">7. New Features in Tutorial 4 (extensions.md) — Coverage Check</h2>
+
+<p>Tutorial 4 introduces the following features not mentioned in earlier tutorials:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Mentioned in index.md?</th>
+      <th>Described in earlier tutorials?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Scikit-learn pipeline integration</td>
+      <td>✅ (listed in Tutorial 4 description)</td>
+      <td>❌ not pre-explained</td>
+    </tr>
+    <tr>
+      <td>REST API / Flask deployment</td>
+      <td>✅ (listed)</td>
+      <td>❌</td>
+    </tr>
+    <tr>
+      <td>Docker containerization</td>
+      <td>✅ (listed)</td>
+      <td>❌</td>
+    </tr>
+    <tr>
+      <td>Multi-equation / ODE discovery</td>
+      <td>✅ (predator-prey listed)</td>
+      <td>❌</td>
+    </tr>
+    <tr>
+      <td>Custom PySR operators</td>
+      <td>✅ (listed)</td>
+      <td>❌</td>
+    </tr>
+    <tr>
+      <td>DomainValidator subclassing</td>
+      <td>❌ not listed in index.md</td>
+      <td>❌</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">complexity_penalty</code> parameter</td>
+      <td>❌ not mentioned in index.md</td>
+      <td>❌ (only <code class="language-plaintext highlighter-rouge">populations</code>, <code class="language-plaintext highlighter-rouge">niterations</code> in setup.md)</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>ℹ️ Most omissions from index.md are intentional (advanced content deferred to T4). Two gaps worth filling:</p>
+  <ul>
+    <li><strong>DomainValidator</strong> class is an important extensibility point; worth a one-line mention in index.md Tutorial 4 description.</li>
+    <li><strong><code class="language-plaintext highlighter-rouge">complexity_penalty</code></strong> parameter is introduced in extensions.md without any setup.md/experiments.md precedent. Add it to the Configuration Options table in setup.md.</li>
+  </ul>
+</blockquote>
+
+<hr />
+
+<h2 id="8-routing-fixes--coverage-check">8. Routing Fixes — Coverage Check</h2>
+
+<p>The six routing improvements (fixes 0–5) are documented only in experiments.md. They are:</p>
+
+<ul>
+  <li>Referenced in analysis.md indirectly (DeFi 72.7% result depends on them)</li>
+  <li>Not mentioned in extensions.md Example 2 (CO₂ sequestration), which uses <code class="language-plaintext highlighter-rouge">enable_routing_fixes=True</code> without explanation</li>
+</ul>
+
+<blockquote>
+  <p><strong>Recommendation:</strong> Add a one-line comment in extensions.md where <code class="language-plaintext highlighter-rouge">enable_routing_fixes=True</code> appears, pointing readers to experiments.md §Campaign B for details.</p>
+</blockquote>
+
+<hr />
+
+<h2 id="9-missing-cross-references">9. Missing Cross-References</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Missing link</th>
+      <th>Where needed</th>
+      <th>What to add</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Routing fixes table</td>
+      <td>extensions.md <code class="language-plaintext highlighter-rouge">enable_routing_fixes=True</code></td>
+      <td>Link to experiments.md §Campaign B</td>
+    </tr>
+    <tr>
+      <td>v2 bugfix explanation</td>
+      <td>index.md and setup.md</td>
+      <td>Short callout pointing to experiments.md v2 note</td>
+    </tr>
+    <tr>
+      <td>Figure-to-filename mapping</td>
+      <td>analysis.md</td>
+      <td>Table mapping paper figure numbers to output filenames</td>
+    </tr>
+    <tr>
+      <td>DomainValidator</td>
+      <td>index.md Tutorial 4 description</td>
+      <td>One-line mention</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">complexity_penalty</code></td>
+      <td>setup.md Configuration Options</td>
+      <td>Add to parameter table</td>
+    </tr>
+    <tr>
+      <td>Snell’s law near-miss note</td>
+      <td>analysis.md Feynman section</td>
+      <td>experiments.md mentions it; analysis.md omits it</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="10-summary-issues-by-severity">10. Summary: Issues by Severity</h2>
+
+<h3 id="-high-priority-correctness--reproducibility">🔴 High Priority (correctness / reproducibility)</h3>
+
+<ol>
+  <li><strong>Citation inconsistency</strong> — three different titles/keys across tutorials; two entries missing author. Standardise to <code class="language-plaintext highlighter-rouge">bonetchaple2026hypatiax</code> with full fields.</li>
+  <li><strong>v2 notice missing from index.md and setup.md</strong> — first-contact pages don’t warn users about the evaluation bug fix and <code class="language-plaintext highlighter-rouge">--v2</code> flag requirement.</li>
+</ol>
+
+<h3 id="-medium-priority-clarity--consistency">🟡 Medium Priority (clarity / consistency)</h3>
+
+<ol>
+  <li><strong>Figure number vs filename mismatch</strong> in analysis.md — tutorial text says “Figure 3” but file is saved as <code class="language-plaintext highlighter-rouge">figure1_*.pdf</code>. Add a mapping table or rename files.</li>
+  <li><strong>NN error figure confusion</strong> — 12.47 (Ohm’s Law demo in setup.md) vs 1,231% (benchmark mean in experiments/index) vs 1,247% (index.md bullets). Each is correct in context but needs a clarifying note in setup.md.</li>
+  <li><strong>Economics domain removal not noted in setup.md</strong> — experiments.md has the correction; setup.md does not.</li>
+</ol>
+
+<h3 id="-low-priority-enhancements">🟢 Low Priority (enhancements)</h3>
+
+<ol>
+  <li>Add <code class="language-plaintext highlighter-rouge">DomainValidator</code> to index.md Tutorial 4 listing.</li>
+  <li>Add <code class="language-plaintext highlighter-rouge">complexity_penalty</code> to setup.md configuration table.</li>
+  <li>Add back-reference in extensions.md <code class="language-plaintext highlighter-rouge">enable_routing_fixes=True</code> → experiments.md.</li>
+  <li>Add Snell’s law near-miss note to analysis.md Feynman section (already in experiments.md).</li>
+</ol>
+
+<hr />
+
+<h2 id="11-new-features-not-yet-covered-anywhere">11. New Features Not Yet Covered Anywhere</h2>
+
+<p>The following items appear in the codebase references or paper sections but are not covered in any tutorial:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Paper section</th>
+      <th>Tutorial coverage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">hybrid_all_domains/</code> protocol</td>
+      <td>Implied by directory listing in setup.md</td>
+      <td>❌ Not explained</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">hybrid_defi_llm_nn/</code> protocol</td>
+      <td>Directory listing in setup.md</td>
+      <td>❌ Not explained</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">hybrid_llm_guide_validation/</code> protocol</td>
+      <td>Directory listing in setup.md</td>
+      <td>❌ Not explained</td>
+    </tr>
+    <tr>
+      <td>Appendix <code class="language-plaintext highlighter-rouge">app:statistical_tests</code> (rank-biserial)</td>
+      <td>analysis.md mentions it</td>
+      <td>❌ Not demonstrated in code</td>
+    </tr>
+    <tr>
+      <td>Phase 2 (noisy) vs Phase 3 (noiseless) Feynman distinction</td>
+      <td>experiments.md</td>
+      <td>analysis.md Feynman section only shows Phase 3 results — Phase 2 not reproduced</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">--no-llm-cache</code> flag</td>
+      <td>experiments.md</td>
+      <td>❌ Not explained (what does it do?)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">systems_2_3_detailed.csv</code> format</td>
+      <td>analysis.md (Figure 6 code)</td>
+      <td>❌ Not described; users won’t know how to generate it</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><strong>Recommendation:</strong> Consider a short “Generated files reference” appendix or FAQ in analysis.md listing what each output CSV/JSON contains and which experiment command produces it.</p>
+</blockquote>
+
+  </div>
+</article>

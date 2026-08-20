@@ -1,0 +1,223 @@
+<article class="page">
+  <h1>BLOG_LINK_GUIDE.md — Connecting the GitHub Repo to the Blog</h1>
+
+  <div class="page-content">
+    <h1 id="blog_link_guidemd--connecting-the-github-repo-to-the-blog">BLOG_LINK_GUIDE.md — Connecting the GitHub Repo to the Blog</h1>
+
+<blockquote>
+  <p>How to link <strong><code class="language-plaintext highlighter-rouge">LLM-HypatiaX-PAPERS-REPRODUCIBILITY</code></strong> ↔ <strong><code class="language-plaintext highlighter-rouge">https://sednabcn.github.io/ai-llm-blog</code></strong></p>
+</blockquote>
+
+<hr />
+
+<h2 id="overview">Overview</h2>
+
+<p>There are two complementary directions to link:</p>
+
+<ul>
+  <li><strong>Repo → Blog</strong>: add badges and links in <code class="language-plaintext highlighter-rouge">README.md</code> that point readers to the blog</li>
+  <li><strong>Blog → Repo</strong>: add a post (or update an existing one) that links back to this GitHub repo</li>
+</ul>
+
+<p>Both are described below.</p>
+
+<hr />
+
+<h2 id="1-repo--blog-already-in-readmemd">1. Repo → Blog (already in README.md)</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">README.md</code> in this package already contains:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="nv">![Blog</span><span class="p">](</span><span class="sx">https://img.shields.io/badge/Blog-sednabcn.github.io-green</span><span class="p">)</span>](https://sednabcn.github.io/ai-llm-blog)
+</code></pre></div></div>
+
+<p>and a <strong>Blog &amp; Extended Discussion</strong> section:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## Blog &amp; Extended Discussion</span>
+
+Extended methodology, intuitions, and result commentary are published at:
+
+<span class="gs">**[https://sednabcn.github.io/ai-llm-blog](https://sednabcn.github.io/ai-llm-blog)**</span>
+
+The blog post corresponding to this paper is:
+<span class="sb">`https://sednabcn.github.io/ai-llm-blog/posts/hypatiax-symbolic-regression/`</span>
+</code></pre></div></div>
+
+<p><strong>Action required</strong>: once you publish the blog post, update the URL above to match the exact slug you choose.</p>
+
+<hr />
+
+<h2 id="2-blog--repo-writing-the-linked-post">2. Blog → Repo: Writing the Linked Post</h2>
+
+<p>The blog at <code class="language-plaintext highlighter-rouge">https://sednabcn.github.io/ai-llm-blog</code> is almost certainly a <strong>Jekyll</strong> or <strong>Hugo</strong> static site served from a <code class="language-plaintext highlighter-rouge">gh-pages</code> branch or a <code class="language-plaintext highlighter-rouge">docs/</code> folder of a separate repo (<code class="language-plaintext highlighter-rouge">sednabcn/ai-llm-blog</code> or similar).</p>
+
+<h3 id="step-by-step">Step-by-step</h3>
+
+<h4 id="a-find-your-blogs-posts-directory">a) Find your blog’s posts directory</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># If the blog is a separate repo:</span>
+git clone https://github.com/sednabcn/ai-llm-blog
+<span class="nb">cd </span>ai-llm-blog
+<span class="nb">ls </span>_posts/       <span class="c"># Jekyll</span>
+<span class="c"># or</span>
+<span class="nb">ls </span>content/posts/  <span class="c"># Hugo</span>
+</code></pre></div></div>
+
+<h4 id="b-create-a-new-post-file">b) Create a new post file</h4>
+
+<p>For <strong>Jekyll</strong> (filename format: <code class="language-plaintext highlighter-rouge">YYYY-MM-DD-slug.md</code>):</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">touch </span>_posts/2026-05-12-hypatiax-symbolic-regression.md
+</code></pre></div></div>
+
+<p>For <strong>Hugo</strong>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hugo new posts/hypatiax-symbolic-regression.md
+</code></pre></div></div>
+
+<h4 id="c-post-front-matter-and-content-template">c) Post front matter and content template</h4>
+
+<p>Paste this into the new file and fill in the blanks:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">post</span>          <span class="c1"># Jekyll; remove this line for Hugo</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">HypatiaX:</span><span class="nv"> </span><span class="s">LLM-Guided</span><span class="nv"> </span><span class="s">Hybrid</span><span class="nv"> </span><span class="s">Symbolic</span><span class="nv"> </span><span class="s">Regression</span><span class="nv"> </span><span class="s">—</span><span class="nv"> </span><span class="s">Paper</span><span class="nv"> </span><span class="s">&amp;</span><span class="nv"> </span><span class="s">Code"</span>
+<span class="na">date</span><span class="pi">:</span> <span class="s">2026-05-12</span>
+<span class="na">categories</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">research</span><span class="pi">,</span> <span class="nv">symbolic-regression</span><span class="pi">,</span> <span class="nv">llm</span><span class="pi">]</span>
+<span class="na">tags</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">hypatiax</span><span class="pi">,</span> <span class="nv">jmlr</span><span class="pi">,</span> <span class="nv">reproducibility</span><span class="pi">,</span> <span class="nv">pysr</span><span class="pi">,</span> <span class="nv">defi</span><span class="pi">]</span>
+<span class="na">description</span><span class="pi">:</span> <span class="pi">&gt;</span>
+  <span class="s">We present HypatiaX, a hybrid LLM + symbolic regression system evaluated</span>
+  <span class="s">across 31 physics/science equations and 25 DeFi formulas.</span>
+  <span class="s">Full reproducibility package available on GitHub.</span>
+<span class="s">---</span>
+
+<span class="gu">## Abstract</span>
+
+<span class="ge">_Paste or paraphrase the paper abstract here._</span>
+
+<span class="gu">## Key Results</span>
+<span class="p">
+-</span> Exp1 (Ablation): ...
+<span class="p">-</span> Exp2 (31-equation benchmark): ...
+<span class="p">-</span> DeFi domain: ...
+
+<span class="gu">## Reproducibility</span>
+
+All code, pre-computed results, and step-by-step guides are available in the
+GitHub repository:
+<span class="gt">
+&gt; **[github.com/&lt;your-org&gt;/LLM-HypatiaX-PAPERS-REPRODUCIBILITY](https://github.com/&lt;your-org&gt;/LLM-HypatiaX-PAPERS-REPRODUCIBILITY)**</span>
+
+To reproduce results:
+
+<span class="p">```</span><span class="nl">bash
+</span>git clone https://github.com/&lt;your-org&gt;/LLM-HypatiaX-PAPERS-REPRODUCIBILITY
+<span class="nb">cd </span>LLM-HypatiaX-PAPERS-REPRODUCIBILITY
+bash setup_environment.sh <span class="o">&amp;&amp;</span> <span class="nb">source </span>activate_hypatiax.sh
+bash run_all.sh
+</code></pre></div></div>
+
+<p>Pre-computed results are in <code class="language-plaintext highlighter-rouge">hypatiax/data/results_v1/</code>.</p>
+
+<h2 id="citation">Citation</h2>
+
+<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">@article</span><span class="p">{</span><span class="nl">hypatiax2026</span><span class="p">,</span>
+  <span class="na">title</span>   <span class="p">=</span> <span class="s">{LLM-Guided Hybrid Symbolic Regression}</span><span class="p">,</span>
+  <span class="na">author</span>  <span class="p">=</span> <span class="s">{&lt;Authors&gt;}</span><span class="p">,</span>
+  <span class="na">journal</span> <span class="p">=</span> <span class="s">{JMLR}</span><span class="p">,</span>
+  <span class="na">year</span>    <span class="p">=</span> <span class="s">{2026}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+#### d) Commit and push
+
+```bash
+git add _posts/2026-05-12-hypatiax-symbolic-regression.md
+git commit -m "Add HypatiaX paper post with GitHub repo link"
+git push origin main   # or gh-pages / master depending on your setup
+</code></pre></div></div>
+
+<p>GitHub Pages will rebuild automatically within ~1 minute.</p>
+
+<hr />
+
+<h2 id="3-mutual-cross-reference-table">3. Mutual Cross-Reference Table</h2>
+
+<p>Once both sides are live, confirm these URLs resolve correctly:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>From</th>
+      <th>To</th>
+      <th>URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>GitHub README badge</td>
+      <td>Blog homepage</td>
+      <td><code class="language-plaintext highlighter-rouge">https://sednabcn.github.io/ai-llm-blog</code></td>
+    </tr>
+    <tr>
+      <td>GitHub README section</td>
+      <td>Blog post</td>
+      <td><code class="language-plaintext highlighter-rouge">https://sednabcn.github.io/ai-llm-blog/posts/hypatiax-symbolic-regression/</code></td>
+    </tr>
+    <tr>
+      <td>Blog post body</td>
+      <td>GitHub repo</td>
+      <td><code class="language-plaintext highlighter-rouge">https://github.com/&lt;org&gt;/LLM-HypatiaX-PAPERS-REPRODUCIBILITY</code></td>
+    </tr>
+    <tr>
+      <td>Blog post body</td>
+      <td>Reproducibility guide HTML</td>
+      <td><code class="language-plaintext highlighter-rouge">https://github.com/&lt;org&gt;/LLM-HypatiaX-PAPERS-REPRODUCIBILITY/blob/main/hypatiax/reproducibility/HypatiaX_Step_By_Step_Guide.html</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="4-optional-github-social-preview-card">4. Optional: GitHub Social Preview Card</h2>
+
+<p>Add a social preview image so the repo shows nicely when shared or linked from the blog:</p>
+
+<ol>
+  <li>Go to your GitHub repo → <strong>Settings</strong> → <strong>Social preview</strong></li>
+  <li>Upload a 1280×640 PNG (e.g., a banner with “HypatiaX”, equation examples, JMLR logo)</li>
+</ol>
+
+<p>This makes the blog’s link card (Open Graph preview) display a rich image automatically.</p>
+
+<hr />
+
+<h2 id="5-optional-github-topics--about-section">5. Optional: GitHub Topics / About Section</h2>
+
+<p>In the repo <strong>About</strong> (gear icon top-right of the repo page):</p>
+
+<ul>
+  <li><strong>Description</strong>: <code class="language-plaintext highlighter-rouge">Reproducibility package for "LLM-Guided Hybrid Symbolic Regression" (JMLR 2026)</code></li>
+  <li><strong>Website</strong>: <code class="language-plaintext highlighter-rouge">https://sednabcn.github.io/ai-llm-blog</code></li>
+  <li><strong>Topics</strong>: <code class="language-plaintext highlighter-rouge">symbolic-regression</code>, <code class="language-plaintext highlighter-rouge">llm</code>, <code class="language-plaintext highlighter-rouge">reproducibility</code>, <code class="language-plaintext highlighter-rouge">jmlr</code>, <code class="language-plaintext highlighter-rouge">pysr</code>, <code class="language-plaintext highlighter-rouge">defi</code>, <code class="language-plaintext highlighter-rouge">scientific-machine-learning</code></li>
+</ul>
+
+<p>This ensures the blog URL appears prominently on the GitHub repo page.</p>
+
+<hr />
+
+<h2 id="6-jmlr-supplementary-material-note">6. JMLR Supplementary Material Note</h2>
+
+<p>JMLR allows listing a supplementary URL. In your submission system, list:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Code &amp; Data: https://github.com/&lt;org&gt;/LLM-HypatiaX-PAPERS-REPRODUCIBILITY
+Blog:        https://sednabcn.github.io/ai-llm-blog
+</code></pre></div></div>
+
+<p>Reviewers can then navigate from the paper → repo → blog seamlessly.</p>
+
+<hr />
+
+<p><em>Last updated: May 2026</em></p>
+
+  </div>
+</article>
